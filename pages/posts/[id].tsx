@@ -2,17 +2,22 @@ import React from 'react';
 import { Header } from '../../components/Header'
 import Head from 'next/head';
 import { Container, Text, Box } from '@chakra-ui/react'
-import { getAllPostIds, getPostData } from '../../components/processPost'
+import { getAllPostIds, getPostData, AllPostIdsStructure } from '../../components/processPost'
 
 interface PostDataType {
-	title: string,
-	date: string,
-	contentHTML: string
+	
+	postData: {
+		title: string,
+		date: string,
+		contentHTML: string
+	}
+
 };
 
-export default function Post(props: PostDataType): React.FC<JSX.Element> {
+// render function
+export default function Post(props: PostDataType) {
 	return (
-		<body>
+		<html>
       <Head>
         <title>{props.postData.title}</title>
       </Head>
@@ -22,15 +27,22 @@ export default function Post(props: PostDataType): React.FC<JSX.Element> {
 				<article>
 					<Text>{props.postData.title}</Text>
 					<Box>{props.postData.date}</Box>
-					<Container>{props.postData.contentHTML}</Container>
+					<Container dangerouslySetInnerHTML={{__html: props.postData.contentHTML}} />
 				</article>
 			</main>
-		</body>
+		</html>
 	);
 }
 
-export async function getStaticProps({ params }) {
-	const postData = await getPostData(params.id);
+interface PathParamsType {
+	params: {
+		id: number
+	}
+}
+
+// params is part of a context object; context.params contains route parameters like id.
+export async function getStaticProps({ params: { id } }: PathParamsType ) {
+	const postData = await getPostData(id);
 	return {
 		props: {
 			postData
@@ -38,7 +50,12 @@ export async function getStaticProps({ params }) {
 	}
 }
 
-export async function getStaticPaths() {
+interface PathReturnType {
+	paths: AllPostIdsStructure[];
+	fallback: boolean;
+}
+
+export async function getStaticPaths(): Promise<PathReturnType> {
 	const paths = getAllPostIds();
 	return {
 		paths,

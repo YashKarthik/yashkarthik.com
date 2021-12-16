@@ -17,19 +17,6 @@ interface AllPostsDataType {
 	description: string,
 };
 
-interface AllPostIdsStructure {
-	params: {
-		id: string,
-	}
-}
-
-interface FinalPostData {
-	id: number,
-	contentHTML: string,
-	title: string,
-	date: string
-}
-
 const postsDirectory: string = path.join(process.cwd(), 'posts') 
 
 export const getSortedPostsData = () => {
@@ -65,6 +52,12 @@ export const getSortedPostsData = () => {
 
 };
 
+export interface AllPostIdsStructure {
+	params: {
+		id: string,
+	}
+}
+
 export function getAllPostIds(): AllPostIdsStructure[] {
   const fileNames = fs.readdirSync(postsDirectory)
 
@@ -89,6 +82,13 @@ export function getAllPostIds(): AllPostIdsStructure[] {
     };
   });
 
+}
+
+interface FinalPostData {
+	id: number,
+	contentHTML: string,
+	title: string,
+	date: string
 }
 
 export async function getPostData(id: number): Promise<FinalPostData> {
