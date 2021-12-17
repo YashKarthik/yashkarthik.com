@@ -2,8 +2,6 @@ import {
 	Text,
 	Heading,
 	Code,
-	Box,
-	Alert
 } from '@chakra-ui/react';
 
 const Paragraph = (props:any) => {
@@ -16,18 +14,13 @@ const Paragraph = (props:any) => {
 }
 
 const Blockquote = (props:any) => (
-	<Box>
-    <Alert
-      role='none'
-      status='warning'
-      variant='left-accent'
-      as='blockquote'
-      rounded='4px'
-      {...props}
-      mx={-4}
-      w='unset'
-    />
-  </Box>
+<>
+  <blockquote style={{borderLeft: '2px solid #718096', padding:'0', backgroundColor:'#E2E8F0'}}>
+    <Text fontSize='0.93em' fontStyle='italic' 
+				m='0' p='13px 2px 1px 10px'
+			{...props} />
+  </blockquote>
+</>
 )
 
 

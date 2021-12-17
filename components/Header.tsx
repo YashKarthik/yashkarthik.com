@@ -2,7 +2,6 @@ import React from 'react';
 import {
 	Flex,
 	Box,
-	Link,
 	Spacer,
 	VStack,
   Drawer,
@@ -12,23 +11,29 @@ import {
   DrawerContent,
 	Button,
 	Text,
+	Stack,
 	useDisclosure,
 	useMediaQuery,
+	useColorModeValue,
 } from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoX } from 'react-icons/go';
+import NextLink from 'next/link'
+import "@fontsource/dejaVu-mono"
+import ColorModeSwitcher from '../components/ColorModeSwitcher'
 
-const LinksRender: React.FC = () => {
-	
-	interface LinksObjShape {
+
+const NextLinksRender: React.FC = () => {
+
+	interface NextLinksObjShape {
 		name: string,
 		link: string
 	};
 
-	const links: LinksObjShape[] = [
+	const links: NextLinksObjShape[] = [
 		{
 			name: 'Archive',
-			link: 'https://mirror.xyz/yashkarthik.eth',
+			link: '/archive',
 		},
 		{
 			name: 'GitHub',
@@ -40,38 +45,42 @@ const LinksRender: React.FC = () => {
 		},
 		{
 			name: 'About',
-			link: '/',
-		},
-		{
-			name: 'Subscribe',
-			link: '/',
+			link: '/about',
 		},
 	]
+
+	const subHeaderColor = useColorModeValue('light.h2', 'dark.h2');
 	
 	return (
-		<>
+		<Stack direction={['column', 'column' , 'row']}>
 
 			{links.map(link => {
 				return (
-					<Link href={link.link} isExternal i='2' color='blue.600' key={links.indexOf(link)} pl='2'>
-						{link.name}
-					</Link>
+						<NextLink href={link.link} key={link.name} passHref>
+							<Text p='0' m='0' textColor={subHeaderColor}
+								_hover={{textDecoration:'underline', cursor:'pointer'}}
+							>
+							{link.name}
+						</Text>
+						</NextLink>
 				);
 			})}
 
-		</>
-	)
-}
+			<ColorModeSwitcher />
 
-const LargeLinks: React.FC = () => {
+		</Stack>
+	);
+};
+
+const LargeNextLinks: React.FC = () => {
 	return (
 	  <Box pt='5' pr='3'>
-			<LinksRender />
+			<NextLinksRender />
 		</Box>
 	)
 }
 
-const MobileLinks: React.FC = () => {
+const MobileNextLinks: React.FC = () => {
 	
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -83,6 +92,7 @@ const MobileLinks: React.FC = () => {
 				m={4}
 				colorScheme='blue'
 				variant='ghost'
+				border='none'
 			>
 				<GiHamburgerMenu />
 			</Button>
@@ -95,14 +105,15 @@ const MobileLinks: React.FC = () => {
 						<Button 
 							onClick={() => onClose()}
 							colorScheme='blue'
-							variant='ghost'>
+							variant='ghost'
+							border='none'>
 							<GoX/>
 						</Button>
 					</DrawerHeader>
 
           <DrawerBody>
 						<VStack align='start'>
-							<LinksRender />
+							<NextLinksRender />
 						</VStack>
           </DrawerBody>
         </DrawerContent>
@@ -120,27 +131,20 @@ export const Header: React.FC = () => {
 	if (isMobile === true) {
 		return (
 			<Flex>
-				<Box pt='4' pl='7'>
-					<Text 
-						fontFamily='monospace'
-						fontWeight='600'
-						textColor='blue.500'
-					>
-						<Link 
-							fontSize='xl' 
-							letterSpacing='0.6px'
-							href='/'
-							_hover={{textDecoration:'none'}}
+				<Box pt='20px' pl='40px'>
+					<NextLink href={'/'} passHref>
+						<Text p='0' m='0' color='blue.600' 
+							fontFamily='DejaVu Mono' fontSize='xl'
+							fontWeight='700' letterSpacing='0.8px'
+							_hover={{cursor:'pointer'}}
 						>
-							yashKarthik
-						</Link>
-						.eth
+						yashKarthik
 					</Text>
+					</NextLink>
 				</Box>
-
 				<Spacer />
-				<Box>
-					<MobileLinks />
+				<Box p='0' m='0'>
+					<MobileNextLinks />
 				</Box>
 			</Flex>
 
@@ -148,31 +152,25 @@ export const Header: React.FC = () => {
 	} else {
 		return (
 			<Flex>
-				<Box pt='7' pl='20'>
-					<Text 
-						fontFamily='monospace'
-						fontWeight='600'
-						textColor='blue.500'
-					>
-						<Link 
-							fontSize='xl' 
-							letterSpacing='0.6px'
-							href='/'
-							_hover={{textDecoration:'none'}}
+				<Box pt='20px' pl='40px'>
+					<NextLink href={'/'} passHref>
+						<Text p='0' m='0' color='blue.600' 
+							fontFamily='DejaVu Mono' fontSize='xl'
+							fontWeight='700' letterSpacing='0.8px'
+							_hover={{cursor:'pointer'}}
 						>
-							yashKarthik
-						</Link>
-						.eth
+						yashKarthik
 					</Text>
+					</NextLink>
 				</Box>
 
 				<Spacer />
-				<Box>
-					<LargeLinks />
+				<Box p='0' m='0'>
+					<LargeNextLinks />
 				</Box>
 			</Flex>
 
 		);
-	}
+	};
 	
 }

@@ -11,6 +11,8 @@
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@fontsource/azeret-mono": "^4.5.2",
+    "@fontsource/dejavu-mono": "^4.5.1",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^12.0.7",
