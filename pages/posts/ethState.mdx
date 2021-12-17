@@ -1,0 +1,61 @@
+import LayoutMDX from '../../components/LayoutMDX.tsx';
+
+export const meta = {
+	shortName: 'ethState',
+	title: 'What is State in Ethereum',
+	date: '2021-12-16',
+	description: 'From a global ledger to a decentralized state machine'
+}
+
+Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.
+
+A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bitcoin than it owns. These rules underpin all transactions on Bitcoin and many other blockchains.
+
+
+While Ethereum follows almost the same exact rules, it also enables a much more powerful function: smart contracts. For this complex feature, a more sophisticated analogy is required. Instead of a distributed ledger, Ethereum is a distributed state machine.
+
+# State
+
+The World State is a data structure made up of smaller objects representing accounts. An account is a mapping between the “address” and “account state”. The world state consists of objects that have an internal state.
+
+## Structure of State
+
+More accurately, the World State is stored as a Merkle Patricia Trie where accounts (and account data) are the leaves on the tree. The root node, and all the other intermediate nodes, are computed by hashing the hashes of the leaves/nodes below them.
+
+Any change in the data on the leaves propagates to an inconsistency higher up the trie.
+
+Why hash a tree instead of the data itself? Merkle proofs. They allow us to authenticate large amounts of data with just the root node of the tree containing the data. More about Merkling
+
+# Transactions as State Modifications
+
+The EVM behaves like a math function - given an input, it produces a deterministic output. The EVM takes in the current state, applies some transactions on it; and outputs the next valid state - * a state transition function *.
+
+`f(s, t) = s'`
+
+Where:
+
+- `s` is an old valid (world) state;
+- `s’` is the new (world) state;
+- `t` is a new block of valid transactions;
+- `f` is the state transition function.
+
+The definite rules for changing state from block to block are defined in the EVM.
+
+
+Each transition modifies only some parts of the world state - account states with transactions executed on them.
+
+There is a lot to transactions that I didn’t cover, but it’s about how transactions are executed and confirmed, and does not relate to state transitions.
+
+## State change within an Account
+
+> An account is a mapping between an address and the account state.
+
+The account state consists of four fields: `nonce, balance, codeHash, storageRoot.`
+
+**Nonce:** the number of txs sent from the account. It prevents a tx from being processed more than once. For a contract account it represents the number of contracts it has created.
+
+- A transaction, by a human owned account, changes the nonce and balance in the account state.
+- A tx, by a contract account, also changes the `storageRoot` (storage hash) in the account state.
+
+
+export default ({ children }) => <LayoutMDX meta={meta} content={children} />
