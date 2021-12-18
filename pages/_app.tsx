@@ -4,11 +4,11 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import MDXComponents from '../components/MDXStyles';
 import '../styles/globals.css'
-import theme from '../components/ChakraThemes'
+//import theme from '../components/ChakraThemes'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-		<ChakraProvider resetCSS={false} theme={theme}>
+		<ChakraProvider resetCSS={false}>
 			<MDXProvider components={MDXComponents}>
 				<Component {...pageProps} />
 			</MDXProvider>

@@ -14,7 +14,7 @@ import {
 	Stack,
 	useDisclosure,
 	useMediaQuery,
-	useColorModeValue,
+	//useColorModeValue,
 } from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoX } from 'react-icons/go';
@@ -49,19 +49,20 @@ const NextLinksRender: React.FC = () => {
 		},
 	]
 
-	const subHeaderColor = useColorModeValue('light.h2', 'dark.h2');
+	//const subHeaderColor = useColorModeValue('light.h2', 'dark.h2');
 	
 	return (
 		<Stack direction={['column', 'column' , 'row']}>
 
 			{links.map(link => {
 				return (
-						<NextLink href={link.link} key={link.name} passHref>
-							<Text p='0' m='0' textColor={subHeaderColor}
+						<NextLink href={link.link} key={link.name} passHref
+						>
+							<Text p='0' m='0' textColor='blue.700'
 								_hover={{textDecoration:'underline', cursor:'pointer'}}
 							>
 							{link.name}
-						</Text>
+							</Text>
 						</NextLink>
 				);
 			})}
