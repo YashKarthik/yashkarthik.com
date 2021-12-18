@@ -14,6 +14,7 @@ interface Props {
 }
 
 export default function LayoutMDX(props: Props) {
+	
 	return (
 		<>
       <Head>

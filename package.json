@@ -11,7 +11,6 @@
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@fontsource/azeret-mono": "^4.5.2",
     "@fontsource/dejavu-mono": "^4.5.1",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
@@ -23,7 +22,10 @@
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "remark": "^14.0.2",
-    "remark-html": "^15.0.1"
+    "remark-frontmatter": "^4.0.1",
+    "remark-html": "^15.0.1",
+    "remark-mdx-frontmatter": "^1.1.1",
+    "xdm": "^3.3.1"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.1",
