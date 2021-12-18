@@ -6,11 +6,13 @@ import NextLink from 'next/link'
 import {
 	Text,
 	Container,
-	HStack
+  VStack,
+	Heading,
+	Flex
 } from '@chakra-ui/react'
 import "@fontsource/open-sans/700.css"
 import "@fontsource/open-sans/"
-import "@fontsource/roboto/400.css"
+import "@fontsource/dejavu-mono"
 import { metaData } from '../components/Metadata';
 
 interface Meta {
@@ -38,37 +40,44 @@ export const getStaticProps: GetStaticProps<Metas> = async () => {
   }
 }
 
-//const PostRender = ({postData}: {postData: Meta}) => {
-//
-//	return (
-//		<Container pt={[70, 70, 85, 85, 85]} maxW='70ch'>
-//			<HStack>
-//				<Text mr='5px'>
-//					{(new Date(postData.date)).toString().slice(4, 15)}
-//				</Text>
-//				<NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
-//					<Text fontSize='1.3em' fontFamily='Open Sans' fontWeight='700'
-//						p='0' m='0'
-//						_hover={{textColor:'blue.600', cursor:'pointer'}}
-//					>
-//						{postData.title}
-//					</Text>
-//				</NextLink>
-//			</HStack>
-//		</Container>
-//	);
-//
-//}
+const PostRender = ({postData}: {postData: Meta}) => {
+
+	return (
+		<Container pt='30px' maxW='70ch'>
+			<VStack align='start'>
+				<NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
+					<Text fontSize='1.3em' fontFamily='Open Sans' fontWeight='700'
+						p='0' m='0'
+						_hover={{textColor:'blue.600', cursor:'pointer'}}
+					>
+						{postData.title}
+					</Text>
+				</NextLink>
+				<Text textColor='gray.500' fontWeight='500'
+					fontFamily='DejaVu Mono' m='0'
+				>
+				{postData.date}
+				</Text>
+			</VStack>
+		</Container>
+	);
+
+}
 
 const Archive: NextPage<Metas> = ({data}) => {
 
 	console.log(data)
 
 	return (
-		<div>
+		<Flex direction='column'>
 			<Header />
-			<Text>hello</Text>
-		</div>
+			<Container alignItems='start' pt='20px'>
+			<Heading fontFamily='Open Sans'>Archive</Heading>
+				{data.map((post:Meta) => {
+					return (<PostRender postData={post} key={post.shortName}/>);
+				})}
+			</Container>
+		</Flex>
 	);
 }
 
