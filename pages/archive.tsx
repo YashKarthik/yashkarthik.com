@@ -1,6 +1,17 @@
+// TODO: sort post, group by month
+
 import { NextPage, GetStaticProps } from 'next';
-import fs from 'fs'
-import path from 'path'
+import { Header } from '../components/Header';
+import NextLink from 'next/link'
+import {
+	Text,
+	Container,
+	HStack
+} from '@chakra-ui/react'
+import "@fontsource/open-sans/700.css"
+import "@fontsource/open-sans/"
+import "@fontsource/roboto/400.css"
+import { metaData } from '../components/Metadata';
 
 interface Meta {
 	shortName: string,
@@ -9,44 +20,55 @@ interface Meta {
 	description: string
 };
 
-// Returns metadata for a given file
-const getMeta = async (fileName:string) => {
-	const meta: Promise<Meta> = await import(`./posts/${fileName}`)
-		.then(m => m.meta)
-		.catch(e => console.log('ERRORRRR in getMeta()', e));
-
-	return meta;
-}
-
 interface Metas {
-	allFilesMetadata: Meta[]
+	data: Meta[]
 }
+
+
 
 export const getStaticProps: GetStaticProps<Metas> = async () => {
-
-	const postsDirectory = path.join(process.cwd(), 'pages/posts')
-  const fileNames = fs.readdirSync(postsDirectory) // arr of all posts
-
-	// Promise.all takes an arr of promises, resolves them all then returns a single promise which
-	// resolves into an arr containin the res of all the promises.
-	const allFilesMetadata = await Promise.all(fileNames.map(async (fileName:string): Promise<Meta> => {
-    const data = await getMeta(fileName); //get metadata for each filename
-		return data;
-	}));
+	
+	const allFilesMetadata = await metaData();
+	const data = allFilesMetadata.props.sortedData;
 
   return {
     props: {
-			allFilesMetadata
+			data
 		}
   }
 }
 
-const Archive: NextPage<Metas> = ({ allFilesMetadata }) => {
+//const PostRender = ({postData}: {postData: Meta}) => {
+//
+//	return (
+//		<Container pt={[70, 70, 85, 85, 85]} maxW='70ch'>
+//			<HStack>
+//				<Text mr='5px'>
+//					{(new Date(postData.date)).toString().slice(4, 15)}
+//				</Text>
+//				<NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
+//					<Text fontSize='1.3em' fontFamily='Open Sans' fontWeight='700'
+//						p='0' m='0'
+//						_hover={{textColor:'blue.600', cursor:'pointer'}}
+//					>
+//						{postData.title}
+//					</Text>
+//				</NextLink>
+//			</HStack>
+//		</Container>
+//	);
+//
+//}
 
-	console.log(allFilesMetadata)
+const Archive: NextPage<Metas> = ({data}) => {
+
+	console.log(data)
 
 	return (
-		<p>Hello wrld</p>
+		<div>
+			<Header />
+			<Text>hello</Text>
+		</div>
 	);
 }
 

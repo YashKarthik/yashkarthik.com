@@ -38,7 +38,7 @@ export default function LayoutMDX(props: Props) {
 			>
 
 				<Text textColor='gray.400' fontFamily='monospace' fontSize='1.3em'>
-					{((new Date(props.meta.date)).toString().slice(4, 15))}
+					{props.meta.date}
 				</Text>
 				<Heading p='0' m='0' size='2xl' fontWeight='bolder'>{props.meta.title}</Heading>
 				<Text fontWeight='300' fontSize='1.125em' letterSpacing='0.015em' p='20px 0 5px 0' m='20px 0 5px 0' textColor='gray.600'>
