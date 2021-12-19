@@ -10,8 +10,8 @@ import {
   DrawerOverlay,
   DrawerContent,
 	Button,
-	Text,
 	Stack,
+	Link,
 	useDisclosure,
 	useMediaQuery,
 	//useColorModeValue,
@@ -58,11 +58,11 @@ const NextLinksRender: React.FC = () => {
 				return (
 						<NextLink href={link.link} key={link.name} passHref
 						>
-							<Text p='0' m='0' textColor='blue.700'
-								_hover={{textDecoration:'underline', cursor:'pointer'}}
+							<Link p='0' m='0' variant='secondary'
+							_hover={{textDecoration:'underline', cursor:'pointer'}}
 							>
 							{link.name}
-							</Text>
+							</Link>
 						</NextLink>
 				);
 			})}
@@ -134,13 +134,13 @@ export const Header: React.FC = () => {
 			<Flex>
 				<Box pt='20px' pl='40px'>
 					<NextLink href={'/'} passHref>
-						<Text p='0' m='0' color='blue.600' 
+						<Link p='0' m='0'
 							fontFamily='DejaVu Mono' fontSize='xl'
 							fontWeight='700' letterSpacing='0.8px'
 							_hover={{cursor:'pointer'}}
 						>
 						yashKarthik
-					</Text>
+					</Link>
 					</NextLink>
 				</Box>
 				<Spacer />
@@ -155,13 +155,13 @@ export const Header: React.FC = () => {
 			<Flex>
 				<Box pt='20px' pl='40px'>
 					<NextLink href={'/'} passHref>
-						<Text p='0' m='0' color='blue.600' 
+						<Link p='0' m='0'
 							fontFamily='DejaVu Mono' fontSize='xl'
 							fontWeight='700' letterSpacing='0.8px'
 							_hover={{cursor:'pointer'}}
 						>
 						yashKarthik
-					</Text>
+					</Link>
 					</NextLink>
 				</Box>
 

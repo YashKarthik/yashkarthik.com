@@ -6,20 +6,20 @@ const ColorModeSwitcher = (): JSX.Element => {
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(BiMoon, BiSun);
-	const iconColor = useColorModeValue('light.secondary', 'dark.secondary');
-	const bg = useColorModeValue('white', 'gray.800')
+	const iconColor = useColorModeValue('blue.700', 'blue.200');
+	const bg = useColorModeValue('white', '#121419')
 
   return (
     <IconButton
       size="sm" fontSize="lg"
-			pb='1' border='0'
+			pb='2' border='0'
       aria-label={`Switch to ${text} mode`}
       variant="ghost"
       color={iconColor}
       onClick={toggleColorMode}
       icon={<SwitchIcon />}
 			backgroundColor={bg}
-			textColor='blue.700'
+			_hover={{fontSize:'xl'}}
     />
   );
 };

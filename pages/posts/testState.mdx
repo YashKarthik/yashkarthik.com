@@ -1,0 +1,39 @@
+The EVM behaves like a math function - given an input, it produces a deterministic output. The EVM takes in the current state, applies some transactions on it; and outputs the next valid state - * a state transition function *.
+
+`f(s, t) = s'`
+
+Where:
+
+- `s` is an old valid (world) state;
+- `s’` is the new (world) state;
+- `t` is a new block of valid transactions;
+- `f` is the state transition function.
+
+The definite rules for changing state from block to block are defined in the EVM.
+
+
+Each transition modifies only some parts of the world state - account states with transactions executed on them.
+
+There is a lot to transactions that I didn’t cover, but it’s about how transactions are executed and confirmed, and does not relate to state transitions.
+
+## State change within an Account
+
+> An account is a mapping between an address and the account state.
+
+The account state consists of four fields: `nonce, balance, codeHash, storageRoot.`
+
+**Nonce:** the number of txs sent from the account. It prevents a tx from being processed more than once. For a contract account it represents the number of contracts it has created.
+
+- A transaction, by a human owned account, changes the nonce and balance in the account state.
+- A tx, by a contract account, also changes the `storageRoot` (storage hash) in the account state.
+
+
+export const meta = {
+	shortName: 'testState',
+	title: 'testt stat',
+	date: 'Dec 15, 2021',
+	description: 'stusahsatuhsauhatuhtsuhth'
+}
+
+import LayoutMDX from '../../components/LayoutMDX.tsx';
+export default ({ children }) => <LayoutMDX meta={meta} content={children} />

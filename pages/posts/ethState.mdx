@@ -1,12 +1,3 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-
-export const meta = {
-	shortName: 'ethState',
-	title: 'What is State in Ethereum',
-	date: 'Dec 15, 2021',
-	description: 'From a global ledger to a decentralized state machine'
-}
-
 Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.
 
 A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bitcoin than it owns. These rules underpin all transactions on Bitcoin and many other blockchains.
@@ -58,4 +49,12 @@ The account state consists of four fields: `nonce, balance, codeHash, storageRoo
 - A tx, by a contract account, also changes the `storageRoot` (storage hash) in the account state.
 
 
+export const meta = {
+	shortName: 'ethState',
+	title: 'What is State in Ethereum',
+	date: 'Dec 15, 2021',
+	description: 'From a global ledger to a decentralized state machine'
+}
+
+import LayoutMDX from '../../components/LayoutMDX.tsx';
 export default ({ children }) => <LayoutMDX meta={meta} content={children} />

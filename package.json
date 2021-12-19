@@ -12,6 +12,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@fontsource/dejavu-mono": "^4.5.1",
+    "@fontsource/ibm-plex-sans": "^4.5.1",
     "@fontsource/open-sans": "^4.5.2",
     "@fontsource/roboto": "^4.5.1",
     "@mdx-js/loader": "^1.6.22",
