@@ -1,15 +1,17 @@
-import type { NextPage, GetStaticProps, } from 'next'
-import NextLink from 'next/link'
+//import type { NextPage, GetStaticProps, } from 'next'
+import NextLink from 'next/link';
 import {
 	Container,
 	Text,
 	Divider,
 	VStack,
-	Link
-} from '@chakra-ui/react'
-import { Header } from '../components/Header'
-import { metaData, firstBits } from '../components/Metadata'
-import '@fontsource/open-sans'
+	Link,
+    Box
+} from '@chakra-ui/react';
+import { Header } from '../components/Header';
+import { metaData, firstBits } from '../components/Metadata';
+import Head from 'next/head';
+import '@fontsource/open-sans';
 
 interface Meta {
 	shortName: string,
@@ -39,7 +41,7 @@ export const getStaticProps = async () => {
 const PostRender = ({postData}: {postData:Meta}) => {
 
 	return (
-		<Container p='0' pt='30px' maxW='70ch'
+		<Container p='0' pt='30px' pb='30px' maxW='70ch'
 			fontSize={{base: '0.95em',sm:'1em', md:'1.05em', lg:'1.05em', xl: '1.09em'}}
 		>
 			<VStack align='start'>
@@ -83,24 +85,40 @@ const PostRender = ({postData}: {postData:Meta}) => {
 const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
 	
   return (
-		<div>
-			<Header />
-			<Container pt={[10, 10, 50, 50, 50]}
-				centerContent={true} mx='auto'
-				maxW={{xl:'70ch', lg:'65ch', md:'60ch', sm:'55ch', base:'auto'}}
-				px={{xl:'0', lg:'0', md:'10px', sm:'10px', base:'0'}}
-				overflowWrap='anywhere'
-			>
-				<Text fontSize={{base: '0.95em',sm:'1em', md:'1.05em', lg:'1.05em', xl: '1.09em'}}
-				>
-					I explore my curiousity and share what I learn along the way. Essays on web3,
-					economics, and internet culture. It&apos;s my excuse for playing around with
-					new ideas and practicing the art of writing.
-				</Text>
-				<Divider />
-				<PostRender postData={AllFileData[1]}/>
-			</Container>
-		</div>
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+				<title>yashKarthik.eth</title>
+        <meta name="description" content='yashkarthik.eth&apos;s blog' />
+        <meta name="og:title" content='yashkarthik.eth' />
+        <meta name="og:description" content='yashkarthik.eth&apos;s blog' />
+        <meta name="og:type" content='blog' />
+        <meta name="og:image" content='https://yashkarthik.eth.link/public/ogImage.png' />
+        <meta name="og:url" content='https://yashkarthik.eth.link' />
+      </Head>
+		  <div>
+		  	<Header />
+		  	<Container pt={[10, 10, 50, 50, 50]}
+		  		centerContent={true} mx='auto'
+		  		maxW={{xl:'70ch', lg:'65ch', md:'60ch', sm:'55ch', base:'auto'}}
+		  		px={{xl:'0', lg:'0', md:'10px', sm:'10px', base:'0'}}
+		  		overflowWrap='anywhere'
+		  	>
+		  		<Text fontSize={{base: '0.95em',sm:'1em', md:'1.05em', lg:'1.05em', xl: '1.09em'}}
+		  		>
+		  			I explore my curiousity and share what I learn along the way. Essays on web3,
+		  			economics, and internet culture. It&apos;s my excuse for playing around with
+		  			new ideas and practicing the art of writing.
+		  		</Text>
+		  		<Divider />
+          <Box>
+            {AllFileData.map((post:Meta) => (
+		  		    <PostRender postData={post} key={post.shortName}/>
+            ))}
+          </Box>
+		  	</Container>
+		  </div>
+    </>
 	)
 }
 

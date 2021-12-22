@@ -26,8 +26,7 @@ export default function LayoutMDX(props: Props) {
         <meta name="og:site_name" content={'yashkarthik.eth'} />
         <meta name="og:type" content={'article'} />
         <meta name="og:url" content={`https://yashkarthik.eth.link/posts/${props.meta.shortName}`} />
-        <meta name="og:image" content={'article'} />
-        <meta name="og:determiner" content={''} />
+        <meta name="og:image" content='https://yashkarthik.eth.link/public/ogImage.png' />
       </Head>
 
 			<Header />

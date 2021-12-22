@@ -32,10 +32,10 @@ const NotFound = (): JSX.Element => {
 					<Button 
 						aria-label='Go to home page'
 						m='2em'
-						border='2px solid gray.600' borderRadius='1px'
+						border='2px' borderRadius='1px'
 						backgroundColor='white'
 						textColor='gray.700' fontFamily='DejaVu Mono' letterSpacing='0.09em' fontWeight='semibold'
-						_hover={{borderBottom:'4px solid black',borderRight:'3px solid black', cursor:'pointer'}}
+						_hover={{cursor:'pointer'}}
 					>
 						HOMEPAGE
 					</Button>

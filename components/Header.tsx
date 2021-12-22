@@ -14,6 +14,7 @@ import {
 	Link,
 	useDisclosure,
 	useMediaQuery,
+  useColorModeValue
 	//useColorModeValue,
 } from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -84,6 +85,7 @@ const LargeNextLinks: React.FC = () => {
 const MobileNextLinks: React.FC = () => {
 	
 	const { isOpen, onOpen, onClose } = useDisclosure()
+  const drawerColor = useColorModeValue('white', '#121419')
 
   return (
     <>
@@ -98,9 +100,12 @@ const MobileNextLinks: React.FC = () => {
 				<GiHamburgerMenu />
 			</Button>
 
-      <Drawer onClose={onClose} isOpen={isOpen} size='full' placement='top' isFullHeight={true}>
+      <Drawer onClose={onClose} isOpen={isOpen}
+        size='full' placement='top' isFullHeight={true}
+        colorScheme='teal'
+        >
         <DrawerOverlay />
-        <DrawerContent bg='white'>
+        <DrawerContent bg={drawerColor}>
 
           <DrawerHeader alignSelf='end'>
 						<Button 
