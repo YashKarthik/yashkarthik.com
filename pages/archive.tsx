@@ -1,14 +1,13 @@
 // TODO: sort post, group by month
 import { useState } from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import { Header } from '../components/Header';
+import { Header, Footer } from '../components/Header';
 import NextLink from 'next/link'
 import {
 	Text,
 	Container,
   VStack,
 	Heading,
-	Flex,
   HStack,
   Spacer,
   Input,
@@ -107,7 +106,7 @@ const Archive: NextPage<Metas> = ({data}) => {
   const [ useSearch, setSearch ] = useState<(Meta | undefined)[] | undefined>()
 
 	return (
-		<Flex direction='column'>
+		<>
 			<Header />
 			<Container alignItems='start' pt='20px'>
 			<Heading>Archive</Heading>
@@ -128,7 +127,8 @@ const Archive: NextPage<Metas> = ({data}) => {
 				  })
         }
 			</Container>
-		</Flex>
+      <Footer />
+		</>
 	);
 }
 

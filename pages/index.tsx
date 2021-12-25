@@ -8,7 +8,7 @@ import {
 	Link,
   Box,
 } from '@chakra-ui/react';
-import { Header } from '../components/Header';
+import { Header, Footer } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
 import Head from 'next/head';
 import '@fontsource/open-sans';
@@ -144,6 +144,7 @@ const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
           </Box>
 		  	</Container>
 		  </div>
+      <Footer />
     </>
 	)
 }
