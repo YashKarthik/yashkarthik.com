@@ -22,7 +22,7 @@ export default function LayoutMDX(props: Props) {
 				<title>{props.meta.title}</title>
         <meta name="description" content={props.meta.description} />
         <meta name="og:title" content={props.meta.title} />
-        <meta name="og:description" content={`An article explaining ${props.meta.title}`} />
+        <meta name="og:description" content={props.meta.title} />
         <meta name="og:site_name" content={'yashkarthik.eth'} />
         <meta name="og:type" content={'article'} />
         <meta name="og:url" content={`https://yashkarthik.eth.link/posts/${props.meta.shortName}`} />

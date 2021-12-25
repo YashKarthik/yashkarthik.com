@@ -113,14 +113,21 @@ const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
 				<title>yashKarthik.eth</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description"
+          content="Essays by yashKarthik.eth - essays about web3, economics, and internet culture."
+        />
+        <meta name="robots" content="all" />
+
         <meta name="description" content='yashkarthik.eth&apos;s blog' />
         <meta name="og:title" content='yashkarthik.eth' />
         <meta name="og:description" content='yashkarthik.eth&apos;s blog' />
         <meta name="og:type" content='blog' />
         <meta name="og:image" content='https://yashkarthik.eth.link/public/ogImage.png' />
         <meta name="og:url" content='https://yashkarthik.eth.link' />
+
+        <meta name="twitter:site" content="@_yashKarthik" />
       </Head>
 		  <div>
 		  	<Header />
