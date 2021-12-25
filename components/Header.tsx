@@ -15,7 +15,6 @@ import {
 	useDisclosure,
 	useMediaQuery,
   useColorModeValue
-	//useColorModeValue,
 } from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoX } from 'react-icons/go';
@@ -44,14 +43,8 @@ const NextLinksRender: React.FC = () => {
 			name: 'Twitter',
 			link: 'https://twitter.com/_yashkarthik',
 		},
-		{
-			name: 'About',
-			link: '/about',
-		},
 	]
 
-	//const subHeaderColor = useColorModeValue('light.h2', 'dark.h2');
-	
 	return (
 		<Stack direction={['column', 'column' , 'row']}>
 
@@ -60,7 +53,6 @@ const NextLinksRender: React.FC = () => {
 						<NextLink href={link.link} key={link.name} passHref
 						>
 							<Link p='0' m='0' variant='secondary'
-							_hover={{textDecoration:'underline', cursor:'pointer'}}
 							>
 							{link.name}
 							</Link>

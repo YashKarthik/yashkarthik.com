@@ -12,6 +12,7 @@ import {
   HStack,
   Spacer,
   Input,
+  Link,
   useColorModeValue,
 } from '@chakra-ui/react'
 import "@fontsource/open-sans/700.css"
@@ -52,19 +53,18 @@ const PostRender = ({postData}: {postData: Meta}) => {
       <HStack align='start'>
 			  <VStack align='stretch'>
 			  	<NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
-			  		<Text fontSize='1.3em' fontFamily='Open Sans' fontWeight='700'
-			  			p='0' m='0'
-			  			_hover={{textColor:'blue.600', cursor:'pointer'}}
+			  		<Link fontSize='1.3em' fontFamily='Open Sans' fontWeight='700'
+			  			p='0' m='0' variant='heading'
 			  		>
 			  			{postData.title}
-			  		</Text>
+			  		</Link>
 			  	</NextLink>
-          <Text>
+          <Text variant='secondary'>
             {postData.description}
           </Text>
 			  </VStack>
         <Spacer />
-			  <Text textColor='gray.500' fontWeight='500'
+			  <Text variant='secondary' fontWeight='500'
 			  	fontFamily='DejaVu Mono' m='0' p='7px 0 0 0'
           fontSize='sm'
 			  >

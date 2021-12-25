@@ -1,19 +1,18 @@
-import { extendTheme, theme as baseTheme } from "@chakra-ui/react"
+import { extendTheme, useColorModeValue } from "@chakra-ui/react"
 import { mode } from '@chakra-ui/theme-tools'
 
-// 2. Objects can be created inside the extendTheme function or elsewhere and imported
 const colors = {
   headingTextColor: {
     lightMode: 'black',
-    darkMode: 'whiteAlpha.800'
+    darkMode: 'whiteAlpha.900'
   },
   contentTextColor: {
     lightMode: 'gray.700',
     darkMode: 'gray.300'
   },
   metadataTextColor: {
-    lightMode: 'gray.600',
-    darkMode: 'gray.400'
+    lightMode: 'gray.500',
+    darkMode: 'rgba(145, 169, 201, .8)'
   },
   bodyBackground: {
     lightMode: 'white',
@@ -21,15 +20,15 @@ const colors = {
   },
   linkTextColors: {
     lightMode: 'blue.600',
-    darkMode: 'blue.400'
+    darkMode: 'blue.300'
   },
   linkSecondaryTextColors: {
-    lightMode: 'blue.700',
-    darkMode: 'blue.200'
+    lightMode: '#375e8e',
+    darkMode: 'rgba(117, 185, 234, .9)'
   },
 }
 
-// 3. Call `extendTheme` and pass your custom values
+
 export const customTheme = extendTheme({
   colors: colors,
 
@@ -48,11 +47,12 @@ export const customTheme = extendTheme({
             colors.metadataTextColor.lightMode,
             colors.metadataTextColor.darkMode
           )(props),
+				fontFamily: 'IBM Plex Sans'
         }),
         description: (props:any) => ({
           color: mode(
-            colors.headingTextColor.lightMode,
-            colors.headingTextColor.darkMode
+            colors.contentTextColor.lightMode,
+            colors.contentTextColor.darkMode
           )(props),
         }),
       },
@@ -89,7 +89,14 @@ export const customTheme = extendTheme({
       	    colors.headingTextColor.darkMode
       	  )(props),
 					fontFamily: 'IBM Plex Sans',
-					fontWeight: '700'
+					fontWeight: '700',
+  				_hover:{
+            textColor:mode(
+              colors.linkTextColors.lightMode,
+              colors.linkTextColors.darkMode,
+            )(props),
+            textDecoration: 'none'
+          }
       	}),
       },
     },
@@ -97,7 +104,6 @@ export const customTheme = extendTheme({
 
   styles: {
     global: (props:any) => ({
-      // Optionally set global CSS styles
       body: {
         background: mode(
           colors.bodyBackground.lightMode,

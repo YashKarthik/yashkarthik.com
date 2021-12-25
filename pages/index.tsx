@@ -7,7 +7,6 @@ import {
 	VStack,
 	Link,
   Box,
-  Button
 } from '@chakra-ui/react';
 import { Header } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
@@ -51,7 +50,6 @@ const PostRender = ({postData}: {postData:Meta}) => {
 				<NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
 					<Link variant='heading' fontSize='1.5em'
 						p='0' m='0'
-						_hover={{textColor:'blue.600', cursor:'pointer'}}
 					>
 						{postData.title}
 					</Link>
@@ -100,9 +98,9 @@ const RenderPosts = ({props}: {props:Meta[]}) => {
     ))}
 
     {props.length > postNum ? 
-      <Button as='a' onClick={handleClick} textColor='blue.600'
+      <Link onClick={handleClick} fontWeight='600'
         p='0' m='0' background='none' _hover={{cursor:'pointer'}}
-      >Read More</Button> : <></>}
+      >Read More</Link> : <></>}
 
   </div>
     )
@@ -115,14 +113,11 @@ const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
       <Head>
 				<title>yashKarthik.eth</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description"
-          content="Essays by yashKarthik.eth - essays about web3, economics, and internet culture."
-        />
+        <meta name="description" content='Essays by yashKarthik.eth - essays about web3, economics, and internet culture.' />
         <meta name="robots" content="all" />
 
-        <meta name="description" content='yashkarthik.eth&apos;s blog' />
         <meta name="og:title" content='yashkarthik.eth' />
-        <meta name="og:description" content='yashkarthik.eth&apos;s blog' />
+        <meta name="og:description" content='Essays by yashKarthik.eth - essays about web3, economics, and internet culture.' />
         <meta name="og:type" content='blog' />
         <meta name="og:image" content='https://yashkarthik.eth.link/public/ogImage.png' />
         <meta name="og:url" content='https://yashkarthik.eth.link' />
