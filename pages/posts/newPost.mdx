@@ -1,0 +1,16 @@
+More accurately, the World State is stored as a Merkle Patricia Trie where accounts (and account data) are the leaves on the tree. The root node, and all the other intermediate nodes, are computed by hashing the hashes of the leaves/nodes below them.
+
+Any change in the data on the leaves propagates to an inconsistency higher up the trie.
+
+Why hash a tree instead of the data itself? Merkle proofs. They allow us to authenticate large amounts of data with just the root node of the tree containing the data. More about Merkling
+
+
+export const meta = {
+	shortName: 'newPost',
+	title: 'New post to test my readmore',
+	date: 'Dec 15, 2021',
+	description: 'yetaseuahuaha aosehua '
+}
+
+import LayoutMDX from '../../components/LayoutMDX.tsx';
+export default ({ children }) => <LayoutMDX meta={meta} content={children} />

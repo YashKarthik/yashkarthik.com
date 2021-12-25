@@ -6,12 +6,14 @@ import {
 	Divider,
 	VStack,
 	Link,
-    Box
+  Box,
+  Button
 } from '@chakra-ui/react';
 import { Header } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
 import Head from 'next/head';
 import '@fontsource/open-sans';
+import { useState } from 'react';
 
 interface Meta {
 	shortName: string,
@@ -82,6 +84,30 @@ const PostRender = ({postData}: {postData:Meta}) => {
 	);
 }
 
+const RenderPosts = ({props}: {props:Meta[]}) => {
+
+  const [ postNum, setPostNum] = useState(3); // Default number of posts dislplayed
+
+  function handleClick() {
+    setPostNum(prevPostNum => prevPostNum + 5) // 3 is the number of posts you want to load per click
+  }
+
+  return (
+
+    <div>
+    {props.slice(0, postNum).map((post:Meta) => (
+		  <PostRender postData={post} key={post.shortName}/>
+    ))}
+
+    {props.length > postNum ? 
+      <Button as='a' onClick={handleClick} textColor='blue.600'
+        p='0' m='0' background='none' _hover={{cursor:'pointer'}}
+      >Read More</Button> : <></>}
+
+  </div>
+    )
+}
+
 const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
 	
   return (
@@ -112,9 +138,7 @@ const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
 		  		</Text>
 		  		<Divider />
           <Box>
-            {AllFileData.map((post:Meta) => (
-		  		    <PostRender postData={post} key={post.shortName}/>
-            ))}
+            <RenderPosts props={AllFileData}/>
           </Box>
 		  	</Container>
 		  </div>
