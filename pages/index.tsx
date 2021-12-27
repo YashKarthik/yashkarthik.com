@@ -6,7 +6,8 @@ import {
 	Divider,
 	VStack,
 	Link,
-  Box,
+    Box,
+    useColorModeValue,
 } from '@chakra-ui/react';
 import { Header, Footer } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
@@ -133,6 +134,7 @@ const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
 		  		overflowWrap='anywhere'
 		  	>
 		  		<Text fontSize={{base: '0.95em',sm:'1em', md:'1.05em', lg:'1.05em', xl: '1.09em'}}
+
 		  		>
 		  			I explore my curiousity and share what I learn along the way. Essays on web3,
 		  			economics, and internet culture. It&apos;s my excuse for playing around with
