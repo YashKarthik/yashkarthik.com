@@ -1,30 +1,31 @@
-import { extendTheme, useColorModeValue } from "@chakra-ui/react"
+import { extendTheme } from "@chakra-ui/react"
 import { mode } from '@chakra-ui/theme-tools'
+import "@fontsource/dejavu-mono"
 
 const colors = {
   headingTextColor: {
     lightMode: 'black',
-    darkMode: 'whiteAlpha.900'
+    darkMode: '#efc473'
   },
   contentTextColor: {
-    lightMode: 'gray.700',
-    darkMode: 'gray.300'
+    lightMode: 'black',
+    darkMode: '#EDE7dd'
   },
   metadataTextColor: {
-    lightMode: 'gray.500',
-    darkMode: 'rgba(145, 169, 201, .8)'
+    lightMode: 'blackAlpha.700',
+    darkMode: 'rgba(237, 228, 213, .8)'
   },
   bodyBackground: {
-    lightMode: 'white',
-    darkMode: '#121419'
+    lightMode: "#fcf7e8",
+    darkMode: '#111010'
   },
   linkTextColors: {
-    lightMode: 'blue.600',
-    darkMode: 'blue.300'
+    lightMode: '#e58b0d',
+    darkMode: '#efa947'
   },
   linkSecondaryTextColors: {
-    lightMode: '#375e8e',
-    darkMode: 'rgba(117, 185, 234, .9)'
+    lightMode: '#af6b0a',
+    darkMode: '#efc473'
   },
 }
 
@@ -33,47 +34,65 @@ export const customTheme = extendTheme({
   colors: colors,
 
   components: {
+
     Text: {
 			baseStyle: (props:any) => ({
         color: mode(
           colors.contentTextColor.lightMode,
           colors.contentTextColor.darkMode
         )(props),
-				fontFamily: 'IBM Plex Sans'
+        padding: '0', m:'0 0 20px 0',
+        fontWeight:'400', fontFamily: 'helvetica',
       }),
+
       variants: {
         secondary: (props:any) => ({
           color: mode(
             colors.metadataTextColor.lightMode,
             colors.metadataTextColor.darkMode
           )(props),
-				fontFamily: 'IBM Plex Sans'
+				fontFamily: 'helvetica'
         }),
-        description: (props:any) => ({
-          color: mode(
-            colors.contentTextColor.lightMode,
-            colors.contentTextColor.darkMode
+
+        blockquote: (props:any) => ({
+          backgroundColor: mode(
+            'rgba(251, 241, 199, .8)',
+            'rgba(60, 56, 54, 0.3)'
           )(props),
+				fontFamily: 'helvetica',
+        fontSize:'0.93em', fontStyle:'italic',
+        m:'0', p:'13px 2px 1px 10px'
         }),
       },
     },
+
     Heading: {
 			baseStyle: (props:any) => ({
         color: mode(
           colors.headingTextColor.lightMode,
           colors.headingTextColor.darkMode
         )(props),
-				fontFamily: 'IBM Plex Sans',
+				fontFamily: 'helvetica',
 				fontWeight: '700'
       }),
+      variants: {
+        title: (props:any) => ({
+          color: mode(
+            'black',
+            "#efa947"
+          )(props),
+					fontFamily: 'helvetica',
+        }),
+      },
     },
+
     Link: {
 			baseStyle: (props:any) => ({
         color: mode(
           colors.linkTextColors.lightMode,
           colors.linkTextColors.darkMode
         )(props),
-				fontFamily: 'IBM Plex Sans',
+				fontFamily: 'helvetica',
       }),
       variants: {
         secondary: (props:any) => ({
@@ -81,19 +100,19 @@ export const customTheme = extendTheme({
             colors.linkSecondaryTextColors.lightMode,
             colors.linkSecondaryTextColors.darkMode
           )(props),
-					fontFamily: 'IBM Plex Sans',
+					fontFamily: 'helvetica',
         }),
 				heading: (props:any) => ({
       	  color: mode(
       	    colors.headingTextColor.lightMode,
       	    colors.headingTextColor.darkMode
       	  )(props),
-					fontFamily: 'IBM Plex Sans',
+					fontFamily: 'helvetica',
 					fontWeight: '700',
   				_hover:{
             textColor:mode(
               colors.linkTextColors.lightMode,
-              colors.linkTextColors.darkMode,
+              "#efa947",
             )(props),
             textDecoration: 'none'
           }

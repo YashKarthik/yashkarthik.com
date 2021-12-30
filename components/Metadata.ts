@@ -44,7 +44,7 @@ export const firstBits = async (files:Meta[]) => {
 	// resolves into an arr containin the res of all the promises.
 	await Promise.all(files.map(async (file:Meta): Promise<void> => {
 		const fileName = file.shortName + '.mdx';
-    const data = await readFirstNBytes(fileName, 300);
+    const data = await readFirstNBytes(fileName, 290);
 		files[files.indexOf(file)].content = data as string;
 	}));
 

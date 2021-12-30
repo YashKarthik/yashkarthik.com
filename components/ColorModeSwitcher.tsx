@@ -6,8 +6,8 @@ const ColorModeSwitcher = (): JSX.Element => {
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(BiMoon, BiSun);
-	const iconColor = useColorModeValue('#375e8e', 'rgba(117, 185, 234, .9)');
-	const bg = useColorModeValue('white', '#121419')
+	const iconColor = useColorModeValue('#af6b0a', '#efc473');
+	const bg = useColorModeValue('#fcf7e8', '#111010')
 
   return (
     <IconButton

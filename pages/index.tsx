@@ -7,7 +7,6 @@ import {
 	VStack,
 	Link,
     Box,
-    useColorModeValue,
 } from '@chakra-ui/react';
 import { Header, Footer } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
@@ -57,12 +56,12 @@ const PostRender = ({postData}: {postData:Meta}) => {
 				</NextLink>
 
 				<Text fontFamily='Open Sans' fontSize='inherit'
-					p='2px' variant='description'
+					p='2px' variant='secondary'
 				>
 					{postData.description}
 				</Text>
 
-				<Text variant='secondary' fontFamily='Open Sans'
+				<Text fontFamily='Open Sans'
 					letterSpacing='0.1px' fontSize='0.9em'
 				>
 					{postData.content} ...{' '}

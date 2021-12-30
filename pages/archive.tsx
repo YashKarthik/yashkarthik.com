@@ -109,7 +109,7 @@ const Archive: NextPage<Metas> = ({data}) => {
 		<>
 			<Header />
 			<Container alignItems='start' pt='20px'>
-			<Heading>Archive</Heading>
+			<Heading color='#f4ead9'>Archive</Heading>
 
         <Input variant='flushed' placeholder='Search...'
           borderTop='none' borderX='none' borderColor='gray.500'
