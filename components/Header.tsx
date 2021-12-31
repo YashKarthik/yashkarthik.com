@@ -174,26 +174,3 @@ export const Header: React.FC = () => {
 	};
 	
 }
-
-export function Footer() {
-  return (
-    <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
-      <Container
-        as={Stack}
-        marginTop='100'
-        direction='column'
-        spacing={2}
-        justify={{ base: 'center', md: 'space-between' }}
-        align={{ base: 'center', md: 'center' }}>
-
-         <Text>
-           Privacy: no cookies, no fingerprinting, no tracking.
-         </Text>
-         <Text>© 2021 yashKarthik.eth; All rights reserved</Text>
-
-      </Container>
-    </Box>
-  );
-}

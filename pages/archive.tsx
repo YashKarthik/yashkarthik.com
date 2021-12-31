@@ -1,7 +1,7 @@
 // TODO: sort post, group by month
 import { useState } from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import { Header, Footer } from '../components/Header';
+import { Header } from '../components/Header';
 import NextLink from 'next/link'
 import {
 	Text,
@@ -129,7 +129,6 @@ const Archive: NextPage<Metas> = ({data}) => {
 				  })
         }
 			</Container>
-      <Footer />
 		</>
 	);
 }

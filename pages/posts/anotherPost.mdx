@@ -46,7 +46,7 @@ The account state consists of four fields: `nonce, balance, codeHash, storageRoo
 **Nonce:** the number of txs sent from the account. It prevents a tx from being processed more than once. For a contract account it represents the number of contracts it has created.
 
 - A transaction, by a human owned account, changes the nonce and balance in the account state.
-- A tx, by a contract account, also changes the `storageRoot` (storage hash) in the account state.
+- A `tx`, by a contract account, also changes the `storageRoot` (storage hash) in the account state.
 
 
 export const meta = {

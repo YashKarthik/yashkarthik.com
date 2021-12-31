@@ -4,7 +4,7 @@ import "@fontsource/dejavu-mono"
 
 export const colors = {
   headingTextColor: {
-    lightMode: '#c47f07',
+    lightMode: 'black',
     darkMode: '#efc473'
   },
   contentTextColor: {
@@ -78,8 +78,8 @@ export const customTheme = extendTheme({
       variants: {
         title: (props:any) => ({
           color: mode(
-            'black',
-            "#efa947"
+            colors.headingTextColor.lightMode,
+            colors.linkTextColors.darkMode
           )(props),
 					fontFamily: 'helvetica',
         }),
@@ -104,7 +104,7 @@ export const customTheme = extendTheme({
         }),
 				heading: (props:any) => ({
       	  color: mode(
-      	    colors.headingTextColor.lightMode,
+      	    "#CC8828",
       	    colors.headingTextColor.darkMode
       	  )(props),
 					fontFamily: 'helvetica',
@@ -112,7 +112,7 @@ export const customTheme = extendTheme({
   				_hover:{
             textColor:mode(
               colors.linkTextColors.lightMode,
-              "#efa947",
+              colors.linkTextColors.darkMode
             )(props),
             textDecoration: 'none'
           }
