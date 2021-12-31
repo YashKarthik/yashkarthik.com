@@ -31,7 +31,7 @@ export default function LayoutMDX(props: Props) {
 
 			<Header />
 
-			<Container pt={[0, 55]} px={{xl:'0', lg:'0', md:'0', sm:'10px', base:'20px'}} 
+			<Container pt={[0, 35]} px={{xl:'0', lg:'0', md:'0', sm:'10px', base:'20px'}} 
 				maxW={{xl:'70ch', lg:'65ch', md:'60ch', sm:'55ch', base:'45ch'}}
 				fontSize={{base: '0.9em',sm:'0.95em', md:'1em', lg:'1.1em', xl: '1.125em'}}
 			>

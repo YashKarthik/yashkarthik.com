@@ -52,7 +52,7 @@ const PostRender = ({postData}: {postData: Meta}) => {
       <HStack align='start'>
 			  <VStack align='stretch'>
 			  	<NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
-			  		<Link fontSize='1.3em' fontFamily='Open Sans' fontWeight='700'
+			  		<Link fontSize='1.3em' fontWeight='700'
 			  			p='0' m='0' variant='heading'
 			  		>
 			  			{postData.title}
@@ -95,6 +95,7 @@ const searchPosts = (listOfPosts:FuseResult[]|null, data:Meta[]) => {
 const Archive: NextPage<Metas> = ({data}) => {
 
   const searchTextColor = useColorModeValue('black', 'white');
+  const borderColor = useColorModeValue('#c6b9a1', 'orange.50');
   const options = {
     includeScore: true
   }
@@ -109,15 +110,16 @@ const Archive: NextPage<Metas> = ({data}) => {
 		<>
 			<Header />
 			<Container alignItems='start' pt='20px'>
-			<Heading color='#f4ead9'>Archive</Heading>
+			<Heading>Archive</Heading>
 
         <Input variant='flushed' placeholder='Search...'
-          borderTop='none' borderX='none' borderColor='gray.500'
-          color={searchTextColor} m='0 0 30px 0' 
+          borderTop='none' borderX='none' borderColor={borderColor}
+          color={searchTextColor} focusBorderColor='orange.300'
+          m='0 0 30px 0'
           onChange={e => setSearch(searchPosts(fuse.search(e.target.value), data))}
           />
 
-				{!useSearch || useSearch?.length < 1 ? 
+				{!useSearch || useSearch.length < 1 ? 
           data.map((post:Meta) => {
             console.log('aosehuant')
 				  	return (<PostRender postData={post} key={post.shortName}/>);

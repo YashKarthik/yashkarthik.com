@@ -6,7 +6,8 @@ import {
 	Divider,
 	VStack,
 	Link,
-    Box,
+  Box,
+  useColorModeValue
 } from '@chakra-ui/react';
 import { Header, Footer } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
@@ -107,6 +108,8 @@ const RenderPosts = ({props}: {props:Meta[]}) => {
 }
 
 const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
+
+  const divColor = useColorModeValue('#c6b9a1', 'orange.50');
 	
   return (
     <>
@@ -139,7 +142,7 @@ const Home = ({ AllFileData }:{AllFileData:Meta[]}) => {
 		  			economics, and internet culture. It&apos;s my excuse for playing around with
 		  			new ideas and practicing the art of writing.
 		  		</Text>
-		  		<Divider />
+		  		<Divider borderColor={divColor} opacity='.4'/>
           <Box>
             <RenderPosts props={AllFileData}/>
           </Box>

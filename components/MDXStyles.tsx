@@ -3,6 +3,7 @@ import {
 	Heading,
 	Code,
 } from '@chakra-ui/react';
+import { colors } from './ChakraThemes';
 
 const Blockquote = (props:any) => (
 <>
@@ -21,7 +22,8 @@ const MDXComponents:any = {
 	h1: (props:any) => <Heading size='lg' m='5px 0 5px 0' p='5px 0 0px 0' {...props} />,
 	h2: (props:any) => <Heading size='md' m='5px 0 5px 0' p='5px 0 0px 0' {...props} />,
 	h3: (props:any) => <Heading size='sm' m='5px 0 5px 0' p='5px 0 0px 0' {...props} />,
-	blockquote: (props:any) => <Blockquote {...props} />
+	blockquote: (props:any) => <Blockquote {...props} />,
+  li: (props:any) => <li as='Text' style={{color: colors.contentTextColor}} {...props} />
 }
 
 export default MDXComponents;

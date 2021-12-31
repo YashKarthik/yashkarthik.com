@@ -2,9 +2,9 @@ import { extendTheme } from "@chakra-ui/react"
 import { mode } from '@chakra-ui/theme-tools'
 import "@fontsource/dejavu-mono"
 
-const colors = {
+export const colors = {
   headingTextColor: {
-    lightMode: 'black',
+    lightMode: '#c47f07',
     darkMode: '#efc473'
   },
   contentTextColor: {
@@ -127,6 +127,18 @@ export const customTheme = extendTheme({
         background: mode(
           colors.bodyBackground.lightMode,
           colors.bodyBackground.darkMode
+        )(props),
+      },
+      li: {
+        color: mode(
+          colors.contentTextColor.lightMode,
+          colors.contentTextColor.darkMode
+        )(props),
+      },
+      'li::marker': {
+        color: mode(
+          colors.metadataTextColor.lightMode,
+          colors.metadataTextColor.darkMode
         )(props),
       },
     }),
