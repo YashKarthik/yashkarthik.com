@@ -4,19 +4,19 @@ import {
 	Box,
 	Spacer,
 	VStack,
-  Drawer,
-  DrawerBody,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
+	Drawer,
+	DrawerBody,
+	DrawerHeader,
+	DrawerOverlay,
+	DrawerContent,
 	Button,
 	Stack,
 	Link,
-  Text,
-  Container,
+	Text,
+	Container,
 	useDisclosure,
 	useMediaQuery,
-  useColorModeValue,
+	useColorModeValue,
 } from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoX } from 'react-icons/go';
@@ -48,17 +48,17 @@ const NextLinksRender: React.FC = () => {
 	]
 
 	return (
-		<Stack direction={['column', 'column' , 'row']}>
+		<Stack direction={['column', 'column', 'row']}>
 
 			{links.map(link => {
 				return (
-						<NextLink href={link.link} key={link.name} passHref
+					<NextLink href={link.link} key={link.name} passHref
+					>
+						<Link p='0' m='0' variant='secondary'
 						>
-							<Link p='0' m='0' variant='secondary'
-							>
 							{link.name}
-							</Link>
-						</NextLink>
+						</Link>
+					</NextLink>
 				);
 			})}
 
@@ -70,23 +70,22 @@ const NextLinksRender: React.FC = () => {
 
 const LargeNextLinks: React.FC = () => {
 	return (
-	  <Box pt='5' pr='3'>
+		<Box p='0' m='0'>
 			<NextLinksRender />
 		</Box>
 	)
 }
 
-const MobileNextLinks: React.FC = () => {
-	
+const MobileNextLinks = () => {
+
 	const { isOpen, onOpen, onClose } = useDisclosure()
-  const drawerColor = useColorModeValue('white', '#121419')
+	const drawerColor = useColorModeValue('white', '#121419')
 
-  return (
-    <>
-
+	return (
+		<>
 			<Button
 				onClick={() => onOpen()}
-				m={4}
+				m={0} p={0}
 				colorScheme='blue'
 				variant='ghost'
 				border='none'
@@ -94,83 +93,82 @@ const MobileNextLinks: React.FC = () => {
 				<GiHamburgerMenu />
 			</Button>
 
-      <Drawer onClose={onClose} isOpen={isOpen}
-        size='full' placement='top' isFullHeight={true}
-        colorScheme='teal'
-        >
-        <DrawerOverlay />
-        <DrawerContent bg={drawerColor}>
+			<Drawer onClose={onClose} isOpen={isOpen}
+				size='full' placement='top' isFullHeight={true}
+			>
+				<DrawerOverlay />
+				<DrawerContent bg={drawerColor}>
 
-          <DrawerHeader alignSelf='end'>
-						<Button 
+					<DrawerHeader alignSelf='end'>
+						<Button
 							onClick={() => onClose()}
 							colorScheme='blue'
 							variant='ghost'
 							border='none'>
-							<GoX/>
+							<GoX />
 						</Button>
 					</DrawerHeader>
 
-          <DrawerBody>
+					<DrawerBody>
 						<VStack align='start'>
 							<NextLinksRender />
 						</VStack>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
-    </>
-  )
+					</DrawerBody>
+				</DrawerContent>
+			</Drawer>
+		</>
+	)
 }
 
 
 export const Header: React.FC = () => {
 
-	const [ isMobile ] = useMediaQuery("(max-width: 768px)") ;
+	const [isMobile] = useMediaQuery("(max-width: 768px)");
+	const textGradient = useColorModeValue("linear(to-l, blue.300, blue.800)", "linear(to-r, blue.200, blue.600)")
 
 
 	if (isMobile === true) {
 		return (
-			<Flex>
-				<Box pt='20px' pl='40px'>
+			<Flex flexDir='row' justify='stretch'>
+				<Box p='10 20 0 0' m='0'>
 					<NextLink href={'/'} passHref>
-						<Link p='0' m='0'
+						<Link p='10px 20px 0 0' m='0'
 							fontFamily='DejaVu Mono' fontSize='xl'
 							fontWeight='700' letterSpacing='0.8px'
-							_hover={{cursor:'pointer'}}
+							_hover={{ cursor: 'pointer' }}
+							bgGradient={textGradient}
+							bgClip='text'
 						>
-						yashKarthik
-					</Link>
+							yashKarthik
+						</Link>
 					</NextLink>
 				</Box>
 				<Spacer />
-				<Box p='0' m='0'>
-					<MobileNextLinks />
-				</Box>
+				<MobileNextLinks />
 			</Flex>
 
 		);
 	} else {
 		return (
 			<Flex>
-				<Box pt='20px' pl='40px'>
+				<Box pt='10px' pl='20px'>
 					<NextLink href={'/'} passHref>
-						<Link p='0' m='0'
+						<Link m='0'
 							fontFamily='DejaVu Mono' fontSize='xl'
 							fontWeight='700' letterSpacing='0.8px'
-							_hover={{cursor:'pointer'}}
+							_hover={{ cursor: 'pointer' }}
+							bgGradient={textGradient}
+							bgClip='text'
 						>
-						yashKarthik
-					</Link>
+							yashKarthik
+						</Link>
 					</NextLink>
 				</Box>
-
 				<Spacer />
-				<Box p='0' m='0'>
-					<LargeNextLinks />
-				</Box>
+				<LargeNextLinks />
 			</Flex>
 
 		);
 	};
-	
+
 }

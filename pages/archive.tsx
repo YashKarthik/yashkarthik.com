@@ -14,8 +14,6 @@ import {
   Link,
   useColorModeValue,
 } from '@chakra-ui/react'
-import "@fontsource/open-sans/700.css"
-import "@fontsource/open-sans/"
 import "@fontsource/dejavu-mono"
 import { metaData } from '../components/Metadata';
 import Fuse from 'fuse.js';
@@ -95,7 +93,6 @@ const searchPosts = (listOfPosts:FuseResult[]|null, data:Meta[]) => {
 const Archive: NextPage<Metas> = ({data}) => {
 
   const searchTextColor = useColorModeValue('black', 'white');
-  const borderColor = useColorModeValue('#c6b9a1', 'orange.50');
   const options = {
     includeScore: true
   }
@@ -109,17 +106,17 @@ const Archive: NextPage<Metas> = ({data}) => {
 	return (
 		<>
 			<Header />
-			<Container alignItems='start' pt='20px'>
-			<Heading>Archive</Heading>
+			<Container alignItems='start'>
+			<Heading variant='title'>Archive</Heading>
 
         <Input variant='flushed' placeholder='Search...'
-          borderTop='none' borderX='none' borderColor={borderColor}
-          color={searchTextColor} focusBorderColor='orange.300'
+          borderTop='none' borderX='none'
+          color={searchTextColor}
           m='0 0 30px 0'
           onChange={e => setSearch(searchPosts(fuse.search(e.target.value), data))}
           />
 
-				{!useSearch || useSearch.length < 1 ? 
+				{!useSearch || useSearch.length < 1 || useSearch == undefined?
           data.map((post:Meta) => {
             console.log('aosehuant')
 				  	return (<PostRender postData={post} key={post.shortName}/>);

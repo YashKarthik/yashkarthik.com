@@ -129,11 +129,11 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
             </Head>
             <div style={{ marginBottom: '50px' }}>
                 <Header />
-                <Container pt={[10, 10, 50, 50, 50]}
-                    centerContent={true} mx='auto'
+                <Container centerContent={true}
+                    mx='auto' overflowWrap='anywhere'
                     maxW={{ xl: '70ch', lg: '65ch', md: '60ch', sm: '55ch', base: 'auto' }}
-                    px={{ xl: '0', lg: '0', md: '10px', sm: '10px', base: '0' }}
-                    overflowWrap='anywhere'
+                    px={{ xl: '0', lg: '0', md: '10px', sm: '10px', base: '20px' }}
+                    pt={[10, 10, 50, 50, 50]}
                 >
                     <Text fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}
 
@@ -142,7 +142,7 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
                         economics, and internet culture. It&apos;s my excuse for playing around with
                         new ideas and practicing the art of writing.
                     </Text>
-                    <Divider borderColor={divColor} opacity='.4' />
+                    <Divider />
                     <Box>
                         <RenderPosts props={AllFileData} />
                     </Box>
