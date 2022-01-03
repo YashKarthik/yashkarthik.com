@@ -42,11 +42,11 @@ export default function LayoutMDX(props: Props) {
             >
 
                 <Text fontFamily='DejaVu Mono' fontSize='0.9em' fontWeight='bolder'
-                    variant='secondary' p='0' m='0 0 5 0'
+                    variant='secondary' p='0' m='0 0 20px 0'
                 >
                     {props.meta.date}
                 </Text>
-                <Heading p='0' m='0' size='xl' fontWeight='bolder'
+                <Heading p='0 0 5px 0' m='0' size='xl' fontWeight='bolder'
                     variant='title'
                 >
                     {props.meta.title}</Heading>
@@ -58,7 +58,7 @@ export default function LayoutMDX(props: Props) {
                     {props.meta.description}
                 </Text>
 
-                <Divider mb='20px' />
+                <Divider m='10px 0 20px 0' />
                 {props.content}
             </Container>
 

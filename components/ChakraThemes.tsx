@@ -54,10 +54,10 @@ export const customTheme = extendTheme({
                 }),
 
                 blockquote: (props: any) => ({
-                    //          backgroundColor: mode(
-                    //            'blue.50',
-                    //            'blue.900'
-                    //          )(props),
+                              backgroundColor: mode(
+                                'blue.50',
+                                'rgba(45, 105, 188, 0.08)'
+                              )(props),
                     fontFamily: 'helvetica',
                     fontSize: '0.93em', fontStyle: 'italic',
                     m: '0', p: '13px 2px 1px 10px'
@@ -105,15 +105,15 @@ export const customTheme = extendTheme({
                 }),
                 heading: (props: any) => ({
                     color: mode(
-                      'black',
-                      'blue.300'
+                        'black',
+                        'blue.300'
                     )(props),
                     fontFamily: 'helvetica',
                     fontWeight: '700',
                     _hover: {
                         textColor: mode(
-                          colors.linkTextColors.lightMode,
-                          'blue.500'
+                            colors.linkTextColors.lightMode,
+                            'blue.500'
                         )(props),
                         textDecoration: 'none'
                     }
@@ -129,25 +129,30 @@ export const customTheme = extendTheme({
                     colors.bodyBackground.lightMode,
                     colors.bodyBackground.darkMode
                 )(props),
-              borderTopWidth: {base: 'none', md: '12px'},
-              borderTopStyle: {base: 'none', md: 'solid'},
-              borderTopColor: {base: 'none', md: 'blue.700'},
 
-              borderLeftWidth: {base: 'none', md: '20px'},
-              borderLeftStyle: {base: 'none', md: 'solid'},
-              borderLeftColor: {base: 'none', md: 'blue.700'},
+                minH: '100%',
+                minW: '100%',
+
+                borderTopWidth: { base: 'none', md: '12px' },
+                borderTopStyle: { base: 'none', md: 'solid' },
+                borderTopColor: { base: 'none', md: 'blue.700' },
+
+                borderLeftWidth: { base: 'none', md: '20px' },
+                borderLeftStyle: { base: 'none', md: 'solid' },
+                borderLeftColor: { base: 'none', md: 'blue.700' },
             },
-          body: {
-            background: mode(
-              colors.bodyBackground.lightMode,
-              colors.bodyBackground.darkMode
-            )(props),
-          },
+            body: {
+                background: mode(
+                    colors.bodyBackground.lightMode,
+                    colors.bodyBackground.darkMode
+                )(props),
+            },
             li: {
                 color: mode(
                     colors.contentTextColor.lightMode,
                     colors.contentTextColor.darkMode
                 )(props),
+                marginTop: '8px',
             },
             'li::marker': {
                 color: mode(

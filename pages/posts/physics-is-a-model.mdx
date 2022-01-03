@@ -1,0 +1,28 @@
+My first formal introduction to _thinking in physics_ was through Newton's Laws of Motion and vectors. You know, apply a force here, apply a force there; and the object goes toward the net result of the forces. The vector addition, changing direction via forces are all things we experience daily and seem natural. It seemed that the laws are reality itself. Whereas they are a _description, a model_ of (the known) reality, an attempt at expressing nature in concise statements and calculable equations.
+
+This subtle difference is blown up in magnitude when someone encounters quantum mechanics for the first time. Even though quantum mechanics seems disconnected from reality, it yields accurate results which are experimentally verifiable.
+
+This shift from _the universe obeys the Laws of Physics_ to _physics models the universe_ was very tough for me digest.
+
+![Refraction](/blog-assets/refraction-slab.png "Refraction through glass")
+
+When light changes the medium it travels in, at an angle, one side or the other of the wavefront is slowed before the other. This asymmetrical slowing of the light causes it to change the angle of its travel. Once light is within the new medium with constant properties, it travels in a straight line again.
+
+![Wavefront changing medium](/blog-assets/wavefront-anim.gif "Wavefront changes media at an angle")
+
+Another way to think about it is light trying to travel between two points, and it needs to minimize travel time. Since it is slower in glass, it'll prefer to stay in air longer. It makes a trade-off between shortest distance and shortest time.
+
+But how does it know that a certain path is shorter, but takes more time ( or vice versa ). If we consider to be _reality_, this seems pretty freaky. Is that what light's doing? Does a beam of light choose... anything?
+
+
+It's not just light. Protons, electrons, rocks, planets all follow a similar rule. Given a starting point and a end point, they all take the path that minimizes _something._ We call this something _action_. The action for a particular path is found by summing up the difference in kinetic and potential energy along the entire path.
+
+export const meta = {
+	shortName: 'physics-is-a-model',
+	title: 'Physics is a Model of the Universe, not the Universe itself',
+	date: 'Jan 2, 2022',
+	description: 'Physics is an attempt at expressing nature in concise statements and calculable equations'
+}
+
+import LayoutMDX from '../../components/LayoutMDX.tsx';
+export default ({ children }) => <LayoutMDX meta={meta} content={children} />

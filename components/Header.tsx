@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import {
 	Flex,
 	Box,
@@ -12,8 +13,6 @@ import {
 	Button,
 	Stack,
 	Link,
-	Text,
-	Container,
 	useDisclosure,
 	useMediaQuery,
 	useColorModeValue,
@@ -29,21 +28,25 @@ const NextLinksRender: React.FC = () => {
 
 	interface NextLinksObjShape {
 		name: string,
-		link: string
+		link: string,
+		external: boolean
 	};
 
 	const links: NextLinksObjShape[] = [
 		{
 			name: 'Archive',
 			link: '/archive',
+			external: false
 		},
 		{
 			name: 'GitHub',
 			link: 'https://github.com/yashkarthik',
+			external: true
 		},
 		{
 			name: 'Twitter',
 			link: 'https://twitter.com/_yashkarthik',
+			external: true
 		},
 	]
 
@@ -54,7 +57,7 @@ const NextLinksRender: React.FC = () => {
 				return (
 					<NextLink href={link.link} key={link.name} passHref
 					>
-						<Link p='0' m='0' variant='secondary'
+						<Link p='0' m='0' variant='secondary' isExternal={link.external}
 						>
 							{link.name}
 						</Link>
@@ -70,7 +73,7 @@ const NextLinksRender: React.FC = () => {
 
 const LargeNextLinks: React.FC = () => {
 	return (
-		<Box p='0' m='0'>
+		<Box p='0' m='12px 10px 0 0'>
 			<NextLinksRender />
 		</Box>
 	)
@@ -99,7 +102,7 @@ const MobileNextLinks = () => {
 				<DrawerOverlay />
 				<DrawerContent bg={drawerColor}>
 
-					<DrawerHeader alignSelf='end'>
+					<DrawerHeader align='end'>
 						<Button
 							onClick={() => onClose()}
 							colorScheme='blue'
@@ -123,14 +126,14 @@ const MobileNextLinks = () => {
 
 export const Header: React.FC = () => {
 
-	const [isMobile] = useMediaQuery("(max-width: 768px)");
+	const [ isMobile ] = useMediaQuery("(max-width: 768px)");
+	const { pathname } = useRouter();
 	const textGradient = useColorModeValue("linear(to-l, blue.300, blue.800)", "linear(to-r, blue.200, blue.600)")
-
 
 	if (isMobile === true) {
 		return (
 			<Flex flexDir='row' justify='stretch'>
-				<Box p='10 20 0 0' m='0'>
+				<Box m={pathname.slice(0, 7) == '/posts/' ? '10px 0 50px 20px': '0'}> {/* Insert padding below header for mobile if reading a post*/}
 					<NextLink href={'/'} passHref>
 						<Link p='10px 20px 0 0' m='0'
 							fontFamily='DejaVu Mono' fontSize='xl'

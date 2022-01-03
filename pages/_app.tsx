@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 
   return (
-		<ChakraProvider resetCSS={false} theme={customTheme}>
+		<ChakraProvider theme={customTheme}>
 			<MDXProvider components={MDXComponents}>
 				<Component {...pageProps} />
 			</MDXProvider>
