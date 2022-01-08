@@ -11,7 +11,6 @@ import {
 import { Header } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
 import Head from 'next/head';
-import '@fontsource/open-sans';
 import { useState } from 'react';
 
 interface Meta {
@@ -61,12 +60,12 @@ const PostRender = ({ postData }: { postData: Meta }) => {
                     {postData.description}
                 </Text>
 
-                <Text fontFamily='Open Sans'
+                <Text
                     letterSpacing='0.1px' fontSize='0.9em'
                 >
                     {postData.content} ...{' '}
                     <NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
-                        <a style={{ color: 'inherit', fontSize: '13px' }}
+                        <a style={{ color: 'inherit', fontSize: '13px', textDecoration:'underline' }}
                         >
                             More</a>
                     </NextLink>
