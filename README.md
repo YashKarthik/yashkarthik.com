@@ -1,1 +1,1 @@
-yashKarthik.eth.link
+yashKarthik.xyz
