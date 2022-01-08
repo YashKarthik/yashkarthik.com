@@ -36,5 +36,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# ignoring the post data
-/posts
+#logs
+.log/
+
+# OS files
+.DS_Store

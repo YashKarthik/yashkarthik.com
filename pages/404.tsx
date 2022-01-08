@@ -7,7 +7,6 @@ import {
 } from '@chakra-ui/react';
 import "@fontsource/dejaVu-mono"
 
-
 const NotFound = (): JSX.Element => {
 	return (
 		<Box>

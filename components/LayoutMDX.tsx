@@ -1,7 +1,15 @@
 import { Header } from '../components/Header';
-import { Container, Text, Divider, Heading } from '@chakra-ui/react'
+import {
+    Container,
+    Text,
+    Divider,
+    Heading,
+    Spacer,
+    Link as LinkStyles
+} from '@chakra-ui/react'
 import Head from 'next/head'
 import "@fontsource/dejavu-mono"
+import Link from 'next/link';
 
 interface Props {
     meta: {
@@ -20,22 +28,25 @@ export default function LayoutMDX(props: Props) {
         <div>
             <Head>
                 <title>{props.meta.title}</title>
-                <meta name="description" content={`Essay by yashKarthik.eth - ${props.meta.title}`} />
+                <meta name="description" content={`Essay by yashKarthik - ${props.meta.title}`} />
 
-                <meta name="og:description" content={`Essay by yashKarthik.eth - ${props.meta.title}`} />
                 <meta name="og:title" content={props.meta.title} />
-                <meta name="og:site_name" content={'yashkarthik.eth'} />
-                <meta name="og:type" content={'article'} />
-                <meta name="og:url" content={`https://yashkarthik.eth.link/posts/${props.meta.shortName}`} />
-                <meta name="og:image" content='https://yashkarthik.eth.link/public/ogImage.png' />
+                <meta name="og:site_name" content='yashKarthik' />
+                <meta name="og:description" content={`Essay by yashKarthik - ${props.meta.title}`} />
+                <meta name="og:type" content='article' />
+                <meta name="og:url" content={`https://yashkarthik.xyz/posts/${props.meta.shortName}`} />
+                <meta name="og:image" content='https://yashkarthik.xyz./ogImage.png' />
 
+                <meta property="article:publisher" content="https://www.yashkarthik.xyz" />
+
+                <meta name="twitter:site" content="@_yashKarthik" />
 
             </Head>
 
             <Header />
 
             <Container
-                pt={[0, 35]} px={{ xl: '0', lg: '0', md: '0', sm: '10px', base: '20px' }}
+                pb={[0, 35]} px={{ xl: '0', lg: '0', md: '0', sm: '10px', base: '20px' }}
                 fontSize={{ base: '1em', lg: '1.1em', xl: '1.125em' }}
                 maxW={{ xl: '65ch', lg: '65ch', md: '60ch', sm: '55ch', base: '45ch' }}
                 overflowWrap='anywhere'
@@ -49,7 +60,8 @@ export default function LayoutMDX(props: Props) {
                 <Heading p='0 0 5px 0' m='0' size='xl' fontWeight='bolder'
                     variant='title'
                 >
-                    {props.meta.title}</Heading>
+                    {props.meta.title}
+                </Heading>
 
                 <Text fontWeight='300' fontSize='1em'
                     p='0' m='10px 0 0 0'
@@ -60,6 +72,14 @@ export default function LayoutMDX(props: Props) {
 
                 <Divider m='10px 0 20px 0' />
                 {props.content}
+
+                <Spacer />
+                <Link href='/archive' passHref={true}>
+                    <LinkStyles>
+                        More by yashKarthik
+                    </LinkStyles>
+                </Link>
+
             </Container>
 
         </div >

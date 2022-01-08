@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NextPage, GetStaticProps } from 'next';
 import { Header } from '../components/Header';
 import NextLink from 'next/link'
+import Head from 'next/head'
 import {
     Text,
     Container,
@@ -99,6 +100,21 @@ const Archive: NextPage<Metas> = ({ data }) => {
 
     return (
         <>
+            <Head>
+                <title>yashKarthik</title>
+                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content='Essays by yashKarthik - web3, economics, and internet culture.' />
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="robots" content="all" />
+
+                <meta name="og:title" content='yashkarthik' />
+                <meta name="og:description" content='Essays by yashKarthik -  web3, economics, and internet culture.' />
+                <meta name="og:type" content='blog' />
+                <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
+                <meta name="og:url" content='https://yashkarthik.xyz' />
+
+                <meta name="twitter:site" content="@_yashKarthik" />
+            </Head>
             <Header />
             <Container alignItems='start' mb='100px'>
                 <Heading variant='title'

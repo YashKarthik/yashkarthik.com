@@ -6,8 +6,7 @@ import {
     Divider,
     VStack,
     Link,
-    Box,
-    useColorModeValue
+    Box
 } from '@chakra-ui/react';
 import { Header } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
@@ -109,23 +108,22 @@ const RenderPosts = ({ props }: { props: Meta[] }) => {
 
 const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
 
-    const divColor = useColorModeValue('#c6b9a1', 'orange.50');
-
     return (
         <>
             <Head>
-                <title>yashKarthik.eth</title>
+                <title>yashKarthik</title>
                 <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content='Essays by yashKarthik.eth - essays about web3, economics, and internet culture.' />
+                <meta name="description" content='Essays by yashKarthik - web3, economics, and internet culture.' />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="robots" content="all" />
 
-                <meta name="og:title" content='yashkarthik.eth' />
-                <meta name="og:description" content='Essays by yashKarthik.eth - essays about web3, economics, and internet culture.' />
-                <meta name="og:type" content='blog' />
-                <meta name="og:image" content='https://yashkarthik.eth.link/public/ogImage.png' />
-                <meta name="og:url" content='https://yashkarthik.eth.link' />
+                    <meta name="og:title" content='yashkarthik' />
+                    <meta name="og:description" content='Essays by yashKarthik -  web3, economics, and internet culture.' />
+                    <meta name="og:type" content='blog' />
+                    <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
+                    <meta name="og:url" content='https://yashkarthik.xyz' />
 
-                <meta name="twitter:site" content="@_yashKarthik" />
+                    <meta name="twitter:site" content="@_yashKarthik" />
             </Head>
             <div style={{ marginBottom: '50px' }}>
                 <Header />

@@ -20,7 +20,7 @@ import {
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoX } from 'react-icons/go';
 import NextLink from 'next/link'
-import "@fontsource/dejaVu-mono"
+import "@fontsource/dejavu-mono"
 import ColorModeSwitcher from '../components/ColorModeSwitcher'
 
 
@@ -136,7 +136,7 @@ export const Header: React.FC = () => {
 				<Box m={pathname.slice(0, 7) == '/posts/' ? '10px 0 50px 20px': '0'}> {/* Insert padding below header for mobile if reading a post*/}
 					<NextLink href={'/'} passHref>
 						<Link p='10px 20px 0 0' m='0'
-							fontFamily='DejaVu Mono' fontSize='xl'
+							fontFamily='dejavu mono' fontSize='xl'
 							fontWeight='700' letterSpacing='0.8px'
 							_hover={{ cursor: 'pointer' }}
 							bgGradient={textGradient}
