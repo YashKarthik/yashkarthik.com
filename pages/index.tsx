@@ -112,17 +112,18 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
             <Head>
                 <title>yashKarthik</title>
                 <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content='Essays by yashKarthik - web3, economics, and internet culture.' />
+                <meta name="description" content='Essays by yashKarthik - web3, programming, and physics.' />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 <meta name="robots" content="all" />
 
-                    <meta name="og:title" content='yashkarthik' />
-                    <meta name="og:description" content='Essays by yashKarthik -  web3, economics, and internet culture.' />
-                    <meta name="og:type" content='blog' />
-                    <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
-                    <meta name="og:url" content='https://yashkarthik.xyz' />
+                <meta name="og:title" content='yashkarthik' />
+                <meta name="og:description" content='Essays by yashKarthik -  web3, programming, and physics.' />
+                <meta name="og:type" content='blog' />
+                <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
+                <meta name="og:url" content='https://yashkarthik.xyz' />
 
-                    <meta name="twitter:site" content="@_yashKarthik" />
+                <meta name="twitter:site" content="@_yashKarthik" />
             </Head>
             <div style={{ marginBottom: '50px' }}>
                 <Header />
@@ -135,9 +136,9 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
                     <Text fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}
 
                     >
-                        I explore my curiousity and share what I learn along the way. Essays on web3,
-                        economics, and internet culture. It&apos;s my excuse for playing around with
-                        new ideas and practicing the art of writing.
+                        I explore my curiousity and share what I learn along the way. Essays about web3,
+                        programming, and occasionally physics. It&apos;s my excuse for playing around with
+                        new ideas and practicing the craft of writing.
                     </Text>
                     <Divider />
                     <Box>

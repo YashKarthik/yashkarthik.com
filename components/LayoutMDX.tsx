@@ -6,10 +6,11 @@ import {
     Heading,
     Spacer,
     Link as LinkStyles
-} from '@chakra-ui/react'
-import Head from 'next/head'
-import "@fontsource/dejavu-mono"
+} from '@chakra-ui/react';
+import Head from 'next/head';
+import "@fontsource/dejavu-mono";
 import Link from 'next/link';
+import { BsArrowRightShort } from 'react-icons/bs';
 
 interface Props {
     meta: {
@@ -28,7 +29,10 @@ export default function LayoutMDX(props: Props) {
         <div>
             <Head>
                 <title>{props.meta.title}</title>
+                <link rel="icon" href="/favicon.ico" />
                 <meta name="description" content={`Essay by yashKarthik - ${props.meta.title}`} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
                 <meta name="og:title" content={props.meta.title} />
                 <meta name="og:site_name" content='yashKarthik' />
@@ -74,9 +78,10 @@ export default function LayoutMDX(props: Props) {
                 {props.content}
 
                 <Spacer />
+
                 <Link href='/archive' passHref={true}>
-                    <LinkStyles>
-                        More by yashKarthik
+                    <LinkStyles fontWeight='bolder' flexDir='row'>
+                        More by yashKarthik <BsArrowRightShort style={{display: 'inline', verticalAlign:'middle'}} />
                     </LinkStyles>
                 </Link>
 

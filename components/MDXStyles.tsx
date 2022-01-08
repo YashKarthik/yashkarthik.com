@@ -36,6 +36,7 @@ const MDXComponents: any = {
     h3: (props: string) => <Heading size='sm' m='2.25rem 0 .5rem 0' {...props} />,
     a: (props: any) => <ChakraLink isExternal variant='secondary' textDecoration='underline' {...props}/>,
     ul: (props: string) => <ul style={{margin:'20px 0 20px 20px'}} {...props} />,
+    ol: (props: string) => <ol style={{margin:'20px 0 20px 20px'}} {...props} />,
     blockquote: (props: string) => <Blockquote {...props} />,
     inlineCode: (props: string) => <Code colorScheme='blue' {...props} />,
     code: (props: any) => <Code variant='outline' display='block' whiteSpace='pre' p='10px' mb='20px' colorScheme='blue' {...props} />,
