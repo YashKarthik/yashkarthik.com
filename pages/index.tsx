@@ -12,6 +12,7 @@ import { Header } from '../components/Header';
 import { metaData, firstBits } from '../components/Metadata';
 import Head from 'next/head';
 import { useState } from 'react';
+import generateRssFeed from '../components/RSSFeed';
 
 interface Meta {
     shortName: string,
@@ -24,6 +25,8 @@ interface Meta {
 
 
 export const getStaticProps = async () => {
+
+    await generateRssFeed();
 
     const allFilesMetadata = await metaData();
     const metadata = allFilesMetadata.props.sortedData;
@@ -114,7 +117,7 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="description" content='Essays by yashKarthik - web3, programming, and physics.' />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
                 <meta name="robots" content="all" />
 
                 <meta name="og:title" content='yashkarthik' />

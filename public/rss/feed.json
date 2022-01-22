@@ -1,0 +1,36 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "yashKarthik",
+    "home_page_url": "https://www.yashkarthik.xyz",
+    "feed_url": "{siteURL}/rss/feed.json",
+    "description": "Essays by yashKarthik on web3, programmig, and physics",
+    "icon": "https://www.yashkarthik.xyz",
+    "author": {
+        "name": "yashkarthik.eth",
+        "url": "https://twitter.com/_SreetamDas"
+    },
+    "items": [
+        {
+            "id": "https://www.yashkarthik.xyz/posts/pow-de-consensus",
+            "url": "https://www.yashkarthik.xyz/posts/pow-de-consensus",
+            "title": "How Proof of Work enables Decentralized Consensus",
+            "summary": "Using computational work as a basis for what to trust",
+            "date_modified": "2022-01-07T18:30:00.000Z",
+            "author": {
+                "name": "yashkarthik.eth",
+                "url": "https://twitter.com/_SreetamDas"
+            }
+        },
+        {
+            "id": "https://www.yashkarthik.xyz/posts/ethState",
+            "url": "https://www.yashkarthik.xyz/posts/ethState",
+            "title": "What is State in Ethereum [Mirror]",
+            "summary": "From a global ledger to a decentralized state machine",
+            "date_modified": "2021-12-14T18:30:00.000Z",
+            "author": {
+                "name": "yashkarthik.eth",
+                "url": "https://twitter.com/_SreetamDas"
+            }
+        }
+    ]
+}

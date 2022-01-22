@@ -17,6 +17,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^12.0.7",
+    "feed": "^4.2.2",
     "framer-motion": "^4.1.17",
     "fuse.js": "^6.5.3",
     "gray-matter": "^4.0.3",

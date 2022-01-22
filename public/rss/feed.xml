@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>yashKarthik</title>
+        <link>https://www.yashkarthik.xyz</link>
+        <description>Essays by yashKarthik on web3, programmig, and physics</description>
+        <lastBuildDate>Sat, 22 Jan 2022 07:11:26 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>yashKarthik</title>
+            <url>https://www.yashkarthik.xyz</url>
+            <link>https://www.yashkarthik.xyz</link>
+        </image>
+        <copyright>All rights reserved 2022, yashKarthik</copyright>
+        <item>
+            <title><![CDATA[How Proof of Work enables Decentralized Consensus]]></title>
+            <link>https://www.yashkarthik.xyz/posts/pow-de-consensus</link>
+            <guid>https://www.yashkarthik.xyz/posts/pow-de-consensus</guid>
+            <pubDate>Fri, 07 Jan 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[Using computational work as a basis for what to trust]]></description>
+            <author>sreetam@sreetamdas.com (yashkarthik.eth)</author>
+        </item>
+        <item>
+            <title><![CDATA[What is State in Ethereum [Mirror]]]></title>
+            <link>https://www.yashkarthik.xyz/posts/ethState</link>
+            <guid>https://www.yashkarthik.xyz/posts/ethState</guid>
+            <pubDate>Tue, 14 Dec 2021 18:30:00 GMT</pubDate>
+            <description><![CDATA[From a global ledger to a decentralized state machine]]></description>
+            <author>sreetam@sreetamdas.com (yashkarthik.eth)</author>
+        </item>
+    </channel>
+</rss>

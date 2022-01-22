@@ -32,7 +32,7 @@ export default function LayoutMDX(props: Props) {
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="description" content={`Essay by yashKarthik - ${props.meta.title}`} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
 
                 <meta name="og:title" content={props.meta.title} />
                 <meta name="og:site_name" content='yashKarthik' />

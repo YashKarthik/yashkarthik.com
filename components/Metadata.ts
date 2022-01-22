@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 
-interface Meta {
+export interface Meta {
 	shortName: string,
 	title: string,
 	date: string,

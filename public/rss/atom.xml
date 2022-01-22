@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://www.yashkarthik.xyz</id>
+    <title>yashKarthik</title>
+    <updated>2022-01-22T07:11:26.933Z</updated>
+    <generator>Feed for Node.js</generator>
+    <author>
+        <name>yashkarthik.eth</name>
+        <email>sreetam@sreetamdas.com</email>
+        <uri>https://twitter.com/_SreetamDas</uri>
+    </author>
+    <link rel="alternate" href="https://www.yashkarthik.xyz"/>
+    <link rel="self" href="{siteURL}/rss/atom.xml"/>
+    <subtitle>Essays by yashKarthik on web3, programmig, and physics</subtitle>
+    <logo>https://www.yashkarthik.xyz</logo>
+    <icon>{siteURL}/favicon.ico</icon>
+    <rights>All rights reserved 2022, yashKarthik</rights>
+    <entry>
+        <title type="html"><![CDATA[How Proof of Work enables Decentralized Consensus]]></title>
+        <id>https://www.yashkarthik.xyz/posts/pow-de-consensus</id>
+        <link href="https://www.yashkarthik.xyz/posts/pow-de-consensus"/>
+        <updated>2022-01-07T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Using computational work as a basis for what to trust]]></summary>
+        <author>
+            <name>yashkarthik.eth</name>
+            <email>sreetam@sreetamdas.com</email>
+            <uri>https://twitter.com/_SreetamDas</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <email>sreetam@sreetamdas.com</email>
+            <uri>https://twitter.com/_SreetamDas</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What is State in Ethereum [Mirror]]]></title>
+        <id>https://www.yashkarthik.xyz/posts/ethState</id>
+        <link href="https://www.yashkarthik.xyz/posts/ethState"/>
+        <updated>2021-12-14T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[From a global ledger to a decentralized state machine]]></summary>
+        <author>
+            <name>yashkarthik.eth</name>
+            <email>sreetam@sreetamdas.com</email>
+            <uri>https://twitter.com/_SreetamDas</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <email>sreetam@sreetamdas.com</email>
+            <uri>https://twitter.com/_SreetamDas</uri>
+        </contributor>
+    </entry>
+</feed>
