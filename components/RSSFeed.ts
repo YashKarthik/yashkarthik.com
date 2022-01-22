@@ -10,8 +10,7 @@ const generateRssFeed = async () => {
   const date = new Date();
   const author = {
     name: "yashkarthik.eth",
-    email: "sreetam@sreetamdas.com",
-    link: "https://twitter.com/_SreetamDas",
+    link: "https://twitter.com/_yashKarthik",
   };
 
   const feed = new Feed({
