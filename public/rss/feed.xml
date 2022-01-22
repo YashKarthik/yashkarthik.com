@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Sat, 22 Jan 2022 07:11:26 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 22 Jan 2022 07:21:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -19,7 +19,6 @@
             <guid>https://www.yashkarthik.xyz/posts/pow-de-consensus</guid>
             <pubDate>Fri, 07 Jan 2022 18:30:00 GMT</pubDate>
             <description><![CDATA[Using computational work as a basis for what to trust]]></description>
-            <author>sreetam@sreetamdas.com (yashkarthik.eth)</author>
         </item>
         <item>
             <title><![CDATA[What is State in Ethereum [Mirror]]]></title>
@@ -27,7 +26,6 @@
             <guid>https://www.yashkarthik.xyz/posts/ethState</guid>
             <pubDate>Tue, 14 Dec 2021 18:30:00 GMT</pubDate>
             <description><![CDATA[From a global ledger to a decentralized state machine]]></description>
-            <author>sreetam@sreetamdas.com (yashkarthik.eth)</author>
         </item>
     </channel>
 </rss>

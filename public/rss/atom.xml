@@ -2,12 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.yashkarthik.xyz</id>
     <title>yashKarthik</title>
-    <updated>2022-01-22T07:11:26.933Z</updated>
+    <updated>2022-01-22T07:21:15.923Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>yashkarthik.eth</name>
-        <email>sreetam@sreetamdas.com</email>
-        <uri>https://twitter.com/_SreetamDas</uri>
+        <uri>https://twitter.com/_yashKarthik</uri>
     </author>
     <link rel="alternate" href="https://www.yashkarthik.xyz"/>
     <link rel="self" href="{siteURL}/rss/atom.xml"/>
@@ -23,13 +22,11 @@
         <summary type="html"><![CDATA[Using computational work as a basis for what to trust]]></summary>
         <author>
             <name>yashkarthik.eth</name>
-            <email>sreetam@sreetamdas.com</email>
-            <uri>https://twitter.com/_SreetamDas</uri>
+            <uri>https://twitter.com/_yashKarthik</uri>
         </author>
         <contributor>
             <name>yashkarthik.eth</name>
-            <email>sreetam@sreetamdas.com</email>
-            <uri>https://twitter.com/_SreetamDas</uri>
+            <uri>https://twitter.com/_yashKarthik</uri>
         </contributor>
     </entry>
     <entry>
@@ -40,13 +37,11 @@
         <summary type="html"><![CDATA[From a global ledger to a decentralized state machine]]></summary>
         <author>
             <name>yashkarthik.eth</name>
-            <email>sreetam@sreetamdas.com</email>
-            <uri>https://twitter.com/_SreetamDas</uri>
+            <uri>https://twitter.com/_yashKarthik</uri>
         </author>
         <contributor>
             <name>yashkarthik.eth</name>
-            <email>sreetam@sreetamdas.com</email>
-            <uri>https://twitter.com/_SreetamDas</uri>
+            <uri>https://twitter.com/_yashKarthik</uri>
         </contributor>
     </entry>
 </feed>
