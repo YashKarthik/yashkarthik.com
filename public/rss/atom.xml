@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.yashkarthik.xyz</id>
     <title>yashKarthik</title>
-    <updated>2022-01-28T08:29:56.007Z</updated>
+    <updated>2022-01-28T11:56:27.430Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>yashkarthik.eth</name>
@@ -36,6 +36,7 @@
         <link href="https://www.yashkarthik.xyz/posts/pow-de-consensus"/>
         <updated>2022-01-07T18:30:00.000Z</updated>
         <summary type="html"><![CDATA[Using computational work as a basis for what to trust]]></summary>
+        <content type="html"><![CDATA[Suppose I give Alice 10 dollars and she later gives 5 dollars to Bob. Historically, we represented such transactions by transferring an object - cash. With the internet, transacting via physical cash became impractical, so we came up with ledgers. Then the problem was who maintains the trut]]></content>
         <author>
             <name>yashkarthik.eth</name>
             <uri>https://twitter.com/_yashKarthik</uri>
@@ -51,6 +52,9 @@
         <link href="https://www.yashkarthik.xyz/posts/ethState"/>
         <updated>2021-12-14T18:30:00.000Z</updated>
         <summary type="html"><![CDATA[From a global ledger to a decentralized state machine]]></summary>
+        <content type="html"><![CDATA[Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.
+
+A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bit]]></content>
         <author>
             <name>yashkarthik.eth</name>
             <uri>https://twitter.com/_yashKarthik</uri>

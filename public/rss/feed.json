@@ -24,6 +24,7 @@
         },
         {
             "id": "https://www.yashkarthik.xyz/posts/pow-de-consensus",
+            "content_html": "Suppose I give Alice 10 dollars and she later gives 5 dollars to Bob. Historically, we represented such transactions by transferring an object - cash. With the internet, transacting via physical cash became impractical, so we came up with ledgers. Then the problem was who maintains the trut",
             "url": "https://www.yashkarthik.xyz/posts/pow-de-consensus",
             "title": "How Proof of Work enables Decentralized Consensus",
             "summary": "Using computational work as a basis for what to trust",
@@ -35,6 +36,7 @@
         },
         {
             "id": "https://www.yashkarthik.xyz/posts/ethState",
+            "content_html": "Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.\n\nA cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bit",
             "url": "https://www.yashkarthik.xyz/posts/ethState",
             "title": "What is State in Ethereum [Mirror]",
             "summary": "From a global ledger to a decentralized state machine",

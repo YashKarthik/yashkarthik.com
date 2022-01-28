@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Fri, 28 Jan 2022 08:29:56 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 28 Jan 2022 11:56:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -27,6 +27,7 @@
             <guid>https://www.yashkarthik.xyz/posts/pow-de-consensus</guid>
             <pubDate>Fri, 07 Jan 2022 18:30:00 GMT</pubDate>
             <description><![CDATA[Using computational work as a basis for what to trust]]></description>
+            <content:encoded><![CDATA[Suppose I give Alice 10 dollars and she later gives 5 dollars to Bob. Historically, we represented such transactions by transferring an object - cash. With the internet, transacting via physical cash became impractical, so we came up with ledgers. Then the problem was who maintains the trut]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[What is State in Ethereum [Mirror]]]></title>
@@ -34,6 +35,9 @@
             <guid>https://www.yashkarthik.xyz/posts/ethState</guid>
             <pubDate>Tue, 14 Dec 2021 18:30:00 GMT</pubDate>
             <description><![CDATA[From a global ledger to a decentralized state machine]]></description>
+            <content:encoded><![CDATA[Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.
+
+A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bit]]></content:encoded>
         </item>
     </channel>
 </rss>

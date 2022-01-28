@@ -16,13 +16,51 @@ import {
 	useDisclosure,
 	useMediaQuery,
 	useColorModeValue,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
 } from '@chakra-ui/react';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { GoX } from 'react-icons/go';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import NextLink from 'next/link'
 import "@fontsource/dejavu-mono"
 import ColorModeSwitcher from '../components/ColorModeSwitcher'
+import { colors } from './ChakraThemes';
 
+const FeedButton = () => {
+
+	const {
+		isOpen: isOpenSubscribe,
+		onOpen: onOpenSubscribe,
+		onClose: onCloseSubscribe
+	} = useDisclosure();
+
+	const modalBg = useColorModeValue(
+		colors.bodyBackground.lightMode,
+		colors.bodyBackground.darkMode
+	);
+
+	const modalFg = useColorModeValue(
+		colors.linkSecondaryTextColors.lightMode,
+		colors.linkSecondaryTextColors.darkMode
+	);
+
+	return (
+		<Menu isOpen={isOpenSubscribe}>
+			<MenuButton as={Link} variant='secondary' onMouseEnter={onOpenSubscribe} onMouseLeave={onCloseSubscribe}>
+				Subscribe
+			</MenuButton>
+			<MenuList onMouseEnter={onOpenSubscribe} onMouseLeave={onCloseSubscribe}
+					  borderRadius='0' borderColor='blue.700' backgroundColor={modalBg}
+			>
+				<MenuItem as='a' href='/rss/feed.xml' textColor={modalFg}>RSS</MenuItem>
+				<MenuItem as='a' href='/rss/atom.xml' textColor={modalFg}>Atom</MenuItem>
+				<MenuItem as='a' href='/rss/feed.json' textColor={modalFg}>JSON</MenuItem>
+			</MenuList>
+		</Menu >
+	);
+};
 
 const NextLinksRender: React.FC = () => {
 
@@ -65,6 +103,7 @@ const NextLinksRender: React.FC = () => {
 				);
 			})}
 
+			<FeedButton />
 			<ColorModeSwitcher />
 
 		</Stack>
@@ -81,13 +120,17 @@ const LargeNextLinks: React.FC = () => {
 
 const MobileNextLinks = () => {
 
-	const { isOpen, onOpen, onClose } = useDisclosure()
+	const {
+		isOpen: isOpenMobile,
+		onOpen: onOpenMobile,
+		onClose: onCloseMobile
+	} = useDisclosure();
 	const drawerColor = useColorModeValue('white', '#121419')
 
 	return (
 		<>
 			<Button
-				onClick={() => onOpen()}
+				onClick={() => onOpenMobile()}
 				m={0} p={0}
 				colorScheme='blue'
 				variant='ghost'
@@ -96,7 +139,7 @@ const MobileNextLinks = () => {
 				<GiHamburgerMenu />
 			</Button>
 
-			<Drawer onClose={onClose} isOpen={isOpen}
+			<Drawer onClose={onCloseMobile} isOpen={isOpenMobile}
 				size='full' placement='top' isFullHeight={true}
 			>
 				<DrawerOverlay />
@@ -104,7 +147,7 @@ const MobileNextLinks = () => {
 
 					<DrawerHeader align='end'>
 						<Button
-							onClick={() => onClose()}
+							onClick={() => onCloseMobile()}
 							colorScheme='blue'
 							variant='ghost'
 							border='none'>
