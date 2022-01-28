@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Sat, 22 Jan 2022 07:21:15 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 28 Jan 2022 08:29:56 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All rights reserved 2022, yashKarthik</copyright>
+        <item>
+            <title><![CDATA[Summarizing Balaji's DeFi Matrix]]></title>
+            <link>https://www.yashkarthik.xyz/posts/defi-matrix</link>
+            <guid>https://www.yashkarthik.xyz/posts/defi-matrix</guid>
+            <pubDate>Thu, 27 Jan 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[Order books, but for everything]]></description>
+            <content:encoded><![CDATA[Google News indexed all newspapers and made every local newspaper compete against every other. This killed newspapers that didn't do real reporting. The DeFi matrix will make every digital asset compete against every other. It will work as a check on the power of institutions that control fiat.]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[How Proof of Work enables Decentralized Consensus]]></title>
             <link>https://www.yashkarthik.xyz/posts/pow-de-consensus</link>

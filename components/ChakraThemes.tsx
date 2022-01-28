@@ -152,7 +152,7 @@ export const customTheme = extendTheme({
                     colors.contentTextColor.lightMode,
                     colors.contentTextColor.darkMode
                 )(props),
-                marginTop: '8px',
+                marginTop: '5px',
             },
             'li::marker': {
                 color: mode(

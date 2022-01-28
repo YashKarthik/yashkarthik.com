@@ -10,7 +10,7 @@ import {
 import Head from 'next/head';
 import "@fontsource/dejavu-mono";
 import Link from 'next/link';
-import { BsArrowRightShort } from 'react-icons/bs';
+import { BsArrowRightShort, BsGithub } from 'react-icons/bs';
 
 interface Props {
     meta: {
@@ -79,9 +79,17 @@ export default function LayoutMDX(props: Props) {
 
                 <Spacer />
 
+                <Link href={`https://github.com/yashkarthik/yashkarthik.xyz/tree/main/pages/posts/${props.meta.shortName}.mdx`} passHref={true}>
+                    <LinkStyles flexDir='row' isExternal>
+                        Edit this page on GitHub<BsArrowRightShort style={{ display: 'inline', verticalAlign: 'middle' }} />
+                    </LinkStyles>
+                </Link>
+
+                <Spacer />
+
                 <Link href='/archive' passHref={true}>
                     <LinkStyles fontWeight='bolder' flexDir='row'>
-                        More by yashKarthik <BsArrowRightShort style={{display: 'inline', verticalAlign:'middle'}} />
+                        More by yashKarthik<BsArrowRightShort style={{ display: 'inline', verticalAlign: 'middle' }} />
                     </LinkStyles>
                 </Link>
 

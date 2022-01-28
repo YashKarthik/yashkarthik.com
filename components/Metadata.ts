@@ -2,11 +2,11 @@ import path from 'path';
 import fs from 'fs';
 
 export interface Meta {
-	shortName: string,
-	title: string,
-	date: string,
-	description: string,
-	content: string
+	shortName: string;
+	title: string;
+	date: string;
+	description: string;
+	content?: string;
 };
 
 const postsDirectory = path.join(process.cwd(), 'pages/posts/')
@@ -43,8 +43,7 @@ export const firstBits = async (files:Meta[]) => {
 	// Promise.all takes an arr of promises, resolves them all then returns a single promise which
 	// resolves into an arr containin the res of all the promises.
 	await Promise.all(files.map(async (file:Meta): Promise<void> => {
-		const fileName = file.shortName + '.mdx';
-    const data = await readFirstNBytes(fileName, 290);
+    const data = file.content != null ? file.content : await readFirstNBytes(file.shortName + '.mdx', 290);
 		files[files.indexOf(file)].content = data as string;
 	}));
 

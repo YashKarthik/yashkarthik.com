@@ -11,6 +11,18 @@
     },
     "items": [
         {
+            "id": "https://www.yashkarthik.xyz/posts/defi-matrix",
+            "content_html": "Google News indexed all newspapers and made every local newspaper compete against every other. This killed newspapers that didn't do real reporting. The DeFi matrix will make every digital asset compete against every other. It will work as a check on the power of institutions that control fiat.",
+            "url": "https://www.yashkarthik.xyz/posts/defi-matrix",
+            "title": "Summarizing Balaji's DeFi Matrix",
+            "summary": "Order books, but for everything",
+            "date_modified": "2022-01-27T18:30:00.000Z",
+            "author": {
+                "name": "yashkarthik.eth",
+                "url": "https://twitter.com/_yashKarthik"
+            }
+        },
+        {
             "id": "https://www.yashkarthik.xyz/posts/pow-de-consensus",
             "url": "https://www.yashkarthik.xyz/posts/pow-de-consensus",
             "title": "How Proof of Work enables Decentralized Consensus",

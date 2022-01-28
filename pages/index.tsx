@@ -15,11 +15,11 @@ import { useState } from 'react';
 import generateRssFeed from '../components/RSSFeed';
 
 interface Meta {
-    shortName: string,
-    title: string,
-    date: string,
-    description: string,
-    content: string
+    shortName: string;
+    title: string;
+    date: string;
+    description: string;
+    content?: string;
 };
 
 
@@ -66,7 +66,7 @@ const PostRender = ({ postData }: { postData: Meta }) => {
                 <Text
                     letterSpacing='0.1px' fontSize='0.9em'
                 >
-                    {postData.content} ...{' '}
+                    {postData.content}...{' '}
                     <NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
                         <a style={{ color: 'inherit', fontSize: '13px', textDecoration:'underline' }}
                         >

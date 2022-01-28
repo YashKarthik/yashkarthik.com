@@ -31,9 +31,9 @@ export const OptimizedImage = (props:Image) => (
 
 const MDXComponents: any = {
     p: (props: string) => <Text fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1em' }} m='1rem 0 2rem 0' mx='0' {...props} />,
-    h1: (props: string) => <Heading size='lg' m='2.25rem 0 .7rem 0' {...props} />,
-    h2: (props: string) => <Heading size='md' m='2.25rem 0 .6rem 0' {...props} />,
-    h3: (props: string) => <Heading size='sm' m='2.25rem 0 .5rem 0' {...props} />,
+    h1: (props: string) => <Heading size='xl' m='2.25rem 0 .7rem 0' {...props} />,
+    h2: (props: string) => <Heading size='lg' m='2.25rem 0 .6rem 0' {...props} />,
+    h3: (props: string) => <Heading size='md' m='2.25rem 0 0 0' {...props} />,
     a: (props: any) => <ChakraLink isExternal variant='secondary' textDecoration='underline' {...props}/>,
     ul: (props: string) => <ul style={{margin:'20px 0 20px 20px'}} {...props} />,
     ol: (props: string) => <ol style={{margin:'20px 0 20px 20px'}} {...props} />,
