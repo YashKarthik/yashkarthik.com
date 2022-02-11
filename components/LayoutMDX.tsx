@@ -1,4 +1,5 @@
-import { Header } from '../components/Header';
+import { Header } from './Header';
+import Footer from './Footer';
 import {
     Container,
     Text,
@@ -79,14 +80,6 @@ export default function LayoutMDX(props: Props) {
 
                 <Spacer />
 
-                <Link href={`https://github.com/yashkarthik/yashkarthik.xyz/tree/main/pages/posts/${props.meta.shortName}.mdx`} passHref={true}>
-                    <LinkStyles flexDir='row' isExternal>
-                        Edit this page on GitHub<BsArrowRightShort style={{ display: 'inline', verticalAlign: 'middle' }} />
-                    </LinkStyles>
-                </Link>
-
-                <Spacer />
-
                 <Link href='/archive' passHref={true}>
                     <LinkStyles fontWeight='bolder' flexDir='row'>
                         More by yashKarthik<BsArrowRightShort style={{ display: 'inline', verticalAlign: 'middle' }} />
@@ -95,6 +88,7 @@ export default function LayoutMDX(props: Props) {
 
             </Container>
 
-        </div >
+            <Footer />
+        </div>
     );
 }

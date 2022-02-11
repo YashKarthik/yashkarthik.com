@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { NextPage, GetStaticProps } from 'next';
 import { Header } from '../components/Header';
+import Footer from '../components/Footer';
 import NextLink from 'next/link'
 import Head from 'next/head'
 import {
@@ -142,6 +143,7 @@ const Archive: NextPage<Metas> = ({ data }) => {
                     })
                 }
             </Container>
+            <Footer />
         </>
     );
 }

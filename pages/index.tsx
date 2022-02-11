@@ -9,6 +9,7 @@ import {
     Box
 } from '@chakra-ui/react';
 import { Header } from '../components/Header';
+import Footer from '../components/Footer';
 import { metaData, firstBits } from '../components/Metadata';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -128,7 +129,7 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
 
                 <meta name="twitter:site" content="@_yashKarthik" />
             </Head>
-            <div style={{ marginBottom: '50px' }}>
+            <div style={{ marginBottom: '30px' }}>
                 <Header />
                 <Container centerContent={true}
                     mx='auto' overflowWrap='anywhere'
@@ -149,6 +150,7 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
                     </Box>
                 </Container>
             </div>
+            <Footer />
         </>
     )
 }
