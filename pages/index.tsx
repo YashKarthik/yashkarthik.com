@@ -50,7 +50,7 @@ const PostRender = ({ postData }: { postData: Meta }) => {
         >
             <VStack align='start'>
 
-                <NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
+                <NextLink href={`/archive/${postData.shortName}`} key={postData.shortName} passHref>
                     <Link variant='heading' fontSize='1.5em'
                         p='0' m='0'
                     >
@@ -68,7 +68,7 @@ const PostRender = ({ postData }: { postData: Meta }) => {
                     letterSpacing='0.1px' fontSize='0.9em'
                 >
                     {postData.content}...{' '}
-                    <NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
+                    <NextLink href={`/archive/${postData.shortName}`} key={postData.shortName} passHref>
                         <a style={{ color: 'inherit', fontSize: '13px', textDecoration:'underline' }}
                         >
                             More</a>

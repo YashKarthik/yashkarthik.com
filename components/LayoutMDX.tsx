@@ -39,7 +39,7 @@ export default function LayoutMDX(props: Props) {
                 <meta name="og:site_name" content='yashKarthik' />
                 <meta name="og:description" content={`Essay by yashKarthik - ${props.meta.title}`} />
                 <meta name="og:type" content='article' />
-                <meta name="og:url" content={`https://yashkarthik.xyz/posts/${props.meta.shortName}`} />
+                <meta name="og:url" content={`https://yashkarthik.xyz/archive/${props.meta.shortName}`} />
                 <meta name="og:image" content='https://yashkarthik.xyz./ogImage.png' />
 
                 <meta property="article:publisher" content="https://www.yashkarthik.xyz" />

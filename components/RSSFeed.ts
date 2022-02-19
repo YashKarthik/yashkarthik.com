@@ -36,7 +36,7 @@ const generateRssFeed = async () => {
 
   posts.forEach((post) => {
 
-    const url = `https://www.yashkarthik.xyz/posts/${post.shortName}`;
+    const url = `https://www.yashkarthik.xyz/archive/${post.shortName}`;
     feed.addItem({
 
       title: post.title,

@@ -49,7 +49,7 @@ const PostRender = ({ postData }: { postData: Meta }) => {
         <Container pt='30px' maxW='70ch'>
             <HStack align='start'>
                 <VStack align='stretch'>
-                    <NextLink href={`/posts/${postData.shortName}`} key={postData.shortName} passHref>
+                    <NextLink href={`/archive/${postData.shortName}`} key={postData.shortName} passHref>
                         <Link fontSize='1.1em' fontWeight='700'
                             p='0' m='0' variant='heading'
                         >

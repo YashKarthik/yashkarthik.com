@@ -176,7 +176,7 @@ export const Header: React.FC = () => {
 	if (isMobile === true) {
 		return (
 			<Flex flexDir='row' justify='stretch'>
-				<Box m={pathname.slice(0, 7) == '/posts/' ? '10px 0 50px 20px': '0'}> {/* Insert padding below header for mobile if reading a post*/}
+				<Box m={pathname.slice(0, 7) == '/archive/' ? '10px 0 50px 20px': '0'}> {/* Insert padding below header for mobile if reading a post*/}
 					<NextLink href={'/'} passHref>
 						<Link p='10px 20px 0 0' m='0'
 							fontFamily='dejavu mono' fontSize='xl'

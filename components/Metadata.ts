@@ -9,11 +9,11 @@ export interface Meta {
 	content?: string;
 };
 
-const postsDirectory = path.join(process.cwd(), 'pages/posts/')
+const postsDirectory = path.join(process.cwd(), 'pages/archive/')
 
 // gets metadata exported in .mdx
 const getMeta = async (fileName:string) => {
-	const meta: Promise<Meta> = await import(`../pages/posts/${fileName}`)
+	const meta: Promise<Meta> = await import(`../pages/archive/${fileName}`)
 		.then(m => m.meta)
 		.catch(e => console.log('ERRORRRR in getMeta()', e));
 

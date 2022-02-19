@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Sat, 19 Feb 2022 07:02:58 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 19 Feb 2022 07:21:19 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -15,36 +15,32 @@
         <copyright>All rights reserved 2022, yashKarthik</copyright>
         <item>
             <title><![CDATA[NFTs are copyright]]></title>
-            <link>https://www.yashkarthik.xyz/posts/nft-law</link>
-            <guid>https://www.yashkarthik.xyz/posts/nft-law</guid>
+            <link>https://www.yashkarthik.xyz/archive/nft-law</link>
+            <guid>https://www.yashkarthik.xyz/archive/nft-law</guid>
             <pubDate>Thu, 10 Feb 2022 18:30:00 GMT</pubDate>
             <content:encoded><![CDATA[NFTs and copyright, both do the same thing - establish a connection between the asset and the creator, providing them with ownership over their work, and enabling uniqueness. The only difference being that NFTs are not (yet) recognized by law.]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Summarizing Balaji's DeFi Matrix]]></title>
-            <link>https://www.yashkarthik.xyz/posts/defi-matrix</link>
-            <guid>https://www.yashkarthik.xyz/posts/defi-matrix</guid>
+            <link>https://www.yashkarthik.xyz/archive/defi-matrix</link>
+            <guid>https://www.yashkarthik.xyz/archive/defi-matrix</guid>
             <pubDate>Thu, 27 Jan 2022 18:30:00 GMT</pubDate>
             <description><![CDATA[Order books, but for everything]]></description>
             <content:encoded><![CDATA[Google News indexed all newspapers and made every local newspaper compete against every other. This killed newspapers that didn't do real reporting. The DeFi matrix will make every digital asset compete against every other. It will work as a check on the power of institutions that control fiat.]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[How Proof of Work enables Decentralized Consensus]]></title>
-            <link>https://www.yashkarthik.xyz/posts/pow-de-consensus</link>
-            <guid>https://www.yashkarthik.xyz/posts/pow-de-consensus</guid>
+            <link>https://www.yashkarthik.xyz/archive/pow-de-consensus</link>
+            <guid>https://www.yashkarthik.xyz/archive/pow-de-consensus</guid>
             <pubDate>Fri, 07 Jan 2022 18:30:00 GMT</pubDate>
             <description><![CDATA[Using computational work as a basis for what to trust]]></description>
-            <content:encoded><![CDATA[Suppose I give Alice 10 dollars and she later gives 5 dollars to Bob. Historically, we represented such transactions by transferring an object - cash. With the internet, transacting via physical cash became impractical, so we came up with ledgers. Then the problem was who maintains the trut]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[What is State in Ethereum [Mirror]]]></title>
-            <link>https://www.yashkarthik.xyz/posts/ethState</link>
-            <guid>https://www.yashkarthik.xyz/posts/ethState</guid>
+            <link>https://www.yashkarthik.xyz/archive/ethState</link>
+            <guid>https://www.yashkarthik.xyz/archive/ethState</guid>
             <pubDate>Tue, 14 Dec 2021 18:30:00 GMT</pubDate>
             <description><![CDATA[From a global ledger to a decentralized state machine]]></description>
-            <content:encoded><![CDATA[Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.
-
-A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bit]]></content:encoded>
         </item>
     </channel>
 </rss>
