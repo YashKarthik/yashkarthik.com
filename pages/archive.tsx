@@ -134,7 +134,6 @@ const Archive: NextPage<Metas> = ({ data }) => {
 
                 {!useSearch || useSearch.length < 1 || useSearch == undefined ?
                     data.map((post: Meta) => {
-                        console.log('aosehuant')
                         return (<PostRender postData={post} key={post.shortName} />);
                     })
                     : useSearch.map((post) => {
