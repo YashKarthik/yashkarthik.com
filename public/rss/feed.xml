@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Sat, 19 Feb 2022 07:21:19 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 12 Mar 2022 02:31:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All rights reserved 2022, yashKarthik</copyright>
+        <item>
+            <title><![CDATA[Bootstrapping a Rollup]]></title>
+            <link>https://www.yashkarthik.xyz/archive/bootstrap-rollup</link>
+            <guid>https://www.yashkarthik.xyz/archive/bootstrap-rollup</guid>
+            <pubDate>Fri, 11 Mar 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[Rollups achieve economies of scale when more people use them]]></description>
+            <content:encoded><![CDATA[A rollup's smaller user base means that each user has to pay a large fraction of the fees, increasing the cost per tx, and chasing away existing users. With a larger user base the gas will be split between more users and each user would pay a smaller fraction of the fees ⇒ lower cost per tx.]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[NFTs are copyright]]></title>
             <link>https://www.yashkarthik.xyz/archive/nft-law</link>

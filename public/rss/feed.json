@@ -11,6 +11,18 @@
     },
     "items": [
         {
+            "id": "https://www.yashkarthik.xyz/archive/bootstrap-rollup",
+            "content_html": "A rollup's smaller user base means that each user has to pay a large fraction of the fees, increasing the cost per tx, and chasing away existing users. With a larger user base the gas will be split between more users and each user would pay a smaller fraction of the fees ⇒ lower cost per tx.",
+            "url": "https://www.yashkarthik.xyz/archive/bootstrap-rollup",
+            "title": "Bootstrapping a Rollup",
+            "summary": "Rollups achieve economies of scale when more people use them",
+            "date_modified": "2022-03-11T18:30:00.000Z",
+            "author": {
+                "name": "yashkarthik.eth",
+                "url": "https://twitter.com/_yashKarthik"
+            }
+        },
+        {
             "id": "https://www.yashkarthik.xyz/archive/nft-law",
             "content_html": "NFTs and copyright, both do the same thing - establish a connection between the asset and the creator, providing them with ownership over their work, and enabling uniqueness. The only difference being that NFTs are not (yet) recognized by law.",
             "url": "https://www.yashkarthik.xyz/archive/nft-law",
