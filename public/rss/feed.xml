@@ -4,12 +4,12 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Tue, 22 Mar 2022 14:26:52 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 13 Apr 2022 11:32:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
-        <generator>Feed for Node.js</generator>
+        <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>yashKarthik</title>
-            <url>https://www.yashkarthik.xyz</url>
+            <url>https://www.yashkarthik.xyz/public/ogImage.png</url>
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All rights reserved 2022, yashKarthik</copyright>

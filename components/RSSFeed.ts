@@ -19,16 +19,13 @@ const generateRssFeed = async () => {
     description: "Essays by yashKarthik on web3, programmig, and physics",
     id: siteURL,
     link: siteURL,
-    image: siteURL,
-    favicon: `{siteURL}/favicon.ico`,
+    image: `${siteURL}/public/ogImage.png`,
+    favicon: `${siteURL}/favicon.ico`,
     copyright: `All rights reserved ${date.getFullYear()}, yashKarthik`,
     updated: date,
-    generator: "Feed for Node.js",
-
+    generator: "https://github.com/jpmonette/feed",
     feedLinks: {
       rss2: `{siteURL}/rss/feed.xml`,
-      json: `{siteURL}/rss/feed.json`,
-      atom: `{siteURL}/rss/atom.xml`,
     },
 
     author,
@@ -53,9 +50,6 @@ const generateRssFeed = async () => {
 
   fs.mkdirSync("./public/rss", { recursive: true });
   fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
-  fs.writeFileSync("./public/rss/atom.xml", feed.atom1());
-  fs.writeFileSync("./public/rss/feed.json", feed.json1());
-
 };
 
 export default generateRssFeed;

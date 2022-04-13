@@ -133,13 +133,13 @@ export const customTheme = extendTheme({
                 minH: '100%',
                 minW: '100%',
 
-                borderTopWidth: { base: 'none', md: '12px' },
-                borderTopStyle: { base: 'none', md: 'solid' },
-                borderTopColor: { base: 'none', md: 'blue.700' },
+                borderTopWidth: { base: 'null', md: '12px' },
+                borderTopStyle: { base: 'null', md: 'solid' },
+                borderTopColor: { base: 'null', md: 'blue.700' },
 
-                borderLeftWidth: { base: 'none', md: '20px' },
-                borderLeftStyle: { base: 'none', md: 'solid' },
-                borderLeftColor: { base: 'none', md: 'blue.700' },
+                borderLeftWidth: { base: 'null', md: '20px' },
+                borderLeftStyle: { base: 'null', md: 'solid' },
+                borderLeftColor: { base: 'null', md: 'blue.700' },
             },
             body: {
                 background: mode(

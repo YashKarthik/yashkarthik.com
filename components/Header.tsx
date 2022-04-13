@@ -55,8 +55,6 @@ const FeedButton = () => {
 					  borderRadius='0' borderColor='blue.700' backgroundColor={modalBg}
 			>
 				<MenuItem as='a' href='/rss/feed.xml' textColor={modalFg}>RSS</MenuItem>
-				<MenuItem as='a' href='/rss/atom.xml' textColor={modalFg}>Atom</MenuItem>
-				<MenuItem as='a' href='/rss/feed.json' textColor={modalFg}>JSON</MenuItem>
 			</MenuList>
 		</Menu >
 	);
@@ -176,15 +174,14 @@ export const Header: React.FC = () => {
 	if (isMobile === true) {
 		return (
 			<Flex flexDir='row' justify='stretch'>
-				<Box m={pathname.slice(0, 7) == '/archive/' ? '10px 0 50px 20px': '0'}> {/* Insert padding below header for mobile if reading a post*/}
+				<Box m={pathname.slice(0, 7) == '/archive/' ? '10px 0 50px 20px': '10px'}> {/* Inserts padding below header for mobile if reading a post*/}
 					<NextLink href={'/'} passHref>
 						<Link p='10px 20px 0 0' m='0'
 							fontFamily='dejavu mono' fontSize='xl'
 							fontWeight='700' letterSpacing='0.8px'
 							_hover={{ cursor: 'pointer' }}
 							bgGradient={textGradient}
-							bgClip='text'
-						>
+							bgClip='text'>
 							yashKarthik
 						</Link>
 					</NextLink>
