@@ -1,4 +1,3 @@
-//import type { NextPage, GetStaticProps, } from 'next'
 import NextLink from 'next/link';
 import {
     Container,
@@ -20,10 +19,8 @@ interface Meta {
     title: string;
     date: string;
     description: string;
-    content?: string;
+    long_desc?: string;
 };
-
-
 
 export const getStaticProps = async () => {
 
@@ -67,7 +64,7 @@ const PostRender = ({ postData }: { postData: Meta }) => {
                 <Text
                     letterSpacing='0.1px' fontSize='0.9em'
                 >
-                    {postData.content}...{' '}
+                    {postData.long_desc}...{' '}
                     <NextLink href={`/archive/${postData.shortName}`} key={postData.shortName} passHref>
                         <a style={{ color: 'inherit', fontSize: '13px', textDecoration:'underline' }}
                         >

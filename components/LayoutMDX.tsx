@@ -11,7 +11,7 @@ import {
 import Head from 'next/head';
 import "@fontsource/dejavu-mono";
 import Link from 'next/link';
-import { BsArrowRightShort, BsGithub } from 'react-icons/bs';
+import { BsArrowRightShort } from 'react-icons/bs';
 
 interface Props {
     meta: {

@@ -5,7 +5,7 @@ import { metaData } from "./Metadata";
 const generateRssFeed = async () => {
 
   const posts = await metaData()
-    .then(junk => junk.props.sortedData);
+    .then(p => p.props.sortedData);
   const siteURL = 'https://www.yashkarthik.xyz';
   const date = new Date();
   const author = {
@@ -19,19 +19,19 @@ const generateRssFeed = async () => {
     description: "Essays by yashKarthik on web3, programmig, and physics",
     id: siteURL,
     link: siteURL,
-    image: `${siteURL}/public/ogImage.png`,
+    image: `${siteURL}/ogImage.png`,
     favicon: `${siteURL}/favicon.ico`,
-    copyright: `All rights reserved ${date.getFullYear()}, yashKarthik`,
+    copyright: `All text licensed under the Creative Commons Attribution 4.0 International License`,
     updated: date,
     generator: "https://github.com/jpmonette/feed",
     feedLinks: {
-      rss2: `{siteURL}/rss/feed.xml`,
+      rss2: `{siteURL}/feed.xml`,
     },
 
     author,
   });
 
-  posts.forEach((post) => {
+  posts.forEach(async (post) => {
 
     const url = `https://www.yashkarthik.xyz/archive/${post.shortName}`;
     feed.addItem({
@@ -40,7 +40,7 @@ const generateRssFeed = async () => {
       id: url,
       link: url,
       description: post.description,
-      content: post.content,
+      content: "Dummy content will be fixed soon",
       author: [author],
       contributor: [author],
       date: new Date(post.date),
@@ -48,8 +48,7 @@ const generateRssFeed = async () => {
     });
   });
 
-  fs.mkdirSync("./public/rss", { recursive: true });
-  fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
+  fs.writeFileSync("./public/feed.xml", feed.rss2());
 };
 
 export default generateRssFeed;

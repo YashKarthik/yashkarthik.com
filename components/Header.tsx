@@ -54,7 +54,7 @@ const FeedButton = () => {
 			<MenuList onMouseEnter={onOpenSubscribe} onMouseLeave={onCloseSubscribe}
 					  borderRadius='0' borderColor='blue.700' backgroundColor={modalBg}
 			>
-				<MenuItem as='a' href='/rss/feed.xml' textColor={modalFg}>RSS</MenuItem>
+				<MenuItem as='a' href='/feed.xml' textColor={modalFg}>RSS</MenuItem>
 			</MenuList>
 		</Menu >
 	);
