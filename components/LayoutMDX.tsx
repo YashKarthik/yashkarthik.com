@@ -1,5 +1,9 @@
+import Head from 'next/head';
+import Link from 'next/link';
 import { Header } from './Header';
-import Footer from './Footer';
+import { Footer } from './Footer';
+import { BsArrowRightShort } from 'react-icons/bs';
+import "@fontsource/dejavu-mono";
 import {
     Container,
     Text,
@@ -8,10 +12,6 @@ import {
     Spacer,
     Link as LinkStyles
 } from '@chakra-ui/react';
-import Head from 'next/head';
-import "@fontsource/dejavu-mono";
-import Link from 'next/link';
-import { BsArrowRightShort } from 'react-icons/bs';
 
 interface Props {
     meta: {

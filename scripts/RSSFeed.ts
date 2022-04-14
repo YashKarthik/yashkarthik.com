@@ -25,7 +25,8 @@ export const generateRssFeed = async () => {
     updated: date,
     generator: "https://github.com/jpmonette/feed",
     feedLinks: {
-      rss2: `{siteURL}/feed.xml`,
+      rss2: `${siteURL}/feed.xml`,
+      atom: `${siteURL}/feed.xml`,
     },
 
     author,
@@ -33,14 +34,14 @@ export const generateRssFeed = async () => {
 
   posts.forEach(async (post) => {
 
-    const url = `https://www.yashkarthik.xyz/archive/${post.shortName}`;
+    const url = `${siteURL}/archive/${post.shortName}`;
     feed.addItem({
 
       title: post.title,
       id: url,
       link: url,
       description: post.description,
-      content: "Dummy content will be fixed soon",
+      content: `Will be fixed soon, for now head to: ${url}`,
       author: [author],
       contributor: [author],
       date: new Date(post.date),
