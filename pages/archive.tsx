@@ -15,7 +15,7 @@ import {
     Link,
     useColorModeValue,
 } from '@chakra-ui/react'
-import { metaData } from '../components/Metadata';
+import { metaData } from '../scripts/Metadata';
 import Fuse from 'fuse.js';
 
 interface Meta {

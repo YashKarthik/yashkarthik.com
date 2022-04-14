@@ -1,4 +1,10 @@
+import Head from 'next/head';
 import NextLink from 'next/link';
+import { useState } from 'react';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+import { metaData, Meta } from '../scripts/Metadata';
+import { generateRssFeed } from '../scripts/RSSFeed';
 import {
     Container,
     Text,
@@ -7,34 +13,17 @@ import {
     Link,
     Box
 } from '@chakra-ui/react';
-import { Header } from '../components/Header';
-import Footer from '../components/Footer';
-import { metaData, firstBits } from '../components/Metadata';
-import Head from 'next/head';
-import { useState } from 'react';
-import generateRssFeed from '../components/RSSFeed';
-
-interface Meta {
-    shortName: string;
-    title: string;
-    date: string;
-    description: string;
-    long_desc?: string;
-};
 
 export const getStaticProps = async () => {
 
     await generateRssFeed();
 
-    const allFilesMetadata = await metaData();
-    const metadata = allFilesMetadata.props.sortedData;
-    const AllFileData = await firstBits(metadata)
-        .then(arrMetaData => { return arrMetaData; })
-        .catch(e => console.log('ERROr in reading', e))
+    const metadata = await metaData()
+        .then(m => m.props.sortedData);
 
     return {
         props: {
-            AllFileData
+            metadata
         }
     }
 }
@@ -106,7 +95,7 @@ const RenderPosts = ({ props }: { props: Meta[] }) => {
     )
 }
 
-const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
+const Home = ({ metadata }: { metadata: Meta[] }) => {
 
     return (
         <>
@@ -143,7 +132,7 @@ const Home = ({ AllFileData }: { AllFileData: Meta[] }) => {
                     </Text>
                     <Divider />
                     <Box>
-                        <RenderPosts props={AllFileData} />
+                        <RenderPosts props={metadata} />
                     </Box>
                 </Container>
             </div>

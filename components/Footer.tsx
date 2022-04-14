@@ -5,7 +5,7 @@ import {
 } from "@chakra-ui/react";
 import NextLink from 'next/link';
 
-const Footer = () => {
+export const Footer = () => {
 
   return (
     <Container centerContent={true} textAlign='center'
@@ -24,5 +24,3 @@ const Footer = () => {
   );
 
 }
-
-export default Footer;

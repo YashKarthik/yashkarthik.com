@@ -26,7 +26,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import NextLink from 'next/link'
 import "@fontsource/dejavu-mono"
 import ColorModeSwitcher from '../components/ColorModeSwitcher'
-import { colors } from './ChakraThemes';
+import { colors } from '../themes/ChakraThemes';
 
 const FeedButton = () => {
 

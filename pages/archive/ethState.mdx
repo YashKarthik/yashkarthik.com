@@ -19,7 +19,7 @@ More accurately, the World State is stored as a [Merkle Patricia Trie](https://e
 Any change in the data on the leaves propagates to an inconsistency higher up the trie.
 
 import merkleTree  from '../../public/blog-assets/merkle-tree.png'
-import { OptimizedImage } from '../../components/MDXStyles.tsx';
+import { OptimizedImage } from '../../themes/MDXStyles.tsx';
 
 <OptimizedImage alt='test'  src={merkleTree}
 title='The value of a node depends on the value of the leaves.'
@@ -122,7 +122,8 @@ export const meta = {
 	shortName: 'ethState',
 	title: 'What is State in Ethereum [Mirror]',
 	date: 'Dec 15, 2021',
-	description: 'From a global ledger to a decentralized state machine'
+	description: 'From a global ledger to a decentralized state machine',
+    long_desc: "Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools. A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot"
 }
 
 import LayoutMDX from '../../components/LayoutMDX.tsx';

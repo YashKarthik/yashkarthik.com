@@ -2,7 +2,7 @@ import fs from "fs";
 import { Feed } from "feed";
 import { metaData } from "./Metadata";
 
-const generateRssFeed = async () => {
+export const generateRssFeed = async () => {
 
   const posts = await metaData()
     .then(p => p.props.sortedData);
@@ -50,5 +50,3 @@ const generateRssFeed = async () => {
 
   fs.writeFileSync("./public/feed.xml", feed.rss2());
 };
-
-export default generateRssFeed;
