@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Thu, 14 Apr 2022 07:21:30 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 18 Jun 2022 12:03:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,13 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All text licensed under the Creative Commons Attribution 4.0 International License</copyright>
+        <item>
+            <title><![CDATA[Nuclear Energy - where's the energy coming from]]></title>
+            <link>https://www.yashkarthik.xyz/archive/nuke-energy</link>
+            <guid>https://www.yashkarthik.xyz/archive/nuke-energy</guid>
+            <pubDate>Fri, 17 Jun 2022 18:30:00 GMT</pubDate>
+            <content:encoded><![CDATA[Will be fixed soon, for now head to: https://www.yashkarthik.xyz/archive/nuke-energy]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Nouns and CC0]]></title>
             <link>https://www.yashkarthik.xyz/archive/nouns-cc0</link>

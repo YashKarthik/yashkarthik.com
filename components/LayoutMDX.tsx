@@ -31,6 +31,7 @@ export default function LayoutMDX(props: Props) {
             <Head>
                 <title>{props.meta.title}</title>
                 <link rel="icon" href="/favicon.ico" />
+
                 <meta name="description" content={`Essay by yashKarthik - ${props.meta.title}`} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
