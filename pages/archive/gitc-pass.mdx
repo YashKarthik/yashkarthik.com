@@ -69,20 +69,22 @@ Ceramic is a decentralized network for composable data, that extends the IPFS fi
 5. The app now calculates user's personhood score using the [SDK Scorer](https://github.com/gitcoinco/passport-sdk/tree/main/packages/scorer)
 6. Depending on the user's verification level, they're granted certain rights and levels of access.
 
-## Conclusion
+# Conclusion
 
 In conclusion, Gitcoin Passport is a way to store your existing identity crendentials in a decentralized and verifiable format.
 
-### FAQs
+## FAQs
 
-- What is stored in my passport
-	The DID associated with your Ethereum address and the verifiable credential issued for each service. It's stored as json.
+### What is stored in my passport?
 
-- Who can read this data
-	Anyone can read from Ceramic. But only you can write.
+The DID associated with your Ethereum address and the verifiable credential issued for each service. It's stored as json.
 
-- Doxxing
-	- No personally identifiable information stored in passport.
-	- Unique identifier is stored in the VCs, which cannot be brute forced.
+### Who can read this data
+  
+Anyone can read from Ceramic. But only you can write.
+
+### Doxxing
+- No personally identifiable information stored in passport.
+- Unique identifier is stored in the VCs, which cannot be brute forced.
 
 export default ({ children }) => <LayoutMDX meta={meta} content={children} />
