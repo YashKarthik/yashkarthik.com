@@ -1,6 +1,7 @@
 //import remarkMath from "remark-math";
 //import rehypeMathjax from "rehype-mathjax";
 
+const withTM = require('next-transpile-modules')(['three'])
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -10,7 +11,7 @@ const withMDX = require('@next/mdx')({
     // providerImportSource: "@mdx-js/react",
   },
 })
-module.exports = withMDX({
+module.exports = withTM(withMDX({
   // Append the default value with md extensions
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-})
+}))

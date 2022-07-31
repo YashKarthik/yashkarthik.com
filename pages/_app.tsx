@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
-import { MDXProvider } from '@mdx-js/react';
 import MDXComponents from '../themes/MDXStyles';
 import '../styles/globals.css'
 import { customTheme } from '../themes/ChakraThemes'
