@@ -21,9 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
 		<ChakraProvider theme={customTheme}>
-			<MDXProvider components={MDXComponents}>
-				<Component {...pageProps} />
-			</MDXProvider>
+			<Component {...pageProps} components={MDXComponents} />
 		</ChakraProvider>
 	);
 };
