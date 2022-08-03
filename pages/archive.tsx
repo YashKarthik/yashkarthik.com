@@ -1,94 +1,91 @@
-// TODO: sort post, group by month
 import { useState } from 'react';
 import { NextPage, GetStaticProps } from 'next';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { colors } from '../themes/ChakraThemes';
 import NextLink from 'next/link'
 import Head from 'next/head'
 import {
-    Text,
-    Container,
-    VStack,
-    Heading,
-    HStack,
-    Input,
-    Link,
-    useColorModeValue,
+  Text,
+  Container,
+  VStack,
+  Heading,
+  HStack,
+  Input,
+  Link,
 } from '@chakra-ui/react'
 import { metaData } from '../scripts/Metadata';
 import Fuse from 'fuse.js';
 
 interface Meta {
-    shortName: string,
-    title: string,
-    date: string,
-    description: string
+  shortName: string,
+  title: string,
+  date: string,
+  description: string
 };
 
 interface Metas {
-    data: Meta[]
+  data: Meta[]
 }
-
 
 
 export const getStaticProps: GetStaticProps<Metas> = async () => {
 
-    const allFilesMetadata = await metaData();
-    const data = allFilesMetadata.props.sortedData;
+  const allFilesMetadata = await metaData();
+  const data = allFilesMetadata.props.sortedData;
 
-    return {
-        props: {
-            data
-        }
+  return {
+    props: {
+      data
     }
+  }
 }
 
 const PostRender = ({ postData }: { postData: Meta }) => {
 
-    return (
-        <Container pt='30px' maxW='70ch'>
-            <HStack align='start'>
-                <VStack align='stretch'>
-                    <NextLink href={`/archive/${postData.shortName}`} key={postData.shortName} passHref>
-                        <Link fontSize='1.1em' fontWeight='700'
-                            p='0' m='0' variant='heading'
-                        >
-                            {postData.title}
-                        </Link>
-                    </NextLink>
-                    <Text variant='secondary' fontWeight='bolder'
-                          fontFamily='monospace'
-                          fontSize='sm'
-                    >
-                      {postData.date}
-                    </Text>
-                </VStack>
-            </HStack>
-        </Container>
-    );
+  return (
+    <Container pt='30px' maxW='70ch'>
+      <HStack align='start'>
+        <VStack align='stretch'>
+          <NextLink href={`/archive/${postData.shortName}`} key={postData.shortName} passHref>
+            <Link fontSize='1.1em' fontWeight='700'
+                  p='0' m='0' variant='heading'
+            >
+              {postData.title}
+            </Link>
+          </NextLink>
+          <Text
+            variant='secondary'
+            fontWeight='bolder'
+            fontSize='sm'>
+            {postData.date}
+          </Text>
+        </VStack>
+      </HStack>
+    </Container>
+  );
 
 }
 
 interface FuseResult {
-    item: string,
+  item: string,
 };
 
 const searchPosts = (listOfPosts: FuseResult[] | null, data: Meta[]) => {
 
-    const results = listOfPosts?.map(post => {
-        for (let index = 0; index < data.length; index++) {
-            if (data[index].title == post.item) {
-                return (data[index]);
-            }
-        }
-    })
+  const results = listOfPosts?.map(post => {
+    for (let index = 0; index < data.length; index++) {
+      if (data[index].title == post.item) {
+        return (data[index]);
+      }
+    }
+  })
 
-    return results;
+  return results;
 }
 
 const Archive: NextPage<Metas> = ({ data }) => {
 
-    const searchTextColor = useColorModeValue('black', 'white');
     const options = {
         includeScore: true
     }
@@ -119,17 +116,20 @@ const Archive: NextPage<Metas> = ({ data }) => {
             </Head>
             <Header />
             <Container alignItems='start' mb='100px'>
-                <Heading variant='title'
+                <Heading
                     m='50px 0 10px 20px'
                 >
                     Archive
                 </Heading>
 
-                <Input variant='flushed' placeholder='Search...'
-                    borderTop='none' borderX='none'
-                    color={searchTextColor}
-                    my='10px' mx='20px'
-                    onChange={e => setSearch(searchPosts(fuse.search(e.target.value), data))}
+                <Input
+                  variant='flushed'
+                  placeholder='Search...'
+                  borderTop='none'
+                  borderX='none'
+                  focusBorderColor={colors.accent.darkMode}
+                  my='10px' mx='20px'
+                  onChange={e => setSearch(searchPosts(fuse.search(e.target.value), data))}
                 />
 
                 {!useSearch || useSearch.length < 1 || useSearch == undefined ?

@@ -58,14 +58,16 @@ export default function LayoutMDX(props: Props) {
                 overflowWrap='anywhere'
             >
 
-                <Text fontFamily='DejaVu Mono' fontSize='0.9em' fontWeight='bolder'
+                <Text fontFamily='Space Mono' fontSize='0.9em' fontWeight='bolder'
                     variant='secondary' p='0' m='0 0 20px 0'
                 >
                     {props.meta.date}
                 </Text>
-                <Heading p='0 0 5px 0' m='0' size='xl' fontWeight='bolder'
-                    variant='title'
-                >
+                <Heading
+                  p='0 0 5px 0'
+                  m='0'
+                  size='xl'
+                  fontWeight='bolder' >
                     {props.meta.title}
                 </Heading>
 

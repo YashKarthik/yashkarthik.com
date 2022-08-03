@@ -15,7 +15,7 @@ export const Footer = () => {
       <Text variant='secondary'>
         All text licensed under the Creative Commons Attribution 4.0 International License{' '}
         <NextLink href="/copyright" passHref>
-	      <Link p='0' m='0' variant='secondary'>
+	      <Link p='0' m='0'>
             (more)
 	      </Link>
         </NextLink>

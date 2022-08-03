@@ -33,7 +33,7 @@ const NotFound = (): JSX.Element => {
 						m='2em'
 						border='2px' borderRadius='1px'
 						backgroundColor='white'
-						textColor='gray.700' fontFamily='DejaVu Mono' letterSpacing='0.09em' fontWeight='semibold'
+						textColor='gray.700' fontFamily='Space Mono' letterSpacing='0.09em' fontWeight='semibold'
 						_hover={{cursor:'pointer'}}
 					>
 						HOMEPAGE

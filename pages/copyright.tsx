@@ -30,7 +30,7 @@ const Copyright: NextPage = () => {
             </Head>
             <Header />
             <Container alignItems='start' mb='100px'>
-                <Heading variant='title' m='50px 0 50px 20px' >
+                <Heading m='50px 0 50px 20px' >
                     Copyright
                 </Heading>
 

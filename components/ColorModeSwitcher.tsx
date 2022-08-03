@@ -1,24 +1,26 @@
 import React from 'react';
 import { useColorMode, useColorModeValue, IconButton } from '@chakra-ui/react';
 import { BiSun, BiMoon } from 'react-icons/bi'
+import { colors } from '../themes/ChakraThemes';
 
 const ColorModeSwitcher = (): JSX.Element => {
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(BiMoon, BiSun);
-	const iconColor = useColorModeValue('blue.700', 'blue.300');
-	const bg = useColorModeValue('white', '#0d0d0f')
+	const iconColor = useColorModeValue(
+    colors.accent.darkMode,
+    colors.accent.darkMode
+  );
 
   return (
     <IconButton
       size="sm" fontSize="lg"
-			pb='2' border='0'
+			pt='3' m='0' border='0'
       aria-label={`Switch to ${text} mode`}
       variant="ghost"
       color={iconColor}
       onClick={toggleColorMode}
       icon={<SwitchIcon />}
-			backgroundColor={bg}
 			_hover={{fontSize:'xl'}}
     />
   );

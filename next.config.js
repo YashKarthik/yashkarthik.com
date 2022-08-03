@@ -15,3 +15,10 @@ module.exports = withTM(withMDX({
   // Append the default value with md extensions
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 }))
+
+rewrites: async () => [
+  {
+    source: "/public/file.html",
+    destination: "/pages/api/file.js",
+  },
+]
