@@ -6,6 +6,7 @@ export const generateRssFeed = async () => {
 
   const posts = await metaData()
     .then(p => p.props.sortedData);
+
   const siteURL = 'https://www.yashkarthik.xyz';
   const date = new Date();
   const author = {

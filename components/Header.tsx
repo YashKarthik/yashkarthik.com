@@ -2,10 +2,9 @@ import React from 'react';
 import "@fontsource/space-mono"
 import NextLink from 'next/link'
 import { GoX } from 'react-icons/go';
-import { useRouter } from 'next/router';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { colors } from '../themes/ChakraThemes';
-import ColorModeSwitcher from '../components/ColorModeSwitcher'
+//import ColorModeSwitcher from '../components/ColorModeSwitcher'
 import { useBetterMediaQuery } from '../scripts/useBetterMediaQuery';
 import {
   Flex,
@@ -40,7 +39,7 @@ const FeedButton = () => {
 
   const modalBg = useColorModeValue(
 	  colors.backGround.darkMode,
-	  colors.backGround.darkMode
+    '#121419'
   );
 
   const modalFg = useColorModeValue(
@@ -69,7 +68,8 @@ const FeedButton = () => {
 		  onMouseLeave={onCloseSubscribe}
 		  borderRadius='0'
 		  borderColor={colors.accent.darkMode}
-		  backgroundColor={modalBg}>
+		  backgroundColor={modalBg}
+    >
 		  <MenuItem as='a' href='/feed.xml' textColor={modalFg}>RSS</MenuItem>
 	  </MenuList>
 
@@ -235,7 +235,6 @@ const IconAnimation = ({flag}:{flag:boolean}) => {
 export const Header: React.FC = () => {
 
   const isMobile  = useBetterMediaQuery("(max-width: 768px)");
-  const { pathname } = useRouter();
   const [flag, setFlag] = useBoolean()
 
 
