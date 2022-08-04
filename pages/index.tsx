@@ -150,7 +150,7 @@ const Home = ({ metadata }: { metadata: Meta[] }) => {
           <Text
             pb='10px'
             fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}>
-            I explore my curiousity and share what I learn along the way. Essays about web3,
+            I explore my curiosity and share what I learn along the way. Essays about web3,
             programming, and occasionally physics. It&apos;s my excuse for playing around with
             new ideas and practicing the craft of writing.
           </Text>

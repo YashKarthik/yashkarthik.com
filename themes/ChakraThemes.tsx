@@ -48,12 +48,28 @@ export const customTheme = extendTheme({
 
         blockquote: (props: any) => ({
           backgroundColor: mode(
-            'blue.50',
-            'rgba(45, 105, 188, 0.08)'
+            colors.accent.darkMode,
+            'rgba(0, 255, 210, 0.1)'
           )(props),
           fontFamily: 'Space Grotesk',
-          fontSize: '0.93em', fontStyle: 'italic',
+          fontSize: '0.93em',
+          fontStyle: 'italic',
           m: '0', p: '13px 2px 1px 10px'
+        }),
+        headerBar: (props: any) => ({
+          color: mode(
+            colors.headingText.darkMode,
+            colors.headingText.darkMode
+          )(props),
+          fontFamily: 'Space Mono',
+          fontSize: 'sm',
+          _hover: {
+            textColor: mode(
+              colors.accent.darkMode,
+              colors.accent.darkMode,
+            )(props),
+            textDecoration: 'none'
+          }
         }),
       },
     },

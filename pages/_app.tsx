@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
 import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
-import MDXComponents from '../themes/MDXStyles';
 import '../styles/globals.css'
+import { useEffect } from 'react';
+import type { AppProps } from 'next/app';
+import MDXComponents from '../themes/MDXStyles';
+import { ChakraProvider } from '@chakra-ui/react';
 import { customTheme } from '../themes/ChakraThemes'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -20,9 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
 		<ChakraProvider theme={customTheme}>
-			<Component {...pageProps} components={MDXComponents} />
+			<Component components={MDXComponents} {...pageProps}/>
 		</ChakraProvider>
 	);
 };
 
-export default MyApp
+export default MyApp;

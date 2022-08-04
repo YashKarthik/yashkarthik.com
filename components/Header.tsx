@@ -1,7 +1,12 @@
 import React from 'react';
-import ColorModeSwitcher from '../components/ColorModeSwitcher'
+import "@fontsource/space-mono"
 import NextLink from 'next/link'
+import { GoX } from 'react-icons/go';
 import { useRouter } from 'next/router';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { colors } from '../themes/ChakraThemes';
+import ColorModeSwitcher from '../components/ColorModeSwitcher'
+import { useBetterMediaQuery } from '../scripts/useBetterMediaQuery';
 import {
   Flex,
   Box,
@@ -16,9 +21,7 @@ import {
   Button,
   Stack,
   Link,
-  Icon,
   useDisclosure,
-  useMediaQuery,
   useColorModeValue,
   Menu,
   MenuButton,
@@ -27,55 +30,47 @@ import {
   SlideFade,
 } from '@chakra-ui/react';
 
-import { GoX } from 'react-icons/go';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { AiOutlineHome } from 'react-icons/ai';
-
-import { colors } from '../themes/ChakraThemes';
-import "@fontsource/space-mono"
-
 const FeedButton = () => {
 
   const {
-	isOpen: isOpenSubscribe,
-	onOpen: onOpenSubscribe,
-	onClose: onCloseSubscribe
+	  isOpen: isOpenSubscribe,
+	  onOpen: onOpenSubscribe,
+	  onClose: onCloseSubscribe
   } = useDisclosure();
 
   const modalBg = useColorModeValue(
-	colors.backGround.darkMode,
-	colors.backGround.darkMode
+	  colors.backGround.darkMode,
+	  colors.backGround.darkMode
   );
 
   const modalFg = useColorModeValue(
-	colors.accent.darkMode,
-	colors.accent.darkMode
+	  colors.accent.darkMode,
+	  colors.accent.darkMode
   );
 
   return (
 	<Menu isOpen={isOpenSubscribe}>
 
 	  <MenuButton
-		as={Link}
-		onMouseEnter={onOpenSubscribe}
-		onMouseLeave={onCloseSubscribe}
-		p='2' m='0'
-		_hover={{textDecoration:'none'}}>
-		/suscribe
-		{/*
-		<Link p='0' m='0' variant='headerBar'>
-		  subscribe
-		</Link>
-		  */}
+      color={colors.accent.darkMode}
+		  onMouseEnter={onOpenSubscribe}
+		  onMouseLeave={onCloseSubscribe}
+		  p='2' m='0'>
+		  /
+
+		  <Link p='0' m='0' variant='headerBar'>
+		    subscribe
+		  </Link>
+
 	  </MenuButton>
 
 	  <MenuList
-		onMouseEnter={onOpenSubscribe}
-		onMouseLeave={onCloseSubscribe}
-		borderRadius='0'
-		borderColor={colors.accent.darkMode}
-		backgroundColor={modalBg}>
-		<MenuItem as='a' href='/feed.xml' textColor={modalFg}>RSS</MenuItem>
+		  onMouseEnter={onOpenSubscribe}
+		  onMouseLeave={onCloseSubscribe}
+		  borderRadius='0'
+		  borderColor={colors.accent.darkMode}
+		  backgroundColor={modalBg}>
+		  <MenuItem as='a' href='/feed.xml' textColor={modalFg}>RSS</MenuItem>
 	  </MenuList>
 
 	</Menu >
@@ -119,24 +114,26 @@ const NextLinksRender: React.FC = () => {
 	  {links.map(link => {
 		return (
 		  <NextLink
-			href={link.link}
-			key={link.name}
-			passHref>
-			<Link
-			  p='2'
-			  m='0'
-			  variant='headerBar'
-			  isExternal={link.external}
-			  _hover={{textDecoration:'none'}}>
-			  /
-				{link.name}
-			</Link>
+			  href={link.link}
+			  key={link.name}
+			  passHref>
+        <Box
+			    p='2'
+			    m='0'
+          color={colors.accent.darkMode}>
+          /
+			    <Link
+			      variant='headerBar'
+			      isExternal={link.external}>
+				    {link.name}
+			    </Link>
+        </Box>
 		  </NextLink>
 		);
 	  })}
 
 	  <FeedButton />
-	  <ColorModeSwitcher />
+	  {/* <ColorModeSwitcher /> */}
 
 	</Stack>
   );
@@ -154,45 +151,50 @@ const MobileNextLinks = () => {
 
   const drawerColor = useColorModeValue('white', '#121419')
   const {
-	isOpen: isOpenMobile,
-	onOpen: onOpenMobile,
-	onClose: onCloseMobile
+	  isOpen: isOpenMobile,
+	  onOpen: onOpenMobile,
+	  onClose: onCloseMobile
   } = useDisclosure();
 
   return (
 	<>
 	  <Button
-		onClick={() => onOpenMobile()}
-		m={0} p={0}
-		colorScheme='blue'
-		variant='ghost'
-		border='none'
-	  >
+		  onClick={() => onOpenMobile()}
+		  m={2} p={0}
+      size='sm'
+		  colorScheme='teal'
+		  variant='outline'
+      borderRadius='2'
+    >
 		<GiHamburgerMenu />
 	  </Button>
 
 	  <Drawer
-		size='full'
-		placement='top'
-		isFullHeight={true}
-		isOpen={isOpenMobile}
-		onClose={onCloseMobile}>
+		  size='full'
+		  placement='top'
+		  isFullHeight={true}
+		  isOpen={isOpenMobile}
+		  onClose={onCloseMobile}>
 
 		<DrawerOverlay />
 		<DrawerContent bg={drawerColor}>
 
-		  <DrawerHeader>
+		  <DrawerHeader align='end'>
 			<Button
 			  onClick={() => onCloseMobile()}
-			  colorScheme='blue'
-			  variant='ghost'
-			  border='none'>
+			  colorScheme='teal'
+			  variant='outline'
+        borderRadius='2'
+		    m={2} p={0}
+        size='sm'
+      >
 			  <GoX />
 			</Button>
+
 		  </DrawerHeader>
 
 		  <DrawerBody>
-			<VStack align='start'>
+			<VStack align='end'>
 			  <NextLinksRender />
 			</VStack>
 		  </DrawerBody>
@@ -206,14 +208,14 @@ const IconAnimation = ({flag}:{flag:boolean}) => {
   return (
 	<>
 	  <SlideFade
-		in={!flag}
-		style={{position:'absolute', top:'15px', left:'15px'}}>
-		yashKarthik
+		  in={!flag}
+		  style={{position:'absolute', top:'15px', left:'15px'}}>
+		  yashKarthik
 	  </SlideFade>
 
 	  <SlideFade
-		in={flag}
-		style={{position:'absolute', top:'15px', left:'40px'}}>
+		  in={flag}
+		  style={{position:'absolute', top:'15px', left:'40px'}}>
 
 		<Button
 		  height='2em'
@@ -223,6 +225,7 @@ const IconAnimation = ({flag}:{flag:boolean}) => {
 		  colorScheme='inherit'>
 		  home
 		</Button>
+
 	  </SlideFade>
 	</>
   );
@@ -231,65 +234,67 @@ const IconAnimation = ({flag}:{flag:boolean}) => {
 
 export const Header: React.FC = () => {
 
-  const [ isMobile ] = useMediaQuery("(max-width: 768px)");
+  const isMobile  = useBetterMediaQuery("(max-width: 768px)");
   const { pathname } = useRouter();
   const [flag, setFlag] = useBoolean()
 
 
   if (isMobile === true) {
-	return (
-	  <Flex
-		flexDir='row'
-		justify='stretch'>
-		<Box
-		  m={pathname.slice(0, 7) == '/archive/'
-		   ? '10px 0 50px 20px': '10px'}>
+	  return (
+	    <Flex
+        pb='5'
+		    flexDir='row'
+		    justify='stretch'>
+		    <Box>
+		      <NextLink href={'/'} passHref>
+			      <Link
+			        m='0'
+			        p='10px 20px 0 0'
+			        fontFamily='Space Mono'
+			        fontSize='xl'
+			        fontWeight='700'
+			        letterSpacing='0.8px'
+			        onMouseEnter={setFlag.on}
+			        onMouseLeave={setFlag.off}>
 
-		  <NextLink href={'/'} passHref>
-			<Link
-			  m='0'
-			  p='10px 20px 0 0'
-			  fontFamily='Space Mono'
-			  fontSize='xl'
-			  fontWeight='700'
-			  letterSpacing='0.8px'
-			  onMouseEnter={setFlag.on}
-			  onMouseLeave={setFlag.off}>
+			        <IconAnimation flag={flag} />
+			      </Link>
+		      </NextLink>
 
-			  <IconAnimation flag={flag} />
-			</Link>
-		  </NextLink>
+		    </Box>
+		    <Spacer />
+		    <MobileNextLinks />
+	    </Flex>
 
-		</Box>
-		<Spacer />
-		<MobileNextLinks />
-	  </Flex>
+	  );
+  } else if (isMobile === false) {
+	  return (
+	    <Flex pb='5'>
+		    <Box pl='20px'>
+		      <NextLink href={'/'} passHref>
+			      <Link
+			        m='0'
+			        fontSize='xl'
+			        fontWeight='700'
+			        letterSpacing='0.8px'
+			        fontFamily='Space Mono'
+			        _hover={{textDecor:'none'}}
+			        onMouseEnter={setFlag.on}
+			        onMouseLeave={setFlag.off}
+			      >
+			        <IconAnimation flag={flag} />
+			      </Link>
+		      </NextLink>
+		    </Box>
+		    <Spacer />
+		    <LargeNextLinks />
+	    </Flex>
 
-	);
+	  );
   } else {
-	return (
-	  <Flex>
-		<Box pt='10px' pl='20px'>
-		  <NextLink href={'/'} passHref>
-			<Link
-			  m='0'
-			  fontSize='xl'
-			  fontWeight='700'
-			  letterSpacing='0.8px'
-			  fontFamily='Space Mono'
-			  _hover={{textDecor:'none'}}
-			  onMouseEnter={setFlag.on}
-			  onMouseLeave={setFlag.off}
-			>
-			  <IconAnimation flag={flag} />
-			</Link>
-		  </NextLink>
-		</Box>
-		<Spacer />
-		<LargeNextLinks />
-	  </Flex>
-
-	);
-  };
+    return (
+      <p>...</p>
+    );
+  }
 
 }
