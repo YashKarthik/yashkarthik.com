@@ -5,7 +5,7 @@ import {
 	Box,
 	VStack,
 } from '@chakra-ui/react';
-import "@fontsource/dejavu-mono"
+import "@fontsource/space-mono"
 
 const NotFound = (): JSX.Element => {
 	return (

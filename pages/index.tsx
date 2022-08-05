@@ -35,12 +35,12 @@ const PostRender = ({ postData }: { postData: Meta }) => {
     <Container
       px='2'
       py='2'
-      my='3'
+      my='4'
       maxW='70ch'
-      fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}
-      bgColor='#0a081e'
-      border='2px dashed #110f26'
-      borderRadius='3'>
+      bgColor='#09081c'
+      borderRadius='3'
+      border='2px solid #020016'
+      fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}>
       <VStack align='start'>
 
         <NextLink

@@ -25,6 +25,9 @@ export const colors = {
 
 export const customTheme = extendTheme({
   colors: colors,
+  shadows: {
+    brutalish: `-2px 2px ${colors.accent.darkMode}`
+  },
 
   components: {
 
@@ -126,6 +129,7 @@ export const customTheme = extendTheme({
         }),
       },
     },
+
   },
 
   styles: {
@@ -146,6 +150,13 @@ export const customTheme = extendTheme({
           colors.backGround.darkMode
         )(props),
       },
+      '::-moz-selection': {
+        bgColor: 'rgba(0, 255, 210, 0.2)'
+      },
+      '::selection': {
+        bgColor: 'rgba(0, 255, 210, 0.2)'
+      },
+
       li: {
         color: mode(
           colors.primaryText.darkMode,

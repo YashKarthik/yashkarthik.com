@@ -5,8 +5,9 @@
 - [-] New design
 - [ ] Fix RSS feed
 - [ ] Fix nesting issue with blockquote component.
+- [ ] About page
 
 ## Later
 - [ ] Add latex support.
 - [ ] Switch to tailwindcss (?)
-- [ ] Understand unifiedjs ecosystem.
+- [ ] Understand unified.js ecosystem.

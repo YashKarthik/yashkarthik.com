@@ -39,7 +39,7 @@ const FeedButton = () => {
 
   const modalBg = useColorModeValue(
 	  colors.backGround.darkMode,
-    '#121419'
+    '#09081c'
   );
 
   const modalFg = useColorModeValue(
@@ -149,7 +149,7 @@ const LargeNextLinks: React.FC = () => {
 
 const MobileNextLinks = () => {
 
-  const drawerColor = useColorModeValue('white', '#121419')
+  const drawerColor = useColorModeValue('white', '#09081c')
   const {
 	  isOpen: isOpenMobile,
 	  onOpen: onOpenMobile,
