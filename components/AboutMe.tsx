@@ -15,7 +15,7 @@ export const AboutMe = () => {
       mx='auto'
       centerContent={true}
       overflowWrap='anywhere'
-      py={[10, 10, 100, 100, '300px']}
+      py='12'
       px={{ xl: '0', lg: '0', md: '10px', sm: '10px', base: '20px' }}
       maxW={{ xl: '100ch', lg: '90ch', md: '80ch', sm: '70ch', base: 'auto' }}>
       <Heading
@@ -51,8 +51,8 @@ export const AboutMe = () => {
             fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}>
             Hi, I'm Yash. A programmer and writer, with a knack for "googling it" and figuring things out.
             I was introduced to computers through my school's Robotics Lab in 2017.
-            Fast forward 5 years. I've progressed from scratch-like programming to python, and typescript and
-            moved on from lego robots to raspberry pi and 3d printed parts.
+            Fast forward 5 years. I've progressed from scratch-like programming to python & typescript and
+            moved on from lego robots to raspberry pi & 3d printed parts.
           </Text>
 
           <Text fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}>
