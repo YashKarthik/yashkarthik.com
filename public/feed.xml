@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Wed, 10 Aug 2022 06:55:28 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 10 Aug 2022 10:20:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All text licensed under the Creative Commons Attribution 4.0 International License</copyright>
+        <item>
+            <title><![CDATA[Lens Protocol Explained]]></title>
+            <link>https://www.yashkarthik.xyz/archive/lens</link>
+            <guid>https://www.yashkarthik.xyz/archive/lens</guid>
+            <pubDate>Tue, 09 Aug 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[A decentralized, composable, user-owned social graph]]></description>
+            <content:encoded><![CDATA[Will be fixed soon, for now head to: https://www.yashkarthik.xyz/archive/lens]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[How Dell dethroned IBM]]></title>
             <link>https://www.yashkarthik.xyz/archive/dell-v-ibm</link>
