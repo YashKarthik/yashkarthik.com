@@ -179,13 +179,17 @@ const MobileNextLinks = () => {
 		<DrawerOverlay />
 		<DrawerContent bg={drawerColor}>
 
-		  <DrawerHeader align='end'>
+		  <DrawerHeader >
 			<Button
+		    m={2} p={0}
+        position='absolute'
+        right='2'
+        top='1'
+        justifySelf='end'
 			  onClick={() => onCloseMobile()}
 			  colorScheme='teal'
 			  variant='outline'
         borderRadius='2'
-		    m={2} p={0}
         size='sm'
       >
 			  <GoX />
