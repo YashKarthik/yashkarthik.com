@@ -29,7 +29,7 @@ interface Image {
 }
 
 export const OptimizedImage = (props:Image) => (
-  <Box my='10' align='center'>
+  <Box my='10' textAlign='center'>
     <Image alt={props.alt} quality={100} src={props.src}/>
     <Text as='i' variant='secondary' fontSize='0.85em'>{props.title}</Text>
   </Box>
