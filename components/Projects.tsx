@@ -19,6 +19,35 @@ interface ProjectProps {
   tools: string[]
 }
 
+const projects: ProjectProps[] = [
+  {
+    name: "Uniswap Arbitrage",
+    desc: "A smart contract bot to exploit the price difference between Uniswap and SushiSwap",
+    link: "https://github.com/YashKarthik/learning-solidity/tree/main/uni-sushi-arbitrage",
+    tools: ['Remix', 'Solidity']
+  },
+
+  {
+    name: "Camera Mouse",
+    desc: "A python program that uses the webcame to move the computer cursor using my fingers.",
+    link: "https://github.com/YashKarthik/camera_mouse",
+    tools: ['Python', 'cv2', 'numpy']
+  },
+
+  {
+    name: "Graphicallly",
+    desc: "Plot polynomial & trigonometric expressions in your browser.",
+    link: "https://github.com/YashKarthik/graphicallly",
+    tools: ['Python', 'Dash', 'numpy']
+  },
+
+  {
+    name: "Hacker News Clone",
+    desc: "A typescript server providing a graphql API for a Hacker News clone.",
+    tools: ['Prisma', 'GraphQL', 'Nexus']
+  },
+]
+
 const Project = ({ name, desc, tools, link }: ProjectProps) => {
   return (
     <LinkBox
@@ -86,7 +115,8 @@ export const Projects = () => {
       px={{ xl: '0', lg: '5px', md: '10px', sm: '10px', base: '20px' }}
       maxW={{ xl: '100ch', lg: '90ch', md: '80ch', sm: '70ch', base: '50ch' }}>
       <Heading
-        p='8'
+        size='lg'
+        pb='8'
         _hover={{
           textColor: colors.accent.darkMode
         }}
@@ -105,19 +135,11 @@ export const Projects = () => {
         }}
       >
 
-        <GridItem>
-          <Project name={'GraphQl Hackernews'} desc='Build a graphql API for a Hacker News clone.' tools={['prisma', 'graphql', 'nexus']} />
-        </GridItem>
-        <GridItem>
-          <Project name={'Multi-sig Wallet'} desc='Built a rudimentry multi-signature wallet' tools={['solidty', 'remix']} />
-        </GridItem>
-        <GridItem>
-          <Project name={'Vegetable cutting robot'} desc='Built a lego based vegetable cutting robot' tools={['lego', 'python', 'linux']} />
-        </GridItem>
-        <GridItem>
-          <Project name={'Vegetable cutting robot'} desc='Built a lego based vegetable cutting robot' tools={['lego', 'python', 'linux']} />
-        </GridItem>
-
+        {projects.map((project) => (
+          <GridItem>
+            <Project {...project} />
+          </GridItem>
+        ))}
       </Grid>
 
     </Container>

@@ -25,7 +25,8 @@
     "react-router-dom": "^6.2.1",
     "rehype-mathjax": "^4.0.2",
     "remark-gfm": "^3.0.1",
-    "remark-math": "^5.1.1"
+    "remark-math": "^5.1.1",
+    "scrollreveal": "^4.0.9"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.1",

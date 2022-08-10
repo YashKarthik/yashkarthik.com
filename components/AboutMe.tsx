@@ -15,10 +15,12 @@ export const AboutMe = () => {
       mx='auto'
       centerContent={true}
       overflowWrap='anywhere'
-      py='12'
+      pt='60'
+      pb='30'
       px={{ xl: '0', lg: '0', md: '10px', sm: '10px', base: '20px' }}
       maxW={{ xl: '100ch', lg: '90ch', md: '80ch', sm: '70ch', base: 'auto' }}>
       <Heading
+        size='lg'
         pl='20'
         pb='4'
         alignSelf='start'

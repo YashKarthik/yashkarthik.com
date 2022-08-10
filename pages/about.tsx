@@ -1,14 +1,14 @@
+//import { srConfig } from '../config';
 import Head from 'next/head';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Intro } from '../components/Intro';
 import { AboutMe } from '../components/AboutMe';
+import { Contact } from '../components/Contact';
 import { Projects } from '../components/Projects';
 import {
-  Box,
-  Heading,
-  HStack,
-  Text,
-  Center
+  Divider,
+  Container
 } from '@chakra-ui/react';
 
 function About() {
@@ -16,7 +16,7 @@ function About() {
   return (
     <>
       <Head>
-        <title>About yashKarthik</title>
+        <title>yashKarthik / about</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content='About yashKarthik - programmer and writer.' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,26 +34,13 @@ function About() {
 
       <div style={{ marginBottom: '30px' }}>
         <Header />
-        <Box>
-          <Center
-            my='28'
-            bgColor='blue'
-            h='200px'
-            display='flex'
-            flexDir='column'
-            justifyContent='space-evenly'
-          >
-            <Heading> PROGRAMMER AND WRITER </Heading>
-            <HStack>
-              <Heading> CODING THE FUTURE  </Heading>
-              <Text>(and writing about it)</Text>
-            </HStack>
-            <Heading> NOW AVAILABLE FOR YOU </Heading>
-          </Center>
-
-          <AboutMe />
-          <Projects />
-        </Box>
+        <Intro />
+        <AboutMe />
+        <Container><Divider /></Container>
+        <Projects />
+        <Container><Divider /></Container>
+        <Contact />
+        <Footer />
       </div>
     </>
   )

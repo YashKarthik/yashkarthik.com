@@ -13,13 +13,23 @@ export const Footer = () => {
       p='20px 0 10px 0' fontSize='0.8rem'
     >
       <Text variant='secondary'>
-        All text licensed under the Creative Commons Attribution 4.0 International License{' '}
-        <NextLink href="/copyright" passHref>
-	      <Link p='0' m='0'>
-            (more)
-	      </Link>
+        Site design inspired by{' '}
+        <NextLink href="https://brittanychiang.com/" passHref>
+	        <Link p='0' m='0'>
+            Brittary Chiang
+	        </Link>
         </NextLink>
       </Text>
+
+      <Text p='1' variant='secondary'>
+        All text licensed under the Creative Commons Attribution 4.0 International License{' '}
+        <NextLink href="/copyright" passHref>
+	        <Link p='0' m='0'>
+            (more)
+	        </Link>
+        </NextLink>
+      </Text>
+
     </Container>
   );
 
