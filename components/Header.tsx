@@ -248,10 +248,9 @@ export const Header: React.FC = () => {
         pb='5'
 		    flexDir='row'
 		    justify='stretch'>
-		    <Box>
+		    <Box mt='3' pl='20px'>
 		      <NextLink href={'/'} passHref>
 			      <Link
-			        m='0'
 			        p='10px 20px 0 0'
 			        fontFamily='Space Mono'
 			        fontSize='xl'
@@ -260,7 +259,7 @@ export const Header: React.FC = () => {
 			        onMouseEnter={setFlag.on}
 			        onMouseLeave={setFlag.off}>
 
-			        <IconAnimation flag={flag} />
+              yashKarthik
 			      </Link>
 		      </NextLink>
 
@@ -273,10 +272,9 @@ export const Header: React.FC = () => {
   } else if (isMobile === false) {
 	  return (
 	    <Flex pb='5'>
-		    <Box pl='20px'>
+		    <Box mt='3' pl='20px'>
 		      <NextLink href={'/'} passHref>
 			      <Link
-			        m='0'
 			        fontSize='xl'
 			        fontWeight='700'
 			        letterSpacing='0.8px'
@@ -285,7 +283,7 @@ export const Header: React.FC = () => {
 			        onMouseEnter={setFlag.on}
 			        onMouseLeave={setFlag.off}
 			      >
-			        <IconAnimation flag={flag} />
+              yashKarthik
 			      </Link>
 		      </NextLink>
 		    </Box>
