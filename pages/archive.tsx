@@ -10,9 +10,9 @@ import {
   Container,
   VStack,
   Heading,
-  HStack,
   Input,
   Link,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { metaData } from '../scripts/Metadata';
 import Fuse from 'fuse.js';
@@ -43,25 +43,33 @@ export const getStaticProps: GetStaticProps<Metas> = async () => {
 
 const PostRender = ({ postData }: { postData: Meta }) => {
 
+
   return (
-    <Container pt='30px' maxW='70ch'>
-      <HStack align='start'>
-        <VStack align='stretch'>
-          <NextLink href={`/archive/${postData.shortName}`} key={postData.shortName} passHref>
-            <Link fontSize='1.1em' fontWeight='700'
-                  p='0' m='0' variant='heading'
-            >
-              {postData.title}
-            </Link>
-          </NextLink>
-          <Text
-            variant='secondary'
-            fontWeight='bolder'
-            fontSize='sm'>
-            {postData.date}
-          </Text>
-        </VStack>
-      </HStack>
+    <Container
+      pt='30px'
+      maxW='70ch'
+    >
+      <VStack align='stretch'>
+        <NextLink
+          href={`/archive/${postData.shortName}`}
+          key={postData.shortName} passHref
+        >
+          <Link
+            fontSize='1.1em'
+            fontWeight={700}
+            variant='heading'
+            p='0' m='0'
+          >
+            {postData.title}
+          </Link>
+        </NextLink>
+
+        <Text
+          variant='secondary'
+          fontSize='sm'>
+          {postData.date}
+        </Text>
+      </VStack>
     </Container>
   );
 
@@ -86,65 +94,80 @@ const searchPosts = (listOfPosts: FuseResult[] | null, data: Meta[]) => {
 
 const Archive: NextPage<Metas> = ({ data }) => {
 
-    const options = {
-        includeScore: true
-    }
+  const searchBarAccent = useColorModeValue(colors.accent.lightMode, colors.accent.darkMode)
 
-    const titles = data.map((post: Meta) => {
-        return post.title;
-    })
-    const fuse = new Fuse(titles, options)
-    const [useSearch, setSearch] = useState<(Meta | undefined)[] | undefined>()
+  const options = {
+    includeScore: true
+  }
 
-    return (
-        <>
-            <Head>
-                <title>yashKarthik</title>
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content='Essays by yashKarthik - web3, programming, and physics.' />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-                <meta name="robots" content="all" />
+  const titles = data.map((post: Meta) => {
+    return post.title;
+  })
 
-                <meta name="og:title" content='yashkarthik' />
-                <meta name="og:description" content='Essays by yashKarthik -  web3, programming, and physics.' />
-                <meta name="og:type" content='blog' />
-                <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
-                <meta name="og:url" content='https://yashkarthik.xyz' />
+  const fuse = new Fuse(titles, options)
+  const [useSearch, setSearch] = useState<(Meta | undefined)[] | undefined>()
 
-                <meta name="twitter:site" content="@_yashKarthik" />
-            </Head>
-            <Header />
-            <Container alignItems='start' mb='100px'>
-                <Heading
-                    m='50px 0 10px 20px'
-                >
-                    Archive
-                </Heading>
+  return (
+    <>
+      <Head>
+        <title>yashKarthik</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content='Essays by yashKarthik - web3, programming, and physics.' />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="all" />
 
-                <Input
-                  variant='flushed'
-                  placeholder='Search...'
-                  borderTop='none'
-                  borderX='none'
-                  focusBorderColor={colors.accent.darkMode}
-                  my='10px' mx='20px'
-                  onChange={e => setSearch(searchPosts(fuse.search(e.target.value), data))}
-                />
+        <meta name="og:title" content='yashkarthik' />
+        <meta name="og:description" content='Essays by yashKarthik -  web3, programming, and physics.' />
+        <meta name="og:type" content='blog' />
+        <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
+        <meta name="og:url" content='https://yashkarthik.xyz' />
 
-                {!useSearch || useSearch.length < 1 || useSearch == undefined ?
-                    data.map((post: Meta) => {
-                        return (<PostRender postData={post} key={post.shortName} />);
-                    })
-                    : useSearch.map((post) => {
-                        // used post! to get rid of these errors which i know will not happen
-                        return (<PostRender postData={post!} key={post!.shortName} />);
-                    })
-                }
-            </Container>
-            <Footer />
-        </>
-    );
+        <meta name="twitter:site" content="@_yashKarthik" />
+      </Head>
+
+      <Header />
+
+      <Container alignItems='start' mb='100px'>
+        <Heading
+          m='50px 0 10px 20px'
+        >
+          Archive
+        </Heading>
+
+        <Input
+          variant='flushed'
+          placeholder='Search...'
+          fontFamily='Space Grotesk'
+          borderTop='none'
+          borderX='none'
+          focusBorderColor={searchBarAccent}
+          my='10px' mx='20px'
+          onChange={e => setSearch(searchPosts(fuse.search(e.target.value), data))}
+        />
+
+        {!useSearch || useSearch.length < 1 || useSearch == undefined
+          ? data.map((post: Meta) => {
+            return (
+              <PostRender
+                postData={post}
+                key={post.shortName}
+              />
+            );
+          })
+          : useSearch.map((post) => {
+            return (
+              <PostRender
+                postData={post!}
+                key={post!.shortName}
+              />
+            );
+          })
+        }
+      </Container>
+      <Footer />
+    </>
+  );
 }
 
 export default Archive;

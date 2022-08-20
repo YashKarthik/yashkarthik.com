@@ -6,21 +6,34 @@ import {
 	Heading,
 	Code,
   Box,
-  Link as ChakraLink
+  Link as ChakraLink,
+  useColorModeValue
 } from '@chakra-ui/react';
 
-const Blockquote = (props:any) => (
-<>
-  <blockquote
-    style={{
-      borderLeft: `2px solid ${colors.accent.darkMode}`,
-      margin:'20px 0 20px 40px',
-      padding:'0',
-    }}>
-    <Text variant='blockquote' {...props} />
-  </blockquote>
-</>
-)
+const Blockquote = (props: any) => {
+  const quoteBar = useColorModeValue("#6B46C1", "#B794F4");
+  const quoteBody = useColorModeValue('rgba(107, 70, 193, .1)', 'rgba(183, 148, 244, .1)');
+  const quoteText = useColorModeValue(colors.secondaryText.lightMode, colors.secondaryText.darkMode);
+
+  return (
+    <blockquote
+      style={{
+        borderLeft: `2px solid ${quoteBar}`,
+        margin:'20px 0 20px 40px',
+        padding:'0',
+      }}>
+      <Box
+        m='0'
+        p='13px 2px 1px 10px'
+        bg={quoteBody}
+        textColor={quoteText}
+        fontStyle='italic'
+        fontSize='0.93em'
+        {...props}
+      />
+    </blockquote>
+  );
+}
 
 interface Image {
   alt: string,
@@ -65,7 +78,7 @@ const AnchorLink = ({text}:{text:string}) => {
 
 const MDXComponents: any = {
   blockquote: (props: {children:string}) => <Blockquote {...props} />,
-  code: (props: {children:string}) => <Code variant='subtle' colorScheme='teal' {...props} />,
+  code: (props: {children:string}) => <Code variant='subtle' colorScheme='purple' {...props} />,
   ul: (props: {children:string}) => <ul style={{margin:'20px 0 20px 20px'}} {...props} />,
   ol: (props: {children:string}) => <ol style={{margin:'20px 0 20px 20px'}} {...props} />,
   h3: (props: { children: string }) => <Heading id={getAnchor(props.children)} as="h4" size='md' m='2.25rem 0 0 0'><AnchorLink text={props.children} /></Heading>,

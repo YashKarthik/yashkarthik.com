@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 import MDXComponents from '../themes/MDXStyles';
 import { ChakraProvider } from '@chakra-ui/react';
 import { customTheme } from '../themes/ChakraThemes'
+import ParticlesBg from '../components/ParticlesBg';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -20,7 +21,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
 		<ChakraProvider theme={customTheme}>
-			<Component components={MDXComponents} {...pageProps}/>
+			<Component components={MDXComponents} {...pageProps} />
+      <ParticlesBg />
 		</ChakraProvider>
 	);
 };

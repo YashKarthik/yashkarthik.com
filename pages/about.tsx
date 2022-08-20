@@ -32,7 +32,7 @@ function About() {
         <meta name="twitter:site" content="@_yashKarthik" />
       </Head>
 
-      <div style={{ marginBottom: '30px' }}>
+      <div style={{ marginBottom: '30px', position: 'relative' }}>
         <Header />
         <Intro />
         <AboutMe />

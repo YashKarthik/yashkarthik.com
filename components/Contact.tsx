@@ -33,7 +33,7 @@ export const Contact = () => {
         <IconButton
           as={Link}
           variant='outline'
-          colorScheme='teal'
+          colorScheme='purple'
           borderRadius={2}
           aria-label='DM on Twitter'
           icon={<RiTwitterLine />}
@@ -43,7 +43,7 @@ export const Contact = () => {
         <IconButton
           as={Link}
           variant='outline'
-          colorScheme='teal'
+          colorScheme='purple'
           borderRadius={2}
           aria-label='Email'
           icon={<AiOutlineMail  />}

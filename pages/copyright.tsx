@@ -28,8 +28,10 @@ const Copyright: NextPage = () => {
 
                 <meta name="twitter:site" content="@_yashKarthik" />
             </Head>
+
             <Header />
             <Container alignItems='start' mb='100px'>
+
                 <Heading m='50px 0 50px 20px' >
                     Copyright
                 </Heading>
@@ -41,7 +43,7 @@ const Copyright: NextPage = () => {
                   </Link>
                 </Text>
 
-                <Text>
+                <Text py='3'>
                   This means you're welcome to use the content however you see fit, as long as you link back here or mention my name ("attribution"). However, it would be nice if you asked permission before republishing any full-length essays. Thanks!
                 </Text>
 

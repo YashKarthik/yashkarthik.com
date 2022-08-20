@@ -4,12 +4,11 @@ import NextLink from 'next/link'
 import { GoX } from 'react-icons/go';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { colors } from '../themes/ChakraThemes';
-//import ColorModeSwitcher from '../components/ColorModeSwitcher'
+import ColorModeSwitcher from '../components/ColorModeSwitcher'
 import { useBetterMediaQuery } from '../scripts/useBetterMediaQuery';
 import {
   Flex,
   Box,
-  useBoolean,
   Spacer,
   VStack,
   Drawer,
@@ -26,10 +25,13 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  SlideFade,
+  LinkBox,
+  LinkOverlay
 } from '@chakra-ui/react';
 
 const FeedButton = () => {
+
+  const slashColor = useColorModeValue('purple.400', colors.accent.darkMode);
 
   const {
 	  isOpen: isOpenSubscribe,
@@ -38,46 +40,95 @@ const FeedButton = () => {
   } = useDisclosure();
 
   const modalBg = useColorModeValue(
+	  colors.backGround.lightMode,
 	  colors.backGround.darkMode,
-    '#09081c'
+  );
+
+  const modalBorder = useColorModeValue(
+	  colors.bordersAndShadows.lightMode,
+	  colors.bordersAndShadows.darkMode,
   );
 
   const modalFg = useColorModeValue(
+	  colors.primaryText.lightMode,
+	  colors.primaryText.darkMode,
+  );
+
+  const optionLine = useColorModeValue(
+	  colors.accent.lightMode,
 	  colors.accent.darkMode,
-	  colors.accent.darkMode
   );
 
   return (
 	<Menu isOpen={isOpenSubscribe}>
 
 	  <MenuButton
-      color={colors.accent.darkMode}
+      color={slashColor}
 		  onMouseEnter={onOpenSubscribe}
 		  onMouseLeave={onCloseSubscribe}
 		  p='2' m='0'>
 		  /
 
-		  <Link p='0' m='0' variant='headerBar'>
+		  <Link
+        p='0'
+        m='0'
+        fontSize='sm'
+        variant='heading'
+      >
 		    subscribe
 		  </Link>
 
 	  </MenuButton>
 
 	  <MenuList
+		  borderRadius='0'
+      borderWidth='2px'
+		  borderColor={modalBorder}
+		  backgroundColor={modalBg}
 		  onMouseEnter={onOpenSubscribe}
 		  onMouseLeave={onCloseSubscribe}
-		  borderRadius='0'
-		  borderColor={colors.accent.darkMode}
-		  backgroundColor={modalBg}
     >
-		  <MenuItem as='a' href='/feed.xml' textColor={modalFg}>RSS</MenuItem>
+      <SubscriptionMenuItem
+        itemColor={modalFg}
+        highlightColor={optionLine}
+        link='/feed.xml'
+      />
+      <SubscriptionMenuItem
+        itemColor={modalFg}
+        highlightColor={optionLine}
+        link='/'
+      />
 	  </MenuList>
 
 	</Menu >
   );
 };
 
+interface MenuItemProps {
+  itemColor: string;
+  highlightColor: string;
+  link: string;
+};
+
+const SubscriptionMenuItem = ({ itemColor, highlightColor, link }: MenuItemProps) => (
+  <MenuItem
+    as='a'
+    href={link}
+    textColor={itemColor}
+    _hover={{
+      bgColor:"inherit",
+      textDecoration: 'underline',
+      textDecorationColor:highlightColor,
+      textDecorationThickness: '2px',
+    }}
+  >
+    RSS Feed
+  </MenuItem>
+);
+
 const NextLinksRender: React.FC = () => {
+
+  const slashColor = useColorModeValue('purple.400', colors.accent.darkMode);
 
   interface NextLinksObjShape {
 	name: string,
@@ -120,10 +171,11 @@ const NextLinksRender: React.FC = () => {
         <Box
 			    p='2'
 			    m='0'
-          color={colors.accent.darkMode}>
+          color={slashColor}>
           /
 			    <Link
-			      variant='headerBar'
+            fontSize='sm'
+			      variant='heading'
 			      isExternal={link.external}>
 				    {link.name}
 			    </Link>
@@ -133,7 +185,7 @@ const NextLinksRender: React.FC = () => {
 	  })}
 
 	  <FeedButton />
-	  {/* <ColorModeSwitcher /> */}
+	  <ColorModeSwitcher />
 
 	</Stack>
   );
@@ -162,7 +214,7 @@ const MobileNextLinks = () => {
 		  onClick={() => onOpenMobile()}
 		  m={2} p={0}
       size='sm'
-		  colorScheme='teal'
+		  colorScheme='purple'
 		  variant='outline'
       borderRadius='2'
     >
@@ -187,7 +239,7 @@ const MobileNextLinks = () => {
         top='1'
         justifySelf='end'
 			  onClick={() => onCloseMobile()}
-			  colorScheme='teal'
+			  colorScheme='purple'
 			  variant='outline'
         borderRadius='2'
         size='sm'
@@ -208,62 +260,64 @@ const MobileNextLinks = () => {
   )
 }
 
-const IconAnimation = ({flag}:{flag:boolean}) => {
-  return (
-	<>
-	  <SlideFade
-		  in={!flag}
-		  style={{position:'absolute', top:'15px', left:'15px'}}>
-		  yashKarthik
-	  </SlideFade>
-
-	  <SlideFade
-		  in={flag}
-		  style={{position:'absolute', top:'15px', left:'40px'}}>
-
-		<Button
-		  height='2em'
-		  width='5em'
-		  variant='outline'
-		  borderRadius='2'
-		  colorScheme='inherit'>
-		  home
-		</Button>
-
-	  </SlideFade>
-	</>
+const HomeButton: React.FC = () => {
+  const highlightColor = useColorModeValue(
+    'purple.300',
+    colors.accent.darkMode
   );
-}
 
+  const bannerColor = useColorModeValue('black', colors.backGround.darkMode);
+  const homeTextColor = useColorModeValue('white', 'white');
+
+  return (
+    <LinkBox
+      ml='8'
+      pb='3'
+      role='group'
+      boxShadow='sm'
+      bgColor={bannerColor}
+    >
+		  <Box
+        mt='3'
+        pl='20px'
+      >
+		    <NextLink href={'/'} passHref>
+			    <LinkOverlay
+			      fontSize='2xl'
+			      fontWeight='800'
+            textColor={homeTextColor}
+			      p='10px 20px 0 0'
+			      letterSpacing='0.8px'
+			      fontFamily='Space Mono'
+            textDecor='none'
+            _groupHover={{color: highlightColor}}
+            _hover={{textDecor: 'none'}}
+          >
+
+            yashKarthik
+			    </LinkOverlay>
+		    </NextLink>
+
+		  </Box>
+    </LinkBox>
+  );
+
+}
 
 export const Header: React.FC = () => {
 
   const isMobile  = useBetterMediaQuery("(max-width: 768px)");
-  const [flag, setFlag] = useBoolean()
-
 
   if (isMobile === true) {
 	  return (
 	    <Flex
         pb='5'
 		    flexDir='row'
-		    justify='stretch'>
-		    <Box mt='3' pl='20px'>
-		      <NextLink href={'/'} passHref>
-			      <Link
-			        p='10px 20px 0 0'
-			        fontFamily='Space Mono'
-			        fontSize='xl'
-			        fontWeight='700'
-			        letterSpacing='0.8px'
-			        onMouseEnter={setFlag.on}
-			        onMouseLeave={setFlag.off}>
+		    justify='stretch'
 
-              yashKarthik
-			      </Link>
-		      </NextLink>
 
-		    </Box>
+      >
+        <HomeButton />
 		    <Spacer />
 		    <MobileNextLinks />
 	    </Flex>
@@ -272,21 +326,7 @@ export const Header: React.FC = () => {
   } else if (isMobile === false) {
 	  return (
 	    <Flex pb='5'>
-		    <Box mt='3' pl='20px'>
-		      <NextLink href={'/'} passHref>
-			      <Link
-			        fontSize='xl'
-			        fontWeight='700'
-			        letterSpacing='0.8px'
-			        fontFamily='Space Mono'
-			        _hover={{textDecor:'none'}}
-			        onMouseEnter={setFlag.on}
-			        onMouseLeave={setFlag.off}
-			      >
-              yashKarthik
-			      </Link>
-		      </NextLink>
-		    </Box>
+        <HomeButton />
 		    <Spacer />
 		    <LargeNextLinks />
 	    </Flex>
@@ -297,5 +337,4 @@ export const Header: React.FC = () => {
       <p>...</p>
     );
   }
-
 }

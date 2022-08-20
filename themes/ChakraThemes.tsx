@@ -3,38 +3,43 @@ import { mode } from '@chakra-ui/theme-tools'
 import "@fontsource/space-grotesk"
 import "@fontsource/space-mono"
 
-
 export const colors = {
   backGround: {
-    darkMode: '#020016'
+    lightMode: "white",
+    darkMode: '#0E0F14'
   },
   headingText: {
-    darkMode: '#e2e0f9'
+    lightMode: "black",
+    darkMode: 'white',
   },
   primaryText: {
-    darkMode: '#d7dbed'
+    lightMode: "black",
+    darkMode: 'gray.300'
   },
   secondaryText: {
-    darkMode: '#9aa5ce'
+    lightMode: 'gray.600',
+    darkMode: 'gray.400',
   },
   accent: {
-    darkMode: '#00ffd2'
+    lightMode: 'purple.600',
+    darkMode: 'purple.300'
+  },
+  bordersAndShadows: {
+    lightMode: 'black',
+    darkMode: "#1a1c26"
   }
 }
 
 
 export const customTheme = extendTheme({
   colors: colors,
-  shadows: {
-    brutalish: `-2px 2px ${colors.accent.darkMode}`
-  },
 
   components: {
 
     Text: {
       baseStyle: (props: any) => ({
         color: mode(
-          colors.primaryText.darkMode,
+          colors.primaryText.lightMode,
           colors.primaryText.darkMode,
         )(props),
         fontFamily: 'Space Grotesk',
@@ -43,7 +48,7 @@ export const customTheme = extendTheme({
       variants: {
         secondary: (props: any) => ({
           color: mode(
-            colors.secondaryText.darkMode,
+            colors.secondaryText.lightMode,
             colors.secondaryText.darkMode,
           )(props),
           fontFamily: 'Space Grotesk'
@@ -51,28 +56,19 @@ export const customTheme = extendTheme({
 
         blockquote: (props: any) => ({
           backgroundColor: mode(
-            colors.accent.darkMode,
+            'rgba(107, 70, 193, .1)', // same as colors.accent.lightMode but with opacity 0.1
             'rgba(0, 255, 210, 0.1)'
           )(props),
+
+          color: mode(
+            colors.secondaryText.lightMode,
+            colors.secondaryText.darkMode,
+          )(props),
+
           fontFamily: 'Space Grotesk',
           fontSize: '0.93em',
           fontStyle: 'italic',
           m: '0', p: '13px 2px 1px 10px'
-        }),
-        headerBar: (props: any) => ({
-          color: mode(
-            colors.headingText.darkMode,
-            colors.headingText.darkMode
-          )(props),
-          fontFamily: 'Space Mono',
-          fontSize: 'sm',
-          _hover: {
-            textColor: mode(
-              colors.accent.darkMode,
-              colors.accent.darkMode,
-            )(props),
-            textDecoration: 'none'
-          }
         }),
       },
     },
@@ -80,7 +76,7 @@ export const customTheme = extendTheme({
     Heading: {
       baseStyle: (props: any) => ({
         color: mode(
-          colors.headingText.darkMode,
+          colors.headingText.lightMode,
           colors.headingText.darkMode,
         )(props),
         fontFamily: 'Space Grotesk',
@@ -91,7 +87,7 @@ export const customTheme = extendTheme({
     Link: {
       baseStyle: (props: any) => ({
         color: mode(
-          colors.accent.darkMode,
+          colors.accent.lightMode,
           colors.accent.darkMode
         )(props),
         fontFamily: 'Space Grotesk',
@@ -99,29 +95,13 @@ export const customTheme = extendTheme({
       variants: {
         heading: (props: any) => ({
           color: mode(
-            colors.headingText.darkMode,
+            colors.headingText.lightMode,
             colors.headingText.darkMode
           )(props),
           fontFamily: 'Space Grotesk',
-          fontWeight: '700',
           _hover: {
             textColor: mode(
-              colors.accent.darkMode,
-              colors.accent.darkMode,
-            )(props),
-            textDecoration: 'none'
-          }
-        }),
-        headerBar: (props: any) => ({
-          color: mode(
-            colors.headingText.darkMode,
-            colors.headingText.darkMode
-          )(props),
-          fontFamily: 'Space Mono',
-          fontSize: 'sm',
-          _hover: {
-            textColor: mode(
-              colors.accent.darkMode,
+              colors.accent.lightMode,
               colors.accent.darkMode,
             )(props),
             textDecoration: 'none'
@@ -136,37 +116,40 @@ export const customTheme = extendTheme({
     global: (props: any) => ({
       html: {
         background: mode(
-          colors.backGround.darkMode,
+          colors.backGround.lightMode,
           colors.backGround.darkMode
         )(props),
-
-        minH: '100%',
-        minW: '100%',
-
       },
+
       body: {
         background: mode(
-          colors.backGround.darkMode,
+          colors.backGround.lightMode,
           colors.backGround.darkMode
         )(props),
       },
       '::-moz-selection': {
-        bgColor: 'rgba(0, 255, 210, 0.2)'
+        background: mode(
+          'gray.200',
+          'gray.800'
+        )(props),
       },
       '::selection': {
-        bgColor: 'rgba(0, 255, 210, 0.2)'
+        background: mode(
+          'gray.200',
+          'gray.800'
+        )(props),
       },
 
       li: {
         color: mode(
-          colors.primaryText.darkMode,
+          colors.primaryText.lightMode,
           colors.primaryText.darkMode
         )(props),
         marginTop: '5px',
       },
       'li::marker': {
         color: mode(
-          colors.secondaryText.darkMode,
+          colors.secondaryText.lightMode,
           colors.secondaryText.darkMode
         )(props),
       },

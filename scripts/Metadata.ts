@@ -22,7 +22,7 @@ const sortPost = (postArr: Meta[]) => {
 // returns metadata exported in .mdx for a single file
 export const getMeta = async (fileName:string) => {
 	const meta: Promise<Meta> = await import(`../pages/archive/${fileName}`)
-		.then(m => {console.log(m.content); return m.meta;})
+		.then(m => {return m.meta;})
 		.catch(e => console.log('ERRORRRR in getMeta()', e));
 
 	return meta;

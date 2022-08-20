@@ -8,7 +8,7 @@ const ColorModeSwitcher = (): JSX.Element => {
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(BiMoon, BiSun);
 	const iconColor = useColorModeValue(
-    colors.accent.darkMode,
+    'purple.400',
     colors.accent.darkMode
   );
 

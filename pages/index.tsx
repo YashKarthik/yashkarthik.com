@@ -10,9 +10,11 @@ import {
   Container,
   Text,
   Divider,
-  VStack,
   Link,
-  Box
+  Box,
+  LinkBox,
+  LinkOverlay,
+  useColorModeValue
 } from '@chakra-ui/react';
 
 export const getStaticProps = async () => {
@@ -31,48 +33,61 @@ export const getStaticProps = async () => {
 
 const PostRender = ({ postData }: { postData: Meta }) => {
 
+  const headingHighlight = useColorModeValue(
+    colors.accent.lightMode,
+    colors.accent.darkMode
+  );
+
+  const hoverEffectColor = useColorModeValue(
+    colors.bordersAndShadows.lightMode,
+    colors.bordersAndShadows.darkMode,
+  );
+
   return (
     <Container
       px='2'
       py='2'
       my='4'
+      role='group'
       maxW='70ch'
-      bgColor='#09081c'
       borderRadius='3'
-      border='2px solid #020016'
-      fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}>
-      <VStack align='start'>
+      border={`2px solid ${hoverEffectColor}`}
+      transition='transform 0.1s ease'
+      fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1.09em' }}
+      _hover={{
+        boxShadow: `4px 4px 0 ${hoverEffectColor}`,
+        transform: "translate(-.2em, -.2em)",
+      }}
+    >
+      <LinkBox display='flex' flexDir='column' alignItems='start'>
 
         <NextLink
           href={`/archive/${postData.shortName}`}
           key={postData.shortName} passHref>
-          <Link
-            variant='heading'
+          <LinkOverlay
             fontSize='1.5em'
-            p='0' m='0'>
+            p='0' m='0'
+            _groupHover={{
+              color: headingHighlight
+            }}
+          >
             {postData.title}
-          </Link>
+          </LinkOverlay>
         </NextLink>
 
         <Text
           fontSize='inherit'
-          p='0' m='0'
-          variant='secondary'>
+          px='0' m='0'
+        >
           {postData.description}
         </Text>
 
         <Text
-          letterSpacing='0.1px'
-          fontSize='0.9em'>
-
-          {postData.long_desc}...{' '}
-          <NextLink
-            href={`/archive/${postData.shortName}`}
-            key={postData.shortName}
-            style={{ color: 'inherit', fontSize: '13px', textDecoration: 'underline' }}
-            passHref>
-            More
-          </NextLink>
+          fontSize='0.9em'
+          variant='secondary'
+          my='3'
+        >
+          {postData.long_desc}...
         </Text>
 
         <Text
@@ -83,7 +98,7 @@ const PostRender = ({ postData }: { postData: Meta }) => {
           m='0' opacity='0.7'>
           {postData.date}
         </Text>
-      </VStack>
+      </LinkBox>
     </Container>
   );
 }
@@ -138,7 +153,8 @@ const Home = ({ metadata }: { metadata: Meta[] }) => {
         <meta name="twitter:site" content="@_yashKarthik" />
       </Head>
 
-      <div style={{ marginBottom: '30px' }}>
+      <div style={{ marginBottom: '30px', }}>
+
         <Header />
         <Container
           centerContent={true}
@@ -154,7 +170,9 @@ const Home = ({ metadata }: { metadata: Meta[] }) => {
             programming, and occasionally physics. It&apos;s my excuse for playing around with
             new ideas and practicing the craft of writing.
           </Text>
-          <Divider borderColor={colors.secondaryText.darkMode} />
+
+          <Divider borderColor={useColorModeValue(colors.secondaryText.darkMode, colors.secondaryText.lightMode)} />
+
           <Box>
             <RenderPosts props={metadata} />
           </Box>

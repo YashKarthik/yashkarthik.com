@@ -12,15 +12,6 @@ export const Footer = () => {
       maxW={{ xl: '70ch', lg: '65ch', md: '60ch', sm: '55ch', base: 'auto' }}
       p='20px 0 10px 0' fontSize='0.8rem'
     >
-      <Text variant='secondary'>
-        Site design inspired by{' '}
-        <NextLink href="https://brittanychiang.com/" passHref>
-	        <Link p='0' m='0'>
-            Brittary Chiang
-	        </Link>
-        </NextLink>
-      </Text>
-
       <Text p='1' variant='secondary'>
         All text licensed under the Creative Commons Attribution 4.0 International License{' '}
         <NextLink href="/copyright" passHref>

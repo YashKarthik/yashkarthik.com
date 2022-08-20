@@ -6,17 +6,19 @@ import {
   Text,
   Heading,
   Box,
-  Stack
+  Stack,
 } from '@chakra-ui/react';
 
 export const AboutMe = () => {
+
   return (
     <Container
-      mx='auto'
-      centerContent={true}
-      overflowWrap='anywhere'
       pt='60'
       pb='30'
+      mx='auto'
+      role='group'
+      centerContent={true}
+      overflowWrap='anywhere'
       px={{ xl: '0', lg: '0', md: '10px', sm: '10px', base: '20px' }}
       maxW={{ xl: '100ch', lg: '90ch', md: '80ch', sm: '70ch', base: 'auto' }}>
       <Heading
@@ -24,9 +26,6 @@ export const AboutMe = () => {
         pl='20'
         pb='4'
         alignSelf='start'
-        _hover={{
-          textColor: colors.accent.darkMode
-        }}
       >
         About Me
       </Heading>

@@ -9,7 +9,8 @@ import {
   Grid,
   GridItem,
   LinkBox,
-  LinkOverlay
+  LinkOverlay,
+  useColorModeValue
 } from '@chakra-ui/react';
 
 interface ProjectProps {
@@ -49,22 +50,33 @@ const projects: ProjectProps[] = [
 ]
 
 const Project = ({ name, desc, tools, link }: ProjectProps) => {
+
+  const headingHighlight = useColorModeValue(
+    colors.accent.lightMode,
+    colors.accent.darkMode
+  );
+
+  const hoverEffectColor = useColorModeValue(
+    colors.bordersAndShadows.lightMode,
+    colors.bordersAndShadows.darkMode,
+  );
+
   return (
     <LinkBox
       p='2'
       role='group'
-      bgColor='#09081c'
-      borderRadius='3'
-      border='2px solid #020016'
       display='flex'
       flexDir='column'
+      borderRadius='3'
+      border={`2px solid ${hoverEffectColor}`}
       justifyContent='space-evenly'
-      _hover={{
-        transform: 'scale(1.05)',
-        transition: 'transform .3s ease'
-      }}
       w={{base: '52', sm:'52', md:'64', lg:'52', xl:'72'}}
       h={{base: '52', sm:'52', md:'64', lg:'52', xl:'72'}}
+      _hover={{
+        boxShadow: `4px 4px 0 ${hoverEffectColor}`,
+        transform: "translate(-.2em, -.2em)",
+        transition: 'transform .1s ease'
+      }}
     >
       <Icon
         m={{base:'1', md:'3'}}
@@ -72,11 +84,11 @@ const Project = ({ name, desc, tools, link }: ProjectProps) => {
         color={colors.accent.darkMode}
       />
       <Heading
+        fontWeight='700'
         p={{base: '1', md:'3'}}
         fontSize={{base: 'sm', md:'md', lg:'sm', xl:'lg'}}
-        variant='heading'
         _groupHover={{
-          textColor: `${colors.accent.darkMode}`
+          textColor: headingHighlight
         }}
       >
         {name}
