@@ -21,6 +21,14 @@ const ParticlesBg = () => {
 
   return (
     <Particles
+      style={{
+        position: 'absolute',
+        height: '150%',
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
+      }}
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
@@ -90,7 +98,7 @@ const ParticlesBg = () => {
         detectRetina: true,
         fullScreen: {
           enable: true,
-          zIndex: 0,
+          zIndex: -1,
         }
       }}
     />

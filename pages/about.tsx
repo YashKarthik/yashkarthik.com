@@ -1,15 +1,8 @@
-//import { srConfig } from '../config';
 import Head from 'next/head';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { Intro } from '../components/Intro';
 import { AboutMe } from '../components/AboutMe';
 import { Contact } from '../components/Contact';
 import { Projects } from '../components/Projects';
-import {
-  Divider,
-  Container
-} from '@chakra-ui/react';
 
 function About() {
 
@@ -33,14 +26,10 @@ function About() {
       </Head>
 
       <div style={{ marginBottom: '30px', position: 'relative' }}>
-        <Header />
         <Intro />
         <AboutMe />
-        <Container><Divider /></Container>
         <Projects />
-        <Container><Divider /></Container>
         <Contact />
-        <Footer />
       </div>
     </>
   )

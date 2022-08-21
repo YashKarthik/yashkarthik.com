@@ -1,10 +1,14 @@
 import '../styles/globals.css';
 import '../styles/globals.css'
-import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import MDXComponents from '../themes/MDXStyles';
+
+import { useEffect } from 'react';
+import { Header } from "../components/Header";
+import { Footer } from '../components/Footer';
 import { ChakraProvider } from '@chakra-ui/react';
 import { customTheme } from '../themes/ChakraThemes'
+
+import MDXComponents from '../themes/MDXStyles';
 import ParticlesBg from '../components/ParticlesBg';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -21,8 +25,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
 		<ChakraProvider theme={customTheme}>
+      <Header />
 			<Component components={MDXComponents} {...pageProps} />
       <ParticlesBg />
+      <Footer />
 		</ChakraProvider>
 	);
 };

@@ -93,11 +93,6 @@ const FeedButton = () => {
         highlightColor={optionLine}
         link='/feed.xml'
       />
-      <SubscriptionMenuItem
-        itemColor={modalFg}
-        highlightColor={optionLine}
-        link='/'
-      />
 	  </MenuList>
 
 	</Menu >
@@ -115,8 +110,17 @@ const SubscriptionMenuItem = ({ itemColor, highlightColor, link }: MenuItemProps
     as='a'
     href={link}
     textColor={itemColor}
+    bgColor='none'
     _hover={{
       bgColor:"inherit",
+      color:'inherit',
+      textDecoration: 'underline',
+      textDecorationColor:highlightColor,
+      textDecorationThickness: '2px',
+    }}
+    _focus={{
+      bgColor:"inherit",
+      color:'inherit',
       textDecoration: 'underline',
       textDecorationColor:highlightColor,
       textDecorationThickness: '2px',
@@ -201,7 +205,11 @@ const LargeNextLinks: React.FC = () => {
 
 const MobileNextLinks = () => {
 
-  const drawerColor = useColorModeValue('white', '#09081c')
+  const drawerBg = useColorModeValue(
+    colors.backGround.lightMode,
+    colors.backGround.darkMode,
+  );
+
   const {
 	  isOpen: isOpenMobile,
 	  onOpen: onOpenMobile,
@@ -214,7 +222,7 @@ const MobileNextLinks = () => {
 		  onClick={() => onOpenMobile()}
 		  m={2} p={0}
       size='sm'
-		  colorScheme='purple'
+		  colorScheme='black'
 		  variant='outline'
       borderRadius='2'
     >
@@ -229,7 +237,7 @@ const MobileNextLinks = () => {
 		  onClose={onCloseMobile}>
 
 		<DrawerOverlay />
-		<DrawerContent bg={drawerColor}>
+		<DrawerContent bg={drawerBg}>
 
 		  <DrawerHeader >
 			<Button
@@ -249,8 +257,8 @@ const MobileNextLinks = () => {
 
 		  </DrawerHeader>
 
-		  <DrawerBody>
-			<VStack align='end'>
+		  <DrawerBody >
+			<VStack align='end' onClick={onCloseMobile}>
 			  <NextLinksRender />
 			</VStack>
 		  </DrawerBody>
@@ -314,8 +322,6 @@ export const Header: React.FC = () => {
         pb='5'
 		    flexDir='row'
 		    justify='stretch'
-
-
       >
         <HomeButton />
 		    <Spacer />

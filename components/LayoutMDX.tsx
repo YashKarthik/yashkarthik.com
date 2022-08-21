@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Header } from './Header';
-import { Footer } from './Footer';
 import { BsArrowRightShort } from 'react-icons/bs';
 import {
   Container,
@@ -45,8 +43,6 @@ export default function LayoutMDX(props: Props) {
         <meta property="article:publisher" content="https://www.yashkarthik.xyz" />
         <meta name="twitter:site" content="@_yashKarthik" />
       </Head>
-
-      <Header />
 
       <Container
         pb={[0, 35]} px={{ xl: '0', lg: '0', md: '0', sm: '10px', base: '20px' }}
@@ -94,8 +90,6 @@ export default function LayoutMDX(props: Props) {
         </Link>
 
       </Container>
-
-      <Footer />
     </div>
   );
 }

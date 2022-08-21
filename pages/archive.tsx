@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { colors } from '../themes/ChakraThemes';
 import NextLink from 'next/link'
 import Head from 'next/head'
@@ -126,8 +124,6 @@ const Archive: NextPage<Metas> = ({ data }) => {
         <meta name="twitter:site" content="@_yashKarthik" />
       </Head>
 
-      <Header />
-
       <Container alignItems='start' mb='100px'>
         <Heading
           m='50px 0 10px 20px'
@@ -165,7 +161,6 @@ const Archive: NextPage<Metas> = ({ data }) => {
           })
         }
       </Container>
-      <Footer />
     </>
   );
 }

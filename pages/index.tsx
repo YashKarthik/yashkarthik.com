@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { useState } from 'react';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { colors } from '../themes/ChakraThemes';
 import { metaData, Meta } from '../scripts/Metadata';
 import { generateRssFeed } from '../scripts/RSSFeed';
@@ -155,7 +153,6 @@ const Home = ({ metadata }: { metadata: Meta[] }) => {
 
       <div style={{ marginBottom: '30px', }}>
 
-        <Header />
         <Container
           centerContent={true}
           overflowWrap='anywhere'
@@ -179,7 +176,6 @@ const Home = ({ metadata }: { metadata: Meta[] }) => {
         </Container>
 
       </div>
-      <Footer />
     </>
   );
 }

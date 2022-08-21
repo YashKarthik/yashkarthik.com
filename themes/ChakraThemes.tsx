@@ -110,20 +110,29 @@ export const customTheme = extendTheme({
       },
     },
 
+    Container: {
+      baseStyle: (props: any) => ({
+        bgColor: mode(
+          colors.backGround.lightMode,
+          colors.backGround.darkMode
+        )(props),
+      }),
+    },
+
   },
 
   styles: {
     global: (props: any) => ({
       html: {
         background: mode(
-          colors.backGround.lightMode,
-          colors.backGround.darkMode
+          'rgba(255,255,255,0)',
+          'rgba(255,255,255,0)',
         )(props),
       },
 
       body: {
         background: mode(
-          colors.backGround.lightMode,
+          'rgba(255,255,255,0)',
           colors.backGround.darkMode
         )(props),
       },

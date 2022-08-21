@@ -97,6 +97,7 @@ const Project = ({ name, desc, tools, link }: ProjectProps) => {
         href={link ? link : undefined}
         p={{base:'1', md:'3'}}
         fontSize={{base: 'sm', md:'md', lg:'sm', xl:'lg'}}
+        isExternal
       >
         {desc}
       </LinkOverlay>

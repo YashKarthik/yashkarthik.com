@@ -13,9 +13,8 @@ export const AboutMe = () => {
 
   return (
     <Container
-      pt='60'
-      pb='30'
-      mx='auto'
+      mt='60'
+      mb='30'
       role='group'
       centerContent={true}
       overflowWrap='anywhere'
