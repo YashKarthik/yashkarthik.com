@@ -8,9 +8,12 @@ import NextLink from 'next/link';
 export const Footer = () => {
 
   return (
-    <Container centerContent={true} textAlign='center'
+    <Container
+      centerContent={true}
+      textAlign='center'
+      fontSize='0.8rem'
+      px={{ xl: '0', lg: '0', md: '10px', sm: '10px', base: '20px' }}
       maxW={{ xl: '70ch', lg: '65ch', md: '60ch', sm: '55ch', base: 'auto' }}
-      p='20px 0 10px 0' fontSize='0.8rem'
     >
       <Text p='1' variant='secondary'>
         All text licensed under the Creative Commons Attribution 4.0 International License{' '}

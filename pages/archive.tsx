@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { metaData } from '../scripts/Metadata';
 import Fuse from 'fuse.js';
+import Newsletter from '../components/NewsletterSignup';
 
 interface Meta {
   shortName: string,
@@ -160,6 +161,7 @@ const Archive: NextPage<Metas> = ({ data }) => {
             );
           })
         }
+        <Newsletter gapTop='16'/>
       </Container>
     </>
   );
