@@ -23,7 +23,7 @@ function About() {
         <meta name="og:title" content='About yashkarthik' />
         <meta name="og:description" content='About yashKarthik -  programmer and writer' />
         <meta name="og:type" content='blog' />
-        <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
+        <meta name="og:image" content='https://yashkarthik.xyz/thelatenightbuilders.png' />
         <meta name="og:url" content='https://yashkarthik.xyz' />
 
         <meta name="twitter:site" content="@_yashKarthik" />

@@ -20,7 +20,7 @@ export const generateRssFeed = async () => {
     description: "Essays by yashKarthik on web3, programmig, and physics",
     id: siteURL,
     link: siteURL,
-    image: `${siteURL}/ogImage.png`,
+    image: `${siteURL}/thelatenightbuilders.png`,
     favicon: `${siteURL}/favicon.ico`,
     copyright: `All text licensed under the Creative Commons Attribution 4.0 International License`,
     updated: date,

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import profilePic from '../public/ogImage.png'
+import profilePic from '../public/thelatenightbuilders.png'
 import {
   Container,
   Text,

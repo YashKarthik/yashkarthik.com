@@ -9,7 +9,7 @@ import {
   Spacer,
   Link
 } from "@chakra-ui/react";
-import profilePic from '../public/ogImage.png'
+import thumbImg from '../public/thelatenightbuilders.png'
 import Image from 'next/image'
 import { colors } from '../themes/ChakraThemes';
 
@@ -50,11 +50,11 @@ const Newsletter = ({gapTop}:{gapTop: string}) => {
             </Text>
           </Stack>
           <Box
-            p='2'
+            p='4'
             maxW={{base:'0', md:'165px'}}
           >
             <Image
-              src={profilePic}
+              src={thumbImg}
               alt='Me'
             />
           </Box>

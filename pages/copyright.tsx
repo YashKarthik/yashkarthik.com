@@ -22,7 +22,7 @@ const Copyright: NextPage = () => {
         <meta name="og:title" content='yashkarthik' />
         <meta name="og:description" content='Essays by yashKarthik licensed under CC-BY 4.0.' />
         <meta name="og:type" content='blog' />
-        <meta name="og:image" content='https://yashkarthik.xyz/ogImage.png' />
+        <meta name="og:image" content='https://yashkarthik.xyz/thelatenightbuilders.png' />
         <meta name="og:url" content='https://yashkarthik.xyz' />
 
         <meta name="twitter:site" content="@_yashKarthik" />
