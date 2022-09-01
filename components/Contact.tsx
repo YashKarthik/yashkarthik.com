@@ -1,16 +1,22 @@
 import { colors } from '../themes/ChakraThemes';
 import { AiOutlineMail } from 'react-icons/ai';
 import { RiTwitterLine } from 'react-icons/ri'
+import { IoMdCopy } from 'react-icons/io'
 import {
   Container,
   Text,
   Heading,
   HStack,
   IconButton,
-  Link
+  Link,
+  useClipboard
 } from '@chakra-ui/react';
 
-export const Contact = () => {
+const Contact = () => {
+
+  const name = 'yashkarthik1019'
+  const domain = 'protonmail.com'
+  const { hasCopied, onCopy } = useClipboard(name + '@' + domain);
 
   return (
     <Container
@@ -46,10 +52,12 @@ export const Contact = () => {
           colorScheme='purple'
           borderRadius={2}
           aria-label='Email'
-          icon={<AiOutlineMail  />}
-          href="mailto:yashkarthik1019@protonmail.com"
+          onClick={onCopy}
+          icon={hasCopied ? <IoMdCopy /> : <AiOutlineMail  /> }
         />
       </HStack>
     </Container>
   );
 }
+
+export default Contact;

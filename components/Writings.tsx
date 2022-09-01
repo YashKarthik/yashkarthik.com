@@ -1,5 +1,5 @@
 import { colors } from '../themes/ChakraThemes';
-import { BsCodeSlash } from 'react-icons/bs';
+import { BsPen } from 'react-icons/bs';
 import {
   Container,
   Text,
@@ -17,39 +17,32 @@ interface ProjectProps {
   name: string;
   desc: string;
   link?: string;
-  tools: string[]
 }
 
 const projects: ProjectProps[] = [
   {
-    name: "Uniswap Arbitrage",
-    desc: "A smart contract bot to exploit the price difference between Uniswap and SushiSwap",
-    link: "https://github.com/YashKarthik/learning-solidity/tree/main/uni-sushi-arbitrage",
-    tools: ['Remix', 'Solidity']
+    name: "Bootstrapping a Rollup",
+    desc: "Discussing how to kickstart a rollup-chain by subsidizing the initial high costs to capture users, then letting economies of scale play itself.",
+    link: "/archive/bootstrap-rollup",
   },
-
   {
-    name: "Camera Mouse",
-    desc: "A python program that uses the webcame to move the computer cursor using my fingers.",
-    link: "https://github.com/YashKarthik/camera_mouse",
-    tools: ['Python', 'cv2', 'numpy']
+    name: "How Jack Butcher Productized Himself",
+    desc: "Insights behind Jack Butcher's transition from low freedom, low fun to high freedom, high fun",
+    link: "/archive/jack-butcher",
   },
-
   {
-    name: "Graphicallly",
-    desc: "Plot polynomial & trigonometric expressions in your browser.",
-    link: "https://github.com/YashKarthik/graphicallly",
-    tools: ['Python', 'Dash', 'numpy']
+    name: "How NFT Royalties Actually Work",
+    desc: "Explaining how royalty payments are implemented by NFT marketplaces and their infeasability in a decentralized system.",
+    link: "/archive/nft-royalties",
   },
-
   {
-    name: "Hacker News Clone",
-    desc: "A typescript server providing a graphql API for a Hacker News clone.",
-    tools: ['Prisma', 'GraphQL', 'Nexus']
+    name: "What is State in Ethereum",
+    desc: "Explaining state - a core property of Ethereum that differentiates it from Bitcoin. And some analogies to understand the internals of Ethereum.",
+    link: "/archive/ethState",
   },
 ]
 
-const Project = ({ name, desc, tools, link }: ProjectProps) => {
+const Project = ({ name, desc, link }: ProjectProps) => {
 
   const headingHighlight = useColorModeValue(
     colors.accent.lightMode,
@@ -80,7 +73,7 @@ const Project = ({ name, desc, tools, link }: ProjectProps) => {
     >
       <Icon
         m={{base:'1', md:'3'}}
-        as={BsCodeSlash}
+        as={BsPen}
         color={colors.accent.darkMode}
       />
       <Heading
@@ -101,24 +94,11 @@ const Project = ({ name, desc, tools, link }: ProjectProps) => {
       >
         {desc}
       </LinkOverlay>
-      <Box as='footer' display='flex' flexDir='row'>
-        {tools.map((tool) => {
-          return (
-            <Text
-              p={{base:'1', md:'3'}}
-              variant='secondary'
-              fontSize={{base: 'sm', md:'md', lg:'sm', xl:'lg'}}
-            >
-              {tool}
-            </Text>
-          );
-        })}
-      </Box>
     </LinkBox>
   );
 }
 
-const Projects = () => {
+const Writings = () => {
   return (
     <Container
       mx='auto'
@@ -134,7 +114,7 @@ const Projects = () => {
           textColor: colors.accent.darkMode
         }}
       >
-        Some Things I've built
+        Some Things I've written
       </Heading>
 
       <Grid
@@ -159,4 +139,4 @@ const Projects = () => {
   );
 }
 
-export default Projects;
+export default Writings;

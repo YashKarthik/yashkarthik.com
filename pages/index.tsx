@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { colors } from '../themes/ChakraThemes';
 import { metaData, Meta } from '../scripts/Metadata';
 import { generateRssFeed } from '../scripts/RSSFeed';
+import Newsletter from '../components/NewsletterSignup';
 import {
   Container,
   Text,
@@ -168,11 +169,12 @@ const Home = ({ metadata }: { metadata: Meta[] }) => {
             new ideas and practicing the craft of writing.
           </Text>
 
-          <Divider borderColor={useColorModeValue(colors.secondaryText.darkMode, colors.secondaryText.lightMode)} />
-
           <Box>
             <RenderPosts props={metadata} />
           </Box>
+
+          <Newsletter gapTop='4' />
+
         </Container>
 
       </div>

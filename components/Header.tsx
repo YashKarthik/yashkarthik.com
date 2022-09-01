@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "@fontsource/space-mono"
 import NextLink from 'next/link'
 import { GoX } from 'react-icons/go';
@@ -49,16 +49,6 @@ const FeedButton = () => {
 	  colors.bordersAndShadows.darkMode,
   );
 
-  const modalFg = useColorModeValue(
-	  colors.primaryText.lightMode,
-	  colors.primaryText.darkMode,
-  );
-
-  const optionLine = useColorModeValue(
-	  colors.accent.lightMode,
-	  colors.accent.darkMode,
-  );
-
   return (
 	<Menu isOpen={isOpenSubscribe}>
 
@@ -88,11 +78,8 @@ const FeedButton = () => {
 		  onMouseEnter={onOpenSubscribe}
 		  onMouseLeave={onCloseSubscribe}
     >
-      <SubscriptionMenuItem
-        itemColor={modalFg}
-        highlightColor={optionLine}
-        link='/feed.xml'
-      />
+      <SubscriptionMenuItem text='RSS Feed' />
+      <SubscriptionMenuItem text='Newsletter' link='#newsletter-container' />
 	  </MenuList>
 
 	</Menu >
@@ -100,35 +87,53 @@ const FeedButton = () => {
 };
 
 interface MenuItemProps {
-  itemColor: string;
-  highlightColor: string;
-  link: string;
+  text: string;
+  link?: string;
 };
 
-const SubscriptionMenuItem = ({ itemColor, highlightColor, link }: MenuItemProps) => (
-  <MenuItem
-    as='a'
-    href={link}
-    textColor={itemColor}
-    bgColor='none'
-    _hover={{
-      bgColor:"inherit",
-      color:'inherit',
-      textDecoration: 'underline',
-      textDecorationColor:highlightColor,
-      textDecorationThickness: '2px',
-    }}
-    _focus={{
-      bgColor:"inherit",
-      color:'inherit',
-      textDecoration: 'underline',
-      textDecorationColor:highlightColor,
-      textDecorationThickness: '2px',
-    }}
-  >
-    RSS Feed
-  </MenuItem>
-);
+const SubscriptionMenuItem = ({ text, link }: MenuItemProps) => {
+
+  const [ menuText, setMenuText ] = useState(text);
+
+  const modalFg = useColorModeValue(
+	  colors.primaryText.lightMode,
+	  colors.primaryText.darkMode,
+  );
+
+  const optionLine = useColorModeValue(
+	  colors.accent.lightMode,
+	  colors.accent.darkMode,
+  );
+
+  return (
+    <MenuItem
+      as='a'
+      href={link}
+      onClick={() => {
+        navigator.clipboard.writeText('https://www.yashkarthik.xyz/feed.xml');
+        if (!link) setMenuText('copied!');
+      }}
+      textColor={modalFg}
+      bgColor='none'
+      _hover={{
+        bgColor:"inherit",
+        color:'inherit',
+        textDecoration: 'underline',
+        textDecorationColor: optionLine,
+        textDecorationThickness: '2px',
+      }}
+      _focus={{
+        bgColor:"inherit",
+        color:'inherit',
+        textDecoration: 'underline',
+        textDecorationColor: optionLine,
+        textDecorationThickness: '2px',
+      }}
+    >
+      {menuText}
+    </MenuItem>
+  );
+};
 
 const NextLinksRender: React.FC = () => {
 
@@ -147,13 +152,18 @@ const NextLinksRender: React.FC = () => {
 	  external: false
 	},
 	{
-	  name: 'gitHub',
+	  name: 'github',
 	  link: 'https://github.com/yashkarthik',
 	  external: true
 	},
 	{
 	  name: 'twitter',
 	  link: 'https://twitter.com/_yashkarthik',
+	  external: true
+	},
+	{
+	  name: 'youtube',
+	  link: 'https://www.youtube.com/channel/UCokxkaw1HSQKNJPDtJHhDkg',
 	  external: true
 	},
 	{
@@ -167,11 +177,29 @@ const NextLinksRender: React.FC = () => {
 	<Stack direction={['column', 'column', 'row']}>
 
 	  {links.map(link => {
+      if (link.external) {
+        return (
+          <Box
+			      p='2'
+			      m='0'
+            color={slashColor}>
+            /
+			      <Link
+			        href={link.link}
+			        key={link.name}
+              fontSize='sm'
+			        variant='heading'
+			        isExternal>
+				      {link.name}
+			      </Link>
+          </Box>
+        );
+      }
 		return (
 		  <NextLink
 			  href={link.link}
 			  key={link.name}
-			  passHref>
+			  passHref={true}>
         <Box
 			    p='2'
 			    m='0'
@@ -180,7 +208,7 @@ const NextLinksRender: React.FC = () => {
 			    <Link
             fontSize='sm'
 			      variant='heading'
-			      isExternal={link.external}>
+          >
 				    {link.name}
 			    </Link>
         </Box>

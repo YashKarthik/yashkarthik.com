@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import profilePic from '../public/ogImage.png'
-import { colors } from '../themes/ChakraThemes';
 import {
   Container,
   Text,
@@ -9,7 +8,7 @@ import {
   Stack,
 } from '@chakra-ui/react';
 
-export const AboutMe = () => {
+const AboutMe = () => {
 
   return (
     <Container
@@ -72,3 +71,5 @@ export const AboutMe = () => {
     </Container>
   );
 }
+
+export default AboutMe;

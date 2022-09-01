@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Newsletter from './NewsletterSignup';
 import { BsArrowRightShort } from 'react-icons/bs';
 import {
   Container,
@@ -80,14 +81,17 @@ export default function LayoutMDX(props: Props) {
         <Divider m='10px 0 20px 0' />
         {props.content}
 
-        <Spacer />
-
         <Link href='/archive' passHref={true}>
-          <LinkStyles fontWeight='bolder' flexDir='row'>
+          <LinkStyles
+            fontWeight='bolder'
+            flexDir='row'
+          >
             More by yashKarthik
             <BsArrowRightShort style={{ display: 'inline', verticalAlign: 'middle' }} />
           </LinkStyles>
         </Link>
+
+        <Newsletter gapTop='6'/>
 
       </Container>
     </div>

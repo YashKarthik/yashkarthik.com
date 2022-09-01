@@ -7,7 +7,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 
-export const Intro = () => {
+const Intro = () => {
 
   const textHighlight = useColorModeValue(
     colors.accent.lightMode,
@@ -28,11 +28,7 @@ export const Intro = () => {
       </HStack>
 
       <HStack pt='5' alignItems='end'>
-        <Heading
-          size='lg'
-        >
-          Coding the Future
-        </Heading>
+        <Heading size='lg'> Coding the Future </Heading>
         <Text color={textHighlight}>(and writing about it)</Text>
       </HStack>
 
@@ -47,5 +43,7 @@ export const Intro = () => {
       </Text>
 
     </Container>
-);
+  );
 };
+
+export default Intro;

@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import '../styles/globals.css'
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
 
 import { useEffect } from 'react';
 import { Header } from "../components/Header";
@@ -11,16 +12,23 @@ import { customTheme } from '../themes/ChakraThemes'
 import MDXComponents from '../themes/MDXStyles';
 import ParticlesBg from '../components/ParticlesBg';
 
+const setSmoothScroll = (isSmooth: boolean) => {
+  document.documentElement.style.scrollBehavior = isSmooth ? 'smooth' : 'auto';
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
 
+  const router = useRouter();
+
   useEffect(() => {
-		window.addEventListener('beforeunload', () => localStorage.removeItem('chakra-ui-color-mode'))
-  	window.addEventListener('unload', () => localStorage.removeItem('chakra-ui-color-mode'))
-  	return () => {
-  	  window.removeEventListener('beforeunload', () => localStorage.removeItem('chakra-ui-color-mode'))
-  	  window.removeEventListener('unload', () => localStorage.removeItem('chakra-ui-color-mode'))
-  	}
-	}, [])
+    setSmoothScroll(true)
+    const handleStart = () => setSmoothScroll(false);
+    const handleStop = () => setSmoothScroll(true);
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleStop);
+    router.events.on('routeChangeError', handleStop);
+	}, [router])
 
 
   return (

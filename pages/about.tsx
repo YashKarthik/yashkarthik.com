@@ -1,8 +1,12 @@
+import { Container } from "@chakra-ui/react";
+
 import Head from 'next/head';
-import { Intro } from '../components/Intro';
-import { AboutMe } from '../components/AboutMe';
-import { Contact } from '../components/Contact';
-import { Projects } from '../components/Projects';
+import Intro from '../components/Intro';
+import AboutMe from '../components/AboutMe';
+import Contact from '../components/Contact';
+import Projects from '../components/Projects';
+import Writings from '../components/Writings';
+import Newsletter from '../components/NewsletterSignup';
 
 function About() {
 
@@ -29,6 +33,10 @@ function About() {
         <Intro />
         <AboutMe />
         <Projects />
+        <Writings />
+        <Container>
+          <Newsletter gapTop='20'/>
+        </Container>
         <Contact />
       </div>
     </>
