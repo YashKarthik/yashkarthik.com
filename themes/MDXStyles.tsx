@@ -57,18 +57,21 @@ function getAnchor(text:string) {
 
 const AnchorLink = ({text}:{text:string}) => {
   return (
-    <NextLink href={'#' + getAnchor(text).toString()} passHref role='group'>
+    <NextLink href={'#' + getAnchor(text).toString()} passHref>
       <Box>
         {text}
         <ChakraLink
           fontSize='inherit'
-          fontWeight='light'
+          fontWeight='hairline'
+          fontStyle='italic'
+          textDecor='underline'
           ml="2"
           opacity='0'
           _groupHover={{
-            color:'blue.600',
-            opacity:'.5'
-          }}>
+            color:'purple.600',
+            opacity:'1'
+          }}
+        >
           {'#'}
         </ChakraLink>
       </Box>
@@ -81,9 +84,9 @@ const MDXComponents: any = {
   code: (props: {children:string}) => <Code variant='subtle' colorScheme='purple' {...props} />,
   ul: (props: {children:string}) => <ul style={{margin:'20px 0 20px 20px'}} {...props} />,
   ol: (props: {children:string}) => <ol style={{margin:'20px 0 20px 20px'}} {...props} />,
-  h3: (props: { children: string }) => <Heading id={getAnchor(props.children)} as="h4" size='md' m='2.25rem 0 0 0'><AnchorLink text={props.children} /></Heading>,
-  h2: (props: { children: string }) => <Heading id={getAnchor(props.children)} as="h3" size='lg' m='2.25rem 0 .6rem 0'><AnchorLink text={props.children} /></Heading>,
-  h1: (props: { children: string }) => <Heading id={getAnchor(props.children)} as="h2" size='xl' m='2.25rem 0 .7rem 0'><AnchorLink text={props.children} /></Heading>,
+  h3: (props: { children: string }) => <Heading role='group' id={getAnchor(props.children)} as="h4" size='md' m='2.25rem 0 0 0'><AnchorLink text={props.children} /></Heading>,
+  h2: (props: { children: string }) => <Heading role='group' id={getAnchor(props.children)} as="h3" size='lg' m='2.25rem 0 .6rem 0'><AnchorLink text={props.children} /></Heading>,
+  h1: (props: { children: string }) => <Heading role='group' id={getAnchor(props.children)} as="h2" size='xl' m='2.25rem 0 .7rem 0'><AnchorLink text={props.children} /></Heading>,
   a: (props: {children:string}) => <ChakraLink isExternal variant='secondary' textDecoration='underline' {...props}/>,
   p: (props: {children:string}) => <Text fontSize={{ base: '0.95em', sm: '1em', md: '1.05em', lg: '1.05em', xl: '1em' }} m='1rem 0 2rem 0' mx='0' {...props} />,
 }

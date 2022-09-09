@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Thu, 01 Sep 2022 15:13:47 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 09 Sep 2022 06:32:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All text licensed under the Creative Commons Attribution 4.0 International License</copyright>
+        <item>
+            <title><![CDATA[How it Works: Friendcaster]]></title>
+            <link>https://www.yashkarthik.xyz/archive/friend-caster</link>
+            <guid>https://www.yashkarthik.xyz/archive/friend-caster</guid>
+            <pubDate>Thu, 08 Sep 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[Ideas are cheap, execution is hard]]></description>
+            <content:encoded><![CDATA[Will be fixed soon, for now head to: https://www.yashkarthik.xyz/archive/friend-caster]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[How NFT Royalties Actually Work]]></title>
             <link>https://www.yashkarthik.xyz/archive/nft-royalties</link>
