@@ -1,3 +1,7 @@
+import { FormEvent, useState } from 'react';
+import thumbImg from '../public/thelatenightbuilders.png'
+import Image from 'next/image'
+import { colors } from '../themes/ChakraThemes';
 import {
   Box,
   useColorModeValue,
@@ -9,11 +13,40 @@ import {
   Spacer,
   Link
 } from "@chakra-ui/react";
-import thumbImg from '../public/thelatenightbuilders.png'
-import Image from 'next/image'
-import { colors } from '../themes/ChakraThemes';
 
 const Newsletter = ({gapTop}:{gapTop: string}) => {
+
+  const [buttonText, setButtonText] = useState('Subscribe');
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ buttonTheme, setButtonTheme ]= useState('purple');
+
+  const handleSignup = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const email: string = event.currentTarget!.email.value;
+    setIsLoading(true);
+
+    const res = await fetch('/api/newsletterSignup', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(email)
+    });
+
+    setIsLoading(false);
+    if (res.status == 200) {
+      setButtonText('Subbed!');
+      setButtonTheme('green');
+    }
+    else {
+      setButtonText('Error. Plz reload');
+      setButtonTheme('red');
+    }
+
+    const r = await res.json()
+    console.log(res.status, res.statusText, `Error: ${r.error}` );
+
+  }
 
   const boxColor = useColorModeValue(
     colors.bordersAndShadows.lightMode,
@@ -59,11 +92,7 @@ const Newsletter = ({gapTop}:{gapTop: string}) => {
             />
           </Box>
         </Stack>
-        <form
-          action='https://www.getrevue.co/profile/yashkarthik/add_subscriber'
-          method='post'
-          target='_blank'
-        >
+        <form onSubmit={e => handleSignup(e)}>
           <Stack
             direction='row'
             px='4' pb='4'
@@ -81,7 +110,7 @@ const Newsletter = ({gapTop}:{gapTop: string}) => {
               required
               placeholder={'Your email...'}
               aria-label={'Your Email'}
-              name='member[email]'
+              name='email'
               _hover={{}}
             />
           </FormControl>
@@ -89,16 +118,29 @@ const Newsletter = ({gapTop}:{gapTop: string}) => {
           <Spacer />
 
           <FormControl w='auto'>
-            <Button
-              colorScheme='purple'
-              variant='outline'
-              borderRadius='2'
-              type='submit'
-              value='Submit'
-              name='member[subscribe]'
-            >
-              Subscribe
-            </Button>
+            {buttonText != 'Subbed!'
+              ? <Button
+                  type='submit'
+                  value='Submit'
+                  name='subscribe'
+                  isLoading={isLoading}
+                  borderRadius='2'
+                  variant='outline'
+                  colorScheme={buttonTheme}
+                >
+                  {buttonText}
+                </Button>
+              : <Button
+                  as='a'
+                  borderRadius='2'
+                  variant='outline'
+                  colorScheme='green'
+                  target='_blank'
+                  href="https://www.getrevue.co/profile/yashkarthik"
+                >
+                Read
+                </Button>
+            }
           </FormControl>
           </Stack>
         </form>
