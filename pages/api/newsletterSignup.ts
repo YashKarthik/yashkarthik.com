@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (result.status == 200) {
       res.status(200).json({error: 'NO Error'})
-    } else if (response.error.email == 'This email address has already been subscribed') {
+    } else if (response.error.email[0] == 'This email address has already been subscribed') {
       res.status(200).json({error: 'Already subbed'})
     } else {
       console.log(response);
