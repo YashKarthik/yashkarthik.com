@@ -1,8 +1,7 @@
 import { NextApiResponse, NextApiRequest } from 'next'
 
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const email: string = req.body;
+  const userEmail: string = req.body;
 
   try {
     const result = await fetch('https://www.getrevue.co/api/v2/subscribers', {
@@ -12,24 +11,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         "Content-Type": 'application/json',
       },
       body: JSON.stringify({
-        email: email,
+        email: userEmail,
         double_opt_in: false
       })
     });
 
     const response = await result.json();
 
-    if (response.status >= 400) {
+    if (result.status == 200) {
+      res.status(200).json({error: 'NO Error'})
+    } else if (response.error.email == 'This email address has already been subscribed') {
+      res.status(200).json({error: 'Already subbed'})
+    } else {
       console.log(response);
-      return res.status(400).json({
-        error: "Error subscribing to the newsletter. DM me on twitter @_yashKarthik"
-      })
+      res.status(result.status).json({error: 'ERROR has ocurred, contact me on twitter @_yashkarthik'})
     }
 
-    res.status(200).json({error: "no error"})
-
   } catch (error) {
-    console.log(error)
-    res.status(503).json({error: "Could not add subscribed, please retry."})
+    console.log('Error in revue api request:', error)
+    res.status(503).json({error: 'ERROR has ocurred, contact me on twitter @_yashkarthik'})
   }
 }

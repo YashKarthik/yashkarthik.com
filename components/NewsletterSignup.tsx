@@ -16,9 +16,9 @@ import {
 
 const Newsletter = ({gapTop}:{gapTop: string}) => {
 
-  const [buttonText, setButtonText] = useState('Subscribe');
+  const [ buttonText, setButtonText ] = useState('Subscribe');
   const [ isLoading, setIsLoading ] = useState(false);
-  const [ buttonTheme, setButtonTheme ]= useState('purple');
+  const [ buttonTheme, setButtonTheme ] = useState('purple');
 
   const handleSignup = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -39,7 +39,7 @@ const Newsletter = ({gapTop}:{gapTop: string}) => {
       setButtonTheme('green');
     }
     else {
-      setButtonText('Error. Plz reload');
+      setButtonText('Reload and try again.');
       setButtonTheme('red');
     }
 
