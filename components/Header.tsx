@@ -157,13 +157,18 @@ const NextLinksRender: React.FC = () => {
 	  external: true
 	},
 	{
+	  name: 'youtube',
+	  link: 'https://www.youtube.com/channel/UCokxkaw1HSQKNJPDtJHhDkg',
+	  external: true
+	},
+	{
 	  name: 'twitter',
 	  link: 'https://twitter.com/_yashkarthik',
 	  external: true
 	},
 	{
-	  name: 'youtube',
-	  link: 'https://www.youtube.com/channel/UCokxkaw1HSQKNJPDtJHhDkg',
+	  name: 'linkedIn',
+	  link: 'https://www.linkedin.com/in/yashkarthik/',
 	  external: true
 	},
 	{
