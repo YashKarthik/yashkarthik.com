@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programmig, and physics</description>
-        <lastBuildDate>Sat, 15 Oct 2022 13:53:46 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 18 Oct 2022 13:22:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,14 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All text licensed under the Creative Commons Attribution 4.0 International License</copyright>
+        <item>
+            <title><![CDATA[Different People See Different Things]]></title>
+            <link>https://www.yashkarthik.xyz/archive/diff-ppl-see-diff-things</link>
+            <guid>https://www.yashkarthik.xyz/archive/diff-ppl-see-diff-things</guid>
+            <pubDate>Mon, 17 Oct 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[If you wish to not get stuck, seek to perceive what you have not yet perceived.]]></description>
+            <content:encoded><![CDATA[Will be fixed soon, for now head to: https://www.yashkarthik.xyz/archive/diff-ppl-see-diff-things]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Blockchains Scale Socially]]></title>
             <link>https://www.yashkarthik.xyz/archive/social-scalability</link>
