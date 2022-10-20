@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://www.yashkarthik.xyz</id>
+    <title>yashKarthik</title>
+    <updated>2022-10-20T14:59:44.636Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>yashkarthik.eth</name>
+        <uri>https://twitter.com/_yashKarthik</uri>
+    </author>
+    <link rel="alternate" href="https://www.yashkarthik.xyz"/>
+    <link rel="self" href="https://www.yashkarthik.xyz/atom.xml"/>
+    <subtitle>Essays by yashKarthik on web3, programming, and physics</subtitle>
+    <logo>https://www.yashkarthik.xyz/thelatenightbuilders.png</logo>
+    <icon>https://www.yashkarthik.xyz/favicon.ico</icon>
+    <rights>All text licensed under the Creative Commons Attribution 4.0 International License</rights>
+    <entry>
+        <title type="html"><![CDATA[Different People See Different Things]]></title>
+        <id>https://www.yashkarthik.xyz/archive/diff-ppl-see-diff-things</id>
+        <link href="https://www.yashkarthik.xyz/archive/diff-ppl-see-diff-things"/>
+        <updated>2022-10-17T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[If you wish to not get stuck, seek to perceive what you have not yet perceived.]]></summary>
+        <content type="html"><![CDATA[<h1>Frames of References</h1>
+<p>People view the world from <a href="https://en.wikipedia.org/wiki/Frame_of_reference">frames of reference</a>.
+In this context, a frame of reference is information that is obvious to the person. It&#x27;s the
+information, and a set of assumptions, that they encounter or use everday.
+Different people&#x27;s frames consist of different sets of information that is obvious to them.
+A programer&#x27;s frame will have information about, well, programming.</p>
+<h1>Impact of Frames</h1>
+<p>The frame of reference impacts how the person views the world. This means that different people,
+essentially, see different things. They actually see the same thing, but absorb different
+segments of knowledge from it. For example:</p>
+<ul>
+<li>A mathematician may look at a flower and marvel at the <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Nature">Fibonacci
+sequence</a> in its petal arrangement.</li>
+<li>A biologist may look at a flower and see its sex.</li>
+<li>A gardener may look at a flower and see that it needs more water.</li>
+</ul>
+<h2>Getting stuck in your frame</h2>
+<p>This means that it&#x27;s really easy to get <em>stuck</em>. Stuck in your current way of seeing and thinking;
+stuck in your current frame. Frames are made up of the details that seem important to <em>you</em>. The
+details which you haven&#x27;t noticed are invisible to you, and the details you
+<em>have</em> noticed seem completely obvious. This makes makes it difficult to see how you could
+miss something important, and on the flip side it makes it hard for you to see how someone could miss
+something so obvious (related: <a href="https://en.wikipedia.org/wiki/Curse_of_knowledge">Curse of Knowledge</a>).</p>
+<h1>Solution</h1>
+<p>When different people, who see different things, work together, they need to account for and
+appreciate the details one person sees that the other person doesn&#x27;t.</p>
+<blockquote>
+<p>If you wish to not get stuck, seek to perceive what you have not yet perceived.
+- <a href="http://johnsalvatier.org/">John Salvatier</a></p>
+</blockquote>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Blockchains Scale Socially]]></title>
+        <id>https://www.yashkarthik.xyz/archive/social-scalability</id>
+        <link href="https://www.yashkarthik.xyz/archive/social-scalability"/>
+        <updated>2022-09-21T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Bitcoin scales where the dollar doesn't - socially.]]></summary>
+        <content type="html"><![CDATA[<p>Why do humans run the world? We run the world because we are the only animal that can cooperate flexibly in large numbers. We socialize across genetic boundaries. Through stories and myths like religion, nationality and traditions.</p>
+<p>For effective cooperation, we organize ourselves into centralized hierarchies. But centralized enforcement and coordination breaks down at national borders. It is efficient within a country, but not universal. The cultural, jurisdictional, and intellectual diversity of people who participate in an institution is important, especially in the context of Internet. The more an institution depends on local laws, customs, or language, the less socially scalable it is.</p>
+<p>The past decade has shown us the reliability, and universality of blockchain-based coordination. It is less efficient, but operates across borders without relying on trust, and without human prejudice.</p>
+<p>While human efficiency has, more or less, remained constant for the past thousand years, computers have been doubling in power and efficiency, and halving in size every 2 years. With our super-fast computers, we can trade off some efficiency for a different kind of scalability. We can replace institutions that were traditionally centralized, to preserve efficiency, with <em>inefficient</em> blockchains that provide social scalability.</p>
+<blockquote>
+<p>Social scalability is the ability of an institution to overcome shortcomings in human minds and in the motivating or constraining aspects of said institution that limit who or how many can successfully participate. - Nick Szabo</p>
+</blockquote>
+<p><strong>Summary:</strong></p>
+<ul>
+<li>Human dominate the world because we can coordinate effectively, in large numbers.</li>
+<li>To make coordination efficient, we created centralized institutions.</li>
+<li>Centralized inst. are not good at overcoming shortcomings in human minds.</li>
+<li>Computers are super-efficient; their inefficient is better than our efficient.</li>
+<li>We can trade computational scalability for social scalability.</li>
+</ul>
+<p><strong>Further reading:</strong></p>
+<ul>
+<li><a href="https://fs.blog/why-humans-dominate-earth/">fs.blog</a> - Yuval Noah Harari on Why Humans Dominate the Earth</li>
+<li><a href="https://unenumerated.blogspot.com/2017/02/money-blockchains-and-social-scalability.html">unenumerated.blogspot.com</a> - Money, Blockchains, and Social Scalability</li>
+</ul>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How it Works: Friendcaster]]></title>
+        <id>https://www.yashkarthik.xyz/archive/friend-caster</id>
+        <link href="https://www.yashkarthik.xyz/archive/friend-caster"/>
+        <updated>2022-09-08T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Ideas are cheap, execution is hard]]></summary>
+        <content type="html"><![CDATA[<p>I was just scrolling on <a href="https://farcaster.xyz">Farcaster</a> and this cast scrolled onto my feed:</p>
+<style data-emotion="css 1iu1318">.css-1iu1318{margin-top:10px;margin-bottom:10px;text-align:center;}</style><div class="css-1iu1318"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271172%27%20height=%27806%27/%3e"/></span><img alt="The cast that gave me the idea to build Friendcaster." src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="The cast that gave me the idea to build Friendcaster." srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fidea-cast.9cad2fe6.png&amp;w=1200&amp;q=100 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fidea-cast.9cad2fe6.png&amp;w=3840&amp;q=100 2x" src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fidea-cast.9cad2fe6.png&amp;w=3840&amp;q=100" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><style data-emotion="css qu42dx">.css-qu42dx{font-size:0.85em;}</style><i class="chakra-text css-qu42dx"></i></div>
+<p>I clicked on the link to see what <a href="https://chirpty.com/">Chirpty</a> was, and felt that this would be a perfect project for me. It&#x27;s simple, but not too simple.</p>
+<h1>How it Works</h1>
+<p><em>All the code is available on <a href="https://github.com/yashkarthik/friendcaster">Github</a></em></p>
+<p>This is the root dir of my project. I use typescript so I had to make some changes to <code>package.json</code> and <code>tsconfig.json</code> but the basic initialization was done via <code>npm init -y</code>.</p>
+<pre><code>├── index.ts
+├── src
+│   ├── api.ts
+│   ├── data.ts
+│   ├── final.ts
+│   └── image.ts
+└── views
+    ├── pages
+    │   ├── circle.ejs
+    │   ├── faq.ejs
+    │   └── index.ejs
+    └── partials
+        ├── footer.ejs
+        ├── head.ejs
+        └── header.ejs
+├── public
+│   ├── circle.png
+│   └── favicon.ico
+├── .env
+├── package.json
+├── tsconfig.json
+</code></pre>
+<p>The code is split into multiple files for better maintainability:</p>
+<ul>
+<li><code>index.ts</code> - this is the entry point into the application. It sets up the server (Express.js) and the relevant routes</li>
+<li><code>src/api.ts</code> - this contains a bunch of helper functions to fetch data from the smart contracts on the blockchain.</li>
+<li><code>src/data.ts</code> - this file processes the data we fetch to make it easier to make images using these.</li>
+<li><code>src/image.ts</code> - code to create image out of the data.</li>
+<li><code>src/final.ts</code> - a bunch of functions and constants to tie everything together and offer a single endpoint for our server to call into.</li>
+</ul>
+<h2>Fetching Data</h2>
+<p><code>src/api.ts</code></p>
+<p>We&#x27;ll need to understand a bit about how Farcaster stores user data, to understand the calls we make. Farcaster allows users to store their casts (tweets) on whatever server they wish to. The server could be AWS s3, a VPS on Digital Ocean or a Raspberry Pi under their desk. This keeps the cost of posting low (cuz storing data on the blockchain is high). But to incentivize the servers to not misbehave, users are able to switch the server that stores the data. The user just need copy their data to the new server and change the url in the <a href="https://rinkeby.etherscan.io/address/0xe3Be01D99bAa8dB9905b33a3cA391238234B79D1#code">Farcaster Name Registry</a> - a smart contract that maps an address -&gt; username -&gt; url of the host directory.</p>
+<p>So to fetch a user&#x27;s posts we need to query the smart contract, with the username, to get the url of the server that stores their data, then query the data from that url.</p>
+<p>I&#x27;m using <code>ethers.js</code> to interact with the blockchain, and Alchemy as a node service.</p>
+<p>To get the url of a user&#x27;s host directory, we call the <code>getDirectoryUrl</code> function defined in the Name Registry Contract with the username formatted in <code>bytes32 string</code>. Then we get the data stored in the host directory using <a href="https://github.com/sindresorhus/got"><code>got()</code></a>.</p>
+<pre><code class="language-js">export const getDirectory = async (username: string, registryContract:any): Promise&lt;IDirectory&gt;  =&gt; {
+
+  const byte32Name = utils.formatBytes32String(username);
+  const directoryUrl = await registryContract.getDirectoryUrl(byte32Name);
+
+  const directoryResponse = await got(directoryUrl, { protocol: &#x27;https:&#x27; });
+  const directoryBody = JSON.parse(directoryResponse.body).body;
+
+  return {
+    directoryUrl,
+    directoryBody
+  };
+}
+</code></pre>
+<p>The data stored in the host directory is of the shape:</p>
+<pre><code>{
+  body: {
+    addressActivityUrl: &#x27;http://www.host.xyz/bob/casts.json&#x27;,
+    avatarUrl: &#x27;https://github.com/bob_the_builder.png&#x27;,
+    displayName: &#x27;Bob&#x27;,
+    proofUrl: &#x27;http://www.host.xyz/bob/proof.json&#x27;,
+    timestamp: 1624314341272,
+    version: 1,
+  },
+  merkleRoot: string,
+  signature: string,
+}
+</code></pre>
+<p>I&#x27;ve defined two more functions in this file is <code>getAvatarUrl, getAvatarListUrl</code>. They fetch the avatar url of a user and a list of users, respectively. They call <code>getDirectory</code> extract the url from the directory blob.</p>
+<pre><code class="language-js">const { directoryBody } = await getDirectory(username, registryContract);
+const avatarUrl = directoryBody.avatarUrl;
+</code></pre>
+<h2>Processing that data to look for posts that are replies</h2>
+<p><code>src/data.ts</code></p>
+<p>Farcaster stores all of user&#x27;s posts in the directory as a json file, that is referenced by the <code>directoryBody.addressActivityUrl</code>. The json file is shaped like this:</p>
+<pre><code>interface IAction {
+
+  body: Object;
+  merkleRoot: string;
+  signature: string;
+  meta: {
+    displayName: string;
+    avatar: string;
+    isVerifiedAvatar: boolean;
+    numReplyChildren: number;
+    reactions: Object;
+    recasts: Object;
+    watches: Object;
+    replyParentUsername?: {
+      address: string;
+      username: string;
+    }
+  }
+
+}
+
+</code></pre>
+<p>Reply posts have the <code>replyParentUsername</code> key defined while normal posts don&#x27;t have this key cuz they are the parent. To filter posts that are replies vs the posts that are just normal posts we define this filter on an array containing all the user&#x27;s timeline. We then map over the filtered array to fetch the username of the post our user replied to.</p>
+<pre><code>const addressActivity: IAction[] = JSON.parse(addressActivityResponse.body);
+const repliedPeople: string[] = addressActivity.filter((action:IAction) =&gt; {
+  // check if the action is a associated with another user.
+  if (!action.meta.replyParentUsername) {
+    return false;
+  }
+
+  return true;
+}).map((action:any) =&gt; action.meta.replyParentUsername.username)
+</code></pre>
+<p>Now we have the username of everyone that we replied to. The final circle contains several rings, which represent our frequency of interaction. We need to add weights to the array we have.</p>
+<pre><code>const interactionFrequency: IFreqObj = interactedPeople.reduce((prevValue: any, currentValue: string) =&gt; {
+  return prevValue[currentValue] ? ++prevValue[currentValue] : prevValue[currentValue] = 1, prevValue
+}, {});
+
+const tally: INameFreq[] | any[] = []
+for (const [uname, freq] of Object.entries(interactionFrequency)) {
+  tally.push({
+      username: uname,
+      freq: freq
+  });
+}
+
+tally.sort((a:any, b:any) =&gt; b.freq - a.freq);
+</code></pre>
+<p>We add weight to our array of usernames using the reduce function. We then sort the array in the tally array.</p>
+<p>Next we add the caller&#x27;s username to the list, and the append portions of the array into a <code>result</code> array. This is mostly to handle the data for different rings separately.</p>
+<pre><code>head = [{username: username, freq: 0, avatarUrl: userUrl}, ...head];
+
+let result: INameFreq[][] = []
+result.push(head.splice(0, 1))
+result.push(head.splice(0, 8))
+result.push(head.splice(0, 15))
+result.push(head.splice(0, 26))
+return result;
+</code></pre>
+<h2>Generating the Image</h2>
+<p><code>src/image.ts</code></p>
+<p>I basically copied the image generation style from <a href="https://blog.hackertyper.net/post/twitter-interaction-circles-guide/">Chirpty</a> which uses <a href="https://github.com/Automattic/node-canvas"><code>node-canvas</code></a>. MY <code>render</code> function accepts a config object of interface <code>IConfig</code> and writes the generated image to <code>public/circle.png</code>. Since I&#x27;m running Express.js I can set that image as my static directory and access the image from anywhere.</p>
+<pre><code class="language-ts">interface IConfig {
+  users: INameFreq[];
+  count: number;
+  radius: number;
+  distance: number;
+}
+</code></pre>
+<h2>Tying everything into a single endpoint for the server:</h2>
+<p><code>src/final.ts</code></p>
+<p>This file contains the contract address and the contract ABI which are required to generate a contract instance. This file instantiates the contract and calls the <code>getInteractionFrequency</code> with it. then supplies the data to the <code>render</code> function.</p>
+<pre><code class="language-ts">export async function createImage(username: string) {
+  const provider = new providers.AlchemyProvider(&#x27;rinkeby&#x27;, process.env.ALCHEMY_API_KEY);
+  const registryContract = new Contract(REGISTRY_CONTRACT_ADDRESS, REGISTRY_ABI, provider);
+
+  const block = await provider.getBlockNumber();
+  console.log(&quot;Block: &quot;, block);
+
+  const data = await getInteractionFrequency(username, registryContract)
+  await render([
+    {distance: 0,   count: 1,   radius: 110,    users: data[0]},
+	  {distance: 300, count: 8,   radius: 80,     users: data[1]},
+	  {distance: 400, count: 15,  radius: 50,     users: data[2]},
+	  {distance: 500, count: 26,  radius: 30,     users: data[3]},
+  ]);
+};
+</code></pre>
+<h2>Setting up Express.js in</h2>
+<p><code>index.ts</code></p>
+<p>It contains generic code to setup some basic routes, and public directories. Only one route is of relevance here. It is the route that returns the interaction circle image.</p>
+<pre><code class="language-ts">app.get(&quot;/circle/:username&quot;, (req, res, next) =&gt; {
+  let username = req.params.username;
+  if (username[0] == &#x27;@&#x27;) username = username.slice(1,);
+
+  createImage(username)
+    .then(e =&gt; {
+      setTimeout(() =&gt; (res.render(&#x27;pages/circle&#x27;), 1))
+    }).catch(next)
+});
+</code></pre>
+<p>When the user enters their username in the form (on the homepage), they are sent to the <code>/circle/&lt;username&gt;</code> route. This will trigger the function <code>createImage</code>, defined in <code>src/final.ts</code>. After the image has been written to <code>public/circle.png</code> file, we tell Express.js to render the page using <code>/views/pages/circle</code> view. The view contains an image tag which renders the interaction circle.</p>
+<h1>Conclusion</h1>
+<p>Friendcaster was the first project that people other than my irl family used. It was a real product. That helped people. And the response from the fc community was awesome. I got some really good feedback and feature ideas, and I feel that it would be a good idea to launch a version 2 of friendcaster.</p>
+<ul>
+<li>Consider other interactions (likes, recasts) in the calculation.</li>
+<li>Build a full-fledged frontend in React (maybe use Next.js). And offload image rendering here.</li>
+<li>Allow users to customize stuff: bg, profile outline, size etc.</li>
+<li>Use an outward spiral instead of multiple levels of circles.</li>
+<li>Replace the static canvas image with a dynamic animation thingy built via react</li>
+<li>Mint as nft. Store image on Arweave/IPFS.</li>
+<li>Hovering a profile should show who it is etc.</li>
+<li>Integrations with other Farcaster apps
+<ul>
+<li>farcasternews.xyz to show karma.</li>
+<li>@perl to show collections etc.</li>
+</ul>
+</li>
+<li>Serverless?</li>
+</ul>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How NFT Royalties Actually Work]]></title>
+        <id>https://www.yashkarthik.xyz/archive/nft-royalties</id>
+        <link href="https://www.yashkarthik.xyz/archive/nft-royalties"/>
+        <updated>2022-08-18T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Escape royalties through Sudoswap - an angry trader]]></summary>
+        <content type="html"><![CDATA[<p>I first read about people avoiding nft royalties on my Twitter feed. It was an angry tweet advocating for royalties for creators, and why <a href="https://twitter.com/_yashKarthik/status/1559902048468226049?s=20&amp;t=NQoeGlLjmiGNVXYvt_N9dw" title="Twitter Thread">Sudoswap</a> is cheating the system. The part about royalties caught my eye. I had no idea that royalties could even be excluded. This led me down the rabbit hole of token standards (ERC-20, ERC-721 etc) and how royalties are implemented in nft&#x27;s.</p>
+<p>Turns out there&#x27;s no way to implement royalties in the smart contract itself (yet). Each nft marketplace has its own implementation of royalties. When an nft is sold on that platform, it triggers a function on the server that gives the creator a cut. So if you sold an nft without using a platform, the server wouldn&#x27;t know, hence, the creator wouldn&#x27;t get any cut.</p>
+<h1>Why Royalties can&#x27;t be Implemented at a Contract Level</h1>
+<p>But royalties are one of the core advertised features of nft art. How come there&#x27;s no way to implement them within the contract? The problem becomes clear when you see these transactions from the blockchain&#x27;s perspective.</p>
+<p>The blockchain sees a smart contract (the nft), which has a function defined called <code>ownerOf</code>. This function returns an ethereum address (the owner). When the nft is sold, the blockchain is instructed to change the value of address in the contract. The blockchain doesn&#x27;t know anything about the <em>selling</em> of that contract. Thus, it doesn&#x27;t know anything about the transfer of eth that made the selling possible. The blockchain does not link the transfer of money to the transfer of an nft. Since it can&#x27;t link these two, it can&#x27;t facilitate royalties.</p>
+<p>Maybe in the future we&#x27;ll have <em>sellable nfts</em> that help the blockchain identify payment that are for nfts and then give the creators a cut. But until then, creators are gonna have to trust that people sell their nfts via marketplaces.</p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How Jack Butcher Productized Himself]]></title>
+        <id>https://www.yashkarthik.xyz/archive/jack-butcher</id>
+        <link href="https://www.yashkarthik.xyz/archive/jack-butcher"/>
+        <updated>2022-08-10T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Escape competition through autheticity - Naval Ravikant]]></summary>
+        <content type="html"><![CDATA[<p>Today Jack Butcher has an online audience of over 500k, earns $100,000 a month, and runs an infinitely scalable business. But just 4 years ago, in 2018, he was burnt out running an ad agency serving corporate clients. The insight behind this transition? Productizing himself.</p>
+<p>He started down the standard career path. Studying design at university and then spent a decade working in the industry. Bouncing around different jobs, picking up new skills, building connections. In 2018, he started his own advertising agency. Shooting videos, commercials, and full-stack creative work. Serving corporate clients as a single-person agency turned out to be super exhausting and he was feeling burnt out by the end of the year.</p>
+<p>But working on his business revealed some important things about the industry. He observed that clients weren&#x27;t coming to him for his skill-set. There was no reason to choose him over another agency specializing in (say) shooting video-commercials. He had built up a strong network at his previous jobs and his new agency was benefiting from that. He quickly understood that this wouldn&#x27;t be sustainable and he had to either scale up or pivot.</p>
+<ol>
+<li>He could hire either some designers, managers and scale his agency to handle corporate clients; or,</li>
+<li>Pivot the agency in one specific, narrow direction to eliminate competition.</li>
+</ol>
+<p>He chose to dig in and focus on a very specific part of the design process: pitch decks. A pitch deck is essentially a sort of presentation used to introduce and communicate an idea to win a job or contract. It itself is (usually) not the product. But he had spent so much time refining that process, he could build a brand around that as a product.</p>
+<p>But there were other&#x27;s doing this right? What was his <em>special sauce</em>?</p>
+<p>As a graphic designer he had to compete a massive pool of other designers. But by layering his skill as a artist with his expertise for understanding value, he created a whole new market with no competition. With no competition around he captured all demand and scaled it using media.</p>
+<style data-emotion="css 1iu1318">.css-1iu1318{margin-top:10px;margin-bottom:10px;text-align:center;}</style><div class="css-1iu1318"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27597%27%20height=%27351%27/%3e"/></span><img alt="Venn Diagram representing Jack relative to the design industry." src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Venn Diagram representing Jack relative to the design industry." srcSet="/_next/static/media/venn.e4bd05e4.svg 1x, /_next/static/media/venn.e4bd05e4.svg 2x" src="/_next/static/media/venn.e4bd05e4.svg" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><style data-emotion="css qu42dx">.css-qu42dx{font-size:0.85em;}</style><i class="chakra-text css-qu42dx"></i></div>
+<p>To conclude, these are the key insight we can draw from Jack&#x27;s journey:</p>
+<ol>
+<li>Hard skills are scalable, but fungible - meaning they can be easily replaced.</li>
+<li>Soft skills help you build connections and earn their trust. Professional connections are not fungible, but they&#x27;re not scalable/sustainable either.</li>
+<li>Specific knowledge is non-fungible, and it&#x27;s scalable. For example: Jack has a specific skill of understanding value, and conveying it through visuals.</li>
+</ol>
+<p><em>Thanks for reading!</em></p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Lens Protocol Explained]]></title>
+        <id>https://www.yashkarthik.xyz/archive/lens</id>
+        <link href="https://www.yashkarthik.xyz/archive/lens"/>
+        <updated>2022-08-09T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[A decentralized, composable, user-owned social graph]]></summary>
+        <content type="html"><![CDATA[<p>Blockchains separate the backend from the frontend. <a href="https://twitter.com/LensProtocol">@LensProtocol</a> takes this further by specialising the backend for social interactions. Here&#x27;s how it works.</p>
+<h2>Everything is an NFT! Literally.</h2>
+<p>Profiles, comments, follows, mirrors(retweets) are all nfts, or represented using nfts. This enables direct ownership of content and, programmability (cuz nfts are basically programmable objects).</p>
+<p>The main nfts are:</p>
+<ul>
+<li>ProfileNFT: ownership over this nft gives you control over your profile.</li>
+<li>Publications: these are posts, comments, mirrors all posted to a user&#x27;s profile and stored in the user&#x27;s wallet.</li>
+</ul>
+<p>A key feature of nfts is their inherent &quot;programmable&quot; nature. Lens Protocol leverages this in the form of modules.</p>
+<h2>Modules</h2>
+<p>Modules are whitelisted contracts that adhere to a specific interface.</p>
+<ul>
+<li>They have state and contain logic to be executed when a certain event occurs.</li>
+<li>Follow Modules: called when a user tries to follow a profile.</li>
+<li>Collect Module: executed when a user tries to collect a publication.</li>
+</ul>
+<p>... etc.</p>
+<p>These modules allow for logic such as &quot;fee-on-follow&quot; or even a &quot;subscription&quot; model. Basically any logic you can think up!</p>
+<h2>Monetization</h2>
+<p>Because creators own their content via the Lens Protocol, they can allow their followers to purchase that content as nfts. A creator can attach a collect module with arbitrary logic.</p>
+<p>Web2 turned websites from digital newspaper to social networks and shopping stores. It leveraged the programmable nature of the webpages. Similarly NFTs are programmable objects. By leveraging this @LensProtocol has built a decentralised, composable, user-owned social graph.</p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How Dell dethroned IBM]]></title>
+        <id>https://www.yashkarthik.xyz/archive/dell-v-ibm</id>
+        <link href="https://www.yashkarthik.xyz/archive/dell-v-ibm"/>
+        <updated>2022-07-27T18:30:00.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>1984: IBM earned $5 bn and a 19 yr old Micheal Dell incorporates Dell with $1000 of funding.</li>
+<li>2005: Dell earns $9 bn in profits while IBM&#x27;s pc div is sold to Lenovo.</li>
+</ul>
+<style data-emotion="css 1upb9tn">.css-1upb9tn{border:0;border-bottom-width:1px;width:100%;}</style><hr aria-orientation="horizontal" class="chakra-divider css-1upb9tn"/>
+<p>In the 1970s personal computer was was an unfamiliar idea with the American people. Only businesses and universities used computers. IBM dominated this arena with 60% market share.</p>
+<p>As the personal computer market emerged in the early 80s, IBM was the time-tested, obvious choice for most consumers. It had a massive supply chain consisting of resellers and distributors to reach every corner of America. But their situation in the pc space was quite different:</p>
+<ul>
+<li>
+<p>In the mainframe-sector they built their own components, and wrote their own software.</p>
+</li>
+<li>
+<p>But for PCs, they outsourced the chip design to Intel and bought the OS from a startup called Microsoft.</p>
+</li>
+</ul>
+<p>The pc market grew so fast, even IBM couldn&#x27;t keep up with demand. Because of the massive demand, the dealers had trouble managing inventory and would often over-order and over-pay. To compensate for their loss, the dealers started selling the extra pc&#x27;s for dirt cheap: The IBM Grey-market.</p>
+<p>Soon enough, clones of IBM started popping up. One of these clones was Dell. But Dell was no ordinary clone.</p>
+<p>Dell obsessed over computers. Took them apart, modded them, and even resold them for a profit. While messing with computers, he realised that the components of IBM pcs cost between $600-$700. But the pcs were being sold at a huge markup of $3000.</p>
+<p>A large chunk of the $3000 went to the resellers. But the dealers didn&#x27;t really understand pcs. Most of them sold gadgets like stereos and stuff, and sold pcs cuz they seemed like the next big thing.</p>
+<p>• IBM couldn&#x27;t make PCs cheaper cus of their reseller network
+• But Dell knew the actual cost of the parts and knew where to buy them.</p>
+<p>While Dell realized that resellers were a cash-sink, most clones just blindly copied this from IBM. He had spotted a golden opportunity.</p>
+<style data-emotion="css 1upb9tn">.css-1upb9tn{border:0;border-bottom-width:1px;width:100%;}</style><hr aria-orientation="horizontal" class="chakra-divider css-1upb9tn"/>
+<p><strong>Phase 1:</strong> Without having to pay resellers, Dell could massively undercut the competition.</p>
+<p>Word of his cheap, well performant pcs got around. Soon enough, professionals from nearby cities started coming to Dell for their pcs.</p>
+<p>But without e-commerce how did Dell reach the lengths-and-breadths of America?</p>
+<p><strong>Phase 2:</strong></p>
+<p>• Dell established a dedicated sales team instead of relying on resellers.</p>
+<p>• Different teams for B2C and B2B. Set it up such that a sales person&#x27;s background matched the client&#x27;s field. The sales team could then collect inputs and feedback for the engineers. Driving an iteration-feedback loop.</p>
+<p>As the scale of operations grew, Dell deployed the Just-In-Time model. This reduced their waste, improved cash-flow, and maximized profits.</p>
+<style data-emotion="css 1upb9tn">.css-1upb9tn{border:0;border-bottom-width:1px;width:100%;}</style><hr aria-orientation="horizontal" class="chakra-divider css-1upb9tn"/>
+<p>Dell&#x27;s obsession over the industry enabled him to discovery key market insights that others simply glossed over. Enabling him to avoid the simple, small mistakes that toppled IBM.</p>
+<p>About 25 years after entering the pc market, IBM&#x27;s pc division was sold to Lenovo.</p>
+<p>TL;DR</p>
+<p>• Obsess over your industry. Discover the flaws in the market-leader&#x27;s plan.
+• Compete with the best in your market.
+• Read about emerging market. The fields that are growing so fast that big players can&#x27;t cater to the demands.</p>
+<p>Thanks for reading!</p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gitcoin Passport Explained]]></title>
+        <id>https://www.yashkarthik.xyz/archive/gitc-pass</id>
+        <link href="https://www.yashkarthik.xyz/archive/gitc-pass"/>
+        <updated>2022-06-27T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Verifiable personhood]]></summary>
+        <content type="html"><![CDATA[<p>Open-source software is a digital public good that generates $400bn a year in value, but the creators of OSS are unable to monetize their work on this digital infrastructure. Gitcoin&#x27;s mission is to correct this asymmetry. And they&#x27;ve done a good job of it. Since its launch in Nov 2017,  Gitcoin has facilitated 2,733,950 complete transactions to 10,820 unique earners, facilitated 2819 grants and raised $65.4 million of funding for open source. It does this by providing members opportunity to earn and fund their work via bounties and grants.</p>
+<h1>Gitcoin Grants</h1>
+<p>Gitcoin Grants is a crypto-style Kickstarter which allows individuals to get funding for a public-goods project they are working on. It uses <a href="https://wtfisqf.com">Quadratic Funding</a> to allocate funds to projects that the community actually prioritizes. Because quadratic funding weighs the number of contributors over the amount contributed, it&#x27;s susceptible to <strong>Sybil Attacks</strong>.</p>
+<h2>Sybil Attacks</h2>
+<p>Sybil attacks are also common in the web2 world: fake reviews on Amazon, fake accounts to sway polls etc. In the context of Gitcoin it generally involves a person creating multiple identities and using them to make multiple donations. For example: instead of sending $100 dollars from a single account, a person creates 100 accounts and sends $1 through each of them. Since quadratic funding weighs the number of donations over the amount donated, the malicious project will get a larger slice of the matching pool than if they donated via a single account.</p>
+<p>There are several ways to tackle this problem:</p>
+<ol>
+<li>Use machine learning to detect patterns so that the person must spend time impersonating a real human.</li>
+<li>Set a minimum donation amount.</li>
+<li>Identity verification</li>
+</ol>
+<p>The idea is that if a person has to spend time, effort and money to verify each identity, it dramatically reduces the potential gains from gaming the system.</p>
+<h2>Existing Solutions to Identity Verification</h2>
+<p>There are a lot of different ways &amp; methods to verify identity, for example:</p>
+<ul>
+<li>
+<p>Centralized solutions:</p>
+<ul>
+<li>National ID cards</li>
+<li>KYC, etc.</li>
+</ul>
+</li>
+<li>
+<p>web3 native solutions:</p>
+<ul>
+<li><a href="https://www.proofofhumanity.id/">Proof of Humanity</a></li>
+<li><a href="https://www.brightid.org/">BrightID</a></li>
+<li><a href="https://poap.xyz/">Poap</a>, etc</li>
+</ul>
+</li>
+</ul>
+<p>To incentivize identity verification, Gitcoin created TrustBonus. It works by increasing the impact a donation has the more levels of verification the contributor has gone through. An unverified user starts with 50% of their contribution count towards the match fund. To increase their impact a user must verify their identity. The higher a user&#x27;s TrustBonus, the more we can be confident that the user is unique, and a larger percentage of the user&#x27;s donation counts towards the match fund.</p>
+<p>Gitcoin passport takes this further by serving as an identity aggregator that wraps your identity credentials, across web2 and web3, into a single composable identity.</p>
+<h1>Gitcoin Passport</h1>
+<p>The Gitcoin Passport aims to provide a secure infrastructure for digital identity by capturing the <em>intersectional</em> nature of identity in cryptographic wrappers called <strong>verifiable credentials</strong>.</p>
+<h2>How it Works</h2>
+<p>Identity providers (Google, Twitter, POAP, GitHub, BrightID) are used to establish &quot;personhood&quot; of a user through their direct ownership of social accounts and web3 assets. Once personhood is established, the credential or stamp is stored in the Passport as json data. Applications can read your passport and verify your identity. The more stamps a user has, the more confident the app can be that the user is indeed a human.</p>
+<h2>Tech behind it</h2>
+<p>The Passport is a collection of data credentials, created according to the DID [ <a href="https://www.w3.org/TR/did-core/">decentralized identifiers</a> ] and VC [ <a href="https://www.w3.org/TR/vc-data-model/#introduction">verifiable credentials</a> ] specs, stored on the Ceramic Network.</p>
+<h3>Ceramic Network</h3>
+<p>Most of the information on today&#x27;s internet is locked away on application-specific database servers with poor API integrations The siloed environment results in friction for developers and worse experience for users.</p>
+<p>Ceramic is a decentralized network for composable data, that extends the IPFS file system. Due to Ceramic&#x27;s permissionless network anyone in the world can openly build upon existing data without relying on a centralized server, integrate one-off APIs, or worry if the state of information being returned is correct.</p>
+<h1>Lifecycle of a Passport</h1>
+<ol>
+<li>User goes to <a href="passport.gitcoin.co">passport.gitcoin.co</a> or a similar frontend, where the user is prompted to connect and collect stamps from various identity providers.</li>
+<li>User goes to an app and sign a message allowing the app access to their passport.</li>
+<li>The app uses <a href="https://github.com/gitcoinco/passport-sdk/tree/main/packages/reader">Gitcoin Passport SDK Reader</a> to read the contents and and fetch data from Ceramic</li>
+<li>App must ensure that VCs were issued correctly using the <a href="https://github.com/gitcoinco/passport-sdk/tree/main/packages/verifier">SDK Verifier</a>.</li>
+<li>The app now calculates user&#x27;s personhood score using the <a href="https://github.com/gitcoinco/passport-sdk/tree/main/packages/scorer">SDK Scorer</a></li>
+<li>Depending on the user&#x27;s verification level, they&#x27;re granted certain rights and levels of access.</li>
+</ol>
+<h1>Conclusion</h1>
+<p>In conclusion, Gitcoin Passport is a way to store your existing identity crendentials in a decentralized and verifiable format.</p>
+<h2>FAQs</h2>
+<h3>What is stored in my passport?</h3>
+<p>The DID associated with your Ethereum address and the verifiable credential issued for each service. It&#x27;s stored as json.</p>
+<h3>Who can read this data</h3>
+<p>Anyone can read from Ceramic. But only you can write.</p>
+<h3>Doxxing</h3>
+<ul>
+<li>No personally identifiable information stored in passport.</li>
+<li>Unique identifier is stored in the VCs, which cannot be brute forced.</li>
+</ul>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nuclear Energy - where's the energy coming from]]></title>
+        <id>https://www.yashkarthik.xyz/archive/nuke-energy</id>
+        <link href="https://www.yashkarthik.xyz/archive/nuke-energy"/>
+        <updated>2022-06-17T18:30:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Like fossil fuels, nuclear energy is produced by performing <em>some</em> reaction, which heats up water, spinning the turbines and generating electricity. In the case of oil, the reaction is combustion; a chemical reaction where the re-arrangement of bonds releases energy. Nuclear energy, like the name suggests, is generated when we alter the nucleus in nuclear reactions.</p>
+<h1>Fission</h1>
+<p>The nucleus is made up of protons and neutrons held together, against the electromagnetic repulsion of protons, by the strong nuclear force. The strong force acts as a sort of rubber band, storing the potential energy of the EM force. Cutting this rubber band would rip the nucleus apart and release the energy.</p>
+<p>A neutron is a convenient way to deliver a punch to the nucleus and disturb it from it&#x27;s spherical shape. The nucleus can hold itself together only if it remains spherical. If it begins to wobble into an elliptical shape, then the minor axis tends to neck down and pinch off into two nuclei plus a few loose neutrons. Those two daughter nuclei then repel each other electrostatically and fly off with great speed.</p>
+<h1>Fusion</h1>
+<p>Fusion energy is released when two small nuclei fuse together forming a larger nucleus and a lot of energy.</p>
+<p>But where did that energy come from? Where was it before the fusion?</p>
+<p>Since nucleus is essentially a bunch of protons and neutrons, the mass of a nucleus should be equal to the sum of the masses of the neutrons and protons. But the mass of a nucleus is lower than the sum of the masses of its protons and neutrons. What happened to that mass?</p>
+<p>So there&#x27;s missing mass, and unexplained energy.</p>
+<p>Einstein&#x27;s equation <code>E = mc^2</code> explains that mass and energy are just different manifestations of each other. The difference in mass is released as energy, when the nucleus is formed.</p>
+<h3>Conclusion</h3>
+<ul>
+<li>The energy released during fission was present as potential energy, due to the suppression of electromagnetic force.</li>
+<li>The energy released during fusion was present as mass of protons and neutrons.</li>
+</ul>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nouns and CC0]]></title>
+        <id>https://www.yashkarthik.xyz/archive/nouns-cc0</id>
+        <link href="https://www.yashkarthik.xyz/archive/nouns-cc0"/>
+        <updated>2022-03-21T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Composable ideas]]></summary>
+        <content type="html"><![CDATA[<p>Traditional companies lead with fear of losing ownership. If someone&#x27;s making money selling t-shirts with Mickey on it, that is money Disney&#x27;s losing - <strong>direct value attribution</strong>.</p>
+<p>CC0 is essentially LEGO for ideas - composable IP. Why? Cuz memes run people&#x27;s minds. Releasing IP into public domain increases points of discovery, and enables anyone to build upon it; i.e more cool stuff and more people interacting with it - <strong>indirect value attribution</strong>.</p>
+<p>The result? With monopoly power gone, creators will compete on quality and creativity of experience they provide. In other words: more people wearing Mickey shirts ⇒ more ppl thinking about Mickey ⇒ more potential for building on top of Mickey.</p>
+<h3>Some links</h3>
+<ul>
+<li><a href="https://nouns.wtf/">Nouns</a></li>
+<li><a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0</a></li>
+<li><a href="https://twitter.com/punk4156">@punk4156</a></li>
+<li><a href="https://twitter.com/jackbutcher">@jackbutcher</a></li>
+</ul>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Bootstrapping a Rollup]]></title>
+        <id>https://www.yashkarthik.xyz/archive/bootstrap-rollup</id>
+        <link href="https://www.yashkarthik.xyz/archive/bootstrap-rollup"/>
+        <updated>2022-03-13T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Rollups achieve economies of scale when more people use them]]></summary>
+        <content type="html"><![CDATA[<p>Bootstrapping a rollup remains an unsolved problem. It&#x27;s similar to the early days of dapps. Anyone could clone Uniswap and offer 10<em>x</em> the yield. Most dapps resorted to some sort of tokenization (ICOs, air drops) to incentivize users to use their dapp long enough to form a <a href="https://twitter.com/divine_economy/status/1446150773251977216" title="twitter">community-moat</a>  around it.</p>
+<blockquote>
+<p>Tokens help overcome the bootstrap problem by adding financial utility when application utility is low - Chris Dixon</p>
+</blockquote>
+<style data-emotion="css 1iu1318">.css-1iu1318{margin-top:10px;margin-bottom:10px;text-align:center;}</style><div class="css-1iu1318"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27576%27%20height=%27293%27/%3e"/></span><img alt="Bootstrapping using tokens" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Bootstrapping using tokens" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbootstrap-token.7b0bf81e.png&amp;w=640&amp;q=100 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbootstrap-token.7b0bf81e.png&amp;w=1200&amp;q=100 2x" src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbootstrap-token.7b0bf81e.png&amp;w=1200&amp;q=100" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><style data-emotion="css qu42dx">.css-qu42dx{font-size:0.85em;}</style><i class="chakra-text css-qu42dx"></i></div>
+<p>Rollups too could launch their own token, see Coindesk&#x27;s <a href="https://www.coindesk.com/layer2/2022/03/02/what-tokenization-could-do-for-ethereum-scaling-solutions/">article</a> on this. Another way to get more users onto your platform would be subsidizing the first <em>x</em> transactions.</p>
+<h1>Subsidizing Transactions</h1>
+<p>A rollup&#x27;s smaller user base means that each user has to pay a large fraction of the fees, increasing the cost per tx, and chasing away existing users. With a larger user base the gas will be split between more users and each user would pay a smaller fraction of the fees ⇒ lower cost per tx.</p>
+<p>A rollup that offers free transactions for (say) 10 days after its launch will attract a large user base at the start, essentially eliminating the bootstrap phase.. With a large user base, even after stopping the subsidies, each user would have to pay a small fraction of the fee. Rollups achieve a sort of <em>economies of scale</em> when more people use them. Cost of each transaction falls when there are more transactions.</p>
+<p><img src="/blog-assets/bootstrap-sub-tx.svg" alt="Bootstrapping by subsidizing"/></p>
+<h2>Potential Downsides</h2>
+<p>An obvious flaw: projects with large funding can extend this free transaction phase longer, and outlast competition. I&#x27;ll be updating this list as I come across other ways to <em>game</em> the market.</p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[NFTs are copyright]]></title>
+        <id>https://www.yashkarthik.xyz/archive/nft-law</id>
+        <link href="https://www.yashkarthik.xyz/archive/nft-law"/>
+        <updated>2022-02-10T18:30:00.000Z</updated>
+        <content type="html"><![CDATA[<h3>NFTs</h3>
+<ul>
+<li>They are a representation of an off-chain asset / network. A network of fans, art etc.</li>
+<li>They form a connection between the chain and the community.
+<ul>
+<li>They enable on-chain scarcity.</li>
+<li>The community must protect / enforce off-chain scarcity.</li>
+</ul>
+</li>
+</ul>
+<h3>Copyrights</h3>
+<p>A copyright is a type of intellectual property that gives its owner the exclusive right to copy and distribute a creative work, usually for a limited time. [ <a href="https://en.wikipedia.org/wiki/Copyright">from Wikipedia</a> ]</p>
+<h1>How are they related?</h1>
+<p>Both seem to be doing the same thing - establishing a connection between the asset and the creator, providing them with ownership over their work, and enabling uniqueness. The only difference being that NFTs are not (yet) recognized by law.</p>
+<p>When someone copies and tries to profit off someone else&#x27;s work, the creator can file a suit. The connection between NFTs and reality is held up by the community - the community decides which smart contract on the blockchain represents the off-chain asset.</p>
+<p><strong>Example:</strong> There are hundreds of CryptoPunk clones but they are still considered unique.</p>
+<ol>
+<li>The clones don&#x27;t have the same contract address, thus on-chain uniqueness is preserved.</li>
+<li>The community chooses to value the original tokens - the original contract <em>is</em> the CryptoPunk.</li>
+</ol>
+<p>Maybe governments should recognize blockchains as neutral grounds for registering copyrights.</p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Summarizing Balaji's DeFi Matrix]]></title>
+        <id>https://www.yashkarthik.xyz/archive/defi-matrix</id>
+        <link href="https://www.yashkarthik.xyz/archive/defi-matrix"/>
+        <updated>2022-01-27T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Order books, but for everything]]></summary>
+        <content type="html"><![CDATA[<p><em>Core ideas taken from <a href="https://twitter.com/balajis">Balaji Srinivasan&#x27;s</a> <a href="https://www.youtube.com/watch?v=BKfnj9SrzCY">appearence on the Tim Ferris Show</a></em></p>
+<h3>What is it?</h3>
+<ul>
+<li>Order books for everything.</li>
+<li>A way to represent each asset digitally, and trade them like coin pairs.</li>
+</ul>
+<h3>What it allows</h3>
+<ul>
+<li>The wallet enables <em>competition</em> between all assets.</li>
+<li>They allow us to price, compare, and trade things we never could. Example: a byte on my hard-disk for a minute of your CPU?</li>
+</ul>
+<h3>How is this different from existing markets?</h3>
+<ul>
+<li><strong>Everything is liquid:</strong> everything can be exchanged for everything else without having to convert to cash.</li>
+<li>This reduces the amount of wealth held in cash because it depreciates.</li>
+</ul>
+<h3>Analogy</h3>
+<p>Google News indexed all newspapers and made every local newspaper compete against every other. This killed newspapers that didn&#x27;t do real reporting. The DeFi matrix will make every digital asset compete against every other. It will work as a check on the power of institutions that control fiat.</p>
+<h1>What&#x27;s so big about this?</h1>
+<ul>
+<li>Order books offer a <em>first principles</em> view of how supply and demand work.</li>
+<li>Tokens enable measurement and representation of things like space and time.</li>
+<li>Wallets and digital markets combine these two by enabling live comparison and liquidity between these assets.</li>
+</ul>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How Proof of Work enables Decentralized Consensus]]></title>
+        <id>https://www.yashkarthik.xyz/archive/pow-de-consensus</id>
+        <link href="https://www.yashkarthik.xyz/archive/pow-de-consensus"/>
+        <updated>2022-01-07T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Using computational work as a basis for what to trust]]></summary>
+        <content type="html"><![CDATA[<p>Suppose I give Alice 10 dollars and she later gives 5 dollars to Bob. Historically, we represented such transactions by transferring an object - cash. With the internet, transacting via physical cash became impractical, so we came up with ledgers. Then the problem was who maintains the truth-ness of the ledger? Historically, we trusted the banks, and governments with the ledger. This gave them immense power and control over the flow and creation of money. But now Bitcoin has the craziest answer you could imagine - everyone maintains a copy of the ledger.</p>
+<p>Anyone running a node maintains a copy of the ledger since it&#x27;s dawn, keeping track of Bitcoin&#x27;s history and incoming transactions. Keeping power over the system in the hands of users.</p>
+<h1>How does this actually work?</h1>
+<p>Every transaction is broadcast out into the world, where nodes add it to their own copy of the ledger.</p>
+<p><strong>Problem</strong>: How to agree on the right ledger? When nodes receive transactions, how can they be sure that everyone else also received the same transaction.</p>
+<p>We need a protocol for how to accept or reject transactions, and in what order, so that you can be sure that anyone else in the world following the same protocol, has the same ledger as you.</p>
+<h1>Proof of Work</h1>
+<p>If we use computational work as a basis for what to trust, you can make it so that fraudulent transactions are <em>computationally infeasible</em>.</p>
+<p>Proof of work is a cryptographic proof in which the prover proves to others that a certain amount of <em>computational effort</em> has been expended.</p>
+<h2>Computational Work</h2>
+<p>Suppose that someone shows you a list of transactions, and they say &quot;I found a special number so that when you put this number at the end of the list of transactions, and apply <a href="wikipedia:SHA-2">SHA-256</a> to the entire thing, the first 100 digits of the output are all zeros&quot;. How hard do you think it was for them to find that number? It must have been <em>really hard</em>.</p>
+<p>But once you know the number, you can quickly verify that this hash really does start with 100 zeros. You can verify that they went through a large amount of work without having to go through that same effort yourself. This number is called a <em>proof of work</em>.</p>
+<p><strong>NOTE:</strong> The purpose of proof of work algorithms is <em>not</em> proving that certain work was carried out, but deterring manipulation of data by establishing large energy and hardware requirements to be able to do so. [ <a href="https://en.bitcoinwiki.org/wiki/51%25_attack">51% Attacks</a> ]</p>
+<h1>Applying Proof of Work</h1>
+<p>For our decentralized ledger, we want a way for everyone to agree on the correct state of the ledger.</p>
+<p>The core idea behind the bitcoin is to have everybody trust whichever ledger has the most computational work put into it. So even though there is no central authority, and everyone is maintaining their own copy of the blockchain, if everyone <em>agrees</em> to give preference to whichever blockchain has the most work put into it, we have a way to arrive at decentralized consensus.</p>
+<h2>Longest Chain rule</h2>
+<p>If you hear two miners broadcasting distinct blockchains with conflicting transaction histories, you defer to the longest one, i.e, the one with the most work put into it. If there&#x27;s a tie, wait until you hear an additional block that makes one longer.</p>
+<p>Technically it&#x27;s not the longest chain, it&#x27;s the chain with the most work invested in it, it usually happens to be the longest chain. Learn about the difference <a href="https://bitcoin.stackexchange.com/questions/29742/strongest-vs-longest-chain-and-orphaned-blocks/29744#29744">here</a>.</p>
+<h3>Why do nodes prefer the longest chain</h3>
+<ol>
+<li>Resolving disagreements when two blocks are mined at the same time</li>
+<li>Protecting blocks already mined on to the blockchain.</li>
+</ol>
+<h3>Incentive for miners to build on the longest chain</h3>
+<p>A miner can claim a block reward if they are able to mine a block. Plus, the coins from this block reward can only be spent if the block is in the longest chain. The block reward incentivizes miners to always try and mine new blocks on top of the longest chain.</p>
+<h1>Conclusion</h1>
+<p>The usual framework of coins made from digital signatures, provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, Satoshi introduced a p2p network that uses Proof of Work to record a public history of transactions which quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power.</p>
+<p>It allows human who don&#x27;t know, trust each other who never reveal identities, location etc to transact securely.</p>
+<h2>Sources and references:</h2>
+<ul>
+<li><a href="https://bitcoin.org/en/bitcoin-paper">Bitcoin whitepaper</a></li>
+<li><a href="https://learnmeabitcoin.com/">Learn Me Bitcoin</a></li>
+<li><a href="https://michaelnielsen.org/ddi/how-the-bitcoin-protocol-actually-works/">michaelnielsen.org</a></li>
+<li><a href="https://www.youtube.com/watch?v=bBC-nXj3Ng4">3b1b - But how does Bitcoin actually
+work?</a></li>
+<li><a href="https://www.youtube.com/watch?v=Lx9zgZCMqXE">CuriousInventor - How Bitcoin Works Under the
+Hood</a></li>
+<li><a href="https://www.youtube.com/watch?v=_160oMzblY8">Anders Brownworth - Blockchain 101 - A Visual
+Demo</a></li>
+<li><a href="https://en.wikipedia.org/">Wikipedia</a> and
+<a href="https://en.bitcoin.it/wiki/Main_Page">various</a> <a href="https://developer.bitcoin.org/devguide/index.html">bitcoin</a> <a href="https://en.bitcoinwiki.org/wiki/Bitcoin">wikis</a></li>
+<li>And ton&#x27;s of random questions on he internet!</li>
+</ul>
+<p><em>Thanks for reading :)</em></p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What is State in Ethereum [Mirror]]]></title>
+        <id>https://www.yashkarthik.xyz/archive/ethState</id>
+        <link href="https://www.yashkarthik.xyz/archive/ethState"/>
+        <updated>2021-12-14T18:30:00.000Z</updated>
+        <summary type="html"><![CDATA[From a global ledger to a decentralized state machine]]></summary>
+        <content type="html"><![CDATA[<p>Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.</p>
+<p>A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bitcoin than it owns. These rules underpin all transactions on Bitcoin and many other blockchains.</p>
+<p>While Ethereum follows almost the same exact rules, it also enables a much more powerful function: smart contracts. For this complex feature, a more sophisticated analogy is required. Instead of a distributed ledger, Ethereum is a distributed state machine.</p>
+<p><em>Originally posted on <a href="https://mirror.xyz/yashkarthik.eth/lZf4_3qZK4F0Z1pbiYD5N5R4vXQoPnii0AzJyFdNGbI">mirror.xyz</a></em></p>
+<h1>State</h1>
+<p>The World State is a data structure made up of smaller objects representing accounts. An account is a mapping between the <em>address</em> and <em>account state</em>. <strong>The world state consists of objects that have an internal state.</strong></p>
+<p><img src="/blog-assets/world-state.png" alt="Ethereum World State"/></p>
+<h2>Structure of State</h2>
+<p>More accurately, the World State is stored as a <a href="https://eth.wiki/en/fundamentals/patricia-tree">Merkle Patricia Trie</a> where accounts (and account data) are the leaves on the tree. The root node, and all the other intermediate nodes, are computed by hashing the hashes of the leaves/nodes below them.</p>
+<p>Any change in the data on the leaves propagates to an inconsistency higher up the trie.</p>
+
+<style data-emotion="css 1iu1318">.css-1iu1318{margin-top:10px;margin-bottom:10px;text-align:center;}</style><div class="css-1iu1318"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%272088%27%20height=%271480%27/%3e"/></span><img alt="test" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="test" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmerkle-tree.3cc33b99.png&amp;w=3840&amp;q=100 1x" src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmerkle-tree.3cc33b99.png&amp;w=3840&amp;q=100" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><style data-emotion="css qu42dx">.css-qu42dx{font-size:0.85em;}</style><i class="chakra-text css-qu42dx">The value of a node depends on the value of the leaves.</i></div>
+<p>Why hash a tree instead of the data itself? Merkle proofs. They allow us to authenticate large amounts of data with just the root node of the tree containing the data. <a href="https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/">More about Merkling</a></p>
+<h1>Transactions as State Modifications</h1>
+<p>The EVM behaves like a math function - given an input, it produces a deterministic output. The EVM takes in the current state, applies some transactions on it; and outputs the next valid state - * a state transition function *.</p>
+<p><code>f(s, t) = s&#x27;</code></p>
+<p>Where:</p>
+<ul>
+<li><code>s</code> is an old valid (world) state;</li>
+<li><code>s’</code> is the new (world) state;</li>
+<li><code>t</code> is a new block of valid transactions;</li>
+<li><code>f</code> is the state transition function.</li>
+</ul>
+<p>The definite rules for changing state from block to block are defined in the EVM.</p>
+
+<style data-emotion="css 1iu1318">.css-1iu1318{margin-top:10px;margin-bottom:10px;text-align:center;}</style><div class="css-1iu1318"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271660%27%20height=%27764%27/%3e"/></span><img alt="Transactions as state modifications" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Transactions as state modifications" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftx-state-mod.79d5d341.png&amp;w=1920&amp;q=100 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftx-state-mod.79d5d341.png&amp;w=3840&amp;q=100 2x" src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftx-state-mod.79d5d341.png&amp;w=3840&amp;q=100" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><style data-emotion="css qu42dx">.css-qu42dx{font-size:0.85em;}</style><i class="chakra-text css-qu42dx">Transactions as state modifications</i></div>
+<p>Each transition modifies only some parts of the world state - account states with transactions executed on them.</p>
+<p>There is a lot to transactions that I didn’t cover, but it’s about how transactions are executed and confirmed, and does not relate to state transitions.</p>
+<h2>State change within an Account</h2>
+<blockquote>
+<p>An account is a mapping between an address and the account state.</p>
+</blockquote>
+<p>The account state consists of four fields: <code>nonce, balance, codeHash, storageRoot.</code></p>
+
+<p><strong>Nonce:</strong> the number of txs sent from the account. It prevents a tx from being processed more than once. For a contract account it represents the number of contracts it has created.</p>
+<ul>
+<li>A transaction, by a human owned account, changes the nonce and balance in the account state.</li>
+<li>A tx, by a contract account, also changes the <code>storageRoot</code> (storage hash) in the account state.</li>
+</ul>
+<style data-emotion="css 1iu1318">.css-1iu1318{margin-top:10px;margin-bottom:10px;text-align:center;}</style><div class="css-1iu1318"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271080%27%20height=%27607%27/%3e"/></span><img alt="Etherem account structure" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Etherem account structure" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Feth-account.6bbe61b5.png&amp;w=1080&amp;q=100 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Feth-account.6bbe61b5.png&amp;w=3840&amp;q=100 2x" src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Feth-account.6bbe61b5.png&amp;w=3840&amp;q=100" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><style data-emotion="css qu42dx">.css-qu42dx{font-size:0.85em;}</style><i class="chakra-text css-qu42dx">Structure of an account</i></div>
+<h1>State storage</h1>
+<p>So where is all this data stored? The blockchain implicitly stores state in the block headers, along with other data.</p>
+
+<style data-emotion="css 1iu1318">.css-1iu1318{margin-top:10px;margin-bottom:10px;text-align:center;}</style><div class="css-1iu1318"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271922%27%20height=%27918%27/%3e"/></span><img alt="State storage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="State storage" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstate-storage.e90d204c.png&amp;w=2048&amp;q=100 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstate-storage.e90d204c.png&amp;w=3840&amp;q=100 2x" src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstate-storage.e90d204c.png&amp;w=3840&amp;q=100" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><style data-emotion="css qu42dx">.css-qu42dx{font-size:0.85em;}</style><i class="chakra-text css-qu42dx">Each block header contains the hash of the root node of the &quot;World State Trie&quot;</i></div>
+<p>An archival node might store all txs and the resulting state transitions (including invalid states) for all blocks in their local disk. This will require large disk storage and is not strictly necessary.</p>
+<p>Conceptually blockchain data can be separated into:</p>
+<ul>
+<li>Chain data: the list of blocks forming the chain.</li>
+<li>State data: the result of each state transition.</li>
+</ul>
+<p>The chain data must be stored, to ensure verifiable custody (or transfer) of assets. But old state can be discarded, as its value can be known only from computation.</p>
+<p>So currently, while both chain and state data are stored locally on the node&#x27;s disk, only the chain data is strictly necessary.</p>
+<h1>Conclusion</h1>
+<p>In essence, state is exactly what it sounds like. It is the status or condition of each account on the Ethereum blockchain, stored across nodes participating in the network. And the EVM, as a state transition machine, executes operations on this shared world state as requested by users and contracts.</p>
+<blockquote>
+<p>Ethereum, taken as a whole, can be viewed as a transaction-based state machine: we begin with a genesis state and incrementally execute transactions to morph it into some current state. It is this current state which we accept as the canonical “version” of the world of Ethereum - The Ethereum Yellow Paper</p>
+</blockquote>
+<h2>Sources and references</h2>
+<ul>
+<li><a href="https://ethereum.org/en/developers/docs/">ethereum.org</a></li>
+<li><a href="https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf">EVM Illustrated</a></li>
+<li><a href="https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/">Merkle tries on blog.ethereum.org</a></li>
+<li>Ethereum Stack Exchange:
+<ul>
+<li><a href="https://ethereum.stackexchange.com/questions/15288/ethereum-merkle-tree-explanation">Ethereum merkle tree explanation</a></li>
+<li><a href="https://ethereum.stackexchange.com/questions/110639/what-is-the-difference-between-blockchain-state-and-the-ethereum-singleton">Blockchain state</a></li>
+<li><a href="https://ethereum.stackexchange.com/questions/359/where-is-the-state-data-stored">State storage</a></li>
+<li><a href="https://ethereum.stackexchange.com/questions/268/ethereum-block-architecture">Block architecture</a></li>
+</ul>
+</li>
+</ul>
+<p>And tons of random question on the internet!</p>
+<p><em>Thanks for reading :)</em></p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
+</feed>
