@@ -15,7 +15,7 @@ const ColorModeSwitcher = (): JSX.Element => {
   return (
     <IconButton
       size="sm" fontSize="lg"
-			pt='3' m='0' border='0'
+      border='0'
       aria-label={`Switch to ${text} mode`}
       variant="ghost"
       color={iconColor}

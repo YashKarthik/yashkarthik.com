@@ -21,119 +21,12 @@ import {
   Link,
   useDisclosure,
   useColorModeValue,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   LinkBox,
   LinkOverlay
 } from '@chakra-ui/react';
 
-const FeedButton = () => {
-
-  const slashColor = useColorModeValue('purple.400', colors.accent.darkMode);
-
-  const {
-	  isOpen: isOpenSubscribe,
-	  onOpen: onOpenSubscribe,
-	  onClose: onCloseSubscribe
-  } = useDisclosure();
-
-  const modalBg = useColorModeValue(
-	  colors.backGround.lightMode,
-	  colors.backGround.darkMode,
-  );
-
-  const modalBorder = useColorModeValue(
-	  colors.bordersAndShadows.lightMode,
-	  colors.bordersAndShadows.darkMode,
-  );
-
-  return (
-	<Menu isOpen={isOpenSubscribe}>
-
-	  <MenuButton
-      color={slashColor}
-		  onMouseEnter={onOpenSubscribe}
-		  onMouseLeave={onCloseSubscribe}
-		  p='2' m='0'>
-		  /
-
-		  <Link
-        p='0'
-        m='0'
-        fontSize='sm'
-        variant='heading'
-      >
-		    subscribe
-		  </Link>
-
-	  </MenuButton>
-
-	  <MenuList
-		  borderRadius='0'
-      borderWidth='2px'
-		  borderColor={modalBorder}
-		  backgroundColor={modalBg}
-		  onMouseEnter={onOpenSubscribe}
-		  onMouseLeave={onCloseSubscribe}
-    >
-      <SubscriptionMenuItem text='RSS Feed' />
-      <SubscriptionMenuItem text='Newsletter' link='#newsletter-container' />
-	  </MenuList>
-
-	</Menu >
-  );
-};
-
-interface MenuItemProps {
-  text: string;
-  link?: string;
-};
-
-const SubscriptionMenuItem = ({ text, link }: MenuItemProps) => {
-
-  const [ menuText, setMenuText ] = useState(text);
-
-  const modalFg = useColorModeValue(
-	  colors.primaryText.lightMode,
-	  colors.primaryText.darkMode,
-  );
-
-  const optionLine = useColorModeValue(
-	  colors.accent.lightMode,
-	  colors.accent.darkMode,
-  );
-
-  return (
-    <MenuItem
-      as='a'
-      href={link}
-      onClick={() => {
-        navigator.clipboard.writeText('https://www.yashkarthik.xyz/feed.xml');
-        if (!link) setMenuText('copied!');
-      }}
-      textColor={modalFg}
-      bgColor='none'
-      _hover={{
-        bgColor:"inherit",
-        color:'inherit',
-        textDecoration: 'underline',
-        textDecorationColor: optionLine,
-        textDecorationThickness: '2px',
-      }}
-      _focus={{
-        bgColor:"inherit",
-        color:'inherit',
-        textDecoration: 'underline',
-        textDecorationColor: optionLine,
-        textDecorationThickness: '2px',
-      }}
-    >
-      {menuText}
-    </MenuItem>
-  );
-};
+import SubscribeMenu from './header/SubscribeMenu';
+import DesktopLinks from './header/DesktopLinks';
 
 const NextLinksRender: React.FC = () => {
 
@@ -221,7 +114,7 @@ const NextLinksRender: React.FC = () => {
 		);
 	  })}
 
-	  <FeedButton />
+    <SubscribeMenu />
 	  <ColorModeSwitcher />
 
 	</Stack>
@@ -230,9 +123,7 @@ const NextLinksRender: React.FC = () => {
 
 const LargeNextLinks: React.FC = () => {
   return (
-	<Box p='0' m='12px 10px 0 0'>
-	  <NextLinksRender />
-	</Box>
+    <DesktopLinks />
   );
 }
 
@@ -259,7 +150,7 @@ const MobileNextLinks = () => {
 		  variant='outline'
       borderRadius='2'
     >
-		<GiHamburgerMenu />
+      <GiHamburgerMenu />
 	  </Button>
 
 	  <Drawer
@@ -291,7 +182,7 @@ const MobileNextLinks = () => {
 		  </DrawerHeader>
 
 		  <DrawerBody >
-			<VStack align='end' onClick={onCloseMobile}>
+			<VStack align='end'>
 			  <NextLinksRender />
 			</VStack>
 		  </DrawerBody>

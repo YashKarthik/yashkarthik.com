@@ -28,6 +28,7 @@ export const generateRssFeed = async () => {
     feedLinks: {
       rss2: `${siteURL}/rss.xml`,
       atom: `${siteURL}/atom.xml`,
+      json: `${siteURL}/feed.json`,
     },
 
     author,
@@ -57,4 +58,5 @@ export const generateRssFeed = async () => {
 
   fs.writeFileSync("./public/rss.xml", feed.rss2());
   fs.writeFileSync("./public/atom.xml", feed.atom1());
+  fs.writeFileSync("./public/feed.json", feed.json1());
 };
