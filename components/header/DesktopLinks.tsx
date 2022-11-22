@@ -52,6 +52,11 @@ const SocialLinks = () => {
 	  colors.bordersAndShadows.darkMode,
   );
 
+  const optionLine = useColorModeValue(
+	  colors.accent.lightMode,
+	  colors.accent.darkMode,
+  );
+
   return (
 	<Menu isOpen={isOpenSubscribe}>
 
@@ -85,6 +90,30 @@ const SocialLinks = () => {
           <SocialLinkItem name='Twitter'  link="https://twitter.com/_yashkarthik"   />
           <SocialLinkItem name='LinkedIn' link="https://www.linkedin.com/in/yashkarthik"  />
           <SocialLinkItem name='YouTube'  link="https://www.youtube.com/channel/UCokxkaw1HSQKNJPDtJHhDkg" />
+          <NextLink href="/links" passHref={true}>
+            <ChakraLink
+              px='4'
+              textColor='inherit'
+              bgColor='none'
+              _hover={{
+                bgColor:"inherit",
+                color:'inherit',
+                boxDecorationBreak:'none',
+                textDecoration: 'underline',
+                textDecorationColor: optionLine,
+                textDecorationThickness: '2px',
+              }}
+              _focus={{
+                bgColor:"inherit",
+                color:'inherit',
+                textDecoration: 'underline',
+                textDecorationColor: optionLine,
+                textDecorationThickness: '2px',
+              }}
+            >
+              All
+            </ChakraLink>
+          </NextLink>
         </Box>
       </Stack>
 	  </MenuList>

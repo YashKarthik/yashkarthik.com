@@ -128,6 +128,7 @@ export const customTheme = extendTheme({
           'rgba(255,255,255,0)',
           'rgba(255,255,255,0)',
         )(props),
+        fontFamily: "Space Grotesk"
       },
 
       body: {
@@ -135,6 +136,7 @@ export const customTheme = extendTheme({
           'rgba(255,255,255,0)',
           colors.backGround.darkMode
         )(props),
+        fontFamily: "Space Grotesk"
       },
       '::-moz-selection': {
         background: mode(
