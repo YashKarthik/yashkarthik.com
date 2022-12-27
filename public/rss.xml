@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programming, and physics</description>
-        <lastBuildDate>Tue, 22 Nov 2022 10:47:36 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Dec 2022 11:16:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,129 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All text licensed under the Creative Commons Attribution 4.0 International License</copyright>
+        <item>
+            <title><![CDATA[How Skimmr Works]]></title>
+            <link>https://www.yashkarthik.xyz/archive/skimmr</link>
+            <guid>https://www.yashkarthik.xyz/archive/skimmr</guid>
+            <pubDate>Mon, 26 Dec 2022 18:30:00 GMT</pubDate>
+            <description><![CDATA[Browser extensions are convoluted.]]></description>
+            <content:encoded><![CDATA[<p>As screenshots of ChatGTP giving startup ideas and writing Twitter threads covered my feed, I figured ChatGPT could be my reading assistant. After trying that for a couple of days, I found that while ChatGPT helped, the constant back-and-forth, between an article and the ChatGPT page, was distracting and it slowed me down.</p>
+<p>I began looking for ways to &quot;embed&quot; ChatGPT into a webpage and that’s when I remembered browser extensions. This way, I could also learn how browser extensions worked.</p>
+<h1>High-level Overview</h1>
+<p>The basic idea is that the user selects some text, right-clicks and presses the <em>Skimmr</em> button. The click from the user would trigger a serverless function that would do some preprocessing and rate-limiting and then call OpenAI&#x27;s endpoint. The response will be updated in the extension UI.</p>
+<h1>Backend</h1>
+<p>The backend is essentially a single TS file that exports a function of type <code>Handler</code>, which inherits from type <code>Response</code>:</p>
+<pre><code class="language-ts">export interface Response {
+	statusCode: number;
+	headers?: {
+	  [header: string]: boolean | number | string;
+  };
+	multiValueHeaders?: {
+		[header: string]: ReadonlyArray&lt;boolean | number | string&gt;;
+  };
+  body?: string;
+  isBase64Encoded?: boolean;
+}
+</code></pre>
+<p>The function body itself is pretty straightforward. The function is meant to be called by a POST request, so for other methods (like OPTIONS for browser preflight), I return status code 200,  Access-Control headers and JSON body saying call with POST. I also check that the body sent (POST request) is long-enough to even require summarization.</p>
+<h2>Rate-limiting</h2>
+<p>Internet is a cruel place :(</p>
+<p><a href="https://upstash.com/">Upstash</a> is a great Redis service and their <a href="https://github.com/upstash/ratelimit">rate-limiting</a> library is super simple. Before calling OpenAI&#x27;s endpoint, I call the DB hosted on Upstash for prev-requests&#x27; metadata to check if the same user has been calling the function.</p>
+<pre><code class="language-ts">const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.fixedWindow(10, &quot;20 s&quot;),
+});
+const success = await ratelimit.limit(identifier);
+</code></pre>
+<p>If successful, then I forward the call to OpenAI, else rate-limited. Calling OpenAI&#x27;s endpoints is also very simple, thanks to their Node.js SDK.</p>
+<pre><code class="language-ts">const summarized = await openai.createCompletion({
+	model: &quot;text-curie-001&quot;,
+	prompt: `List the key points from the following paragraph: &quot;&quot;&quot;${text}&quot;&quot;&quot;`,
+	max_tokens: 100,
+	temperature: 0,
+});
+
+return {
+  statusCode: 200,
+  headers: headers,
+  body: JSON.stringify({ message: summarized.data.choices[0].text }),
+}
+
+</code></pre>
+<p>Currently I&#x27;m using the Curie model for everyone, in the future I plan to build a system where complex text is given to the Da Vinci model. Also, this could be an opportunity to implement a premium tier for more than <em>x</em> calls to Da Vinci.</p>
+<h1>The Extension</h1>
+<p>Browser extensions are surprisingly complex.</p>
+<p>Each extension is made up of several files and pages:</p>
+<ul>
+<li><code>manifest.json</code>: this file specifies the files, permissions, assets the browser should load.</li>
+<li>The extension page: the mini-popup that is displayed when the user opens the extension from the toolbar. It&#x27;s essentially a mini-webpage with it&#x27;s own html, css and js (for manipulating the popup&#x27;s DOM)</li>
+<li>A background script (<code>background.js</code>) that listens to events from the webpage DOM and the mini-popup’s DOM.</li>
+<li>Some extensions also have a content script that can interact and manipulate the webpage’s DOM. Since my extension reads the webpage’s DOM only once, I use the <code>chrome.scripting</code> APIs instead of a full-fledged content script.</li>
+</ul>
+<h2>Grabbing the Selected Text</h2>
+<p>The background script places a button in the right-click menu when the user selects some text.</p>
+<pre><code class="language-js">chrome.contextMenus.create({
+  id: &quot;skimmr.xyz-menu&quot;,
+  title: &quot;Skimmr&quot;,
+  contexts: [&quot;selection&quot;]
+});
+</code></pre>
+<p>The script listens for any clicks on the right-click-menu-button and on click, it grabs the selected text from the DOM and sends it to the serverless function.</p>
+<pre><code class="language-js">chrome.contextMenus.onClicked.addListener(async (_info, _tab) =&gt; {...});
+</code></pre>
+<p>The selected text is grabbed via the <code>chrome.scripting.executeScript</code> function. This function executes the specified function (or script) in the context of the webpage&#x27;s DOM.</p>
+<pre><code class="language-js">const res = await chrome.scripting.executeScript(
+  {
+    target: {tabId: tab.id},
+    func: getSelectedText
+  }
+);
+const text = res[0].result;
+</code></pre>
+<p>Here, I get the tab id using <code>chrome.tabs.query</code> and <code>getSelectedText</code> uses the <code>window</code> API to get the selected text.</p>
+<pre><code class="language-js">function getSelectedText() {
+  return getSelection().toString();
+}
+
+const [ tab ] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+</code></pre>
+<p>This text is sent to the serverless function using a standard <code>fetch</code> call. The response is stored in browser memory, to be accessed by the extension page.</p>
+<pre><code class="language-js">chrome.storage.session.set({ &#x27;selectedText&#x27;: response.message.slice(2,) });
+</code></pre>
+<p>Using storage to communicate between the background and extension is pretty hacky. I&#x27;m sure there&#x27;s a real communication interface, but this works for now. The response is sliced cuz the first two indices of response are always &quot;\n\n&quot;.</p>
+<h2>Updating UI with Summarized text</h2>
+<p>Since I&#x27;m using the storage to &quot;communicate&quot; between the background script and the extension page, the extension page listens to changes in the storage and updates the text box with the new text.</p>
+<pre><code class="language-js">// index.js
+chrome.storage.onChanged.addListener((changes, _namespace) =&gt; {
+  explanationBox.innerText = changes.selectedText.newValue;
+});
+</code></pre>
+<p>All the UI updates (including the one above) are put inside an event listener for <code>DOMContentLoaded</code>. This event is is triggered when the user open the extension popup. This is done because to manipulate the DOM, the DOM must exist.</p>
+<pre><code class="language-js">document.addEventListener(&quot;DOMContentLoaded&quot;, (_e) =&gt; {...}
+</code></pre>
+<p>There&#x27;s also a copy button which writes to your clipboard by <code>navigator.clipboard.writeText(explanationBox.textContent);</code> and a &quot;Re-skim&quot; button which refreshed the text.</p>
+<h1>Future Improvements</h1>
+<ul>
+<li>
+<p>Use language models fine-tuned for specific tasks (summarization, explanation, explaining code).</p>
+</li>
+<li>
+<p>Differentiate between simple and complex input, then send to different models.</p>
+</li>
+<li>
+<p>Personalization, tiered accounts etc.</p>
+</li>
+<li>
+<p><a href="https://github.com/yashkarthik/skimmr">Project Repo</a></p>
+</li>
+<li>
+<p><a href="https://skimmr.xyz">Project Site</a></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/skimmr/inchpcdcmkipekcoiimcdnfomdhdfcih">Chrome Web Store</a></p>
+</li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Different People See Different Things]]></title>
             <link>https://www.yashkarthik.xyz/archive/diff-ppl-see-diff-things</link>
