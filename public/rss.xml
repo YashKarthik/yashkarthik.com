@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programming, and physics</description>
-        <lastBuildDate>Tue, 27 Dec 2022 11:16:10 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Jan 2023 07:35:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,34 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All text licensed under the Creative Commons Attribution 4.0 International License</copyright>
+        <item>
+            <title><![CDATA[2023]]></title>
+            <link>https://www.yashkarthik.xyz/archive/2023</link>
+            <guid>https://www.yashkarthik.xyz/archive/2023</guid>
+            <pubDate>Sun, 01 Jan 2023 18:30:00 GMT</pubDate>
+            <description><![CDATA[I'm split about New Year's Resolutions, but I like "time reset" they bring.]]></description>
+            <content:encoded><![CDATA[<p>I remember when 2022 started and I had a list of things I wanted to learn. Looking back I can see that I made some progress but also fell short in a few areas. In 2023 I want to be more specific and focused in my learning goals (also, I&#x27;m announcing them publicly so I feel more accountable).</p>
+<p>So what <em>am</em> I gonna learnt?</p>
+<h1>Ethereum Stack</h1>
+<p>I have a decent understanding of the different parts of Ethereum development–Solidity, JS libraries etc–but never built a full-fledged project that covers the entire stack. This year, I&#x27;m planning to do <a href="https://speedrunethereum.com/">Speedrunethereum</a> to understand building Dapps.</p>
+<h2>Solidity</h2>
+<p>It&#x27;s JS-like syntax is deceptive and now I know there&#x27;s a lot for me to learn. I&#x27;m gonna dive into this by building Dapps and doing Solidity CTFs. I really enjoyed OpenZeppelin&#x27;s <a href="https://ethernaut.openzeppelin.com/">Ethernaut</a> challenges and looking for more.</p>
+<h1>Non-crypto Software</h1>
+<h2>Languages</h2>
+<p>I started with Scratch, then Python and now almost every project I build is in Typescript. I love TS, but... I feel like learning a new language. I&#x27;m split between Go and Rust. I&#x27;m probably gonna start with Go and delve into lower level languages later on when I&#x27;m exploring hardware projects.</p>
+<h2>Miscellaneous</h2>
+<ul>
+<li>I really need to understand auth. Theo&#x27;s video on <a href="https://www.youtube.com/watch?v=h6wBYWWdyYQ">this</a> is really good, but I never got around to implementing it in my apps.</li>
+<li>AI seems to be the rage right now. While I&#x27;m not diving <em>deep</em> into it, I&#x27;ll probably build more SaaS-like projects that use AI apis. Recently: <a href="https://skimmr.xyz">Skimmr</a>.</li>
+</ul>
+<h1>Hardware</h1>
+<p>I&#x27;ve explored hardware in the past, that&#x27;s how I got into coding/tech, but haven&#x27;t done much since the pandemic hit. Last summer I bought a Raspberry Pi 4 and built an automated door handle for my room with it. And recently I won an <a href="https://leap-site.hackclub.dev/">Orpheus Leep</a>(similar to Arduino) in the <a href="https://epoch.hackclub.com/">Epoch</a> hackathon. Haven&#x27;t done much research into this space, but I think I&#x27;ll start from the basics with C and Orpheus Leep and see where it takes me.</p>
+<h1>Writing</h1>
+<p>I discovered my interest in writing after writing a Twitter thread.</p>
+<p>This year, I plan to write more code-explanations and &quot;How it Works&quot; of open-source apps, particularly crypto protocols. I want to continue writing about my other interests and learnings from them. I&#x27;m also interested in trying out short stories.</p>
+<hr/>
+<p>Feels good declaring all this publicly. I&#x27;m excited to see where 2023 takes me.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[How Skimmr Works]]></title>
             <link>https://www.yashkarthik.xyz/archive/skimmr</link>
@@ -114,26 +142,24 @@ chrome.storage.onChanged.addListener((changes, _namespace) =&gt; {
 <pre><code class="language-js">document.addEventListener(&quot;DOMContentLoaded&quot;, (_e) =&gt; {...}
 </code></pre>
 <p>There&#x27;s also a copy button which writes to your clipboard by <code>navigator.clipboard.writeText(explanationBox.textContent);</code> and a &quot;Re-skim&quot; button which refreshed the text.</p>
-<h1>Future Improvements</h1>
+<h3>Future Improvements</h3>
 <ul>
-<li>
-<p>Use language models fine-tuned for specific tasks (summarization, explanation, explaining code).</p>
-</li>
-<li>
-<p>Differentiate between simple and complex input, then send to different models.</p>
-</li>
-<li>
-<p>Personalization, tiered accounts etc.</p>
-</li>
-<li>
-<p><a href="https://github.com/yashkarthik/skimmr">Project Repo</a></p>
-</li>
-<li>
-<p><a href="https://skimmr.xyz">Project Site</a></p>
-</li>
-<li>
-<p><a href="https://chrome.google.com/webstore/detail/skimmr/inchpcdcmkipekcoiimcdnfomdhdfcih">Chrome Web Store</a></p>
-</li>
+<li>Use language models fine-tuned for specific tasks (summarization, explanation, explaining code).</li>
+<li>Differentiate between simple and complex input, then send to different models.</li>
+<li>Personalization, tiered accounts etc.</li>
+</ul>
+<h3>Tools used</h3>
+<ul>
+<li>Netlify (hosting)</li>
+<li>Upstash (Redis DB, Redis SDK, Rate-limiting package)</li>
+<li>Dotenv</li>
+<li>Astro (project site)</li>
+</ul>
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/yashkarthik/skimmr">Project Repo</a></li>
+<li><a href="https://skimmr.xyz">Project Site</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/skimmr/inchpcdcmkipekcoiimcdnfomdhdfcih">Chrome Web Store</a></li>
 </ul>]]></content:encoded>
         </item>
         <item>

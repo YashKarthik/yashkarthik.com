@@ -27,7 +27,7 @@ export default function LayoutMDX(props: Props) {
   return (
     <div>
       <Head>
-        <title>{props.meta.title}</title>
+        <title>{props.meta.title} - Yash Karthik</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="description" content={`Essay by yashKarthik - ${props.meta.title}`} />

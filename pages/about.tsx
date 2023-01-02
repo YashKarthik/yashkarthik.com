@@ -13,7 +13,7 @@ function About() {
   return (
     <>
       <Head>
-        <title>yashKarthik / about</title>
+        <title>Yash Karthik / about</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content='About yashKarthik - programmer and writer.' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

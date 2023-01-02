@@ -109,7 +109,7 @@ const Archive: NextPage<Metas> = ({ data }) => {
   return (
     <>
       <Head>
-        <title>yashKarthik</title>
+        <title>Yash Karthik / archive</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content='Essays by yashKarthik - web3, programming, and physics.' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

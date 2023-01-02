@@ -14,7 +14,7 @@ const Links: NextPage = () => {
   return (
     <>
       <Head>
-        <title>yashKarthik / interwebs</title>
+        <title>Yash Karthik / interwebs</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Where to find Yash on the internet." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
