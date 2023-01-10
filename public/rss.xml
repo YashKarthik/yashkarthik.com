@@ -4,7 +4,7 @@
         <title>yashKarthik</title>
         <link>https://www.yashkarthik.xyz</link>
         <description>Essays by yashKarthik on web3, programming, and physics</description>
-        <lastBuildDate>Mon, 02 Jan 2023 07:35:10 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jan 2023 06:52:18 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,36 @@
             <link>https://www.yashkarthik.xyz</link>
         </image>
         <copyright>All text licensed under the Creative Commons Attribution 4.0 International License</copyright>
+        <item>
+            <title><![CDATA[How to pour water, without making a mess.]]></title>
+            <link>https://www.yashkarthik.xyz/archive/pouring-liquids</link>
+            <guid>https://www.yashkarthik.xyz/archive/pouring-liquids</guid>
+            <pubDate>Mon, 09 Jan 2023 18:30:00 GMT</pubDate>
+            <description><![CDATA[Understanding the whimsically annoying.]]></description>
+            <content:encoded><![CDATA[<p>You know when you&#x27;re trying to pour a liquid from a mug into another container and instead flowing out of the mouth into the container, it dribbles over the lip, to the sides making a mess on the kitchen slab.</p>
+<h2>Why</h2>
+<p>When a liquid is being poured out of the container an adhesive force is formed between the liquid and the container. Adhesion is the net result of <a href="https://en.wikipedia.org/wiki/Van_der_Waals_force">Van der Waals force</a>, <a href="https://en.wikipedia.org/wiki/Coulomb%27s_law">Coulombic forces</a> and <a href="https://en.wikipedia.org/wiki/Hydrogen_bond">Hydrogen bonding</a>. Gravity has to fight against this adhesion to make the liquid <em>fall</em> out of the container.</p>
+<p>For an optimal pouring action, we need to minimize the adhesion between the liquid and the container, and maximize the force of gravity on the water.</p>
+<p>Since the adhesion depends on the surface properties of the container (roughness, wetting props etc), we can choose a less adhesive container (I think steel over ceramic mugs). Looking closer at adhesion, in general the adhesion between two surfaces rises as the the time of contact between them increases. So pouring the liquid faster would reduce its adhesion to the container, reducing dribbling down the sides. Pouring faster would also allow us to take advantage of the momentum mustered.</p>
+<p>Another route could be maximizing the force of gravity on the dribbling water, till the force of gravity is larger than the adhesive force. This is pretty intuitive to us humans, we tilt the mug till gravity beats the adhesion, but the physics/math behind it is pretty interesting too.</p>
+<p><img src="/blog-assets/pouring.png" alt="Gravity pulling water"/></p>
+<p>Since gravity has act to against the adhesive force, we split force of gravity into two
+mutually perpendicular <em>components</em> using trigonometry. This helps us visualize (and calculate) how much of gravity
+is acting against the adhesion. When the tilt angle is small, the angle (θ) between the force of gravity
+and the container&#x27;s surface is small. So the force acting against the adhesion F•sinθ is relatively small.
+Tilting increases that angle θ, hence increasing F•sinθ (the component of gravity acting against adhesion).
+After a certain point, the pull against the adhesion is too much and water flows.</p>
+<hr/>
+<p><strong>References / Further Reading:</strong></p>
+<ul>
+<li><a href="https://physics.stackexchange.com/questions/28982/why-does-water-pouring-from-a-glass-sometimes-travel-down-the-side-of-the-glass">Physics Stackexchange</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Van_der_Waals_force">Van der Waals force</a>,</li>
+<li><a href="https://en.wikipedia.org/wiki/Coulomb%27s_law">Coulombic forces</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hydrogen_bond">Hydrogen bonding</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cohesion_(chemistry)">Cohesion</a></li>
+<li><a href="https://phys.libretexts.org/Bookshelves/University_Physics/Book%3A_Physics_(Boundless)/10%3A_Fluids/10.4%3A_Cohesion_and_Adhesion">Adhesion</a></li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[2023]]></title>
             <link>https://www.yashkarthik.xyz/archive/2023</link>
