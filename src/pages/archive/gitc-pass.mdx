@@ -1,0 +1,90 @@
+import LayoutMDX from '../../components/LayoutMDX.tsx';
+
+export const meta = {
+	shortName: 'gitc-pass',
+	title: "Gitcoin Passport Explained",
+	date: 'Jun 28, 2022',
+	description: 'Verifiable personhood',
+    long_desc: "Open-source software is a digital public good that generates $400bn a year in value, but the creators of OSS are unable to monetize their work on this digital infrastructure. Gitcoin's mission is"
+}
+
+Open-source software is a digital public good that generates $400bn a year in value, but the creators of OSS are unable to monetize their work on this digital infrastructure. Gitcoin's mission is to correct this asymmetry. And they've done a good job of it. Since its launch in Nov 2017,  Gitcoin has facilitated 2,733,950 complete transactions to 10,820 unique earners, facilitated 2819 grants and raised $65.4 million of funding for open source. It does this by providing members opportunity to earn and fund their work via bounties and grants.
+
+# Gitcoin Grants
+
+Gitcoin Grants is a crypto-style Kickstarter which allows individuals to get funding for a public-goods project they are working on. It uses [Quadratic Funding](https://wtfisqf.com) to allocate funds to projects that the community actually prioritizes. Because quadratic funding weighs the number of contributors over the amount contributed, it's susceptible to **Sybil Attacks**.
+
+## Sybil Attacks
+
+Sybil attacks are also common in the web2 world: fake reviews on Amazon, fake accounts to sway polls etc. In the context of Gitcoin it generally involves a person creating multiple identities and using them to make multiple donations. For example: instead of sending $100 dollars from a single account, a person creates 100 accounts and sends $1 through each of them. Since quadratic funding weighs the number of donations over the amount donated, the malicious project will get a larger slice of the matching pool than if they donated via a single account.
+
+There are several ways to tackle this problem:
+1. Use machine learning to detect patterns so that the person must spend time impersonating a real human.
+2. Set a minimum donation amount.
+3. Identity verification
+
+The idea is that if a person has to spend time, effort and money to verify each identity, it dramatically reduces the potential gains from gaming the system.
+
+## Existing Solutions to Identity Verification
+
+There are a lot of different ways & methods to verify identity, for example:
+
+- Centralized solutions: 
+	- National ID cards
+	- KYC, etc.
+
+- web3 native solutions: 
+	- [Proof of Humanity](https://www.proofofhumanity.id/)
+	- [BrightID](https://www.brightid.org/)
+	- [Poap](https://poap.xyz/), etc
+
+To incentivize identity verification, Gitcoin created TrustBonus. It works by increasing the impact a donation has the more levels of verification the contributor has gone through. An unverified user starts with 50% of their contribution count towards the match fund. To increase their impact a user must verify their identity. The higher a user's TrustBonus, the more we can be confident that the user is unique, and a larger percentage of the user's donation counts towards the match fund.
+
+Gitcoin passport takes this further by serving as an identity aggregator that wraps your identity credentials, across web2 and web3, into a single composable identity.
+
+# Gitcoin Passport
+
+The Gitcoin Passport aims to provide a secure infrastructure for digital identity by capturing the *intersectional* nature of identity in cryptographic wrappers called **verifiable credentials**.
+
+## How it Works
+
+Identity providers (Google, Twitter, POAP, GitHub, BrightID) are used to establish "personhood" of a user through their direct ownership of social accounts and web3 assets. Once personhood is established, the credential or stamp is stored in the Passport as json data. Applications can read your passport and verify your identity. The more stamps a user has, the more confident the app can be that the user is indeed a human.
+
+## Tech behind it
+
+The Passport is a collection of data credentials, created according to the DID [ [decentralized identifiers](https://www.w3.org/TR/did-core/) ] and VC [ [verifiable credentials](https://www.w3.org/TR/vc-data-model/#introduction) ] specs, stored on the Ceramic Network.
+
+### Ceramic Network
+
+Most of the information on today's internet is locked away on application-specific database servers with poor API integrations The siloed environment results in friction for developers and worse experience for users.
+
+Ceramic is a decentralized network for composable data, that extends the IPFS file system. Due to Ceramic's permissionless network anyone in the world can openly build upon existing data without relying on a centralized server, integrate one-off APIs, or worry if the state of information being returned is correct.
+
+# Lifecycle of a Passport
+
+1. User goes to [passport.gitcoin.co](passport.gitcoin.co) or a similar frontend, where the user is prompted to connect and collect stamps from various identity providers.
+2. User goes to an app and sign a message allowing the app access to their passport.
+3. The app uses [Gitcoin Passport SDK Reader](https://github.com/gitcoinco/passport-sdk/tree/main/packages/reader) to read the contents and and fetch data from Ceramic
+4. App must ensure that VCs were issued correctly using the [SDK Verifier](https://github.com/gitcoinco/passport-sdk/tree/main/packages/verifier).
+5. The app now calculates user's personhood score using the [SDK Scorer](https://github.com/gitcoinco/passport-sdk/tree/main/packages/scorer)
+6. Depending on the user's verification level, they're granted certain rights and levels of access.
+
+# Conclusion
+
+In conclusion, Gitcoin Passport is a way to store your existing identity crendentials in a decentralized and verifiable format.
+
+## FAQs
+
+### What is stored in my passport?
+
+The DID associated with your Ethereum address and the verifiable credential issued for each service. It's stored as json.
+
+### Who can read this data
+  
+Anyone can read from Ceramic. But only you can write.
+
+### Doxxing
+- No personally identifiable information stored in passport.
+- Unique identifier is stored in the VCs, which cannot be brute forced.
+
+export default ({ children }) => <LayoutMDX meta={meta} content={children} />

@@ -1,0 +1,35 @@
+import LayoutMDX from '../../components/LayoutMDX.tsx';
+
+export const meta = {
+	shortName: 'nft-law',
+	title: "NFTs are copyright",
+	date: 'Feb 11, 2022',
+	description: '',
+    long_desc: "NFTs and copyright, both do the same thing - establish a connection between the asset and the creator, providing them with ownership over their work, and enabling uniqueness. The only difference being that NFTs are not (yet) recognized by law."
+}
+
+### NFTs
+
+-   They are a representation of an off-chain asset / network. A network of fans, art etc.
+-   They form a connection between the chain and the community.
+    -   They enable on-chain scarcity.
+    -   The community must protect / enforce off-chain scarcity.
+
+### Copyrights
+
+A copyright is a type of intellectual property that gives its owner the exclusive right to copy and distribute a creative work, usually for a limited time. [ [from Wikipedia](https://en.wikipedia.org/wiki/Copyright) ]
+
+# How are they related?
+
+Both seem to be doing the same thing - establishing a connection between the asset and the creator, providing them with ownership over their work, and enabling uniqueness. The only difference being that NFTs are not (yet) recognized by law.
+
+When someone copies and tries to profit off someone else's work, the creator can file a suit. The connection between NFTs and reality is held up by the community - the community decides which smart contract on the blockchain represents the off-chain asset.
+
+**Example:** There are hundreds of CryptoPunk clones but they are still considered unique.
+
+1.  The clones don't have the same contract address, thus on-chain uniqueness is preserved.
+2.  The community chooses to value the original tokens - the original contract *is* the CryptoPunk.
+
+Maybe governments should recognize blockchains as neutral grounds for registering copyrights.
+
+export default ({ children }) => <LayoutMDX meta={meta} content={children} />

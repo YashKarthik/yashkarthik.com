@@ -1,0 +1,24 @@
+import LayoutMDX from '../../components/LayoutMDX.tsx';
+import { OptimizedImage } from '../../themes/MDXStyles.tsx';
+
+export const meta = {
+	shortName: 'nft-royalties',
+	title: "How NFT Royalties Actually Work",
+	date: 'Aug 19, 2022',
+	description: 'Escape royalties through Sudoswap - an angry trader',
+    long_desc: "I first read about Sudoswap on my Twitter feed. It was an angry tweet advocating for nft royalties. The part about royalties caught my eye. I had no idea that royalties could even be excluded. This led me down the rabbit hole of token standards (ERC-20, ERC-721 etc)"
+}
+
+I first read about people avoiding nft royalties on my Twitter feed. It was an angry tweet advocating for royalties for creators, and why [Sudoswap](https://twitter.com/_yashKarthik/status/1559902048468226049?s=20&t=NQoeGlLjmiGNVXYvt_N9dw "Twitter Thread") is cheating the system. The part about royalties caught my eye. I had no idea that royalties could even be excluded. This led me down the rabbit hole of token standards (ERC-20, ERC-721 etc) and how royalties are implemented in nft's.
+
+Turns out there's no way to implement royalties in the smart contract itself (yet). Each nft marketplace has its own implementation of royalties. When an nft is sold on that platform, it triggers a function on the server that gives the creator a cut. So if you sold an nft without using a platform, the server wouldn't know, hence, the creator wouldn't get any cut.
+
+# Why Royalties can't be Implemented at a Contract Level
+
+But royalties are one of the core advertised features of nft art. How come there's no way to implement them within the contract? The problem becomes clear when you see these transactions from the blockchain's perspective.
+
+The blockchain sees a smart contract (the nft), which has a function defined called `ownerOf`. This function returns an ethereum address (the owner). When the nft is sold, the blockchain is instructed to change the value of address in the contract. The blockchain doesn't know anything about the *selling* of that contract. Thus, it doesn't know anything about the transfer of eth that made the selling possible. The blockchain does not link the transfer of money to the transfer of an nft. Since it can't link these two, it can't facilitate royalties.
+
+Maybe in the future we'll have *sellable nfts* that help the blockchain identify payment that are for nfts and then give the creators a cut. But until then, creators are gonna have to trust that people sell their nfts via marketplaces.
+
+export default ({ children }) => <LayoutMDX meta={meta} content={children} />
