@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.yashkarthik.xyz</id>
     <title>yashKarthik</title>
-    <updated>2023-01-10T06:52:18.974Z</updated>
+    <updated>2023-01-15T09:20:49.248Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>yashkarthik.eth</name>
@@ -14,6 +14,29 @@
     <logo>https://www.yashkarthik.xyz/thelatenightbuilders.png</logo>
     <icon>https://www.yashkarthik.xyz/favicon.ico</icon>
     <rights>All text licensed under the Creative Commons Attribution 4.0 International License</rights>
+    <entry>
+        <title type="html"><![CDATA[Programming is a skill, not a piece of knowledge.]]></title>
+        <id>https://www.yashkarthik.xyz/archive/skill-v-knowledge</id>
+        <link href="https://www.yashkarthik.xyz/archive/skill-v-knowledge"/>
+        <updated>2023-01-14T18:30:00.000Z</updated>
+        <content type="html"><![CDATA[<p>When most people think of learning, they think of reading and understanding the French Revolution,
+or how photosynthesis works, or how Newton&#x27;s laws play together. Reading and digesting information.
+Compare this sort of learning to learning to play guitar. You know instantly that learning to play
+guitar is completely different from learning a piece of knowledge. You learn to play guitar by, well,
+playing the guitar. You read a bit, then pick up the guitar and play it—making a 100 mistakes and
+learning from them along the way. And then, after enough iterations, you&#x27;ll have gained the skill
+to manipulate the strings into the perfect arc, while your other hand strums them into vibration at
+just the right frequency, producing a tune out of silence. Programming is just like that. You read a bit,
+and then use what you read, making a hundred mistakes and <em>learning</em> along the way.</p>]]></content>
+        <author>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </author>
+        <contributor>
+            <name>yashkarthik.eth</name>
+            <uri>https://twitter.com/_yashKarthik</uri>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[How to pour water, without making a mess.]]></title>
         <id>https://www.yashkarthik.xyz/archive/pouring-liquids</id>
