@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import type { MarkdownLayoutProps } from 'astro';
 
-import "@fontsource/source-serif-pro/900.css"
+import "@fontsource/aleo/700.css"
 
 type Props = MarkdownLayoutProps<{
   title: string;
@@ -17,22 +17,39 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title} description={"Essay by Yash Karthik about " + frontmatter.title}>
-  <header class="font-serif w-[80ch] self-center m-3">
-    <p class="font-mono text-zinc-500 text-sm">{frontmatter.started}</p>
-    <h1 class="text-5xl font-black">{frontmatter.title}</h1>
-    <p class="text-md italic text-zinc-600 border-solid border-b border-zince-500">{frontmatter.description}</p>
-    <div class="font-sans text-sm">
-      {frontmatter.topics.map(topic => {
-        return <p>{topic}</p>
-      })}
-      <p>{frontmatter.completionLevel}</p>
-      {frontmatter.updated && <p class="font-serif">Last updated: {frontmatter.updated}</p>}
+
+  <header class="font-serif px-1 lg:w-[80ch] md:w-[70ch] self-center m-3">
+    <p class="font-mono text-neutral-500 dark:text-neutral-400 text-sm my-2">
+      {frontmatter.started}
+    </p>
+    <h1 class="text-5xl font-black my-5">
+      {frontmatter.title}
+    </h1>
+    <p class="text-md italic text-neutral-500 dark:text-neutral-400 border-solid border-b border-neutrale-500 my-2 pb-2">
+      {frontmatter.description}
+    </p>
+    <div class="font-sans text-sm flex flex-row justify-between">
+      <div class="flex flex-row gap-2">
+        {frontmatter.topics.map(topic => {
+          return <a class="text-violet-700 dark:text-violet-400" href={"/topics/" + topic}>{topic[0].toUpperCase() + topic.slice(1,)}</a>
+        })}
+      </div>
+      <div class="text-neutral-500 dark:text-neutral-400">
+        <p>{frontmatter.completionLevel[0].toUpperCase() + frontmatter.completionLevel.slice(1,)}</p>
+        {frontmatter.updated && <p>Last updated: {frontmatter.updated}</p>}
+      </div>
     </div>
   </header>
 
-  <main class="prose prose-sm md:prose-base lg:prose-lg prose-zinc dark:prose-invert
-  prose-a:text-violet-700 dark:prose-a:text-violet-400 prose-a:decoration-transparent
-  hover:prose-a:decoration-inherit underline-offset-4 font-serif max-w-[80ch] self-center m-3">
+  <main class="prose lg:prose-lg lg:w-[70ch] prose-neutral dark:prose-invert
+  prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 underline-offset-2 prose-a:decoration-2 prose-headings:-neutral-700
+  dark:prose-headings:-neutral-300 font-serif max-w-[80ch] self-center
+  m-5 dark:prose-p:-neutral-300 dark:prose-a:text-neutral-300">
     <slot />
   </main>
+  <div class="self-center flex flex-col my-7">
+    <hr class="md:min-w-[75ch] sm:min-w-[60ch] border border-solid border-neutrale-500 mb-5" />
+    <p class="self-start font-serif">Have a comment or response? <a href="/links"
+    class="underline decoration-solid decoration-2 decoration-violet-700 dark:decoration-violet-400 underline-offset-2">Email me</a>.</p>
+  </div>
 </Layout>
