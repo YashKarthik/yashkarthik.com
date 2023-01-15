@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { MarkdownLayoutProps } from 'astro';
+
+import "@fontsource/source-serif-pro/900.css"
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  started: string;
+  updated?: string;
+  description: string;
+  topics: string[];
+  completionLevel: string;
+}>;
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title} description={"Essay by Yash Karthik about " + frontmatter.title}>
+  <header class="font-serif w-[80ch] self-center m-3">
+    <p class="font-mono text-zinc-500 text-sm">{frontmatter.started}</p>
+    <h1 class="text-5xl font-black">{frontmatter.title}</h1>
+    <p class="text-md italic text-zinc-600 border-solid border-b border-zince-500">{frontmatter.description}</p>
+    <div class="font-sans text-sm">
+      {frontmatter.topics.map(topic => {
+        return <p>{topic}</p>
+      })}
+      <p>{frontmatter.completionLevel}</p>
+      {frontmatter.updated && <p class="font-serif">Last updated: {frontmatter.updated}</p>}
+    </div>
+  </header>
+
+  <main class="prose prose-sm md:prose-base lg:prose-lg prose-zinc dark:prose-invert
+  prose-a:text-violet-700 dark:prose-a:text-violet-400 prose-a:decoration-transparent
+  hover:prose-a:decoration-inherit underline-offset-4 font-serif max-w-[80ch] self-center m-3">
+    <slot />
+  </main>
+</Layout>

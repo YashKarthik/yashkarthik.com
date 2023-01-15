@@ -1,9 +1,14 @@
 ---
+import "@fontsource/spline-sans-mono"
 import "@fontsource/source-serif-pro"
+import "@fontsource/inter"
+
 export interface Props {
   title: string;
+  image_url?: string;
+  description?: string;
 }
-const { title } = Astro.props;
+const { title, image_url, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -13,17 +18,18 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content='Essays by yashKarthik - web3, programming, and physics.' />
+    <meta name="description" content={description ? description : "Essays by yashKarthik—programming, physics and culture"}/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <meta name="robots" content="all" />
-    <meta name="og:title" content='yashkarthik' />
-    <meta name="og:description" content='Essays by yashKarthik -  web3, programming, and physics.' />
+    <meta name="og:title" content={title + " | Yash Karthik"} />
+    <meta name="og:description" content={description ? description : "Essays by yashKarthik—programming, physics and culture"} />
     <meta name="og:type" content='blog' />
-    <meta name="og:image" content='https://yashkarthik.xyz/thelatenightbuilders.png' />
+    <meta name="og:image" content={image_url ? image_url : "https://yashkarthik.xyz/thelatenightbuilders.png"} />
     <meta name="og:url" content='https://yashkarthik.xyz' />
     <meta name="twitter:site" content="@_yashKarthik" />
+
     <script>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -59,8 +65,8 @@ const { title } = Astro.props;
   </head>
   <body class="flex flex-col min-h-[100vh] dark:bg-zinc-900 dark:text-neutral-300 text-zinc-700">
     <nav class="flex flex-row justify-between m-3">
-      <a href="/" class="max-w-[7ch] font-serif font-black text-3xl text-black dark:text-white">
-        <img class="max-w-[3ch]" src="/favicon.svg" />
+      <a href="/" class="max-w-[7ch] text-xl font-sans dark:text-white">
+        yashkarthik
       </a>
       <div class="flex-none">
         <ul class="flex flex-row gap-3 text-sm">
