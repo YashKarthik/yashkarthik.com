@@ -12,6 +12,4 @@ Sizes:
 
 # TODO
 ## Markdown
-- []() links to be target="_blank"
-- Caption, box for image component.
-- Use the divider component everywhere.
+- Shiki theme based on color mode.

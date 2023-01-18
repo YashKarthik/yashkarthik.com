@@ -4,6 +4,8 @@ import path from "node:path";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 
 import Divider from "../../components/Divider.astro";
+import Image from '../../components/Image.astro';
+import Link from '../../components/Link.astro'
 
 export async function getStaticPaths() {
   const posts = await Astro.glob<Frontmatter>('../../blog/*.mdx');
@@ -30,5 +32,5 @@ const {
 ---
 
 <BlogLayout {frontmatter}>
-  <Astro.props.default components={{ hr: Divider }} />
+  <Astro.props.default components={{ hr: Divider, img: Image, a: Link }} />
 </BlogLayout>
