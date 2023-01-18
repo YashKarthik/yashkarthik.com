@@ -1,0 +1,13 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+}
+const { src, alt, caption } = Astro.props;
+---
+
+<div class="flex flex-col border-2 border-solid border-neutral-900 dark:text-neutral-300 rounded-sm">
+  <img src={src} alt={alt} >
+  <p class="text-sm text-neutral-500 dark:text-neutral-400">{caption}</p>
+</div>

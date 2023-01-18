@@ -16,7 +16,7 @@ type Props = MarkdownLayoutProps<{
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title} description={"Essay by Yash Karthik about " + frontmatter.title}>
+<Layout {...frontmatter}>
 
   <header class="font-serif px-1 lg:w-[80ch] md:w-[70ch] self-center m-3">
     <p class="font-mono text-neutral-500 dark:text-neutral-400 text-sm my-2">

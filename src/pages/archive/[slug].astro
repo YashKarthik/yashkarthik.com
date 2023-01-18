@@ -1,0 +1,34 @@
+---
+import type { MarkdownLayoutProps, MDXLayoutProps } from 'astro';
+import path from "node:path";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+import Divider from "../../components/Divider.astro";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob<Frontmatter>('../../blog/*.mdx');
+  return posts.map(post => ({
+    params: { slug: path.parse(post.file).name },
+    props: post,
+  }));
+}
+
+type Frontmatter = {
+  title: string;
+  started: string;
+  updated: string;
+  description: string;
+  topics: string[];
+  completionLevel: string;
+};
+
+const {
+  frontmatter,
+  default: Content
+} = Astro.props
+
+---
+
+<BlogLayout {frontmatter}>
+  <Astro.props.default components={{ hr: Divider }} />
+</BlogLayout>
