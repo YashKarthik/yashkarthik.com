@@ -1,12 +1,11 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-
-export const meta = {
-	shortName: 'nft-law',
-	title: "NFTs are copyright",
-	date: 'Feb 11, 2022',
-	description: '',
-    long_desc: "NFTs and copyright, both do the same thing - establish a connection between the asset and the creator, providing them with ownership over their work, and enabling uniqueness. The only difference being that NFTs are not (yet) recognized by law."
-}
+---
+title: "NFTs *are* copyright"
+started: "Feb 11, 2022"
+description: "The only difference between NFTs and copyright is that NFTs are not (yet) recognized by law."
+layout: "../../layouts/BlogLayout.astro"
+topics: ["cryptocurrency", "NFT", "law"]
+completionLevel: "budding"
+---
 
 ### NFTs
 
@@ -31,5 +30,3 @@ When someone copies and tries to profit off someone else's work, the creator can
 2.  The community chooses to value the original tokens - the original contract *is* the CryptoPunk.
 
 Maybe governments should recognize blockchains as neutral grounds for registering copyrights.
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

@@ -1,12 +1,11 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-
-export const meta = {
-	shortName: 'lens',
-	title: "Lens Protocol Explained",
-	date: 'Aug 10, 2022',
-	description: "A decentralized, composable, user-owned social graph",
-    long_desc: "Blockchains separate the backend from the frontend. Lens Protocol takes this further by specialising the backend for social interactions"
-}
+---
+title: "Lens Protocol Explained"
+started: "Aug 10, 2022"
+description: "A decentralized, composable, user-owned social graph"
+layout: "../../layouts/BlogLayout.astro"
+topics: ["cryptocurrency", "social"]
+completionLevel: "budding"
+---
 
 Blockchains separate the backend from the frontend. [@LensProtocol](https://twitter.com/LensProtocol) takes this further by specialising the backend for social interactions. Here's how it works.
 
@@ -38,6 +37,3 @@ These modules allow for logic such as "fee-on-follow" or even a "subscription" m
 Because creators own their content via the Lens Protocol, they can allow their followers to purchase that content as nfts. A creator can attach a collect module with arbitrary logic.
 
 Web2 turned websites from digital newspaper to social networks and shopping stores. It leveraged the programmable nature of the webpages. Similarly NFTs are programmable objects. By leveraging this @LensProtocol has built a decentralised, composable, user-owned social graph.
-
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

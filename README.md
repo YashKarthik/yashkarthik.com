@@ -9,3 +9,9 @@ Sizes:
 - text-xl: home button
 - text-sm: date of blog post in blog page, links in header
 - text-xs: copyright in footer
+
+# TODO
+## Markdown
+- []() links to be target="_blank"
+- Caption, box for image component.
+- Use the divider component everywhere.

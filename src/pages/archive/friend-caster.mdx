@@ -1,21 +1,15 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-import { OptimizedImage } from '../../themes/MDXStyles.tsx';
-import idea_cast from "../../public/blog-assets/idea-cast.png"
-
-export const meta = {
-	shortName: 'friend-caster',
-	title: "How it Works: Friendcaster",
-	date: 'Sep 9, 2022',
-	description: 'Ideas are cheap, execution is hard',
-    long_desc: "I was just scrolling on Farcaster and this cast scrolled onto my feed. I clicked on the link to see what Chirpty was, and felt that this would be a perfect project for me. It's simple, but not too simple."
-}
+---
+title: "How it Works: Friendcaster"
+started: "Sep 9, 2022"
+description: "Ideas are cheap, execution is hard"
+layout: "../../layouts/BlogLayout.astro"
+topics: ["project", "Farcaster"]
+completionLevel: "budding"
+---
 
 I was just scrolling on [Farcaster](https://farcaster.xyz) and this cast scrolled onto my feed:
 
-<OptimizedImage
-    src={idea_cast}
-    alt="The cast that gave me the idea to build Friendcaster."
-/>
+![The cast that gave me the idea to build Friendcaster.](/blog-assets/idea-cast.png "The cast that gave me the idea to build Friendcaster.")
 
 I clicked on the link to see what [Chirpty](https://chirpty.com/) was, and felt that this would be a perfect project for me. It's simple, but not too simple.
 
@@ -84,7 +78,7 @@ export const getDirectory = async (username: string, registryContract:any): Prom
 ```
 
 The data stored in the host directory is of the shape:
-```
+```ts
 {
   body: {
     addressActivityUrl: 'http://www.host.xyz/bob/casts.json',
@@ -111,7 +105,7 @@ const avatarUrl = directoryBody.avatarUrl;
 
 Farcaster stores all of user's posts in the directory as a json file, that is referenced by the `directoryBody.addressActivityUrl`. The json file is shaped like this:
 
-```
+```ts
 interface IAction {
 
   body: Object;
@@ -136,7 +130,7 @@ interface IAction {
 ```
 Reply posts have the `replyParentUsername` key defined while normal posts don't have this key cuz they are the parent. To filter posts that are replies vs the posts that are just normal posts we define this filter on an array containing all the user's timeline. We then map over the filtered array to fetch the username of the post our user replied to.
 
-```
+```ts
 const addressActivity: IAction[] = JSON.parse(addressActivityResponse.body);
 const repliedPeople: string[] = addressActivity.filter((action:IAction) => {
   // check if the action is a associated with another user.
@@ -150,7 +144,7 @@ const repliedPeople: string[] = addressActivity.filter((action:IAction) => {
 
 Now we have the username of everyone that we replied to. The final circle contains several rings, which represent our frequency of interaction. We need to add weights to the array we have.
 
-```
+```ts
 const interactionFrequency: IFreqObj = interactedPeople.reduce((prevValue: any, currentValue: string) => {
   return prevValue[currentValue] ? ++prevValue[currentValue] : prevValue[currentValue] = 1, prevValue
 }, {});
@@ -170,7 +164,7 @@ We add weight to our array of usernames using the reduce function. We then sort 
 
 Next we add the caller's username to the list, and the append portions of the array into a `result` array. This is mostly to handle the data for different rings separately.
 
-```
+```ts
 head = [{username: username, freq: 0, avatarUrl: userUrl}, ...head];
 
 let result: INameFreq[][] = []
@@ -252,5 +246,3 @@ Friendcaster was the first project that people other than my irl family used. It
     - farcasternews.xyz to show karma.
     - @perl to show collections etc.
 - Serverless?
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

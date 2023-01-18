@@ -1,12 +1,11 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-
-export const meta = {
-	shortName: "pouring-liquids",
-	title: "How to pour water, without making a mess.",
-	date: 'Jan 10, 2023',
-	description: "Understanding the whimsically annoying.",
-  long_desc: "You know when you're trying to pour a liquid from a mug into another container and instead flowing out of the mouth into the container, it dribbles over the lip, to the sides making a mess on the kitchen slab."
-}
+---
+title: "How to pour water, without making a mess."
+started: "Jan 10, 2023"
+description: "Understanding the whimsically annoying."
+layout: "../../layouts/BlogLayout.astro"
+topics: ["physics"]
+completionLevel: "budding"
+---
 
 You know when you're trying to pour a liquid from a mug into another container and instead flowing out of the mouth into the container, it dribbles over the lip, to the sides making a mess on the kitchen slab.
 
@@ -36,5 +35,3 @@ After a certain point, the pull against the adhesion is too much and water flows
 - [Hydrogen bonding](https://en.wikipedia.org/wiki/Hydrogen_bond)
 - [Cohesion](https://en.wikipedia.org/wiki/Cohesion_(chemistry))
 - [Adhesion](https://phys.libretexts.org/Bookshelves/University_Physics/Book%3A_Physics_(Boundless)/10%3A_Fluids/10.4%3A_Cohesion_and_Adhesion)
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

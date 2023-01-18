@@ -1,12 +1,11 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-
-export const meta = {
-	shortName: 'gitc-pass',
-	title: "Gitcoin Passport Explained",
-	date: 'Jun 28, 2022',
-	description: 'Verifiable personhood',
-    long_desc: "Open-source software is a digital public good that generates $400bn a year in value, but the creators of OSS are unable to monetize their work on this digital infrastructure. Gitcoin's mission is"
-}
+---
+title: "Gitcoin Passport Explained"
+started: "June 28, 2022"
+description: "Verifiable personhood"
+layout: "../../layouts/BlogLayout.astro"
+topics: ["cryptocurrency", "identity"]
+completionLevel: "budding"
+---
 
 Open-source software is a digital public good that generates $400bn a year in value, but the creators of OSS are unable to monetize their work on this digital infrastructure. Gitcoin's mission is to correct this asymmetry. And they've done a good job of it. Since its launch in Nov 2017,  Gitcoin has facilitated 2,733,950 complete transactions to 10,820 unique earners, facilitated 2819 grants and raised $65.4 million of funding for open source. It does this by providing members opportunity to earn and fund their work via bounties and grants.
 
@@ -86,5 +85,3 @@ Anyone can read from Ceramic. But only you can write.
 ### Doxxing
 - No personally identifiable information stored in passport.
 - Unique identifier is stored in the VCs, which cannot be brute forced.
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

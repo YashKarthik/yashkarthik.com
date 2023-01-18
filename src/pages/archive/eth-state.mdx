@@ -1,3 +1,12 @@
+---
+title: "What is State in Etheurum"
+started: "Dec 15, 2021"
+description: "From a global ledger to a decentralized state machine"
+layout: "../../layouts/BlogLayout.astro"
+topics: ["cryptocurrency", "ethereum", "EVM"]
+completionLevel: "budding"
+---
+
 Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools.
 
 A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot spend more Bitcoin than it owns. These rules underpin all transactions on Bitcoin and many other blockchains.
@@ -18,12 +27,7 @@ More accurately, the World State is stored as a [Merkle Patricia Trie](https://e
 
 Any change in the data on the leaves propagates to an inconsistency higher up the trie.
 
-import merkleTree  from '../../public/blog-assets/merkle-tree.png'
-import { OptimizedImage } from '../../themes/MDXStyles.tsx';
-
-<OptimizedImage alt='test'  src={merkleTree}
-title='The value of a node depends on the value of the leaves.'
-/>
+![Merkle Tree Diagrom](/blog-assets/merkle-tree.png "The value of a node depends on the value of the leaves.")
 
 Why hash a tree instead of the data itself? Merkle proofs. They allow us to authenticate large amounts of data with just the root node of the tree containing the data. [More about Merkling](https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/)
 
@@ -42,11 +46,7 @@ Where:
 
 The definite rules for changing state from block to block are defined in the EVM.
 
-import stateMod from '../../public/blog-assets/tx-state-mod.png'
-
-<OptimizedImage src={stateMod} alt='Transactions as state modifications'
-title='Transactions as state modifications'
-/>
+![Transactions as state modifications](/blog-assets/tx-state-mod.png "Transactions as state modifications")
 
 Each transition modifies only some parts of the world state - account states with transactions executed on them.
 
@@ -58,27 +58,18 @@ There is a lot to transactions that I didn’t cover, but it’s about how trans
 
 The account state consists of four fields: `nonce, balance, codeHash, storageRoot.`
 
-import accountStruct from '../../public/blog-assets/eth-account.png'
-
 **Nonce:** the number of txs sent from the account. It prevents a tx from being processed more than once. For a contract account it represents the number of contracts it has created.
 
 - A transaction, by a human owned account, changes the nonce and balance in the account state.
 - A tx, by a contract account, also changes the `storageRoot` (storage hash) in the account state.
 
-<OptimizedImage src={accountStruct}
-alt="Etherem account structure"
-title="Structure of an account"/>
+![Image of Ethereum's account structure](/blog-assets/eth-account.png "Ethereum's account structure")
 
 # State storage
 
 So where is all this data stored? The blockchain implicitly stores state in the block headers, along with other data.
 
-import stateStorage from '../../public/blog-assets/state-storage.png'
-
-<OptimizedImage src={stateStorage}
-alt='State storage'
-title='Each block header contains the hash of the root node of the "World State Trie"'
-/>
+![Image of state storage](/blog-assets/state-storage.png, "Each block header contains the hash of the root node of the World State Trie")
 
 An archival node might store all txs and the resulting state transitions (including invalid states) for all blocks in their local disk. This will require large disk storage and is not strictly necessary.
 
@@ -112,14 +103,3 @@ In essence, state is exactly what it sounds like. It is the status or condition 
 And tons of random question on the internet!
 
 _Thanks for reading :)_
-
-export const meta = {
-	shortName: 'ethState',
-	title: 'What is State in Ethereum [Mirror]',
-	date: 'Dec 15, 2021',
-	description: 'From a global ledger to a decentralized state machine',
-    long_desc: "Bitcoin is often described as a distributed ledger which facilitates a decentralized currency using cryptographic tools. A cryptocurrency behaves like a “normal” currency because of the rules governing the modification of the ledger. For example, a Bitcoin address cannot"
-}
-
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

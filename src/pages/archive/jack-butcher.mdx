@@ -1,14 +1,11 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-import { OptimizedImage } from '../../themes/MDXStyles.tsx';
-import venn_svg from "../../public/blog-assets/venn.svg"
-
-export const meta = {
-	shortName: 'jack-butcher',
-	title: "How Jack Butcher Productized Himself",
-	date: 'Aug 11, 2022',
-	description: 'Escape competition through autheticity - Naval Ravikant',
-    long_desc: "Today Jack Butcher has an online audience of over 500k, earns $100,000 a month, and runs an infinitely scalable business. But just 4 years ago, in 2018, he was burnt out running an ad agency serving corporate clients. The insight behind this transition"
-}
+---
+title: "How Jack Butcher Productized Himself"
+started: "Aug 11, 2022"
+description: "Escape competition through autheticity - Naval Ravikant"
+layout: "../../layouts/BlogLayout.astro"
+topics: ["creator"]
+completionLevel: "budding"
+---
 
 Today Jack Butcher has an online audience of over 500k, earns $100,000 a month, and runs an infinitely scalable business. But just 4 years ago, in 2018, he was burnt out running an ad agency serving corporate clients. The insight behind this transition? Productizing himself.
 
@@ -24,10 +21,7 @@ But there were other's doing this right? What was his *special sauce*?
 
 As a graphic designer he had to compete a massive pool of other designers. But by layering his skill as a artist with his expertise for understanding value, he created a whole new market with no competition. With no competition around he captured all demand and scaled it using media.
 
-<OptimizedImage
-    src={venn_svg}
-    alt="Venn Diagram representing Jack relative to the design industry."
-/>
+![Venn Diagram representing Jack's skills relative to the design industry.](/blog-assets/venn.svg "Venn Diagram representing Jack's skills relative to the design industry.")
 
 To conclude, these are the key insight we can draw from Jack's journey:
 
@@ -36,5 +30,3 @@ To conclude, these are the key insight we can draw from Jack's journey:
 3. Specific knowledge is non-fungible, and it's scalable. For example: Jack has a specific skill of understanding value, and conveying it through visuals.
 
 *Thanks for reading!*
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

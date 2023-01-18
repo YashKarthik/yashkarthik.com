@@ -1,3 +1,12 @@
+---
+title: "How Proof of Work enables Decentralized Consensus"
+started: "Jan 8, 2022"
+description: "Using computational work as a basis for what to trust"
+layout: "../../layouts/BlogLayout.astro"
+topics: ["cryptocurrency", "bitcoin", "consensus"]
+completionLevel: "budding"
+---
+
 Suppose I give Alice 10 dollars and she later gives 5 dollars to Bob. Historically, we represented such transactions by transferring an object - cash. With the internet, transacting via physical cash became impractical, so we came up with ledgers. Then the problem was who maintains the truth-ness of the ledger? Historically, we trusted the banks, and governments with the ledger. This gave them immense power and control over the flow and creation of money. But now Bitcoin has the craziest answer you could imagine - everyone maintains a copy of the ledger.
 
 Anyone running a node maintains a copy of the ledger since it's dawn, keeping track of Bitcoin's history and incoming transactions. Keeping power over the system in the hands of users.
@@ -67,14 +76,3 @@ It allows human who don't know, trust each other who never reveal identities, lo
 -   And ton's of random questions on he internet!
 
 *Thanks for reading :)*
-
-export const meta = {
-	shortName: 'pow-de-consensus',
-	title: 'How Proof of Work enables Decentralized Consensus',
-	date: 'Jan 8, 2022',
-	description: 'Using computational work as a basis for what to trust',
-    long_desc: "Suppose I give Alice 10 dollars and she later gives 5 dollars to Bob. Historically, we represented such transactions by transferring an object - cash. With the internet, transacting via physical cash became impractical, so we came up with ledgers. Then the problem was who maintains the truth"
-}
-
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />

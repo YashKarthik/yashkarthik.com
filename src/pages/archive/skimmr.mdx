@@ -1,12 +1,11 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-
-export const meta = {
-	shortName: "skimmr",
-	title: "How Skimmr Works",
-	date: 'Dec 27, 2022',
-	description: "Browser extensions are convoluted.",
-  long_desc: "As screenshots of ChatGTP giving startup ideas and writing Twitter threads covered my feed, I figured ChatGPT could be my reading assistant. After trying that for a couple of",
-}
+---
+title: "How Skimmr Works"
+started: "Dec 27, 2022"
+description: "Browser extensions are convoluted."
+layout: "../../layouts/BlogLayout.astro"
+topics: ["project", "browser", "AI", "LLM"]
+completionLevel: "budding"
+---
 
 As screenshots of ChatGTP giving startup ideas and writing Twitter threads covered my feed, I figured ChatGPT could be my reading assistant. After trying that for a couple of days, I found that while ChatGPT helped, the constant back-and-forth, between an article and the ChatGPT page, was distracting and it slowed me down.
 
@@ -158,5 +157,3 @@ There's also a copy button which writes to your clipboard by `navigator.clipboar
 - [Project Repo](https://github.com/yashkarthik/skimmr)
 - [Project Site](https://skimmr.xyz)
 - [Chrome Web Store](https://chrome.google.com/webstore/detail/skimmr/inchpcdcmkipekcoiimcdnfomdhdfcih)
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />
