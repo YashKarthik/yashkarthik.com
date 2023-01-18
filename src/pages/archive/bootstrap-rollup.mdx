@@ -1,21 +1,17 @@
-import LayoutMDX from '../../components/LayoutMDX.tsx';
-import { OptimizedImage } from '../../themes/MDXStyles.tsx';
-import tokenBootstrap from "../../public/blog-assets/bootstrap-token.png"
-
-export const meta = {
-	shortName: 'bootstrap-rollup',
-	title: "Bootstrapping a Rollup",
-	date: 'March 14, 2022',
-	description:  'Rollups achieve economies of scale when more people use them',
-    long_desc: "A rollup's smaller user base means that each user has to pay a large fraction of the fees, increasing the cost per tx, and chasing away existing users. With a larger user base the gas will be split between more users and each user would pay a smaller fraction of the fees ⇒ lower cost per tx."
-}
+---
+title: "Bootstrapping a Rollup"
+started: "March 14, 2022"
+description: "Rollups achieve economies of scale when more people use them."
+layout: "../../layouts/BlogLayout.astro"
+topics: ["cryptocurrencies", "ethereum", "scaling", "economics"]
+completionLevel: "budding"
+---
 
 Bootstrapping a rollup remains an unsolved problem. It's similar to the early days of dapps. Anyone could clone Uniswap and offer 10*x* the yield. Most dapps resorted to some sort of tokenization (ICOs, air drops) to incentivize users to use their dapp long enough to form a [community-moat](https://twitter.com/divine_economy/status/1446150773251977216 "twitter")  around it.
 
 > Tokens help overcome the bootstrap problem by adding financial utility when application utility is low - Chris Dixon
 
-<OptimizedImage alt="Bootstrapping using tokens" src={tokenBootstrap}
-title=""/>
+![Bootstrapping using tokens](../../public/blog-assets/bootstrap-token.png)
 
 Rollups too could launch their own token, see Coindesk's [article](https://www.coindesk.com/layer2/2022/03/02/what-tokenization-could-do-for-ethereum-scaling-solutions/) on this. Another way to get more users onto your platform would be subsidizing the first *x* transactions.
 
@@ -30,5 +26,3 @@ A rollup that offers free transactions for (say) 10 days after its launch will a
 ## Potential Downsides
 
 An obvious flaw: projects with large funding can extend this free transaction phase longer, and outlast competition. I'll be updating this list as I come across other ways to *game* the market.
-
-export default ({ children }) => <LayoutMDX meta={meta} content={children} />
