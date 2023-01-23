@@ -1,36 +1,29 @@
 ---
-import type { MarkdownLayoutProps, MDXLayoutProps } from 'astro';
-import path from "node:path";
 import BlogLayout from "../../layouts/BlogLayout.astro";
+
+import { getCollection, CollectionEntry } from "astro:content";
 
 import Divider from "../../components/Divider.astro";
 import Image from '../../components/Image.astro';
 import Link from '../../components/Link.astro'
 
-type Frontmatter = {
-  title: string;
-  started: string;
-  updated: string;
-  description: string;
-  topics: string[];
-  completionLevel: string;
-};
-
 export async function getStaticPaths() {
-  const posts = await Astro.glob<Frontmatter>('../../blog/*.mdx');
+  const posts = await getCollection('blog');
   return posts.map(post => ({
-    params: { slug: path.parse(post.file).name },
-    props: post,
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
-const {
-  frontmatter,
-  default: Content
-} = Astro.props
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
 
 ---
 
-<BlogLayout {...frontmatter}>
+<BlogLayout frontmatter={post.data}>
   <Content components={{ hr: Divider, img: Image, a: Link }} />
 </BlogLayout>

@@ -8,7 +8,7 @@ const { href, external } = Astro.props;
 
 <a
   href={href}
-  target={external ? "_blank" : "_self"}
+  target={external ? "_self" : "_blank" }
 >
   <slot />
 </a>
