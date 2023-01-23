@@ -7,14 +7,6 @@ import Divider from "../../components/Divider.astro";
 import Image from '../../components/Image.astro';
 import Link from '../../components/Link.astro'
 
-export async function getStaticPaths() {
-  const posts = await Astro.glob<Frontmatter>('../../blog/*.mdx');
-  return posts.map(post => ({
-    params: { slug: path.parse(post.file).name },
-    props: post,
-  }));
-}
-
 type Frontmatter = {
   title: string;
   started: string;
@@ -24,6 +16,14 @@ type Frontmatter = {
   completionLevel: string;
 };
 
+export async function getStaticPaths() {
+  const posts = await Astro.glob<Frontmatter>('../../blog/*.mdx');
+  return posts.map(post => ({
+    params: { slug: path.parse(post.file).name },
+    props: post,
+  }));
+}
+
 const {
   frontmatter,
   default: Content
@@ -31,6 +31,6 @@ const {
 
 ---
 
-<BlogLayout {frontmatter}>
-  <Astro.props.default components={{ hr: Divider, img: Image, a: Link }} />
+<BlogLayout {...frontmatter}>
+  <Content components={{ hr: Divider, img: Image, a: Link }} />
 </BlogLayout>
