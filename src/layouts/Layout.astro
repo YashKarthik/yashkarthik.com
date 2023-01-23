@@ -1,6 +1,7 @@
 ---
 import "@fontsource/spline-sans-mono"
 import "@fontsource/aleo"
+import "@fontsource/aleo/700.css"
 import "@fontsource/inter"
 
 export interface Props {
@@ -73,13 +74,13 @@ const { title, image_url, description } = Astro.props;
   "
   >
     <nav class="flex flex-row justify-between m-3">
-      <a href="/" class="max-w-[7ch] text-xl font-sans dark:text-white">
-        yashkarthik
+      <a href="/" class="ml-2 text-3xl font-black font-serif text-black dark:text-white">
+        yk.
       </a>
       <div class="flex-none">
         <ul class="flex flex-row gap-3 text-sm">
           <li class="hover:text-violet-700 dark:hover:text-violet-400">
-            <a href="/archive">
+            <a href="/writing">
               Writing
             </a>
           </li>
@@ -91,9 +92,9 @@ const { title, image_url, description } = Astro.props;
           </li>
 
           <li class="hover:text-violet-700 dark:hover:text-violet-400">
-            <a href="/about">
+            <button id="rss-copy-button">
              RSS
-            </a>
+            </button>
           </li>
 
           <li>
@@ -115,10 +116,21 @@ const { title, image_url, description } = Astro.props;
       <p>
         All text licensed under the Creative Commons Attribution 4.0 International License
       </p>
-      <a href="/copyright" class="text-violet-700">
+      <a href="/copyright" class="text-violet-700 dark:text-violet-400">
         (more)
       </a>
     </footer>
 
   </body>
 </html>
+
+<script>
+  const rssCopyButton = document.getElementById("rss-copy-button");
+  rssCopyButton!.addEventListener("click", () => {
+    navigator.clipboard.writeText("https://www.yashkarthik.xyz/rss.xml");
+    rssCopyButton!.firstChild!.nodeValue = "copied!"
+    setTimeout(() => {
+      rssCopyButton!.firstChild!.nodeValue = "RSS";
+    }, 1000);
+  });
+</script>
