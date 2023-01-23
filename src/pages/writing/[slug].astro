@@ -24,6 +24,6 @@ const { Content } = await post.render();
 
 ---
 
-<BlogLayout frontmatter={post.data}>
+<BlogLayout {...post.data}>
   <Content components={{ hr: Divider, img: Image, a: Link }} />
 </BlogLayout>

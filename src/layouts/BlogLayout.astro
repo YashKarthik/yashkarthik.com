@@ -1,20 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import type { MarkdownLayoutProps } from 'astro';
+import type { CollectionEntry } from 'astro:content';
 
 import "@fontsource/aleo/700.css"
 
-type Props = MarkdownLayoutProps<{
-  title: string;
-  started: string;
-  updated?: string;
-  description: string;
-  topics: string[];
-  completionLevel: string;
-  image?: string;
-}>;
+type Props = CollectionEntry<"blog">["data"];
 
-const { frontmatter } = Astro.props;
+const frontmatter = Astro.props;
 ---
 
 <Layout {...frontmatter}>
@@ -36,7 +28,7 @@ const { frontmatter } = Astro.props;
         })}
       </div>
       <div class="text-zinc-500 dark:text-zinc-400">
-        <p>{frontmatter.completionLevel[0].toUpperCase() + frontmatter.completionLevel.slice(1,)}</p>
+        <p class="first-letter:uppercase">{frontmatter.completionLevel} note</p>
         {frontmatter.updated && <p>Last updated: {frontmatter.updated}</p>}
       </div>
     </div>
