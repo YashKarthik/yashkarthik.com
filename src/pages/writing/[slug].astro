@@ -9,19 +9,25 @@ import Link from '../../components/Link.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map(post => ({
+  return posts.map((post, index) => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { 
+      post,
+      prevSlug: posts[index-1]?.slug,
+      nextSlug: posts[index+1]?.slug
+    },
   }));
 }
 
 interface Props {
   post: CollectionEntry<'blog'>;
+  nextSlug: string;
+  prevSlug: string;
 }
 
-const { post } = Astro.props;
+const { post, prevSlug, nextSlug } = Astro.props;
+// ^ use actual dates in frontmatter
 const { Content } = await post.render();
-
 ---
 
 <BlogLayout {...post.data}>

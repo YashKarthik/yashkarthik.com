@@ -1,14 +1,17 @@
 ---
 export interface Props {
   href: string;
-  external: boolean;
+  id?: any;
+  "aria-label"?: string;
 }
-const { href, external } = Astro.props;
+const { href, id, ...props} = Astro.props;
 ---
 
 <a
   href={href}
-  target={external ? "_self" : "_blank" }
+  id={id}
+  aria-label={props['aria-label']}
+  target={href.slice(0,4) == "http" ? "_blank" : "_self"}
 >
   <slot />
 </a>
