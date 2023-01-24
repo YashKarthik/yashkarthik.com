@@ -6,6 +6,19 @@ module.exports = {
 	theme: {
 		extend: {
       typography: () => ({
+        xl: {
+          css: {
+            h1: {
+              fontSize: defaultTheme.fontSize["3xl"],
+            },
+            h2: {
+              fontSize: defaultTheme.fontSize["2xl"],
+            },
+            h3: {
+              fontSize: defaultTheme.fontSize["lg"],
+            },
+          },
+        },
         lg: {
           css: {
             h1: {
@@ -35,9 +48,10 @@ module.exports = {
       }),
     },
     fontFamily: {
-      'serif': ['Aleo', ...defaultTheme.fontFamily.serif],
+      'serif': ['Neuton', ...defaultTheme.fontFamily.serif],
       'sans': ['Inter', ...defaultTheme.fontFamily.sans],
-      'mono': ['Spline Sans Mono', ...defaultTheme.fontFamily.sans]
+      'mono': ['Spline Sans Mono', ...defaultTheme.fontFamily.sans],
+      'logo': ['Source Serif Pro', 'Neuton', ...defaultTheme.fontFamily.serif],
     }
 	},
 	plugins: [require('@tailwindcss/typography')],

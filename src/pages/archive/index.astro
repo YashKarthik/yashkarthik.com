@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+const allBlogPosts = await getCollection('blog');
+---
+
+<Layout title="Writing" description="Archive of all essays written by Yash Karthik">
+  <main class="self-center font-serif
+  max-w-none
+  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12
+  ">
+    <article class="flex flex-col">
+      <h1 class="
+      text-3xl font-bold
+      mt-10 mr-2 pr-2
+      ">
+        Writing
+      </h1>
+      <p class="
+      my-2 pb-2
+      italic font-logo font-semibold
+      text-zinc-500 dark:text-zinc-400 
+      ">
+        I write about programming, technology,
+        physics, and even some sci-fi.
+      </p>
+    </article>
+
+    <article id="venn" class="text-lg">
+    </article>
+  </main>
+</Layout>

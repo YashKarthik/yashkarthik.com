@@ -1,8 +1,12 @@
 ---
-import "@fontsource/spline-sans-mono"
-import "@fontsource/aleo"
-import "@fontsource/aleo/700.css"
-import "@fontsource/inter"
+import "@fontsource/source-serif-pro/";
+import "@fontsource/source-serif-pro/600.css";
+import "@fontsource/source-serif-pro/700.css";
+import "@fontsource/inter";
+import "@fontsource/spline-sans-mono";
+import "@fontsource/neuton/200.css";
+import "@fontsource/neuton/300.css";
+import "@fontsource/neuton/700.css";
 
 export interface Props {
   title: string;
@@ -30,6 +34,8 @@ const { title, image_url, description } = Astro.props;
     <meta name="og:image" content={image_url ? image_url : "https://yashkarthik.xyz/thelatenightbuilders.png"} />
     <meta name="og:url" content='https://yashkarthik.xyz' />
     <meta name="twitter:site" content="@_yashKarthik" />
+
+    <slot name="head-metadata" />
 
     <script>
       const theme = (() => {
@@ -67,15 +73,15 @@ const { title, image_url, description } = Astro.props;
   <body 
     class="
     flex flex-col min-h-[100vh] 
-    text-zinc-700 dark:text-zinc-300
+    text-zinc-700 dark:text-stone-300
     dark:bg-zinc-900
     selection:bg-violet-200 dark:selection:bg-violet-300 dark:selection:text-zinc-700
     scroll-smooth
   "
   >
     <nav class="flex flex-row justify-between m-3">
-      <a href="/" class="ml-2 text-3xl font-black font-serif text-black dark:text-white">
-        yk.
+      <a href="/" class="flex flex-row group ml-2 text-3xl font-black font-logo text-black dark:text-white">
+        yk <p class="group-hover:text-violet-700 dark:group-hover:text-violet-400">.</p>
       </a>
       <div class="flex-none">
         <ul class="flex flex-row gap-3 text-sm">

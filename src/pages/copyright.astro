@@ -3,12 +3,15 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Copyright" description="Explaining the copyright(left) of my blog.">
-  <main class="self-center font-serif">
-    <h1 class="text-2xl mt-10 mb-7 font-bold">
-      Copy <s>right</s> left
+  <main class="self-center font-serif
+  max-w-none
+  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12
+  ">
+    <h1 class="text-3xl mt-10 mb-7 font-bold">
+      Copy<s class="decoration-2">right</s> left
     </h1>
 
-    <article class="max-w-[65ch]">
+    <article class="text-lg">
       <p class="my-3">
         All the words on this site are licensed under
         <a
