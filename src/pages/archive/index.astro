@@ -1,14 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from 'astro:content';
+import "@fontsource/neuton";
 
 const allBlogPosts = await getCollection('blog');
+allBlogPosts.sort((a, b) => (
+  (new Date(a.data.started)) < (new Date(b.data.started)) ? 1 : -1
+));
 ---
 
 <Layout title="Writing" description="Archive of all essays written by Yash Karthik">
   <main class="self-center font-serif
-  max-w-none
-  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12
+  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
   ">
     <article class="flex flex-col">
       <h1 class="
@@ -27,7 +30,26 @@ const allBlogPosts = await getCollection('blog');
       </p>
     </article>
 
-    <article id="venn" class="text-lg">
+    <article class="">
+      <div class="flex flex-col">
+        {allBlogPosts.map(blog => (
+          <a href={"/archive/" + blog.slug} class="
+          group ml-5 my-3 w-fit
+          ">
+            <p class="text-2xl group-hover:text-violet-700 dark:group-hover:text-violet-400">
+              {blog.data.title}
+            </p>
+            <div class="
+            font-light first-letter:uppercase
+            ">
+                {blog.data.completionLevel + " note"}
+              •
+              {blog.data.updated ? blog.data.updated : blog.data.started}
+            </div>
+          </a>
+        ))
+        }
+      </div>
     </article>
   </main>
 </Layout>
