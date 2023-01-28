@@ -9,26 +9,46 @@ const frontmatter = Astro.props;
 
 <Layout {...frontmatter}>
 
-  <header class="font-serif px-1 self-center m-3 lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none">
-    <p class="font-mono text-zinc-500 dark:text-zinc-400 text-sm my-2">
-      {frontmatter.started}
-    </p>
-    <h1 class="md:text-5xl sm:text-4xl text-3xl font-black my-3 font-serif-styled">
-      {frontmatter.title}
-    </h1>
-    <p class="text-md italic text-zinc-500 dark:text-zinc-400 border-solid border-b border-zince-500 my-2 pb-2">
-      {frontmatter.description}
-    </p>
-    <div class="font-sans text-sm flex flex-row justify-between">
-      <div class="flex flex-row gap-2">
+  <header class="
+  font-serif
+  self-center
+  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
+  grid grid-cols-7
+  border-solid border-b border-zinc-500 
+  ">
+    <div class="
+      flex flex-col gap-1
+      items-end text-end col-span-4
+      border-solid border-r pr-5 border-zinc-500 
+    ">
+      <h1 class="
+      md:text-6xl sm:text-4xl text-3xl 
+      font-heading
+      ">
+        {frontmatter.title}
+      </h1>
+
+      <p class="mt-1 text-md italic text-zinc-500 dark:text-zinc-400">
+        {frontmatter.description}
+      </p>
+
+      <div class="text-sm text-zinc-500 dark:text-zinc-400 flex flex-row gap-1 items-end">
+        {<p class="first-letter:uppercase">{frontmatter.completionLevel} note</p>}
+        {<p>• {frontmatter.started}</p>}
+        {frontmatter.updated && <p class="hover">• {frontmatter.updated}</p>}
+        {/* add link to commit history of file here. */}
+      </div>
+
+      <div class="text-sm flex flex-row gap-1 items-end">
         {frontmatter.topics.map(topic => {
           return <a class="text-violet-700 dark:text-violet-400" href={"/topics/" + topic}>{topic[0].toUpperCase() + topic.slice(1,)}</a>
         })}
       </div>
-      <div class="text-zinc-500 dark:text-zinc-400">
-        <p class="first-letter:uppercase">{frontmatter.completionLevel} note</p>
-        {frontmatter.updated && <p>Last updated: {frontmatter.updated}</p>}
-      </div>
+    </div>
+
+    <div class="
+    pl-5
+    ">
     </div>
   </header>
 

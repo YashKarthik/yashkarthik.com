@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^3.0.0",
     "@fontsource/aleo": "^4.5.9",
+    "@fontsource/anton": "^4.5.9",
     "@fontsource/cormorant": "^4.5.10",
     "@fontsource/gilda-display": "^4.5.10",
     "@fontsource/inter": "^4.5.14",
