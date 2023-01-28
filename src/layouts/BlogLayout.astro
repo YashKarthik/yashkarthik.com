@@ -13,7 +13,7 @@ const frontmatter = Astro.props;
     <p class="font-mono text-zinc-500 dark:text-zinc-400 text-sm my-2">
       {frontmatter.started}
     </p>
-    <h1 class="md:text-5xl sm:text-4xl text-3xl font-black my-3">
+    <h1 class="md:text-5xl sm:text-4xl text-3xl font-black my-3 font-serif-styled">
       {frontmatter.title}
     </h1>
     <p class="text-md italic text-zinc-500 dark:text-zinc-400 border-solid border-b border-zince-500 my-2 pb-2">
@@ -32,14 +32,18 @@ const frontmatter = Astro.props;
     </div>
   </header>
 
-  <main class="prose md:prose-xl prose-zinc dark:prose-invert max-w-none
-  prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 underline-offset-2
-  prose-a:decoration-2 prose-headings:text-zinc-700
-  dark:prose-headings:text-zinc-300 font-serif self-center
-  m-5 dark:prose-p:text-zinc-300 dark:prose-a:text-zinc-300
-  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
-  "
-  >
+  <main class="
+  max-w-none lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none m-5 
+  prose md:prose-p:prose-lg
+  prose-zinc dark:prose-invert 
+  font-serif self-center
+  prose-headings:font-serif-styled
+  prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
+  dark:prose-p:text-zinc-300
+  dark:prose-a:text-zinc-300
+  underline-offset-2 prose-a:decoration-2 
+  prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
+  ">
     <slot />
   </main>
 
