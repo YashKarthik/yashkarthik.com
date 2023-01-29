@@ -7,7 +7,7 @@ module.exports = {
     fontFamily: {
       'serif': ['Gilda Display', 'Cormorant', ...defaultTheme.fontFamily.serif],
       'serif-styled': ['CormorantVariable', ...defaultTheme.fontFamily.serif],
-      'heading': ['Anton', ...defaultTheme.fontFamily.sans],
+      'heading': ['Sofia Sans Extra Condensed', ...defaultTheme.fontFamily.sans],
       'sans': ['Inter', ...defaultTheme.fontFamily.sans],
       'mono': ['Spline Sans Mono', ...defaultTheme.fontFamily.sans],
       'logo': ['Source Serif Pro', 'Gilda Display', 'Cormorant Infant', ...defaultTheme.fontFamily.serif],

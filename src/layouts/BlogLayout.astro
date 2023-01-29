@@ -14,16 +14,18 @@ const frontmatter = Astro.props;
   self-center
   lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
   grid grid-cols-7
-  border-solid border-b border-zinc-500 
+  pb-2 border-b border-dotted border-zinc-400 dark:border-zinc-500
   ">
-    <div class="
+    <div class=`
       flex flex-col gap-1
-      items-end text-end col-span-4
-      border-solid border-r pr-5 border-zinc-500 
-    ">
+      items-end text-end 
+      pr-5
+      border-r border-dotted border-zinc-400 dark:border-zinc-500
+      ${frontmatter.title.length > 25 ? 'col-span-4' : 'col-span-3'}
+    `>
       <h1 class="
-      md:text-6xl sm:text-4xl text-3xl 
-      font-heading
+      md:text-7xl sm:text-4xl text-3xl 
+      font-heading tracking-tight
       ">
         {frontmatter.title}
       </h1>
@@ -40,15 +42,22 @@ const frontmatter = Astro.props;
       </div>
 
       <div class="text-sm flex flex-row gap-1 items-end">
-        {frontmatter.topics.map(topic => {
-          return <a class="text-violet-700 dark:text-violet-400" href={"/topics/" + topic}>{topic[0].toUpperCase() + topic.slice(1,)}</a>
+        {frontmatter.topics.map((topic, index) => {
+          const end = index + 1 == frontmatter.topics.length ? "" : ",";
+          return <a class="text-violet-700 dark:text-violet-400" href={"/topics/" + topic}>
+            {topic[0].toUpperCase() + topic.slice(1,) + end}
+          </a>
         })}
       </div>
     </div>
 
-    <div class="
-    pl-5
-    ">
+    <div class=`
+    pl-5 mt-2 text-start
+    italic
+    col-end-8
+    ${frontmatter.title.length > 25 ? 'col-start-5' : 'col-start-4'}
+    `>
+      LoremEt ut sed tempora est doloremque temporibus. Quae non aut aut eos quo rem. Quia officia et ipsa distinctio vitae qui sed. Dolorem voluptas sed debitis est ad quasi iure. Omnis et nulla amet dolores saepe voluptas ea. Enim repudiandae ipsa sint quam ullam tempora voluptatibus tenetur.
     </div>
   </header>
 
