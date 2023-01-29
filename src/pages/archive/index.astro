@@ -2,6 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from 'astro:content';
 
+let years: number[] = [];
+for (let i=new Date().getFullYear(); i > 2020; i--) {
+  years.push(i);
+}
+
 const allBlogPosts = await getCollection('blog');
 allBlogPosts.sort((a, b) => (
   (new Date(a.data.started)) < (new Date(b.data.started)) ? 1 : -1
@@ -11,73 +16,62 @@ allBlogPosts.sort((a, b) => (
 <Layout title="Writing" description="Archive of all essays written by Yash Karthik">
   <main class="self-center font-serif
   lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
+  mt-7
   ">
-    <article class="flex flex-col">
-      <h1 class="
-      text-3xl font-bold
-      mt-10 mr-2 pr-2
-      ">
-        Writing
-      </h1>
-      <p class="
-      my-2 pb-2
-      italic font-logo font-semibold
-      text-zinc-500 dark:text-zinc-400 
-      ">
-        I write about programming, technology,
-        physics, and even some sci-fi.
-      </p>
-    </article>
 
-    <header class=`
-      flex flex-col gap-1
-      items-end text-end 
-      pr-5
-      border-r border-dotted border-zinc-400 dark:border-zinc-500
-      ${frontmatter.title.length > 25 ? 'col-span-4' : 'col-span-3'}
-    `>
+    <header class="
+    items-start text-start 
+    mb-7 
+    ">
       <h1 class="
-      md:text-7xl sm:text-4xl text-3xl 
+      md:text-5xl sm:text-4xl text-3xl 
       font-heading tracking-tight
       ">
         Writing
       </h1>
 
-      <p class="mt-1 text-md italic text-zinc-500 dark:text-zinc-400">
+      <p class="mt-1 text-md italic">
         I write about programming, technology,
         physics, and even some sci-fi.
       </p>
     </header>
 
-    <div class=`
-    pl-5 mt-2 text-start
-    italic
-    col-end-8
-    ${frontmatter.title.length > 25 ? 'col-start-5' : 'col-start-4'}
-    `>
-      LoremEt ut sed tempora est doloremque temporibus. Quae non aut aut eos quo rem. Quia officia et ipsa distinctio vitae qui sed. Dolorem voluptas sed debitis est ad quasi iure. Omnis et nulla amet dolores saepe voluptas ea. Enim repudiandae ipsa sint quam ullam tempora voluptatibus tenetur.
-    </div>
-
     <article class="">
-      <div class="flex flex-col">
-        {allBlogPosts.map(blog => (
-          <a href={"/archive/" + blog.slug} class="
-          group ml-5 my-3 w-fit
-          ">
-            <p class="text-2xl group-hover:text-violet-700 dark:group-hover:text-violet-400">
-              {blog.data.title}
-            </p>
-            <div class="
-            font-light first-letter:uppercase
-            ">
-                {blog.data.completionLevel + " note"}
-              •
-              {blog.data.updated ? blog.data.updated : blog.data.started}
-            </div>
-          </a>
-        ))
-        }
-      </div>
+      {years.map(year => (
+        <section>
+          <h2 class="text-3xl mt-5 font-black">{year}</h2>
+
+          <div class="flex flex-col">
+            {allBlogPosts.map(({ data, slug}) => {
+              if (new Date(data.started).getFullYear() == year) {
+                return <div class="
+                group ml-5 my-3 w-fit
+                flex flex-row items-center gap-2
+                ">
+                  <a href={"/archive/" + slug} class="
+                  text-lg
+                  hover:underline underline-offset-2 decoration-2 
+                  decoration-violet-700 dark:decoration-violet-400 
+                  ">
+                    {data.title}
+                  </a>
+
+                  <a target="_blank" title="Page history" href="https://github.com/yashkarthik/yashkarthik.xyz" class="
+                  text-sm italic text-zinc-500 dark:text-zinc-400
+                  hover:underline underline-offset-2 decoration-2 decoration-dotted
+                  decoration-violet-700 dark:decoration-violet-400 
+                  ">
+                    {data.started.slice(0, data.started.length - 6) }{data.updated && ', '}
+                    {data.updated?.slice(0, data.started.length - 6)}
+                  </a>
+                </div>
+              }
+            })
+            }
+          </div>
+
+        </section>
+      ))}
     </article>
   </main>
 </Layout>

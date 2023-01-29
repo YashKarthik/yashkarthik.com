@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import type { CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<"blog">["data"];
-
 const frontmatter = Astro.props;
 ---
 
@@ -14,7 +13,8 @@ const frontmatter = Astro.props;
   self-center
   lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
   grid grid-cols-7
-  pb-2 border-b border-dotted border-zinc-400 dark:border-zinc-500
+  border-b border-dotted border-zinc-400 dark:border-zinc-500
+  mt-7 pb-2 
   ">
     <div class=`
       flex flex-col gap-1
