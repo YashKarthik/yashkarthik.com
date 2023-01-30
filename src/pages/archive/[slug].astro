@@ -10,15 +10,17 @@ import Link from '../../components/Link.astro'
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   posts.sort((a, b) => (
-    (a.data.started) < (b.data.started) ? 1 : -1
+    (new Date(a.data.started)) < (new Date(b.data.started)) ? 1 : -1
   ));
 
   return posts.map((post, index) => ({
     params: { slug: post.slug },
     props: { 
       post,
-      prevSlug: posts[index-1]?.slug,
-      nextSlug: posts[index+1]?.slug
+      nextSlug: posts[index-1]?.slug,
+      nextTitle: posts[index-1]?.data.title,
+      prevSlug: posts[index+1]?.slug,
+      prevTitle: posts[index+1]?.data.title,
     },
   }));
 }
@@ -27,13 +29,24 @@ interface Props {
   post: CollectionEntry<'blog'>;
   nextSlug: string;
   prevSlug: string;
+  nextTitle: string;
+  prevTitle: string;
 }
 
-const { post, prevSlug, nextSlug } = Astro.props;
-// ^ use actual dates in frontmatter
+const { 
+  post,
+  nextSlug, nextTitle,
+  prevSlug, prevTitle
+} = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BlogLayout {...post.data}>
+<BlogLayout 
+  frontmatter={{...post.data}}
+  prevSlug={prevSlug}
+  prevTitle={prevTitle}
+  nextSlug={nextSlug}
+  nextTitle={nextTitle}
+>
   <Content components={{ hr: Divider, img: Image, a: Link }} />
 </BlogLayout>

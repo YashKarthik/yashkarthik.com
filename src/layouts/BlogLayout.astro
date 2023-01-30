@@ -1,9 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import type { CollectionEntry } from 'astro:content';
+import { intersection } from 'astro/zod';
 
-type Props = CollectionEntry<"blog">["data"];
-const frontmatter = Astro.props;
+type Props = {
+  frontmatter: CollectionEntry<"blog">["data"];
+  nextSlug: string;
+  prevSlug: string;
+  nextTitle: string;
+  prevTitle: string;
+}
+
+const { 
+  frontmatter,
+  nextSlug, nextTitle,
+  prevSlug, prevTitle
+} = Astro.props;
 ---
 
 <Layout {...frontmatter}>
@@ -76,8 +88,33 @@ const frontmatter = Astro.props;
     <slot />
   </main>
 
-  <div class="self-center flex flex-col my-7 lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none">
+  <div class="font-serif self-center flex flex-col my-7 lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none">
     <hr class="border border-solid border-zinc-400 dark:border-zinc-500 mb-5" />
+    <div class="mb-5 flex flex-col">
+      {prevSlug &&
+        <p class="italic self-start">←
+          <a href={prevSlug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {prevTitle}
+          </a>
+        </p>
+      }
+
+      {nextSlug &&
+        <p class="italic self-end">
+          <a href={nextSlug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {nextTitle}
+          </a>
+          →
+        </p>
+      }
+    </div>
+
     <p class="self-start font-serif">Have a comment or response? <a href="/links"
     class="underline decoration-solid decoration-2 decoration-violet-700 dark:decoration-violet-400 underline-offset-2">Email me</a>.</p>
   </div>
