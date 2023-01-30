@@ -44,7 +44,7 @@ const frontmatter = Astro.props;
       <div class="text-sm flex flex-row gap-1 items-end">
         {frontmatter.topics.map((topic, index) => {
           const end = index + 1 == frontmatter.topics.length ? "" : ",";
-          return <a class="text-violet-700 dark:text-violet-400" href={"/topics/" + topic}>
+          return <a class="text-violet-700 dark:text-violet-400" href={"/archive#" + topic}>
             {topic[0].toUpperCase() + topic.slice(1,) + end}
           </a>
         })}

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from 'astro:content';
+import Divider from "../../components/Divider.astro";
 
 let years: number[] = [];
 for (let i=new Date().getFullYear(); i > 2020; i--) {
@@ -11,6 +12,10 @@ const allBlogPosts = await getCollection('blog');
 allBlogPosts.sort((a, b) => (
   (new Date(a.data.started)) < (new Date(b.data.started)) ? 1 : -1
 ));
+
+const topics = Array.from(new Set(allBlogPosts
+  .map(post => post.data.topics)
+  .flat()));
 ---
 
 <Layout title="Writing" description="Archive of all essays written by Yash Karthik">
@@ -36,7 +41,7 @@ allBlogPosts.sort((a, b) => (
       </p>
     </header>
 
-    <article class="">
+    <article class="py-3">
       {years.map(year => (
         <section>
           <h2 class="text-3xl mt-5 font-black">{year}</h2>
@@ -72,6 +77,49 @@ allBlogPosts.sort((a, b) => (
 
         </section>
       ))}
+    </article>
+
+    <Divider />
+
+
+    <article class="
+    pt-10 
+    ">
+      <h2 class="pb-1 first-letter:uppercase text-2xl font-black">By topics:</h2>
+      <p class="italic text-zinc-400 dark:text-zinc-500 pb-4">Some articles appear under multiple topics.</p>
+      <div class="
+      mt-3
+      grid grid-cols-2 gap-14
+      auto-rows-min
+      ">
+        {topics.map(topic => (
+          <section>
+            <h2 id={topic} class="first-letter:uppercase text-1xl mb-2 font-black">{topic}</h2>
+
+            <div class="flex flex-col">
+              {allBlogPosts.map(({ data, slug}) => {
+                if ((new Set(data.topics)).has(topic)) {
+                  return <p class="
+                    font-mono text-zinc-400 dark:text-zinc-500
+                  ">
+                    *
+                    <a href={"/archive/" + slug} class="
+                      w-fit mt-3 font-serif
+                      text-zinc-700 dark:text-stone-300
+                      hover:underline underline-offset-4 decoration-2
+                      hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                    ">
+                      {data.title}
+                    </a>
+                  </p>
+                }
+              })
+              }
+            </div>
+
+          </section>
+        ))}
+      </div>
     </article>
   </main>
 </Layout>
