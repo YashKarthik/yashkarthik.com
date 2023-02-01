@@ -8,6 +8,7 @@ import "@fontsource/spline-sans-mono";
 import "@fontsource/gilda-display";
 import "@fontsource/cormorant/variable.css"
 import "@fontsource/sofia-sans-extra-condensed/800.css"
+import Divider from "../components/Divider.astro";
 
 export interface Props {
   title: string;
@@ -84,22 +85,29 @@ const { title, image_url, description } = Astro.props;
       <a href="/" class="flex flex-row group ml-2 text-3xl font-black font-logo text-black dark:text-white">
         yk <p class="group-hover:text-violet-700 dark:group-hover:text-violet-400">.</p>
       </a>
-      <div class="flex-none font-serif">
+      <div class=" flex-none ">
         <ul class="flex flex-row gap-3 text-sm">
-          <li class="hover:text-violet-700 dark:hover:text-violet-400">
-            <a href="/archive">
-              Writing
-            </a>
-          </li>
+          {[
+            ["Writing", "/archive"],
+            ["About", "/about"],
+          ].map(linkObj => (
+            <li class="
+              underline underline-offset-4 decoration-2 decoration-dotted
+              decoration-zinc-400 dark:decoration-zinc-500
+              hover:decoration-violet-700 dark:hover:decoration-violet-400
+            ">
+              <a href={linkObj[1]}>
+                {linkObj[0]}
+              </a>
+            </li>
+          ))}
 
-          <li class="hover:text-violet-700 dark:hover:text-violet-400">
-            <a href="/about">
-             About
-            </a>
-          </li>
-
-          <li class="hover:text-violet-700 dark:hover:text-violet-400">
-            <button id="rss-copy-button">
+          <li>
+            <button id="rss-copy-button" class="
+            underline underline-offset-4 decoration-2 decoration-dotted
+            decoration-zinc-400 dark:decoration-zinc-500
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+            ">
              RSS
             </button>
           </li>
@@ -120,25 +128,64 @@ const { title, image_url, description } = Astro.props;
 
     <slot />
 
-    <footer class="flex flex-row gap-1 justify-center text-xs mt-14 mb-1">
+    <footer class="
+    text-xs mt-14 mb-1
+    self-center flex flex-col text-center
+    lg:w-8/12 md:w-9/12 sm:w-10/12 w-11/12 max-w-none
+    ">
+      <hr class="border border-solid border-zinc-400 dark:border-zinc-500 mb-5" />
+      <section class="
+        flex flex-row justify-center gap-2
+        text-sm mb-5
+      ">
+        {[
+          ["Twitter", "https://twitter.com/_yashkarthik"],
+          ["Github", "https://github.com/yashkarthik"],
+          ["Farcaster", "https://www.discove.xyz/@yashkarthik?q=%28from%3Ayashkarthik%29&username=yashkarthik"],
+          ["Writing", "/archive"],
+        ].map((linkObj) => (
+          <a href={linkObj[1]}
+            target={linkObj[1].slice(0,4) == "http" ? "_blank" : "_self"}
+            class="
+            underline underline-offset-2 decoration-2 decoration-dotted
+            decoration-zinc-400 dark:decoration-zinc-500
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+          ">{linkObj[0]}</a>
+          <p class="text-zinc-400 dark:text-zinc-500">//</p>
+        ))}
+        <button id="rss-copy-button" class="
+        underline underline-offset-2 decoration-2 decoration-dotted
+        decoration-zinc-400 dark:decoration-zinc-500
+        hover:decoration-violet-700 dark:hover:decoration-violet-400
+        ">
+         RSS
+        </button>
+      </section>
+
       <p>
-        All text licensed under the Creative Commons Attribution 4.0 International License
+        All text licensed under
+        <a href="/copyright" class="
+        underline underline-offset-2 decoration-2 decoration-dotted
+        decoration-zinc-400 dark:decoration-zinc-500
+        hover:decoration-violet-700 dark:hover:decoration-violet-400
+        ">
+          CC BY 4.0
+        </a>
       </p>
-      <a href="/copyright" class="text-violet-700 dark:text-violet-400">
-        (more)
-      </a>
     </footer>
 
   </body>
 </html>
 
 <script>
-  const rssCopyButton = document.getElementById("rss-copy-button");
-  rssCopyButton!.addEventListener("click", () => {
-    navigator.clipboard.writeText("https://www.yashkarthik.xyz/rss.xml");
-    rssCopyButton!.firstChild!.nodeValue = "copied!"
-    setTimeout(() => {
-      rssCopyButton!.firstChild!.nodeValue = "RSS";
-    }, 1000);
-  });
+  const rssCopyButton = document.querySelectorAll("button#rss-copy-button");
+  rssCopyButton.forEach((r:Element) => {
+    r!.addEventListener("click", () => {
+      navigator.clipboard.writeText("https://www.yashkarthik.xyz/rss.xml");
+      r!.firstChild!.nodeValue = "copied!"
+      setTimeout(() => {
+        r!.firstChild!.nodeValue = "RSS";
+      }, 1000);
+    });
+  })
 </script>
