@@ -1,0 +1,43 @@
+---
+import { getCollection, CollectionEntry } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+
+import Divider from "../../../components/Divider.astro";
+import Image from '../../../components/Image.astro';
+import Link from '../../../components/Link.astro'
+
+export async function getStaticPaths() {
+  const stories = await getCollection('stories');
+  stories.sort((a, b) => (
+    (new Date(a.data.published)) < (new Date(b.data.published)) ? 1 : -1
+  ));
+
+  return stories.map((story, index) => ({
+    params: { slug: story.slug },
+    props: { 
+      story,
+      nextSlug: stories[index-1]?.slug,
+      nextTitle: stories[index-1]?.data.title,
+      prevSlug: stories[index+1]?.slug,
+      prevTitle: stories[index+1]?.data.title,
+    },
+  }));
+}
+
+interface Props {
+  story: CollectionEntry<'stories'>;
+  nextSlug: string;
+  prevSlug: string;
+  nextTitle: string;
+  prevTitle: string;
+}
+
+const { 
+  story,
+  nextSlug, nextTitle,
+  prevSlug, prevTitle
+} = Astro.props;
+const { Content } = await story.render();
+---
+
+<Content components={{ hr: Divider, img: Image, a: Link }} />
