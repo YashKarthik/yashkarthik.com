@@ -1,0 +1,31 @@
+---
+import { getCollection, CollectionEntry } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+
+import Divider from "../../../components/Divider.astro";
+import Image from '../../../components/Image.astro';
+import Link from '../../../components/Link.astro'
+
+export async function getStaticPaths() {
+  const post = await getCollection('weekly');
+  post.sort((a, b) => (
+    (new Date(a.data.published)) < (new Date(b.data.published)) ? 1 : -1
+  ));
+
+  return post.map((post ) => ({
+    params: { slug: post.slug },
+    props: { 
+      post: post
+    },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'weekly'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Content components={{ hr: Divider, img: Image, a: Link }} />

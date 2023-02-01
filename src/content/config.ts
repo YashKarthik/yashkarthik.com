@@ -21,7 +21,17 @@ const storiesCollection = defineCollection({
   }),
 });
 
+const weeklyCollection = defineCollection({
+  schema: z.object({
+    //no title object, will create using weekNum: Week 3, Week 30, etc.
+    published: z.string(),
+    weekNum: z.number(), // In frontmatter: 1
+    image: z.string().optional(),
+  }),
+});
+
 export const collections = {
   'blog': blogCollection,
   'stories': storiesCollection,
+  'weekly': weeklyCollection,
 };
