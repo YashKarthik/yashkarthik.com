@@ -25,7 +25,7 @@ export async function get(context:any) {
       return {
         link: `/writing/${post.slug}/`,
         title: post.data.title,
-        pubDate: new Date(post.data.started),
+        pubDate: new Date(post.data.published),
         description: post.data.description,
         content: sanitizeHtml(renderedHTML),
       }

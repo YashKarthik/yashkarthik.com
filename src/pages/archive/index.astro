@@ -8,14 +8,23 @@ for (let i=new Date().getFullYear(); i > 2020; i--) {
   years.push(i);
 }
 
-const allBlogPosts = await getCollection('blog');
-allBlogPosts.sort((a, b) => (
-  (new Date(a.data.started)) < (new Date(b.data.started)) ? 1 : -1
-));
+const blog = await getCollection('blog');
+const weekly = await getCollection('weekly');
+const stories = await getCollection('stories');
 
-const topics = Array.from(new Set(allBlogPosts
+const allWriting = Array.from(new Set([blog[0], weekly[0], stories[0]].concat(blog, weekly, stories)));
+allWriting.sort((a, b) => {
+    let aDate = a.collection == "blog" ? a.data.published : a.data.published;
+    let bDate = b.collection == "blog" ? b.data.published : b.data.published;
+    return (new Date(aDate) < (new Date(bDate)) ? 1 : -1);
+})
+
+const topics = Array.from(new Set(blog
   .map(post => post.data.topics)
-  .flat()));
+  .flat()))
+  .sort((a, b) => (
+    a > b ? 1 : -1
+  ));
 ---
 
 <Layout title="Writing" description="Archive of all essays written by Yash Karthik">
@@ -47,27 +56,40 @@ const topics = Array.from(new Set(allBlogPosts
           <h2 class="text-3xl mt-5 font-black">{year}</h2>
 
           <div class="flex flex-col">
-            {allBlogPosts.map(({ data, slug}) => {
-              if (new Date(data.started).getFullYear() == year) {
+            {allWriting.map(writing => {
+              if (new Date(writing.data.published).getFullYear() == year) {
                 return <div class="
                 group ml-5 my-3 w-fit
                 flex flex-row items-center gap-2
                 ">
-                  <a href={"/archive/" + slug} class="
+                  <a href={
+                    writing.collection == "blog" ? "/archive/" + writing.slug
+                      : writing.collection == "stories" ? "/archive/stories/" + writing.slug
+                        : "/archive/weekly/" + writing.slug
+                  } class="
                   text-lg
                   hover:underline underline-offset-2 decoration-2 
                   decoration-violet-700 dark:decoration-violet-400 
                   ">
-                    {data.title}
+                    {writing.collection != "weekly" ? writing.data.title : "Week " + writing.data.weekNum}
                   </a>
+                  
+                  {writing.collection != "blog" && 
+                    <p title="post type" class="
+                      text-sm italic text-zinc-500 dark:text-zinc-400
+                    ">
+                      {writing.collection == "stories" && "fiction, "}
+                      {writing.collection == "weekly" && "weekly, "}
+                    </p>
+                  }
 
                   <a target="_blank" title="Page history" href="https://github.com/yashkarthik/yashkarthik.xyz" class="
-                  text-sm italic text-zinc-500 dark:text-zinc-400
-                  hover:underline underline-offset-2 decoration-2 decoration-dotted
-                  decoration-violet-700 dark:decoration-violet-400 
+                    text-sm italic text-zinc-500 dark:text-zinc-400
+                    hover:underline underline-offset-2 decoration-2 decoration-dotted
+                    decoration-violet-700 dark:decoration-violet-400 
                   ">
-                    {data.started.slice(0, data.started.length - 6) }{data.updated && ', '}
-                    {data.updated?.slice(0, data.started.length - 6)}
+                    {writing.data.published.slice(0, writing.data.published.length - 6) }{writing.collection == "blog" && writing.data.updated && ', '}
+                    {writing.collection == "blog" && writing.data.updated && writing.data.updated?.slice(0, writing.data.published.length - 6)}
                   </a>
                 </div>
               }
@@ -79,7 +101,9 @@ const topics = Array.from(new Set(allBlogPosts
       ))}
     </article>
 
-    <Divider />
+    <div class="my-14">
+      <Divider />
+    </div>
 
 
     <article class="
@@ -92,15 +116,39 @@ const topics = Array.from(new Set(allBlogPosts
       grid sm:grid-cols-2 grid-cols-1 gap-y-7 gap-x-24
       auto-rows-min
       ">
+        <section>
+          <h2 id="storyies" class="first-letter:uppercase mb-2 font-black">Stories</h2>
+
+          {stories.map(story => (
+            <div class="flex flex-col">
+              <p class="
+                font-mono text-sm
+                text-zinc-400 dark:text-zinc-500
+              ">
+                *
+                <a href={"/archive/stories/" + story.slug} class="
+                  w-fit mt-3 font-serif
+                  text-zinc-700 dark:text-stone-300
+                  hover:underline underline-offset-4 decoration-2
+                  hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                ">
+                  {story.data.title}
+                </a>
+              </p>
+            </div>
+          ))
+          }
+        </section>
+
         {topics.map(topic => (
           <section>
-            <h2 id={topic} class="first-letter:uppercase text-1xl mb-2 font-black">{topic}</h2>
+            <h2 id={topic} class="first-letter:uppercase mb-2 font-black">{topic}</h2>
 
             <div class="flex flex-col">
-              {allBlogPosts.map(({ data, slug}) => {
+              {blog.map(({ data, slug}) => {
                 if ((new Set(data.topics)).has(topic)) {
                   return <p class="
-                    font-mono text-zinc-400 dark:text-zinc-500
+                    font-mono text-zinc-400 dark:text-zinc-500 text-sm
                   ">
                     *
                     <a href={"/archive/" + slug} class="
@@ -116,9 +164,32 @@ const topics = Array.from(new Set(allBlogPosts
               })
               }
             </div>
-
           </section>
         ))}
+
+        <section>
+          <h2 id="storyies" class="first-letter:uppercase mb-2 font-black">Weekly</h2>
+
+          {weekly.map(week => (
+            <div class="flex flex-col">
+              <p class="
+                font-mono text-sm
+                text-zinc-400 dark:text-zinc-500
+              ">
+                *
+                <a href={"/archive/stories/" + week.slug} class="
+                  w-fit mt-3 font-serif
+                  text-zinc-700 dark:text-stone-300
+                  hover:underline underline-offset-4 decoration-2
+                  hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                ">
+                  Week {week.data.weekNum}, {(new Date(week.data.published).getFullYear()).toString()}
+                </a>
+              </p>
+            </div>
+          ))
+          }
+        </section>
       </div>
     </article>
   </main>
