@@ -18,6 +18,5 @@ Sizes:
 
 # TODO
 - [ ] create layouts for fiction (scifi and normal) and weekly
-- [ ] create arhive pages for each ^.
 - [ ] about page.
 - [ ] homepage with horizontal scrolling.
