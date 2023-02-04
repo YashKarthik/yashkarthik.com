@@ -11,5 +11,5 @@ Sizes:
 - text-xs: copyright in footer
 
 # TODO
-- [ ] about page.
 - [ ] homepage with horizontal scrolling.
+- [ ] A "Recently" page. A high-level timeline of what I'm doing at various periods of time. (maybe)
