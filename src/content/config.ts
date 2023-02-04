@@ -16,7 +16,6 @@ const storiesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     published: z.string(),
-    description: z.string(),
     scifi: z.boolean().optional(),
     image: z.string().optional(),
   }),

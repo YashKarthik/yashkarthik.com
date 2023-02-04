@@ -15,29 +15,164 @@ export async function getStaticPaths() {
   return stories.map((story, index) => ({
     params: { slug: story.slug },
     props: { 
-      story,
-      nextSlug: stories[index-1]?.slug,
-      nextTitle: stories[index-1]?.data.title,
-      prevSlug: stories[index+1]?.slug,
-      prevTitle: stories[index+1]?.data.title,
+      story: story,
+      nextStoryTitle: stories[index-1]?.data.title,
+      nextStorySlug: stories[index-1]?.slug,
+      prevStoryTitle: stories[index+1]?.data.title,
+      prevStorySlug: stories[index+1]?.slug,
     },
   }));
 }
 
 interface Props {
   story: CollectionEntry<'stories'>;
-  nextSlug: string;
-  prevSlug: string;
-  nextTitle: string;
-  prevTitle: string;
+  nextStoryTitle: string;
+  nextStorySlug:  string;
+  prevStoryTitle: string;
+  prevStorySlug:  string;
 }
 
-const { 
+const {
   story,
-  nextSlug, nextTitle,
-  prevSlug, prevTitle
+  nextStoryTitle,
+  nextStorySlug,
+  prevStoryTitle,
+  prevStorySlug,
 } = Astro.props;
+
 const { Content } = await story.render();
 ---
 
-<Content components={{ hr: Divider, img: Image, a: Link }} />
+<Layout
+  title={story.data.title}
+  description="A short story by Yash Karthik."
+>
+  <div class={`
+    font-mono
+    self-center
+    mt-7 pb-2 
+    max-sm:w-10/12
+  `}>
+    <header>
+      <h1 class={`
+        md:text-2xl sm:text-lg
+        font-black
+      `}>
+        {story.data.title}
+      </h1>
+      <div class="text-sm text-zinc-500 dark:text-zinc-400 flex flex-row gap-1 items-end">
+        {story.data.published}
+      </div>
+    </header>
+
+    <div class="py-5">
+      <Divider />
+    </div>
+
+    <article class="
+      self-center my-5 
+      font-mono font-light
+      max-sm:prose-sm
+      prose prose-zinc dark:prose-invert 
+      prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
+      dark:prose-a:text-zinc-300
+      underline-offset-2 prose-a:decoration-2 
+      prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
+    ">
+      <Content components={{ hr: Divider, img: Image, a: Link }} />
+    </article>
+
+    <div class="pt-5">
+      <Divider />
+    </div>
+
+    <div class={`
+      font-serif
+      self-center my-7
+      flex flex-row justify-center gap-5
+    `}>
+      {prevStoryTitle &&
+        <p class="italic">←
+          <a href={prevStorySlug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {prevStoryTitle}
+          </a>
+        </p>
+      }
+
+      {nextStoryTitle &&
+        <p class="italic">
+          <a href={nextStorySlug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {nextStoryTitle}
+          </a>
+          →
+        </p>
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const CHAOS_LEVEL = 0.04; // chaos level, lol
+  let ENABLE_FLICKER = true;
+  // all possible chers things can flicker to
+  const FLICKER_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*(){}[]\/\\.,:;';
+  const randomBetween = (min:number, max:number) => min + (max - min) * Math.random();
+  const randomFlickerChar = () => FLICKER_CHARS[Math.floor(Math.random() * FLICKER_CHARS.length)];
+  const ALPHANUMERIC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+  const isAlphaNumeric = (char:string) => ALPHANUMERIC.includes(char);
+  
+  // given a string, return a "flickered" / slightly noisy version of that string
+  const flickerText = (s:string) => {
+      let flickered = '';
+      for (const char of s) {
+          if (Math.random() < CHAOS_LEVEL && isAlphaNumeric(char)) {
+              flickered += randomFlickerChar();
+          } else {
+              flickered += char;
+          }
+      }
+      return flickered;
+  }
+  
+  const paras = document.querySelectorAll('article p');
+  
+  for (const para of paras) {
+      // if it doesn't hold raw text, bail because it might be a link or something else
+      // we don't want to touch.
+      if (para.childNodes.length > 1 || para!.firstChild!.nodeType !== para.TEXT_NODE) continue;
+      const originalText = para.textContent;
+  
+      const flicker = () => {
+          if (!ENABLE_FLICKER) return;
+          para.textContent = flickerText(originalText!);
+          // return to normal
+          setTimeout(() => {
+              para.textContent = originalText;
+          }, 250);
+          setTimeout(flicker, randomBetween(4000, 6000));
+      }
+      flicker();
+  }
+  
+  // For accessibility -- before the first paragraph, add a button to disable flicker
+  const disableButton = document.createElement('button');
+  disableButton.textContent = 'Disable text effects';
+  Object.assign(disableButton.style, {
+      height: 0,
+      width: 0,
+      position: 'absolute',
+      opacity: 0,
+  });
+  disableButton.addEventListener('click', () => {
+      ENABLE_FLICKER = false;
+  });
+  
+  const firstPara = paras[0];
+  firstPara!.parentElement!.insertBefore(disableButton, firstPara);
+</script>

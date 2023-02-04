@@ -9,7 +9,7 @@ module.exports = {
       'serif-styled': ['CormorantVariable', ...defaultTheme.fontFamily.serif],
       'heading': ['Sofia Sans Extra Condensed', ...defaultTheme.fontFamily.sans],
       'sans': ['Inter', ...defaultTheme.fontFamily.sans],
-      'mono': ['Spline Sans Mono', ...defaultTheme.fontFamily.sans],
+      'mono': ['Spline Sans MonoVariable', ...defaultTheme.fontFamily.mono],
       'logo': ['Source Serif Pro', 'Gilda Display', 'Cormorant Infant', ...defaultTheme.fontFamily.serif],
     }
 	},

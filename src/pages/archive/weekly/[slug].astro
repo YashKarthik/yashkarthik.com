@@ -39,8 +39,8 @@ const { Content } = await post.render();
   <div class={`
     font-serif
     self-center
-    lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
     mt-7 pb-2 
+    max-sm:w-10/12
   `}>
     <header>
       <h1 class={`
@@ -69,7 +69,8 @@ const { Content } = await post.render();
     <div class={`
       font-serif
       self-center my-7
-      flex flex-row gap-5
+      flex flex-row justify-center
+      gap-5
     `}>
       {prevPost &&
         <p class="italic">←
