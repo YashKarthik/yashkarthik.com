@@ -28,13 +28,13 @@ const {
   border-b border-dotted border-zinc-400 dark:border-zinc-500
   mt-7 pb-2 
   ">
-    <div class=`
+    <div class={`
       flex flex-col gap-1
       items-end text-end 
       pr-5
       border-r border-dotted border-zinc-400 dark:border-zinc-500
       ${frontmatter.title.length > 25 ? 'col-span-4' : 'col-span-3'}
-    `>
+    `}>
       <h1 class="
       md:text-7xl sm:text-4xl text-3xl 
       font-heading tracking-tight
@@ -63,12 +63,12 @@ const {
       </div>
     </div>
 
-    <div class=`
+    <div class={`
     pl-5 mt-2 text-start
     italic
     col-end-8
     ${frontmatter.title.length > 25 ? 'col-start-5' : 'col-start-4'}
-    `>
+    `}>
       LoremEt ut sed tempora est doloremque temporibus. Quae non aut aut eos quo rem. Quia officia et ipsa distinctio vitae qui sed. Dolorem voluptas sed debitis est ad quasi iure. Omnis et nulla amet dolores saepe voluptas ea. Enim repudiandae ipsa sint quam ullam tempora voluptatibus tenetur.
     </div>
   </header>
@@ -84,6 +84,7 @@ const {
   dark:prose-a:text-zinc-300
   underline-offset-2 prose-a:decoration-2 
   prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
+  prose-blockquote:text-zinc-600 prose-blockquote:dark:text-stone-400
   ">
     <slot />
   </main>
