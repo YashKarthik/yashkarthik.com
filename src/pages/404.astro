@@ -3,8 +3,16 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Not Found">
-  <div class="self-center flex flex-row gap-2">
-    <p class="font-mono">404</p>
-    <p class="font-serif">Page Not Found</p>
+  <div class="self-center flex flex-col gap-7 my-[30vh]">
+    <div class="flex flex-row gap-2">
+      <p class="font-mono">404</p>
+      <p class="font-serif">Page Not Found</p>
+    </div>
+    <a href="/" class="
+      font-serif text-center
+      underline underline-offset-2 decoration-2 decoration-dotted
+      decoration-zinc-400 dark:decoration-zinc-500
+      hover:decoration-violet-700 dark:hover:decoration-violet-400
+    ">← Home</a>
   </div>
 </Layout>

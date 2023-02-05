@@ -17,7 +17,7 @@ const storiesCollection = defineCollection({
     title: z.string(),
     published: z.string(),
     scifi: z.boolean().optional(),
-    image: z.string().optional(),
+    image: z.string(),
   }),
 });
 
