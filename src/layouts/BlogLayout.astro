@@ -94,7 +94,7 @@ const {
 
   <div class="font-serif self-center flex flex-col my-7 lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none">
     <hr class="border border-solid border-zinc-400 dark:border-zinc-500 mb-5" />
-    <div class="mb-5 flex flex-col">
+    <div class="mb-5 flex flex-col gap-2 max-sm:gap-5">
       {prevSlug &&
         <p class="italic self-start">←
           <a href={prevSlug} class="
@@ -107,7 +107,7 @@ const {
       }
 
       {nextSlug &&
-        <p class="italic self-end">
+        <p class="italic self-end text-end">
           <a href={nextSlug} class="
           underline decoration-solid decoration-2 underline-offset-2
           decoration-violet-700 dark:decoration-violet-400
@@ -119,7 +119,7 @@ const {
       }
     </div>
 
-    <p class="self-start font-serif">Have a comment or response? <a href="/links"
+    <p class="self-start font-serif">Have a comment or response? <a href="/about#contact"
     class="underline decoration-solid decoration-2 decoration-violet-700 dark:decoration-violet-400 underline-offset-2">Email me</a>.</p>
   </div>
 </Layout>

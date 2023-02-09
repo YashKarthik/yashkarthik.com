@@ -38,13 +38,13 @@ const topics = Array.from(new Set(blog
     mb-7 
     ">
       <h1 class="
-      md:text-5xl sm:text-4xl text-3xl 
-      font-heading tracking-tight
+        sm:text-4xl text-3xl 
+        font-serif-styled font-black
       ">
         Writing
       </h1>
 
-      <p class="mt-1 text-md italic">
+      <p class="mt-1 text-md italic pl-2">
         I write about programming, technology,
         physics, and even some sci-fi.
       </p>
@@ -53,22 +53,22 @@ const topics = Array.from(new Set(blog
     <article class="py-3">
       {years.map(year => (
         <section>
-          <h2 class="text-3xl mt-5 font-black">{year}</h2>
+          <h2 class="text-4xl mt-5 font-serif-styled font-bold">{year}</h2>
 
           <div class="flex flex-col">
             {allWriting.map(writing => {
               if (new Date(writing.data.published).getFullYear() == year) {
                 return <div class="
-                group ml-5 my-3 w-fit
-                flex flex-row items-center gap-2
+                  ml-5 my-3 w-fit
+                  flex flex-row items-center gap-2
                 ">
                   <a href={
                     writing.collection == "blog" ? "/archive/" + writing.slug
                       : writing.collection == "stories" ? "/archive/stories/" + writing.slug
                         : "/archive/weekly/" + writing.slug
                   } class="
-                  text-lg
-                  hover:underline underline-offset-2 decoration-2 
+                    text-lg
+                    hover:underline underline-offset-2 decoration-2 
                   decoration-violet-700 dark:decoration-violet-400 
                   ">
                     {writing.collection != "weekly" ? writing.data.title : "Week " + writing.data.weekNum}
@@ -84,9 +84,11 @@ const topics = Array.from(new Set(blog
                   }
 
                   <a target="_blank" title="Page history" href="https://github.com/yashkarthik/yashkarthik.xyz" class="
-                    text-sm italic text-zinc-500 dark:text-zinc-400
+                    text-sm italic
+                    text-zinc-500 dark:text-zinc-400
                     hover:underline underline-offset-2 decoration-2 decoration-dotted
                     decoration-violet-700 dark:decoration-violet-400 
+                    shrink-0 self-end pb-1
                   ">
                     {writing.data.published.slice(0, writing.data.published.length - 6) }{writing.collection == "blog" && writing.data.updated && ', '}
                     {writing.collection == "blog" && writing.data.updated && writing.data.updated?.slice(0, writing.data.published.length - 6)}
@@ -109,7 +111,7 @@ const topics = Array.from(new Set(blog
     <article class="
     pt-10 
     ">
-      <h2 class="pb-1 first-letter:uppercase text-2xl font-black">By topics:</h2>
+      <h2 class="pb-1 first-letter:uppercase text-2xl font-serif-styled font-bold">By topics:</h2>
       <p class="italic text-zinc-400 dark:text-zinc-500 pb-4">Some articles appear under multiple topics.</p>
       <div class="
         mt-3
@@ -117,10 +119,10 @@ const topics = Array.from(new Set(blog
         gap-x-24
       ">
         <section>
-          <h2 id="storyies" class="first-letter:uppercase mb-2 font-black">Stories</h2>
+          <h2 id="stories" class="first-letter:uppercase mb-2 font-serif-styled text-xl font-bold">Stories</h2>
 
           {stories.map(story => (
-            <div>
+            <div class="my-1">
               <p class="
                 font-mono text-sm
                 text-zinc-400 dark:text-zinc-500
@@ -142,13 +144,13 @@ const topics = Array.from(new Set(blog
 
         {topics.map(topic => (
           <section class="mt-7 break-inside-avoid">
-            <h2 id={topic} class="first-letter:uppercase mb-2 font-black">{topic}</h2>
+            <h2 id={topic} class="first-letter:uppercase mb-2 font-serif-styled text-xl font-bold">{topic}</h2>
 
             <div>
               {blog.map(({ data, slug}) => {
                 if ((new Set(data.topics)).has(topic)) {
                   return <p class="
-                    font-mono text-zinc-400 dark:text-zinc-500 text-sm
+                    font-mono text-zinc-400 dark:text-zinc-500 text-sm my-1
                   ">
                     *
                     <a href={"/archive/" + slug} class="
@@ -168,12 +170,12 @@ const topics = Array.from(new Set(blog
         ))}
 
         <section class="mt-7 break-inside-avoid">
-          <h2 id="storyies" class="first-letter:uppercase mb-2 font-black">Weekly</h2>
+          <h2 id="weekly" class="first-letter:uppercase mb-2 font-serif-styled text-xl font-bold">Weekly</h2>
 
           {weekly.map(week => (
             <div>
               <p class="
-                font-mono text-sm
+                font-mono text-sm my-1
                 text-zinc-400 dark:text-zinc-500
               ">
                 *
