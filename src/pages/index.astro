@@ -26,20 +26,20 @@ stories.sort((a, b) => (
   
   <main class="font-serif my-7 flex flex-col">
     <article class="
-      flex md:flex-row flex-col
-      gap-5 mx-3
-      overflow-x-scroll
+      flex flex-row
+      gap-1 md:gap-5 mx-3
+      overflow-x-scroll max-sm:snap-mandatory max-sm:snap-x
       md:divide-x
     divide-zinc-300 dark:divide-zinc-600 
       border-b border-zinc-300 dark:border-zinc-600 
     ">
       <article class="
         flex flex-col flex-shrink-0
-        md:max-w-xs md:min-w-xs
-        w-fit
-        md:pl-7 pt-3 gap-5
+        max-w-xs min-w-xs
+        md:pl-7 pl-3 gap-2
+        snap-center
       ">
-        <h1 class=" font-heading text-5xl tracking-tight ">
+        <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
           <a href={"archive/" + blogs[0].slug} class="
             hover:underline underline-offset-2 decoration-4
             decoration-violet-700 dark:decoration-violet-400 
@@ -52,7 +52,12 @@ stories.sort((a, b) => (
           {blogs[0].data.published}
         </p>
 
-        <p class="mt-3">{blogs[0].data.description}</p>
+        <p class="mt-3">
+          {blogs[0].data.description}
+      LoremEt ut sed tempora est doloremque temporibus. Quae non aut aut eos quo rem. Quia officia et ipsa distinctio vitae qui sed. Dolorem voluptas sed debitis est ad quasi iure. Omnis et nulla amet dolores saepe voluptas ea. Enim repudiandae ipsa sint quam ullam tempora voluptatibus tenetur.
+        </p>
+
+      <p class="text-xs italic text-end md:text-transparent text-zinc-400 dark:text-zinc-500">Scroll →</p>
       </article>
       
       <hr class="mt-6">
@@ -60,13 +65,14 @@ stories.sort((a, b) => (
       {weekly.slice(0, 2).length == 2 && 
         <article class="
           flex flex-col flex-shrink-0
-          md:max-w-xs md:min-w-xs w-fit
-           md:pl-7 pt-3 gap-5
+          max-w-xs min-w-xs 
+          md:pl-7 pl-3 pt-3 gap-5
+          snap-center
         ">
           <div>
             Weekly reflections and updates on my projects, goals and learnings.
           </div>
-          {weekly.slice(0, 2).map(week => (
+          {weekly.slice(0, 4).map(week => (
             <section>
               <h1 class=" font-styled-serif font-black text-3xl ">
                 <a href={"/archive/weekly/" + week.slug} class="
@@ -90,10 +96,11 @@ stories.sort((a, b) => (
       {stories[0] &&
         <article class="
           flex flex-col flex-shrink-0
-          md:max-w-xs md:min-w-xs w-fit
-           md:pl-7 pt-3 gap-5
+          max-w-xs min-w-xs 
+          md:pl-7 pl-3 gap-2
+          snap-center
         ">
-          <h1 class=" font-heading text-5xl tracking-tight ">
+          <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
             <a href={"/archive/stories/" + stories[0].slug} class="
               hover:underline underline-offset-2 decoration-4
               decoration-violet-700 dark:decoration-violet-400 
@@ -119,10 +126,11 @@ stories.sort((a, b) => (
 
       <article class="
         flex flex-col flex-shrink-0
-        md:max-w-xs md:min-w-xs w-fit
-         md:pl-7 pt-3 gap-5
+        max-w-xs min-w-xs 
+        md:pl-7 pl-3 gap-2
+        snap-center
       ">
-        <h1 class=" font-heading text-5xl tracking-tight ">
+        <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
           <a href={"archive/" + blogs[1].slug} class="
             hover:underline underline-offset-2 decoration-4
             decoration-violet-700 dark:decoration-violet-400 
@@ -142,10 +150,11 @@ stories.sort((a, b) => (
 
       <article class="
         flex flex-col flex-shrink-0
-        md:max-w-xs md:min-w-xs w-fit
-         md:pl-7 pt-3 gap-5
+        max-w-xs min-w-xs 
+        md:pl-7 pl-3 gap-2
+        snap-center
       ">
-        <h1 class=" font-heading text-5xl tracking-tight ">
+        <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
           <a href={"archive/" + blogs[2].slug} class="
             hover:underline underline-offset-2 decoration-4
             decoration-violet-700 dark:decoration-violet-400 
@@ -166,10 +175,11 @@ stories.sort((a, b) => (
       {stories[1] &&
         <article class="
           flex flex-col flex-shrink-0
-          md:max-w-xs md:min-w-xs w-fit
-          md:pl-7 pt-3 gap-5 mr-10
+          max-w-xs min-w-xs 
+          md:pl-7 pl-3 gap-2 mr-10
+          snap-center
         ">
-          <h1 class=" font-heading text-5xl tracking-tight ">
+          <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
             <a href={"/archive/stories/" + stories[1].slug} class="
               hover:underline underline-offset-2 decoration-4
               decoration-violet-700 dark:decoration-violet-400 
