@@ -27,7 +27,7 @@ export async function get(context:any) {
         htmlExtensions: [gfmHtml()],
       });
       return {
-        link: `/writing/${post.slug}/`,
+        link: `/archive/${post.slug}/`,
         title: post.collection == "weekly" ? "Week " + post.data.weekNum : post.data?.title,
         pubDate: new Date(post.data.published),
         description: post.collection != "blog" ? "A short sci-fi story by Yash Karthik" : post.data.description,

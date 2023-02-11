@@ -178,7 +178,7 @@ const { title, image_url, description } = Astro.props;
 
 <script>
   const rssCopyButton = document.querySelectorAll("button#rss-copy-button");
-  rssCopyButton.forEach((r:Element) => {
+  rssCopyButton.forEach((r) => {
     r!.addEventListener("click", () => {
       navigator.clipboard.writeText("https://www.yashkarthik.xyz/rss.xml");
       r!.firstChild!.nodeValue = "copied!"

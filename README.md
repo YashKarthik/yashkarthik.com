@@ -11,5 +11,9 @@ Sizes:
 - text-xs: copyright in footer
 
 # TODO
+- [ ] An archive for projects; minimal, similar to thesephist.com/projects, maybe add some images.
 - [ ] homepage with horizontal scrolling.
+  - [X] recent blog posts
+  - [ ] Recent projects
 - [ ] A "Recently" page. A high-level timeline of what I'm doing at various periods of time. (maybe)
+- [ ] newsletter service.
