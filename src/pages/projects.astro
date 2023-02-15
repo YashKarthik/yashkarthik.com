@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { projects } from "../content/projects";
+---
+
+<Layout title="Projects" description="Archive of recent projects by Yash Karthik">
+  <main class="
+    self-center font-serif
+    max-sm:w-10/12
+  ">
+    <header class="
+      items-start text-start 
+      mb-7
+    ">
+      <h1 class="
+        sm:text-4xl text-3xl 
+        font-serif-styled font-black
+        mt-10 mb-7
+      ">
+        Projects
+      </h1>
+
+      <p class="
+        mt-1
+        text-md italic
+        prose dark:prose-invert
+      ">
+        My side projects include web apps, smart contracts,
+        CTF challenges, writing, and a smattering of personal workflow software.
+      </p>
+    </header>
+
+    <article class="
+    ">
+      {projects.map(project => (
+        <article class="my-7">
+          <a href={project.github} class="
+            max-w-fit
+            underline decoration-2 underline-offset-2
+            decoration-violet-700 dark:decoration-violet-400 
+          ">
+            <h2 class="text-2xl font-serif-styled font-bold max-w-fit">{project.title}</h2>
+          </a>
+          <p class="my-1">{project.description}</p>
+          {project.website &&
+            <div class="flex flex-row gap-1">
+              <a href={project.website} class="
+                text-sm italic
+                underline underline-offset-2 decoration-2 decoration-dotted
+                decoration-zinc-400 dark:decoration-zinc-500
+                hover:decoration-violet-700 dark:hover:decoration-violet-400
+              ">
+                Visit
+              </a>
+            </div>
+          }
+        </article>
+      ))}
+    </article>
+  </main>
+</Layout>

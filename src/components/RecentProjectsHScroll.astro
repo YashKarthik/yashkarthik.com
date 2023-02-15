@@ -1,0 +1,65 @@
+---
+import { projects } from "../content/projects";
+---
+<article id="horizontal-scroll" class="
+  flex flex-row
+  overflow-x-scroll max-sm:snap-mandatory max-sm:snap-x
+  md:divide-x
+  divide-zinc-300 dark:divide-zinc-600 
+  border-b border-zinc-300 dark:border-zinc-600 
+">
+  <article class="
+    py-7 px-3
+    max-sm:-translate-x-9
+    min-w-sm max-w-sm
+    flex flex-row flex-shrink-0
+    snap-center
+    text-stone-300
+    bg-zinc-900
+    selection:bg-violet-300 selection:text-zinc-700
+  ">
+    <h1 class="
+      text-2xl font-serif-styled font-black
+      origin-center -rotate-90
+      p-0 m-0
+      self-center justify-self-start
+    ">PROJECTS</h1>
+    <div class="flex flex-col mt-3">
+      <p>
+        My side projects include web apps, smart contracts,
+        CTF challenges, writing, and a smattering of personal workflow software.
+      </p>
+      <p class="text-xs italic translate-y-5 pr-1 text-end text-zinc-500">Scroll →</p>
+    </div>
+  </article>
+
+  {projects.map(project => (
+    <article class="
+      gap-2 py-7 px-5
+      min-w-sm max-w-sm
+      flex flex-col flex-shrink-0
+      snap-center
+    ">
+      <a href={project.github} class="
+        max-w-fit
+        hover:underline decoration-2 underline-offset-2
+        decoration-violet-700 dark:decoration-violet-400 
+      ">
+        <h2 class="text-2xl font-serif-styled font-bold max-w-fit">{project.title}</h2>
+      </a>
+      <p class="my-1">{project.description}</p>
+      {project.website &&
+        <div class="flex flex-row gap-1">
+          <a href={project.website} class="
+            text-sm italic
+            underline underline-offset-2 decoration-2 decoration-dotted
+            decoration-zinc-400 dark:decoration-zinc-500
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+          ">
+            Visit
+          </a>
+        </div>
+      }
+    </article>
+  ))}
+</article>
