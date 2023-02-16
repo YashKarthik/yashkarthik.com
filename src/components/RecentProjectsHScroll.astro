@@ -10,7 +10,7 @@ import { projects } from "../content/projects";
 ">
   {projects.map(project => (
     <article class="
-      gap-2 py-7 px-5
+      gap-2 pb-3 px-5
       min-w-sm max-w-sm
       flex flex-col flex-shrink-0
       snap-center
@@ -22,9 +22,9 @@ import { projects } from "../content/projects";
       ">
         <h2 class="text-2xl font-serif-styled font-bold max-w-fit">{project.title}</h2>
       </a>
-      <p class="my-1">{project.description}</p>
+      <p class="my-1 dark:text-zinc-400 ">{project.description}</p>
       {project.website &&
-        <div class="flex flex-row gap-1">
+        <div class="flex flex-row gap-1 dark:text-zinc-400 ">
           <a href={project.website} class="
             text-sm italic
             underline underline-offset-2 decoration-2 decoration-dotted
