@@ -7,7 +7,7 @@ import RecentProjectsHScroll from '../components/RecentProjectsHScroll.astro';
 <Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik.">
   <main class="font-serif my-7 flex flex-col gap-0">
     <div class="
-      md:ml-14 ml-7 mr-3
+      md:ml-8 ml-5 mr-3
       mb-10
       max-w-sm
     ">
@@ -16,6 +16,15 @@ import RecentProjectsHScroll from '../components/RecentProjectsHScroll.astro';
     </div>
 
     <RecentPostsHScroll />
+
+    <div class="
+      bg-black text-white
+      py-4 px-3
+    ">
+      <h1 class="font-mono text-3xl tracking-tight">PROJECTS</h1>
+      <p class="pt-1 italic text-sm font-sans">Web apps, smart contracts, CTFs and a scattering of personal workflow software.</p>
+    </div>
+
     <RecentProjectsHScroll />
   </main>
 </Layout>

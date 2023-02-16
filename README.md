@@ -11,8 +11,6 @@ Sizes:
 - text-xs: copyright in footer
 
 # TODO
-- [X] homepage with horizontal scrolling.
-  - [X] recent blog posts
-  - [X] Recent projects
+- [ ] put something below the scrollers in homepage.
 - [ ] A "Recently" page. A high-level timeline of what I'm doing at various periods of time. (maybe)
 - [ ] newsletter service.
