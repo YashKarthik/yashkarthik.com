@@ -39,27 +39,42 @@ const {
       ${frontmatter.title.length > 25 ? 'col-span-4' : 'col-span-3'}
     `}>
       <h1 class="
-      md:text-7xl sm:text-4xl text-3xl 
+      md:text-7xl text-5xl
       font-heading tracking-tight
       ">
         {frontmatter.title}
       </h1>
 
-      <p class="mt-1 text-md italic text-zinc-500 dark:text-zinc-400">
-        {frontmatter.description}
-      </p>
-
-      <div class="text-sm text-zinc-500 dark:text-zinc-400 flex flex-row gap-1 items-start md:items-end">
-        {<p class="first-letter:uppercase">{frontmatter.completionLevel} note</p>}
-        {<p>• {frontmatter.published}</p>}
-        {frontmatter.updated && <p class="hover">• {frontmatter.updated}</p>}
+      <div class="
+        text-sm text-zinc-500 dark:text-zinc-400
+        flex flex-row
+        gap-1 items-start md:items-end
+      ">
+        <p class="first-letter:uppercase">
+          {frontmatter.completionLevel} note
+          • {frontmatter.published} • 
+        {frontmatter.updated &&
+          <a href="#" class="
+            hover:underline underline-offset-2 decoration-2 decoration-dotted
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+            text-sm text-zinc-500 dark:text-zinc-400
+          ">
+            {frontmatter.updated}
+          </a>
+        }
         {/* add link to commit history of file here. */}
+        </p>
       </div>
 
       <div class="text-sm flex flex-row gap-1 items-end">
         {frontmatter.topics.map((topic, index) => {
           const end = index + 1 == frontmatter.topics.length ? "" : ",";
-          return <a class="text-violet-700 dark:text-violet-400" href={"/archive#" + topic}>
+          return <a href={"/archive#" + topic} class="
+            underline underline-offset-2 decoration-2 decoration-dotted
+            decoration-zinc-400 dark:decoration-zinc-500
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+            text-sm text-zinc-500 dark:text-zinc-400
+          ">
             {topic[0].toUpperCase() + topic.slice(1,) + end}
           </a>
         })}
@@ -67,12 +82,12 @@ const {
     </div>
 
     <div class={`
+      text-zinc-500 dark:text-zinc-400 italic
       md:pl-5 mt-2 text-start
-      italic
       col-end-8
       ${frontmatter.title.length > 25 ? 'col-start-5' : 'col-start-4'}
     `}>
-      LoremEt ut sed tempora est doloremque temporibus. Quae non aut aut eos quo rem. Quia officia et ipsa distinctio vitae qui sed. Dolorem voluptas sed debitis est ad quasi iure. Omnis et nulla amet dolores saepe voluptas ea. Enim repudiandae ipsa sint quam ullam tempora voluptatibus tenetur.
+      {frontmatter.description}
     </div>
   </header>
 

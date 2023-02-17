@@ -8,7 +8,7 @@ import { projects } from "../content/projects";
   divide-zinc-300 dark:divide-zinc-800
   border-b border-zinc-300 dark:border-zinc-800 
 ">
-  {projects.map(project => (
+  {projects.map((project, index) => (
     <article class="
       gap-2 pb-3 px-5
       min-w-sm max-w-sm
@@ -34,6 +34,9 @@ import { projects } from "../content/projects";
             Visit
           </a>
         </div>
+      }
+      {index == 0 &&
+        <p class="text-xs italic text-end md:text-transparent text-zinc-400 dark:text-zinc-500">Scroll →</p>
       }
     </article>
   ))}
