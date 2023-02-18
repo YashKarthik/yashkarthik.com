@@ -10,12 +10,12 @@ import { projects } from "../content/projects";
 ">
   {projects.map((project, index) => (
     <article class="
-      gap-2 pb-3 px-5
+      gap-2 px-5
       min-w-sm max-w-sm
       flex flex-col flex-shrink-0
       snap-center
     ">
-      <a href={project.github} class="
+      <a href={project.github} target="_blank" class="
         max-w-fit
         hover:underline decoration-2 underline-offset-2
         decoration-violet-700 dark:decoration-violet-400 
@@ -25,7 +25,7 @@ import { projects } from "../content/projects";
       <p class="my-1 dark:text-zinc-400 ">{project.description}</p>
       {project.website &&
         <div class="flex flex-row gap-1 dark:text-zinc-400 ">
-          <a href={project.website} class="
+          <a href={project.website} target="_blank" class="
             text-sm italic
             underline underline-offset-2 decoration-2 decoration-dotted
             decoration-zinc-400 dark:decoration-zinc-500

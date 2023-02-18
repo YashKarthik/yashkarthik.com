@@ -18,7 +18,7 @@ import RecentProjectsHScroll from '../components/RecentProjectsHScroll.astro';
     <RecentPostsHScroll />
 
     <div class="
-      mt-14 mb-7 mx-3
+      mt-14 mb-8 mx-3
     ">
       <h1 class="
         text-3xl max-w-xs
@@ -37,5 +37,49 @@ import RecentProjectsHScroll from '../components/RecentProjectsHScroll.astro';
     </div>
 
     <RecentProjectsHScroll />
+
+    <article class="
+      flex flex-col
+      self-center mx-10 mt-14
+      md:max-w-lg
+      italic
+    ">
+    <p aria-hidden="true" class="mr-2 text-7xl text-zinc-500">
+      &ldquo;
+    </p>
+
+    <blockquote class="mx-2 md:mx-8 flex flex-col gap-4">
+      <p>
+        Well, Mr. Frankel, who started this program, began to suffer from the computer disease that
+        anybody who works with computers now knows about.
+      </p>
+
+      <p>
+        It's a very serious disease and it interferes completely with the work. The trouble with
+        computers is you play with them. They are so wonderful. [...]
+      </p>
+
+      <p>
+        After a while the whole system broke down. Frankel wasn’t paying any attention; he wasn’t
+        supervising anybody. The system was going very, very slowly—while he was sitting in a room
+        figuring out how to make one tabulator automatically print arc-tangent X, and then it would
+        start and it would print columns and then bitsi, bitsi, bitsi, and calculate the arc-tangent
+        automatically by integrating as it went along and make a whole table in one operation.
+      </p>
+
+      <p>
+        Absolutely useless. We <strong>had</strong> tables of arc-tangents. But if you’ve ever worked
+        with computers, you understand the disease—the <strong>delight</strong> in being able to see how much you can do.
+      </p>
+
+    </blockquote>
+
+    <cite class="text-end self-end not-italic mt-8 mx-8">Richard Feynman</cite>
+
+    <p aria-hidden="true" class="mr-2 mt-4 text-7xl self-end text-zinc-500">
+      &rdquo;
+    </p>
+
+    </article>
   </main>
 </Layout>
