@@ -23,9 +23,8 @@ const storiesCollection = defineCollection({
 
 const weeklyCollection = defineCollection({
   schema: z.object({
-    //no title object, will create using weekNum: Week 3, Week 30, etc.
+    title: z.string(),
     published: z.string(), // Sat, Feb 4, 2023
-    weekNum: z.number(), // In frontmatter: 1
     image: z.string().optional(),
   }),
 });

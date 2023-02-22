@@ -33,7 +33,7 @@ const { Content } = await post.render();
 ---
 
 <Layout 
-  title={"Week " + post.data.weekNum}
+  title={post.data.title}
   description="Weekly log by Yash Karthik"
 >
   <div class={`
@@ -47,7 +47,7 @@ const { Content } = await post.render();
         md:text-2xl text-xl
         font-serif-styled font-black
       `}>
-        Week {post.data.weekNum}, {new Date(post.data.published).getFullYear().toString()}
+        {post.data.title}, {new Date(post.data.published).getFullYear().toString()}
       </h1>
       <div class="text-sm text-zinc-500 dark:text-zinc-400 flex flex-row gap-1 pl-1 items-end">
         {post.data.published}
@@ -78,7 +78,7 @@ const { Content } = await post.render();
           underline decoration-solid decoration-2 underline-offset-2
           decoration-violet-700 dark:decoration-violet-400
           ">
-            Week {prevPost.data.weekNum}
+            {prevPost.data.title}
           </a>
         </p>
       }
@@ -89,7 +89,7 @@ const { Content } = await post.render();
           underline decoration-solid decoration-2 underline-offset-2
           decoration-violet-700 dark:decoration-violet-400
           ">
-            Week {nextPost.data.weekNum}
+            {post.data.title}
           </a>
           →
         </p>

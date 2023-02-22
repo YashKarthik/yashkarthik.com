@@ -52,7 +52,7 @@ stories.sort((a, b) => (
   
   <hr class="mt-6">
   
-  {weekly.slice(0, 2).length == 2 && 
+  {weekly.length > 0 && 
     <article class="
       flex flex-col flex-shrink-0
       max-w-xs min-w-xs 
@@ -69,7 +69,7 @@ stories.sort((a, b) => (
               hover:underline underline-offset-2 decoration-2
               decoration-violet-700 dark:decoration-violet-400 
             ">
-              Week {week.data.weekNum}
+              {week.data.title}
             </a>
           </h1>
   
@@ -83,7 +83,7 @@ stories.sort((a, b) => (
   
   <hr class="mt-6">
   
-  {stories[0] &&
+  {stories[0].slug != "0" &&
     <article class="
       flex flex-col flex-shrink-0
       max-w-xs min-w-xs 
@@ -190,6 +190,28 @@ stories.sort((a, b) => (
       ">
     </article>
   }
+
+  <article class="
+    flex flex-col flex-shrink-0
+    max-w-xs min-w-xs 
+    md:pl-7 pl-5 gap-2
+    snap-center
+  ">
+    <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
+      <a href={"archive/" + blogs[3].slug} class="
+        hover:underline underline-offset-2 decoration-4
+        decoration-violet-700 dark:decoration-violet-400 
+      ">
+        {blogs[3].data.title}
+      </a>
+    </h1>
+  
+    <p class=" text-sm text-zinc-500 ">
+      {blogs[3].data.published}
+    </p>
+  
+    <p class="mt-2 dark:text-zinc-400 ">{blogs[3].data.description}</p>
+  </article>
   
   <hr class="mt-6">
 </article>

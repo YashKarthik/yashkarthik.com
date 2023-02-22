@@ -7,8 +7,13 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Enscan",
+    description: "The Ethereum Name Service (ENS) is an on-chain Linktree. But almost none of that data can be queried with complex conditions, like in SQL. Enscan is an indexer that crawls the ENS contracts and indexes the data into a database, enabling developers to interact with the data using SQL. (currently building)",
+    github: "https://github.com/YashKarthik/enscan",
+  },
+  {
     title: "Farcaster Directory",
-    description: "A directory of Farcaster accounts, making it easier to find your Twitter friends on Farcaster.",
+    description: "A directory of Farcaster accounts and their respective Twitter accounts, making it easier to find your Twitter friends on Farcaster.",
     github: "https://github.com/YashKarthik/farcaster-directory",
     website: "https://directory.yashkarthik.xyz",
   },
@@ -19,7 +24,7 @@ export const projects: Project[] = [
   },
   {
     title: "Skimmr",
-    description: "A Chrome extension that uses OpenAI's GPT-3 to help you read articles faster.",
+    description: "A Chrome extension that uses OpenAI's GPT-3 to summarize and explain articles, helping you read articles faster.",
     github: "https://github.com/YashKarthik/skimmr",
     website: "https://skimmr.xyz"
   },
@@ -30,7 +35,7 @@ export const projects: Project[] = [
   },
   {
     title: "Breathe",
-    description: "Get alerts when the pollution in your area reaches dangerous levels.",
+    description: "A web app that sends you alerts when the pollution in your city reaches dangerous level.s",
     github: "https://github.com/YashKarthik/breathe",
   },
   {
