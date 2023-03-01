@@ -1,0 +1,43 @@
+---
+import { projects } from "../projects";
+---
+<article id="horizontal-scroll" class="
+  flex flex-row
+  overflow-x-scroll max-sm:snap-mandatory max-sm:snap-x
+  md:divide-x
+  divide-zinc-300 dark:divide-zinc-800
+  border-b border-zinc-300 dark:border-zinc-800 
+">
+  {projects.map((project, index) => (
+    <article class="
+      gap-2 px-5
+      min-w-sm max-w-sm
+      flex flex-col flex-shrink-0
+      snap-center
+    ">
+      <a href={project.github} target="_blank" class="
+        max-w-fit
+        hover:underline decoration-2 underline-offset-2
+        decoration-violet-700 dark:decoration-violet-400 
+      ">
+        <h2 class="text-2xl font-serif-styled font-bold max-w-fit">{project.title}</h2>
+      </a>
+      <p class="my-1 dark:text-zinc-400 ">{project.description}</p>
+      {project.website &&
+        <div class="flex flex-row gap-1 dark:text-zinc-400 ">
+          <a href={project.website} target="_blank" class="
+            text-sm italic
+            underline underline-offset-2 decoration-2 decoration-dotted
+            decoration-zinc-400 dark:decoration-zinc-500
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+          ">
+            Visit
+          </a>
+        </div>
+      }
+      {index == 0 &&
+        <p class="text-xs italic text-end md:text-transparent text-zinc-400 dark:text-zinc-500">Scroll →</p>
+      }
+    </article>
+  ))}
+</article>

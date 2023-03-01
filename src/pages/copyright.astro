@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Copyright" description="Explaining the copyright(left) of my blog.">
+  <main class="
+    self-center
+    font-serif
+    max-sm:w-10/12
+  ">
+    <h1 class="text-2xl mt-10 mb-7 font-bold font-serif-styled">
+      Copy<s class="decoration-2">right</s> left
+    </h1>
+
+    <article class="
+      prose prose-zinc dark:prose-invert 
+      font-serif self-center my-5 
+      prose-headings:font-serif-styled
+      prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
+      dark:prose-a:text-zinc-300
+      underline-offset-2 prose-a:decoration-2 
+      prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
+    ">
+      <p class="my-3">
+        All the words on this site are licensed under
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          class="underline decoration-solid decoration-2 decoration-violet-700 dark:decoration-violet-400 underline-offset-2"
+        >
+          Creative Commons Attribution 4.0 International Public License.
+        </a>
+      </p>
+      <p class="my-3">
+        This means you're welcome to use the content however you see fit, as long as you link back
+        here or mention my name ("attribution"). However, it would be nice if you asked permission
+        before republishing any full-length essays. Thanks!
+      </p>
+      <p class="my-3">
+        Everything above applies to the text on the site. As to the images—a lot of them come from
+        other sites, and God only knows what licenses I've broken by copying them here. I try to
+        cite sources whenever I can. If I have misused any of your content, please get in
+        <a 
+          href="/"
+          class="underline decoration-solid decoration-2 decoration-violet-700 dark:decoration-violet-400 underline-offset-2"
+        > touch </a> and I'll try to rectify it ASAP.
+      </p>
+    </article>
+  </main>
+</Layout>

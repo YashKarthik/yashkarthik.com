@@ -1,0 +1,99 @@
+---
+import { getCollection, CollectionEntry } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+
+import Divider from "../../../components/Divider.astro";
+import Image from '../../../components/Image.astro';
+import Link from '../../../components/Link.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('weekly');
+  posts.sort((a, b) => (
+    (new Date(a.data.published)) < (new Date(b.data.published)) ? 1 : -1
+  ));
+
+  return posts.map((post, index ) => ({
+    params: { slug: post.slug },
+    props: { 
+      post: post,
+      nextPost: posts[index-1],
+      prevPost: posts[index+1]
+    },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'weekly'>;
+  nextPost: CollectionEntry<'weekly'>;
+  prevPost: CollectionEntry<'weekly'>;
+}
+
+const { post, nextPost, prevPost } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout 
+  title={post.data.title}
+  description="Weekly log by Yash Karthik"
+>
+  <div class={`
+    font-serif
+    self-center
+    mt-7 pb-2 
+    max-sm:w-10/12
+  `}>
+    <header>
+      <h1 class={`
+        md:text-2xl text-xl
+        font-serif-styled font-black
+      `}>
+        {post.data.title}, {new Date(post.data.published).getFullYear().toString()}
+      </h1>
+      <div class="text-sm text-zinc-500 dark:text-zinc-400 flex flex-row gap-1 pl-1 items-end">
+        {post.data.published}
+      </div>
+    </header>
+
+    <article class="
+      prose prose-zinc dark:prose-invert 
+      font-serif self-center my-5 
+      prose-headings:font-serif-styled
+      prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
+      dark:prose-a:text-zinc-300
+      underline-offset-2 prose-a:decoration-2 
+      prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
+    ">
+      <Content components={{ hr: Divider, img: Image, a: Link }} />
+    </article>
+
+    <div class={`
+      font-serif
+      self-center my-7
+      flex flex-row justify-center
+      gap-5
+    `}>
+      {prevPost &&
+        <p class="italic">←
+          <a href={prevPost.slug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {prevPost.data.title}
+          </a>
+        </p>
+      }
+
+      {nextPost &&
+        <p class="italic">
+          <a href={nextPost.slug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {nextPost.data.title}
+          </a>
+          →
+        </p>
+      }
+    </div>
+  </div>
+</Layout>

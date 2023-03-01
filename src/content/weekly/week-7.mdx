@@ -1,0 +1,20 @@
+---
+title: "Week 7"
+published: "Sun, Feb 19, 2023"
+---
+
+Farcaster's NFT tab on profiles is a really touch. It's pretty basic now, but with a little more
+sorting(?) and filtering features, it could be really nice. This could be a pretty sweet browser
+extension for Twitter. Twitter already has tabs for "media" and "likes"; using a content script, I
+could add a tab for NFTs too. Here's what I had in mind: user goes to `twitter.com/:user`, the
+extension takes the username from the url and reverse-queries it with the ENS text-records => I get
+the ETH address of user, now I can pull the NFTs owned by the user. Turns out, there's no way to query ENS based on text-record, so now I'm trying to build an indexer
+for ENS. I even have a good name for it: Enscan.
+
+
+I explored Go this week. It's a pretty simple language. Its type system is not as good as
+TypeScript, then again I haven't really explored TS's deeply, just enough to get my work done. Go's
+coroutines and channels are really cool.
+
+I haven't written Solidity that much this week. I can't make progress on Damn Vulnerable Defi
+without understanding Gnosis smart contracts.

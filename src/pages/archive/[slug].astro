@@ -1,0 +1,53 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+import { getCollection, CollectionEntry } from "astro:content";
+
+import Divider from "../../components/Divider.astro";
+import Image from '../../components/Image.astro';
+import Link from '../../components/Link.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  posts.sort((a, b) => (
+    (new Date(a.data.published)) < (new Date(b.data.published)) ? 1 : -1
+  ));
+
+  return posts.map((post, index) => ({
+    params: { slug: post.slug },
+    props: { 
+      post,
+      nextSlug: posts[index-1]?.slug,
+      nextTitle: posts[index-1]?.data.title,
+      prevSlug: posts[index+1]?.slug,
+      prevTitle: posts[index+1]?.data.title,
+    },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  nextSlug: string;
+  prevSlug: string;
+  nextTitle: string;
+  prevTitle: string;
+}
+
+const { 
+  post,
+  nextSlug, nextTitle,
+  prevSlug, prevTitle
+} = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogLayout 
+  frontmatter={{...post.data}}
+  githubSlug={post.id}
+  prevSlug={prevSlug}
+  prevTitle={prevTitle}
+  nextSlug={nextSlug}
+  nextTitle={nextTitle}
+>
+  <Content components={{ hr: Divider, img: Image, a: Link }} />
+</BlogLayout>

@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import Divider from "../../components/Divider.astro";
+
+let years: number[] = [];
+for (let i=new Date().getFullYear(); i > 2020; i--) {
+  years.push(i);
+}
+
+const blog = await getCollection('blog');
+const weekly = await getCollection('weekly');
+const stories = await getCollection('stories');
+
+const allWriting = Array.from(new Set([blog[0], weekly[0], stories[0]].concat(blog, weekly, stories)));
+allWriting.sort((a, b) => {
+    let aDate = a.collection == "blog" ? a.data.published : a.data.published;
+    let bDate = b.collection == "blog" ? b.data.published : b.data.published;
+    return (new Date(aDate) < (new Date(bDate)) ? 1 : -1);
+})
+
+const topics = Array.from(new Set(blog
+  .map(post => post.data.topics)
+  .flat()))
+  .sort((a, b) => (
+    a > b ? 1 : -1
+  ));
+---
+
+<Layout title="Writing" description="Archive of all essays written by Yash Karthik">
+  <main class="self-center font-serif
+  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
+  mt-7
+  ">
+
+    <header class="
+    items-start text-start 
+    mb-7 
+    ">
+      <h1 class="
+        sm:text-4xl text-3xl 
+        font-serif-styled font-black
+      ">
+        Writing
+      </h1>
+
+      <p class="mt-1 text-md italic pl-2">
+        I write about programming, technology,
+        physics, and even some sci-fi.
+      </p>
+    </header>
+
+    <article class="py-3">
+      {years.map(year => (
+        <section>
+          <h2 class="text-4xl mt-5 font-serif-styled font-bold">{year}</h2>
+
+          <div class="flex flex-col">
+            {allWriting.map(writing => {
+              if (new Date(writing.data.published).getFullYear() == year) {
+                return <div class="
+                  ml-5 my-3 w-fit
+                  flex flex-row items-center gap-2
+                ">
+                  <a href={
+                    writing.collection == "blog" ? "/archive/" + writing.slug
+                      : writing.collection == "stories" ? "/archive/stories/" + writing.slug
+                        : "/archive/weekly/" + writing.slug
+                  } class="
+                    text-lg
+                    hover:underline underline-offset-2 decoration-2 
+                  decoration-violet-700 dark:decoration-violet-400 
+                  ">
+                    {writing.data.title}
+                  </a>
+                  
+                  {writing.collection != "blog" && 
+                    <p title="post type" class="
+                      text-sm italic text-zinc-500 dark:text-zinc-400
+                    ">
+                      {writing.collection == "stories" && "fiction, "}
+                      {writing.collection == "weekly" && "weekly, "}
+                    </p>
+                  }
+
+                  <a target="_blank" title="Page history" href="https://github.com/yashkarthik/yashkarthik.xyz" class="
+                    text-sm italic
+                    text-zinc-500 dark:text-zinc-400
+                    hover:underline underline-offset-2 decoration-2 decoration-dotted
+                    decoration-violet-700 dark:decoration-violet-400 
+                    shrink-0 self-end pb-1
+                  ">
+                    {writing.data.published.slice(0, writing.data.published.length - 6) }{writing.collection == "blog" && writing.data.updated && ', '}
+                    {writing.collection == "blog" && writing.data.updated && writing.data.updated?.slice(0, writing.data.published.length - 6)}
+                  </a>
+                </div>
+              }
+            })
+            }
+          </div>
+
+        </section>
+      ))}
+    </article>
+
+    <div class="my-14">
+      <Divider />
+    </div>
+
+
+    <article class="
+    pt-10 
+    ">
+      <h2 class="pb-1 first-letter:uppercase text-2xl font-serif-styled font-bold">By topics:</h2>
+      <p class="italic text-zinc-400 dark:text-zinc-500 pb-4">Some articles appear under multiple topics.</p>
+      <div class="
+        mt-3
+        columns-1 md:columns-2
+        gap-x-24
+      ">
+        <section>
+          <h2 id="stories" class="first-letter:uppercase mb-2 font-serif-styled text-xl font-bold">Stories</h2>
+
+          {stories.map(story => (
+            <div class="my-1">
+              <p class="
+                font-mono text-sm
+                text-zinc-400 dark:text-zinc-500
+              ">
+                *
+                <a href={"/archive/stories/" + story.slug} class="
+                  w-fit mt-3 font-serif
+                  text-zinc-700 dark:text-stone-300
+                  hover:underline underline-offset-4 decoration-2
+                  hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                ">
+                  {story.data.title}
+                </a>
+              </p>
+            </div>
+          ))
+          }
+        </section>
+
+        {topics.map(topic => (
+          <section class="mt-7 break-inside-avoid">
+            <h2 id={topic} class="first-letter:uppercase mb-2 font-serif-styled text-xl font-bold">{topic}</h2>
+
+            <div>
+              {blog.map(({ data, slug}) => {
+                if ((new Set(data.topics)).has(topic)) {
+                  return <p class="
+                    font-mono text-zinc-400 dark:text-zinc-500 text-sm my-1
+                  ">
+                    *
+                    <a href={"/archive/" + slug} class="
+                      w-fit mt-3 font-serif
+                      text-zinc-700 dark:text-stone-300
+                      hover:underline underline-offset-4 decoration-2
+                      hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                    ">
+                      {data.title}
+                    </a>
+                  </p>
+                }
+              })
+              }
+            </div>
+          </section>
+        ))}
+
+        <section class="mt-7 break-inside-avoid">
+          <h2 id="weekly" class="first-letter:uppercase mb-2 font-serif-styled text-xl font-bold">Weekly</h2>
+
+          {weekly.map(week => (
+            <div>
+              <p class="
+                font-mono text-sm my-1
+                text-zinc-400 dark:text-zinc-500
+              ">
+                *
+                <a href={"/archive/weekly/" + week.slug} class="
+                  w-fit mt-3 font-serif
+                  text-zinc-700 dark:text-stone-300
+                  hover:underline underline-offset-4 decoration-2
+                  hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                ">
+                  {week.data.title}, {(new Date(week.data.published).getFullYear()).toString()}
+                </a>
+              </p>
+            </div>
+          ))
+          }
+        </section>
+      </div>
+    </article>
+  </main>
+</Layout>

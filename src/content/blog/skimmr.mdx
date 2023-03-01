@@ -1,0 +1,158 @@
+---
+title: "How Skimmr Works"
+published: "Dec 27, 2022"
+description: "A technical overview of Skimmr. Implementing a Ratelimiter, on working with LLMs and the convoluted nature of browser extensions."
+topics: ["project", "browser", "AI", "LLM"]
+completionLevel: "budding"
+---
+
+As screenshots of ChatGTP giving startup ideas and writing Twitter threads covered my feed, I figured ChatGPT could be my reading assistant. After trying that for a couple of days, I found that while ChatGPT helped, the constant back-and-forth, between an article and the ChatGPT page, was distracting and it slowed me down.
+
+I began looking for ways to "embed" ChatGPT into a webpage and that’s when I remembered browser extensions. This way, I could also learn how browser extensions worked.
+
+# High-level Overview
+The basic idea is that the user selects some text, right-clicks and presses the _Skimmr_ button. The click from the user would trigger a serverless function that would do some preprocessing and rate-limiting and then call OpenAI's endpoint. The response will be updated in the extension UI.
+
+# Backend
+The backend is essentially a single TS file that exports a function of type `Handler`, which inherits from type `Response`:
+
+```ts
+export interface Response {
+	statusCode: number;
+	headers?: {
+	  [header: string]: boolean | number | string;
+  };
+	multiValueHeaders?: {
+		[header: string]: ReadonlyArray<boolean | number | string>;
+  };
+  body?: string;
+  isBase64Encoded?: boolean;
+}
+```
+
+The function body itself is pretty straightforward. The function is meant to be called by a POST request, so for other methods (like OPTIONS for browser preflight), I return status code 200,  Access-Control headers and JSON body saying call with POST. I also check that the body sent (POST request) is long-enough to even require summarization.
+
+## Rate-limiting
+Internet is a cruel place :(
+
+[Upstash](https://upstash.com/) is a great Redis service and their [rate-limiting](https://github.com/upstash/ratelimit) library is super simple. Before calling OpenAI's endpoint, I call the DB hosted on Upstash for prev-requests' metadata to check if the same user has been calling the function.
+
+```ts
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.fixedWindow(10, "20 s"),
+});
+const success = await ratelimit.limit(identifier);
+```
+
+If successful, then I forward the call to OpenAI, else rate-limited. Calling OpenAI's endpoints is also very simple, thanks to their Node.js SDK.
+
+```ts
+const summarized = await openai.createCompletion({
+	model: "text-curie-001",
+	prompt: `List the key points from the following paragraph: """${text}"""`,
+	max_tokens: 100,
+	temperature: 0,
+});
+
+return {
+  statusCode: 200,
+  headers: headers,
+  body: JSON.stringify({ message: summarized.data.choices[0].text }),
+}
+
+```
+
+Currently I'm using the Curie model for everyone, in the future I plan to build a system where complex text is given to the Da Vinci model. Also, this could be an opportunity to implement a premium tier for more than _x_ calls to Da Vinci.
+
+# The Extension
+
+Browser extensions are surprisingly complex.
+
+Each extension is made up of several files and pages:
+- `manifest.json`: this file specifies the files, permissions, assets the browser should load.
+- The extension page: the mini-popup that is displayed when the user opens the extension from the toolbar. It's essentially a mini-webpage with it's own html, css and js (for manipulating the popup's DOM)
+- A background script (`background.js`) that listens to events from the webpage DOM and the mini-popup’s DOM.
+- Some extensions also have a content script that can interact and manipulate the webpage’s DOM. Since my extension reads the webpage’s DOM only once, I use the `chrome.scripting` APIs instead of a full-fledged content script.
+
+## Grabbing the Selected Text
+
+The background script places a button in the right-click menu when the user selects some text.
+
+```js
+chrome.contextMenus.create({
+  id: "skimmr.xyz-menu",
+  title: "Skimmr",
+  contexts: ["selection"]
+});
+```
+
+The script listens for any clicks on the right-click-menu-button and on click, it grabs the selected text from the DOM and sends it to the serverless function.
+
+```js
+chrome.contextMenus.onClicked.addListener(async (_info, _tab) => {...});
+```
+
+The selected text is grabbed via the `chrome.scripting.executeScript` function. This function executes the specified function (or script) in the context of the webpage's DOM.
+
+```js
+const res = await chrome.scripting.executeScript(
+  {
+    target: {tabId: tab.id},
+    func: getSelectedText
+  }
+);
+const text = res[0].result;
+```
+
+Here, I get the tab id using `chrome.tabs.query` and `getSelectedText` uses the `window` API to get the selected text.
+```js
+function getSelectedText() {
+  return getSelection().toString();
+}
+
+const [ tab ] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+```
+
+This text is sent to the serverless function using a standard `fetch` call. The response is stored in browser memory, to be accessed by the extension page.
+
+```js
+chrome.storage.session.set({ 'selectedText': response.message.slice(2,) });
+```
+
+Using storage to communicate between the background and extension is pretty hacky. I'm sure there's a real communication interface, but this works for now. The response is sliced cuz the first two indices of response are always "\\n\\n".
+
+## Updating UI with Summarized text
+
+Since I'm using the storage to "communicate" between the background script and the extension page, the extension page listens to changes in the storage and updates the text box with the new text.
+
+```js
+// index.js
+chrome.storage.onChanged.addListener((changes, _namespace) => {
+  explanationBox.innerText = changes.selectedText.newValue;
+});
+```
+
+All the UI updates (including the one above) are put inside an event listener for `DOMContentLoaded`. This event is is triggered when the user open the extension popup. This is done because to manipulate the DOM, the DOM must exist.
+
+```js
+document.addEventListener("DOMContentLoaded", (_e) => {...}
+```
+
+There's also a copy button which writes to your clipboard by `navigator.clipboard.writeText(explanationBox.textContent);` and a "Re-skim" button which refreshed the text.
+
+### Future Improvements
+- Use language models fine-tuned for specific tasks (summarization, explanation, explaining code).
+- Differentiate between simple and complex input, then send to different models.
+- Personalization, tiered accounts etc.
+
+### Tools used
+- Netlify (hosting)
+- Upstash (Redis DB, Redis SDK, Rate-limiting package)
+- Dotenv
+- Astro (project site)
+
+### Links
+- [Project Repo](https://github.com/yashkarthik/skimmr)
+- [Project Site](https://skimmr.xyz)
+- [Chrome Web Store](https://chrome.google.com/webstore/detail/skimmr/inchpcdcmkipekcoiimcdnfomdhdfcih)

@@ -1,0 +1,217 @@
+---
+import { getCollection } from 'astro:content';
+
+const blogs = await getCollection('blog');
+const weekly = await getCollection('weekly');
+const stories = await getCollection('stories');
+
+blogs.sort((a, b) => (
+    (new Date(a.data.published)) < (new Date(b.data.published)) ? 1 : -1
+));
+weekly.sort((a, b) => (
+    (new Date(a.data.published)) < (new Date(b.data.published)) ? 1 : -1
+));
+stories.sort((a, b) => (
+    (new Date(a.data.published)) < (new Date(b.data.published)) ? 1 : -1
+));
+---
+
+<article id="horizontal-scroll" class="
+  flex flex-row
+  gap-1 md:gap-5
+  overflow-x-scroll max-sm:snap-mandatory max-sm:snap-x
+  md:divide-x
+  divide-zinc-300 dark:divide-zinc-800
+  border-b border-zinc-300 dark:border-zinc-800
+">
+  <article class="
+    flex flex-col flex-shrink-0
+    max-w-xs min-w-xs
+    md:pl-7 pl-5 gap-2
+    snap-center
+  ">
+    <h1 class=" font-serif-styled font-black md:text-4xl text-3xl tracking-tight ">
+      <a href={"archive/" + blogs[0].slug} class="
+        hover:underline underline-offset-2 decoration-4
+        decoration-violet-700 dark:decoration-violet-400 
+      ">
+        {blogs[0].data.title}
+      </a>
+    </h1>
+  
+    <p class=" text-sm text-zinc-500">
+      {blogs[0].data.published}
+    </p>
+  
+    <p class="mt-3 dark:text-zinc-400">
+      {blogs[0].data.description}
+    </p>
+  
+    <p class="text-xs italic text-end md:text-transparent text-zinc-400 dark:text-zinc-500">Scroll →</p>
+  </article>
+  
+  <hr class="mt-6">
+  
+  {weekly.length > 0 && 
+    <article class="
+      flex flex-col flex-shrink-0
+      max-w-xs min-w-xs 
+      md:pl-7 pl-5 pt-3 gap-5
+      snap-center
+    ">
+      <div class="dark:text-zinc-400">
+        Weekly reflections and updates on my projects, goals and learnings.
+      </div>
+      {weekly.slice(0, 4).map(week => (
+        <section>
+          <h1 class=" font-serif-styled font-black text-3xl ">
+            <a href={"/archive/weekly/" + week.slug} class="
+              hover:underline underline-offset-2 decoration-2
+              decoration-violet-700 dark:decoration-violet-400 
+            ">
+              {week.data.title}
+            </a>
+          </h1>
+  
+          <p class=" pl-1 text-sm text-zinc-500dark:text-zinc-400 ">
+            {week.data.published}
+          </p>
+        </section>
+      ))}
+    </article>
+  }
+  
+  <hr class="mt-6">
+  
+  {stories[0].slug != "0" &&
+    <article class="
+      flex flex-col flex-shrink-0
+      max-w-xs min-w-xs 
+      md:pl-7 pl-5 gap-2
+      snap-center
+    ">
+      <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
+        <a href={"/archive/stories/" + stories[0].slug} class="
+          hover:underline underline-offset-2 decoration-4
+          decoration-violet-700 dark:decoration-violet-400 
+        ">
+          {stories[0].data.title}
+        </a>
+      </h1>
+  
+      <p class=" text-sm text-zinc-500 ">
+        {stories[0].data.published}
+      </p>
+      <img 
+        src={stories[0].data?.image}
+        alt={`Cover image for ${stories[0].data.title}`}
+        class="
+          m-0 p-0 my-3 h-40
+          rounded-md
+      ">
+    </article>
+  }
+  
+  <hr class="mt-6">
+  
+  <article class="
+    flex flex-col flex-shrink-0
+    max-w-xs min-w-xs 
+    md:pl-7 pl-5 gap-2
+    snap-center
+  ">
+    <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
+      <a href={"archive/" + blogs[1].slug} class="
+        hover:underline underline-offset-2 decoration-4
+        decoration-violet-700 dark:decoration-violet-400 
+      ">
+        {blogs[1].data.title}
+      </a>
+    </h1>
+  
+    <p class=" text-sm text-zinc-500">
+      {blogs[1].data.published}
+    </p>
+  
+    <p class="mt-2 dark:text-zinc-400">{blogs[1].data.description}</p>
+  </article>
+  
+  <hr class="mt-6">
+  
+  <article class="
+    flex flex-col flex-shrink-0
+    max-w-xs min-w-xs 
+    md:pl-7 pl-5 gap-2
+    snap-center
+  ">
+    <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
+      <a href={"archive/" + blogs[2].slug} class="
+        hover:underline underline-offset-2 decoration-4
+        decoration-violet-700 dark:decoration-violet-400 
+      ">
+        {blogs[2].data.title}
+      </a>
+    </h1>
+  
+    <p class=" text-sm text-zinc-500 ">
+      {blogs[2].data.published}
+    </p>
+  
+    <p class="mt-2 dark:text-zinc-400 ">{blogs[2].data.description}</p>
+  </article>
+  
+  <hr class="mt-6">
+  
+  {stories[1] &&
+    <article class="
+      flex flex-col flex-shrink-0
+      max-w-xs min-w-xs 
+      md:pl-7 pl-5 gap-2 mr-10
+      snap-center
+    ">
+      <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
+        <a href={"/archive/stories/" + stories[1].slug} class="
+          hover:underline underline-offset-2 decoration-4
+          decoration-violet-700 dark:decoration-violet-400 
+        ">
+          {stories[1].data.title}
+        </a>
+      </h1>
+  
+      <p class=" text-sm text-zinc-500 ">
+        {stories[1].data.published}
+      </p>
+      <img 
+        src={stories[1].data?.image}
+        alt={`Cover image for ${stories[1].data.title}`}
+        class="
+          m-0 p-0 my-3 h-40
+          rounded-md
+      ">
+    </article>
+  }
+
+  <article class="
+    flex flex-col flex-shrink-0
+    max-w-xs min-w-xs 
+    md:pl-7 pl-5 gap-2
+    snap-center
+  ">
+    <h1 class=" font-serif-styled font-black text-4xl tracking-tight ">
+      <a href={"archive/" + blogs[3].slug} class="
+        hover:underline underline-offset-2 decoration-4
+        decoration-violet-700 dark:decoration-violet-400 
+      ">
+        {blogs[3].data.title}
+      </a>
+    </h1>
+  
+    <p class=" text-sm text-zinc-500 ">
+      {blogs[3].data.published}
+    </p>
+  
+    <p class="mt-2 dark:text-zinc-400 ">{blogs[3].data.description}</p>
+  </article>
+  
+  <hr class="mt-6">
+</article>

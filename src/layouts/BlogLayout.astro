@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  frontmatter: CollectionEntry<"blog">["data"];
+  githubSlug: string;
+  nextSlug: string;
+  prevSlug: string;
+  nextTitle: string;
+  prevTitle: string;
+}
+
+const { 
+  frontmatter,
+  githubSlug,
+  nextSlug, nextTitle,
+  prevSlug, prevTitle
+} = Astro.props;
+---
+
+<Layout {...frontmatter}>
+
+  <header class="
+  font-serif
+  self-center
+  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
+  md:grid md:grid-cols-7
+  max-sm:flex max-sm:flex-col
+  border-b border-dotted border-zinc-400 dark:border-zinc-500
+  mt-7 pb-2 
+  ">
+    <div class={`
+      flex flex-col gap-1
+      items-start md:items-end
+      text-start md:text-end
+      pr-5 pb-5
+      md:border-r max-sm:border-b border-dotted
+      border-zinc-400 dark:border-zinc-500
+      ${frontmatter.title.length > 25 ? 'col-span-4' : 'col-span-3'}
+    `}>
+      <h1 class="
+      md:text-7xl text-5xl
+      font-heading tracking-tight
+      ">
+        {frontmatter.title}
+      </h1>
+
+      <div class="
+        text-sm text-zinc-500 dark:text-zinc-400
+        flex flex-row
+        gap-1 items-start md:items-end
+      ">
+        <p class="first-letter:uppercase">
+          {frontmatter.completionLevel} note
+          • {frontmatter.published} • 
+        {frontmatter.updated &&
+          <a target="_blank"
+            href={"https://github.com/YashKarthik/yashkarthik.xyz/tree/redesign/src/content/blog/" + githubSlug}
+            class="
+            hover:underline underline-offset-2 decoration-2 decoration-dotted
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+            text-sm text-zinc-500 dark:text-zinc-400
+          ">
+            {frontmatter.updated}
+          </a>
+        }
+        {/* add link to commit history of file here. */}
+        </p>
+      </div>
+
+      <div class="text-sm flex flex-row gap-1 items-end">
+        {frontmatter.topics.map((topic, index) => {
+          const end = index + 1 == frontmatter.topics.length ? "" : ",";
+          return <a href={"/archive#" + topic} class="
+            underline underline-offset-2 decoration-2 decoration-dotted
+            decoration-zinc-400 dark:decoration-zinc-500
+            hover:decoration-violet-700 dark:hover:decoration-violet-400
+            text-sm text-zinc-500 dark:text-zinc-400
+          ">
+            {topic[0].toUpperCase() + topic.slice(1,) + end}
+          </a>
+        })}
+      </div>
+    </div>
+
+    <div class={`
+      text-zinc-500 dark:text-zinc-400 italic
+      md:pl-5 mt-2 text-start
+      col-end-8
+      ${frontmatter.title.length > 25 ? 'col-start-5' : 'col-start-4'}
+    `}>
+      {frontmatter.description}
+    </div>
+  </header>
+
+  <main class="
+  max-w-none lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 m-5 
+  prose md:prose-p:prose-lg
+  prose-zinc dark:prose-invert 
+  font-serif self-center
+  prose-headings:font-serif-styled
+  prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
+  dark:prose-p:text-zinc-300
+  dark:prose-a:text-zinc-300
+  underline-offset-2 prose-a:decoration-2 
+  prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
+  prose-blockquote:text-zinc-600 prose-blockquote:dark:text-stone-400
+  ">
+    <slot />
+  </main>
+
+  <div class="font-serif self-center flex flex-col my-7 lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none">
+    <hr class="border border-solid border-zinc-400 dark:border-zinc-500 mb-5" />
+    <div class="mb-5 flex flex-col gap-2 max-sm:gap-5">
+      {prevSlug &&
+        <p class="italic self-start">←
+          <a href={prevSlug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {prevTitle}
+          </a>
+        </p>
+      }
+
+      {nextSlug &&
+        <p class="italic self-end text-end">
+          <a href={nextSlug} class="
+          underline decoration-solid decoration-2 underline-offset-2
+          decoration-violet-700 dark:decoration-violet-400
+          ">
+            {nextTitle}
+          </a>
+          →
+        </p>
+      }
+    </div>
+
+    <p class="self-start font-serif">Have a comment or response? <a href="/about#contact"
+    class="underline decoration-solid decoration-2 decoration-violet-700 dark:decoration-violet-400 underline-offset-2">Email me</a>.</p>
+  </div>
+</Layout>
