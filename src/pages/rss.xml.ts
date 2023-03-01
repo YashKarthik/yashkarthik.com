@@ -5,7 +5,7 @@ import { micromark } from "micromark"
 import { gfm, gfmHtml } from "micromark-extension-gfm"
 import { mdxjs } from "micromark-extension-mdxjs"
 
-export async function get(context:any) {
+export async function get(_context:any) {
   const blog = await getCollection('blog');
   const weekly = await getCollection('weekly');
   const stories = await getCollection('stories');
@@ -20,20 +20,19 @@ export async function get(context:any) {
   return rss({
     title: "Yash Karthik",
     description: "Essays and short by Yash Karthik; programming, physics and culture",
-    site: context.site,
+    site: "https://www.yashkarthik.xyz",
     items: allWriting.map((post) => {
       const renderedHTML = micromark(post.body, {
         extensions: [gfm(), mdxjs()],
         htmlExtensions: [gfmHtml()],
       });
       return {
-        link: `/archive/${post.slug}/`,
+        link: post.collection == "blog" ? `/archive/${post.slug}/` : (post.collection == "stories" ? `/archive/stories/${post.slug}` : `/archive/weekly/${post.slug}`),
         title: post.data.title,
         pubDate: new Date(post.data.published),
-        description: post.collection != "blog" ? "A short sci-fi story by Yash Karthik" : post.data.description,
+        description: post.collection != "blog" ? (post.collection == "stories" ? "A short sci-fi story by Yash Karthik" : `${post.data.title} - updates by Yash Karthik`) : post.data.description,
         content: sanitizeHtml(renderedHTML),
       }
     }),
-    customData: `<language>en-us</language>`,
   });
 }
