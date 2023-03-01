@@ -24,16 +24,18 @@ const { title, image_url, description } = Astro.props;
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description ? description : "Essays by yashKarthik—programming, physics and culture"}/>
+    <meta name="description" content={description || "Yash Karthik's digital garden filled with essays on programming, physics and humans."}/>
+    <meta name="og:image" content={"https://www.yashkarthik.xyz/" + image_url || "ogImage.png"}>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     
     <meta name="robots" content="all" />
     <meta name="og:title" content={title + " | Yash Karthik"} />
-    <meta name="og:description" content={description ? description : "Essays by yashKarthik—programming, physics and culture"} />
+    <meta name="og:description" content={description || "Yash Karthik's digital garden filled with essays on programming, physics and humans."} />
     <meta name="og:type" content='blog' />
-    <meta name="og:image" content={image_url ? image_url : "https://yashkarthik.xyz/thelatenightbuilders.png"} />
-    <meta name="og:url" content='https://yashkarthik.xyz' />
+    <meta name="og:url" content='https://www.yashkarthik.xyz' />
+    <meta name="og:image" content={"https://www.yashkarthik.xyz/" + image_url || "ogImage.png"}>
     <meta name="twitter:site" content="@_yashKarthik" />
 
     <slot name="head-metadata" />
@@ -88,6 +90,7 @@ const { title, image_url, description } = Astro.props;
         <ul class="flex flex-row gap-3 text-sm">
           {[
             ["Writing", "/archive"],
+            ["Projects", "/projects"],
             ["About", "/about"],
           ].map(linkObj => (
             <li class="
