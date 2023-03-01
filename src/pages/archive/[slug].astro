@@ -43,6 +43,7 @@ const { Content } = await post.render();
 
 <BlogLayout 
   frontmatter={{...post.data}}
+  githubSlug={post.id}
   prevSlug={prevSlug}
   prevTitle={prevTitle}
   nextSlug={nextSlug}
