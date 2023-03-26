@@ -7,15 +7,28 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Scribble",
+    description: "MS Paint + Stable Diffusion => art. An AI-powered whiteboard where you can draw rough sketches and use Stable Diffusion to generate art out of them. Built with Next.js, embeds Excalidraw.com for whiteboard, and Stable Diffusion ControlNet for guiding the image output. (800+ generations in 5 days)",
+    github: "https://github.com/YashKarthik/scribble",
+    website: "https://scribble.yashkarthik.xyz",
+  },
+  {
     title: "Enscan",
-    description: "The Ethereum Name Service (ENS) is an on-chain Linktree. But almost none of that data can be queried with complex conditions, like in SQL. Enscan is an indexer that crawls the ENS contracts and indexes the data into a database, enabling developers to interact with the data using SQL. (currently building)",
+    description: "The Ethereum Name Service (ENS) is an on-chain Linktree. But almost none of that data can be queried with complex conditions, like in SQL. Enscan is an indexer that crawls the ENS contracts and indexes the data into a database, enabling developers to interact with the data using SQL. (v1 out, building v2)",
     github: "https://github.com/YashKarthik/enscan",
+    website: "https://enscan.yashkarthik.xyz"
   },
   {
     title: "Farcaster Directory",
     description: "A directory of Farcaster accounts and their respective Twitter accounts, making it easier to find your Twitter friends on Farcaster.",
     github: "https://github.com/YashKarthik/farcaster-directory",
     website: "https://directory.yashkarthik.xyz",
+  },
+  {
+    title: "pg-scraper",
+    description: "A simple program that generates a scraped RSS feed of Paul Graham's essays. My first app in Go; it was the perfect project to explore Go's concurrency model. It's deployed as a serverless function that generates the feed everytime a new request comes in.",
+    github: "https://github.com/YashKarthik/pg-scraper",
+    website: "https://yashkarthik.xyz/api/pg-feed",
   },
   {
     title: "Damn Vulnerable DeFi",
