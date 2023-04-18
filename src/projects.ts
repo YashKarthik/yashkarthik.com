@@ -7,6 +7,18 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Firechat",
+    description: "A proof of concept for using smart contract storage as a database. It's a chat app that stores messages on Ethereum (inside the smart contract). Learnt a lot while building this, currenty working on encryption.",
+    github: "https://github.com/yashkarthik/firechat",
+    website: "https://firechat.yashkarthik.xyz",
+  },
+  {
+    title: "Casterscan",
+    description: "A collaboration between me and dylansteck.com. It's a sort of block explorer for Farcaster. Recently: integration with nf.td.",
+    github: "https://github.com/dylsteck/casterscan",
+    website: "https://casterscan.com",
+  },
+  {
     title: "Scribble",
     description: "MS Paint + Stable Diffusion => art. An AI-powered whiteboard where you can draw rough sketches and use Stable Diffusion to generate art out of them. Built with Next.js, embeds Excalidraw.com for whiteboard, and Stable Diffusion ControlNet for guiding the image output. (800+ generations in 5 days)",
     github: "https://github.com/YashKarthik/scribble",
