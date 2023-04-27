@@ -33,17 +33,11 @@ import { projects } from "../projects";
     <article class="prose dark:prose-invert">
       {projects.map(project => (
         <article class="my-7">
-          <a href={project.github} class="
-            max-w-fit
-            underline decoration-2 underline-offset-2
-            decoration-violet-700 dark:decoration-violet-400 
-          ">
-            <h2 class="text-2xl font-serif-styled font-bold max-w-fit">{project.title}</h2>
-          </a>
-          <p class="my-1">{project.description}</p>
-          {project.website &&
-            <div class="flex flex-row gap-1">
-              <a href={project.website} class="
+        <h2 class="text-2xl font-serif-styled font-bold max-w-fit">{project.title}</h2>
+          <p class="mb-3">{project.description}</p>
+          <div class="flex flex-row gap-2 dark:text-zinc-400 ">
+            { project.website && 
+              <a href={project.website} target="_blank" class="
                 text-sm italic
                 underline underline-offset-2 decoration-2 decoration-dotted
                 decoration-zinc-400 dark:decoration-zinc-500
@@ -51,8 +45,16 @@ import { projects } from "../projects";
               ">
                 Visit
               </a>
-            </div>
-          }
+            }
+            <a href={project.github} target="_blank" class="
+              text-sm italic
+              underline underline-offset-2 decoration-2 decoration-dotted
+              decoration-zinc-400 dark:decoration-zinc-500
+              hover:decoration-violet-700 dark:hover:decoration-violet-400
+            ">
+              GitHub
+            </a>
+          </div>
         </article>
       ))}
     </article>

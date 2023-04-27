@@ -7,6 +7,11 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Tiviem",
+    description: "(/ti:vi:em/) A rudimentary implementation of EVM in Typescript. Currently work-in-progress, I'm building this to learn how Ethereum works under the hood.",
+    github: "https://github.com/yashkarthik/tiviem",
+  },
+  {
     title: "Firechat",
     description: "A proof of concept for using smart contract storage as a database. It's a chat app that stores messages on Ethereum (inside the smart contract). Learnt a lot while building this, currenty working on encryption.",
     github: "https://github.com/yashkarthik/firechat",
