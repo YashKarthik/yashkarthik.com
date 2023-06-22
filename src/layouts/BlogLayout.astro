@@ -59,7 +59,7 @@ const {
             href={"https://github.com/YashKarthik/yashkarthik.xyz/tree/redesign/src/content/blog/" + githubSlug}
             class="
             hover:underline underline-offset-2 decoration-2 decoration-dotted
-            hover:decoration-violet-700 dark:hover:decoration-violet-400
+            hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
             text-sm text-zinc-500 dark:text-zinc-400
           ">
             {frontmatter.updated}
@@ -75,7 +75,7 @@ const {
           return <a href={"/archive#" + topic} class="
             underline underline-offset-2 decoration-2 decoration-dotted
             decoration-zinc-400 dark:decoration-zinc-500
-            hover:decoration-violet-700 dark:hover:decoration-violet-400
+            hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
             text-sm text-zinc-500 dark:text-zinc-400
           ">
             {topic[0].toUpperCase() + topic.slice(1,) + end}
@@ -95,17 +95,17 @@ const {
   </header>
 
   <main class="
-  max-w-none lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 m-5 
-  prose md:prose-p:prose-lg
-  prose-zinc dark:prose-invert 
-  font-serif self-center
-  prose-headings:font-serif-styled
-  prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
-  dark:prose-p:text-zinc-300
-  dark:prose-a:text-zinc-300
-  underline-offset-2 prose-a:decoration-2 
-  prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
-  prose-blockquote:text-zinc-600 prose-blockquote:dark:text-stone-400
+    max-w-none lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 m-5 
+    prose md:prose-p:prose-lg
+    prose-zinc dark:prose-invert 
+    font-serif self-center
+    prose-headings:font-serif-styled
+    prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
+    dark:prose-p:text-zinc-300
+    dark:prose-a:text-zinc-300
+    underline-offset-2 prose-a:decoration-2 
+    prose-a:decoration-[#00e100] dark:prose-a:decoration-[#00e100]/70
+    prose-blockquote:text-zinc-600 prose-blockquote:dark:text-stone-400
   ">
     <slot />
   </main>
@@ -116,8 +116,8 @@ const {
       {prevSlug &&
         <p class="italic self-start">←
           <a href={prevSlug} class="
-          underline decoration-solid decoration-2 underline-offset-2
-          decoration-violet-700 dark:decoration-violet-400
+            underline decoration-solid decoration-2 underline-offset-2
+            decoration-[#00e100] dark:decoration-[#00e100]
           ">
             {prevTitle}
           </a>
@@ -128,7 +128,7 @@ const {
         <p class="italic self-end text-end">
           <a href={nextSlug} class="
           underline decoration-solid decoration-2 underline-offset-2
-          decoration-violet-700 dark:decoration-violet-400
+          decoration-[#00e100] dark:decoration-[#00e100]
           ">
             {nextTitle}
           </a>
@@ -138,6 +138,6 @@ const {
     </div>
 
     <p class="self-start font-serif">Have a comment or response? <a href="/about#contact"
-    class="underline decoration-solid decoration-2 decoration-violet-700 dark:decoration-violet-400 underline-offset-2">Email me</a>.</p>
+    class="underline decoration-solid decoration-2 decoration-[#00e100] dark:decoration-[#00e100] underline-offset-2">Email me</a>.</p>
   </div>
 </Layout>

@@ -1,85 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import RecentPostsHScroll from '../components/RecentPostsHScroll.astro';
-import RecentProjectsHScroll from '../components/RecentProjectsHScroll.astro';
 ---
 
-<Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik.">
+<Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik." showBars={false}>
   <main class="font-serif my-7 flex flex-col gap-0">
     <div class="
       md:ml-8 ml-5 mr-3
       mb-10
-      max-w-sm
     ">
-      My name is Yash Karthik, I&rsquor;m a programmer and writer.
-      Many things capture my interest; I write about them here.
+      Hi there. </br>
+      I&rsquor;m
+      <a href="/about" class="underline underline-offset-2 decoration-2 decoration-[#00e100]">Yash Karthik.</a>
+
+      </br>
+      </br>
+
+      Many things capture my interest; </br>
+      I
+      <a href="/projects" class="underline underline-offset-2 decoration-2 decoration-[#00e100]">hack</a>
+      and
+      <a href="/archive" class="underline underline-offset-2 decoration-2 decoration-[#00e100]">write</a>
+      about them here.
+
+      </br>
+      </br>
+
+      You can find me at
+      <a href="/about#contact" class="underline underline-offset-2 decoration-2 decoration-[#00e100]">@yashkarthik</a>
+      (and variations) on the interwebs.
     </div>
-
-    <RecentPostsHScroll />
-
-    <div class="
-      mt-14 mb-8 mx-3
-    ">
-      <h1 class="
-        text-3xl max-w-xs
-        hover:underline underline-offset-2 decoration-2
-        decoration-violet-700 dark:decoration-violet-400 
-      ">
-        <a href="/projects" class="
-          max-w-xs
-          hover:underline underline-offset-2 decoration-2
-          decoration-violet-700 dark:decoration-violet-400 
-        ">
-            Projects
-        </a>
-      </h1>
-      <p class="pt-1 italic text-sm dark:text-zinc-400 ">Web apps, smart contracts, CTFs and a scattering of personal workflow software.</p>
-    </div>
-
-    <RecentProjectsHScroll />
-
-    <article class="
-      flex flex-col
-      self-center mx-10 mt-14
-      md:max-w-lg
-      italic
-    ">
-    <p aria-hidden="true" class="mr-2 text-7xl text-zinc-500">
-      &ldquo;
-    </p>
-
-    <blockquote class="mx-2 md:mx-8 flex flex-col gap-4">
-      <p>
-        Well, Mr. Frankel, who started this program, began to suffer from the computer disease that
-        anybody who works with computers now knows about.
-      </p>
-
-      <p>
-        It's a very serious disease and it interferes completely with the work. The trouble with
-        computers is you play with them. They are so wonderful. [...]
-      </p>
-
-      <p>
-        After a while the whole system broke down. Frankel wasn’t paying any attention; he wasn’t
-        supervising anybody. The system was going very, very slowly—while he was sitting in a room
-        figuring out how to make one tabulator automatically print arc-tangent X, and then it would
-        start and it would print columns and then bitsi, bitsi, bitsi, and calculate the arc-tangent
-        automatically by integrating as it went along and make a whole table in one operation.
-      </p>
-
-      <p>
-        Absolutely useless. We <strong>had</strong> tables of arc-tangents. But if you’ve ever worked
-        with computers, you understand the disease—the <strong>delight</strong> in being able to see how much you can do.
-      </p>
-
-    </blockquote>
-
-    <cite class="text-end self-end not-italic mt-8 mx-8">Richard Feynman</cite>
-
-    <p aria-hidden="true" class="mr-2 mt-4 text-7xl self-end text-zinc-500">
-      &rdquo;
-    </p>
-
-    </article>
   </main>
 </Layout>

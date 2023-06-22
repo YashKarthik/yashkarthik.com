@@ -77,7 +77,7 @@ const { Content } = await story.render();
       prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
       dark:prose-a:text-zinc-300
       underline-offset-2 prose-a:decoration-2 
-      prose-a:decoration-violet-700 dark:prose-a:decoration-violet-400 
+      prose-a:decoration-[#00e100] dark:prose-a:decoration-[#00e100] 
     ">
       <Content components={{ hr: Divider, img: Image, a: Link }} />
     </article>
@@ -95,7 +95,7 @@ const { Content } = await story.render();
         <p class="italic">←
           <a href={prevStorySlug} class="
           underline decoration-solid decoration-2 underline-offset-2
-          decoration-violet-700 dark:decoration-violet-400
+          decoration-[#00e100] dark:decoration-[#00e100]
           ">
             {prevStoryTitle}
           </a>
@@ -106,7 +106,7 @@ const { Content } = await story.render();
         <p class="italic">
           <a href={nextStorySlug} class="
           underline decoration-solid decoration-2 underline-offset-2
-          decoration-violet-700 dark:decoration-violet-400
+          decoration-[#00e100] dark:decoration-[#00e100]
           ">
             {nextStoryTitle}
           </a>

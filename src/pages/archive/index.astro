@@ -69,7 +69,7 @@ const topics = Array.from(new Set(blog
                   } class="
                     text-lg
                     hover:underline underline-offset-2 decoration-2 
-                  decoration-violet-700 dark:decoration-violet-400 
+                    decoration-[#00e100] dark:decoration-[#00e100] 
                   ">
                     {writing.data.title}
                   </a>
@@ -87,7 +87,7 @@ const topics = Array.from(new Set(blog
                     text-sm italic
                     text-zinc-500 dark:text-zinc-400
                     hover:underline underline-offset-2 decoration-2 decoration-dotted
-                    decoration-violet-700 dark:decoration-violet-400 
+                    decoration-[#00e100] dark:decoration-[#00e100] 
                     shrink-0 self-end pb-1
                   ">
                     {writing.data.published.slice(0, writing.data.published.length - 6) }{writing.collection == "blog" && writing.data.updated && ', '}
@@ -132,7 +132,7 @@ const topics = Array.from(new Set(blog
                   w-fit mt-3 font-serif
                   text-zinc-700 dark:text-stone-300
                   hover:underline underline-offset-4 decoration-2
-                  hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                  hover:decoration-[#00e100] dark:hover:decoration-[#00e100] 
                 ">
                   {story.data.title}
                 </a>
@@ -156,8 +156,8 @@ const topics = Array.from(new Set(blog
                     <a href={"/archive/" + slug} class="
                       w-fit mt-3 font-serif
                       text-zinc-700 dark:text-stone-300
-                      hover:underline underline-offset-4 decoration-2
-                      hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                      hover:underline underline-offset-4 decoration-1
+                      hover:decoration-[#00e100] dark:hover:decoration-[#00e100] 
                     ">
                       {data.title}
                     </a>
@@ -182,8 +182,8 @@ const topics = Array.from(new Set(blog
                 <a href={"/archive/weekly/" + week.slug} class="
                   w-fit mt-3 font-serif
                   text-zinc-700 dark:text-stone-300
-                  hover:underline underline-offset-4 decoration-2
-                  hover:decoration-violet-700 dark:hover:decoration-violet-400 
+                  hover:underline underline-offset-4 decoration-1
+                  hover:decoration-[#00e100] dark:hover:decoration-[#00e100] 
                 ">
                   {week.data.title}, {(new Date(week.data.published).getFullYear()).toString()}
                 </a>
