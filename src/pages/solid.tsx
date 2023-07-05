@@ -16,19 +16,21 @@ export default function SolidComponent() {
 
         {/* Hello section */}
         <div class="flex flex-row gap-2">
-          <ExpandTextLink
-            name="Hello"
-            desiredElemVisibility={1}
-            elemVisibility={elemVisibility}
-            setElemVisibility={setElemVisibility}
-          />
-          <p>there.</p>
-          <UnfoldingText
-            desiredElemVisibility={1}
-            visibilityAccessor={elemVisibility}
-          >
-            <p>It's nice to finally meet you.</p>
-          </UnfoldingText>
+          <p>
+            <ExpandTextLink
+              name="Hello"
+              desiredElemVisibility={1}
+              elemVisibility={elemVisibility}
+              setElemVisibility={setElemVisibility}
+            />{' '}
+            there.
+            <UnfoldingText
+              desiredElemVisibility={1}
+              visibilityAccessor={elemVisibility}
+            >
+              <p>It's nice to finally meet you.</p>
+            </UnfoldingText>
+          </p>
         </div>
 
         <br/>
@@ -75,13 +77,15 @@ export default function SolidComponent() {
             visibilityAccessor={elemVisibility}
           >
             <div class="flex flex-row gap-1">
-              <p>Five years ago I awoke in a strange new world: I learned to</p>
-              <ExpandTextLink
-                name="code."
-                desiredElemVisibility={3.1}
-                elemVisibility={elemVisibility}
-                setElemVisibility={setElemVisibility}
-              />
+              <p>
+                Five years ago I awoke in a strange new world: I learned to{' '}
+                <ExpandTextLink
+                  name="code."
+                  desiredElemVisibility={3.1}
+                  elemVisibility={elemVisibility}
+                  setElemVisibility={setElemVisibility}
+                />
+              </p>
             </div>
 
           </UnfoldingText>
@@ -151,13 +155,14 @@ export default function SolidComponent() {
             visibilityAccessor={elemVisibility}
           >
             <div class="flex flex-row gap-2 mt-5">
-              <p> I can be found as </p>
-              <a href="/about#contact" class="underline decoration-2 underline-offset-2 decoration-[#00e100]">@yashkarthik</a>
-              <p> {' '}(and its variations) on the interwebs. </p>
+              <p> 
+                I can be found as{' '}
+                <a href="/about#contact" class="underline decoration-2 underline-offset-2 decoration-[#00e100]">@yashkarthik</a>
+                {' '}(and its variations) on the interwebs.
+              </p>
             </div>
           </UnfoldingText>
         </div>
-
 
       </div>
     </div>
