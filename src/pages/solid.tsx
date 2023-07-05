@@ -44,21 +44,22 @@ export default function SolidComponent() {
             desiredElemVisibility={2}
             visibilityAccessor={elemVisibility}
           >
-            <p>a</p>
-            <NiceLink
-              name="programmer"
-              desiredElemVisibility={3}
-              elemVisibility={elemVisibility}
-              setElemVisibility={setElemVisibility}
-            />
-
-            <p>and</p>
-            <NiceLink
-              name="writer"
-              desiredElemVisibility={4}
-              elemVisibility={elemVisibility}
-              setElemVisibility={setElemVisibility}
-            />
+            <p>
+              a{" "}
+              <NiceLink
+                name="programmer"
+                desiredElemVisibility={3}
+                elemVisibility={elemVisibility}
+                setElemVisibility={setElemVisibility}
+              />
+              {" "}and{" "}
+              <NiceLink
+                name="writer"
+                desiredElemVisibility={4}
+                elemVisibility={elemVisibility}
+                setElemVisibility={setElemVisibility}
+              />{"."}
+            </p>
           </UnfoldingText>
         </div>
 
@@ -87,18 +88,16 @@ export default function SolidComponent() {
           >
             <p>
               My friend and I were tasked with cleaning-up the robotics lab after a late night session.
-              Rather than spending hours sorting the parts manually,{" "}
+              Rather than spending hours sorting the parts manually, we{" "}
               <NiceLink
-                name="we built a robot to do it for us"
+                name="built"
                 desiredElemVisibility={3.2}
                 elemVisibility={elemVisibility}
                 setElemVisibility={setElemVisibility}
               />
-              {" "}(finishing the task in a few days instead of hours xD).
+              {" "} a robot to do it for us (finishing the task in a few days instead of hours xD).
             </p>
           </UnfoldingText>
-
-          <br/>
 
           <UnfoldingText
             desiredElemVisibility={3.2}
@@ -121,8 +120,8 @@ export default function SolidComponent() {
             visibilityAccessor={elemVisibility}
           >
             <p>
-              Since then, I've learned to make fast and beautiful web apps; efficient and scalable backends;
-              cute and silly robots; and learnt to embrace the fiddlyness of new things.
+              Since then, I've built fast and beautiful web apps; efficient and scalable backends;
+              cute and silly robots; and learned to embrace the lightness of being a (perpetual) beginner.
             </p>
           </UnfoldingText>
 
@@ -139,6 +138,7 @@ function NiceLink(props: {name: string; desiredElemVisibility: number; elemVisib
   const handleClick = () => {
     if (toggled()) return;
     props.setElemVisibility(props.desiredElemVisibility);
+    if (props.name == "programmer") toggleTheme();
   }
 
   createEffect(() => {
@@ -147,7 +147,7 @@ function NiceLink(props: {name: string; desiredElemVisibility: number; elemVisib
 
   return (
     <a href="#" onClick={handleClick} class={`
-      ${!toggled() && "underline"} decoration-2
+      ${toggled() ? "pointer-events-none" : "underline"} decoration-2
       underline-offset-2 decoration-[#00e100]
     `}
     >
@@ -170,4 +170,12 @@ function UnfoldingText(props: {visibilityAccessor: Accessor<number>; desiredElem
       {props.children}
     </div>
   );
+}
+
+function toggleTheme() {
+  const element = document.documentElement;
+  element.classList.toggle("dark");
+
+  const isDark = element.classList.contains("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 }

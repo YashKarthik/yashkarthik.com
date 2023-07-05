@@ -79,7 +79,8 @@ const { title, image_url, description, showBars } = Astro.props;
     text-zinc-700 dark:text-stone-200 selection:text-black
     selection:bg-[#00e100]/70 dark:selection:bg-[#00e100]/90 
     scroll-smooth
-    ${showBars == false ? "dark:bg-neutral-950": "dark:bg-neutral-900"}
+    font-normal dark:font-thin
+    ${showBars == false ? "dark:bg-zinc-950": "dark:bg-zinc-900"}
   `}>
     <nav class={`flex flex-row justify-between m-3 ${showBars == false && "hidden"}`}>
       <a href="/" class="flex flex-row group ml-2 text-3xl font-black font-logo text-black dark:text-white">
@@ -105,11 +106,11 @@ const { title, image_url, description, showBars } = Astro.props;
 
           <li>
             <button id="rss-copy-button" class="
-            underline underline-offset-4 decoration-2 decoration-dotted
-            decoration-zinc-400 dark:decoration-zinc-500
-            hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              underline underline-offset-4 decoration-2 decoration-dotted
+              decoration-zinc-400 dark:decoration-zinc-500
+              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
             ">
-             RSS
+              RSS
             </button>
           </li>
 
