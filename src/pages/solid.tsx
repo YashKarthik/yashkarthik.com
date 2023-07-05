@@ -14,8 +14,9 @@ export default function SolidComponent() {
         transition-opacity duration-300 ease-in-out
       ">
 
+        {/* Hello section */}
         <div class="flex flex-row gap-2">
-          <NiceLink
+          <ExpandTextLink
             name="Hello"
             desiredElemVisibility={1}
             elemVisibility={elemVisibility}
@@ -32,9 +33,11 @@ export default function SolidComponent() {
 
         <br/>
 
+        {/* Intro section */}
+
         <div class="flex flex-row gap-2">
           <p>I'm</p>
-          <NiceLink
+          <ExpandTextLink
             name={`Yash Karthik${elemVisibility() >= 2 ? "," : "."}`}
             desiredElemVisibility={2}
             elemVisibility={elemVisibility}
@@ -46,14 +49,14 @@ export default function SolidComponent() {
           >
             <p>
               a{" "}
-              <NiceLink
+              <ExpandTextLink
                 name="programmer"
                 desiredElemVisibility={3}
                 elemVisibility={elemVisibility}
                 setElemVisibility={setElemVisibility}
               />
               {" "}and{" "}
-              <NiceLink
+              <ExpandTextLink
                 name="writer"
                 desiredElemVisibility={4}
                 elemVisibility={elemVisibility}
@@ -65,6 +68,7 @@ export default function SolidComponent() {
 
         <br/>
 
+        {/* Coding section */}
         <div class="flex flex-col gap-2">
           <UnfoldingText
             desiredElemVisibility={3}
@@ -72,7 +76,7 @@ export default function SolidComponent() {
           >
             <div class="flex flex-row gap-1">
               <p>Five years ago I awoke in a strange new world: I learned to</p>
-              <NiceLink
+              <ExpandTextLink
                 name="code."
                 desiredElemVisibility={3.1}
                 elemVisibility={elemVisibility}
@@ -89,7 +93,7 @@ export default function SolidComponent() {
             <p>
               My friend and I were tasked with cleaning-up the robotics lab after a late night session.
               Rather than spending hours sorting the parts manually, we{" "}
-              <NiceLink
+              <ExpandTextLink
                 name="built"
                 desiredElemVisibility={3.2}
                 elemVisibility={elemVisibility}
@@ -106,7 +110,7 @@ export default function SolidComponent() {
             <p>
               I knew how transformative technology is. It had been all around us.
               But actually leveraging it myself to automate a mundane task was when I truly <i>grokked</i> the power of{" "}
-              <NiceLink
+              <ExpandTextLink
                 name="technology"
                 desiredElemVisibility={3.3}
                 elemVisibility={elemVisibility}
@@ -121,24 +125,52 @@ export default function SolidComponent() {
           >
             <p>
               Since then, I've built fast and beautiful web apps; efficient and scalable backends;
-              cute and silly robots; and learned to embrace the lightness of being a (perpetual) beginner.
+              cute and silly robots; and learned to embrace the lightness of being a <i>perpetual beginner</i>.
             </p>
           </UnfoldingText>
 
         </div>
+
+        <br/>
+
+        {/* Writing section */}
+        <div class="flex flex-col gap-2">
+          <UnfoldingText
+            desiredElemVisibility={4}
+            visibilityAccessor={elemVisibility}
+          >
+            <p class="w-max">
+              Many things capture my interest. I write about them <a href="/archive" class="underline decoration-2 underline-offset-2 decoration-[#00e100]">here</a>.
+            </p>
+
+          </UnfoldingText>
+
+          {/* Meta section */}
+          <UnfoldingText
+            desiredElemVisibility={4}
+            visibilityAccessor={elemVisibility}
+          >
+            <div class="flex flex-row gap-2 mt-5">
+              <p> I can be found as </p>
+              <a href="/about#contact" class="underline decoration-2 underline-offset-2 decoration-[#00e100]">@yashkarthik</a>
+              <p> {' '}(and its variations) on the interwebs. </p>
+            </div>
+          </UnfoldingText>
+        </div>
+
 
       </div>
     </div>
   );
 }
 
-function NiceLink(props: {name: string; desiredElemVisibility: number; elemVisibility: Accessor<number>; setElemVisibility:Setter<number>}) {
+function ExpandTextLink(props: {name: string; desiredElemVisibility: number; elemVisibility: Accessor<number>; setElemVisibility:Setter<number>}) {
 
   const [toggled, setToggle] = createSignal(false);
   const handleClick = () => {
     if (toggled()) return;
     props.setElemVisibility(props.desiredElemVisibility);
-    if (props.name == "programmer") toggleTheme();
+    if (props.name == "programmer" || props.name == "writer") toggleTheme();
   }
 
   createEffect(() => {
@@ -163,8 +195,8 @@ function UnfoldingText(props: {visibilityAccessor: Accessor<number>; desiredElem
   });
   return (
     <div class={`
-      ${!visible() ? "opacity-0" : "none"}
-      transition-opacity duration-200 ease-in-out
+      ${!visible() ? "collapse opacity-0" : "visible opacity-100"}
+      transition-all duration-200 ease-in-out
       flex gap-1
     `}>
       {props.children}
@@ -175,7 +207,4 @@ function UnfoldingText(props: {visibilityAccessor: Accessor<number>; desiredElem
 function toggleTheme() {
   const element = document.documentElement;
   element.classList.toggle("dark");
-
-  const isDark = element.classList.contains("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
 }
