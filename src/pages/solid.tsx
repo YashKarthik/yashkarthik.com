@@ -8,7 +8,7 @@ export default function SolidComponent() {
   });
 
   return (
-    <div class="flex flex-col gap-0 max-w-[80ch]">
+    <div class="flex flex-col justify-between gap-0 max-w-[80ch]">
       <div class="
         md:ml-8 ml-5 mr-3 mb-10
         transition-opacity duration-300 ease-in-out
@@ -144,23 +144,28 @@ export default function SolidComponent() {
             visibilityAccessor={elemVisibility}
           >
             <p class="w-max">
-              Many things capture my interest. I write about them <a href="/archive" class="underline decoration-2 underline-offset-2 decoration-[#00e100]">here</a>.
+              From nerdy tech-talks about the latest JS framework
+              to investigating the linguistic roots of Harry Potter
+              spells, many things{' '}
+              <ExpandTextLink
+                name="capture"
+                desiredElemVisibility={4.1}
+                elemVisibility={elemVisibility}
+                setElemVisibility={setElemVisibility}
+              />{' '}my interest.
             </p>
-
           </UnfoldingText>
 
-          {/* Meta section */}
           <UnfoldingText
-            desiredElemVisibility={4}
+            desiredElemVisibility={4.1}
             visibilityAccessor={elemVisibility}
           >
-            <div class="flex flex-row gap-2 mt-5">
-              <p> 
-                I can be found as{' '}
-                <a href="/about#contact" class="underline decoration-2 underline-offset-2 decoration-[#00e100]">@yashkarthik</a>
-                {' '}(and its variations) on the interwebs.
-              </p>
-            </div>
+            <p class="w-max">
+              Through suggestion I tried out writing and found it ideal
+              for experimenting and sketching out my ideas. Most of what
+              I write never leaves my computer, but things that I'm most
+              passionate about find their way into my occasional posts here.
+            </p>
           </UnfoldingText>
         </div>
 
