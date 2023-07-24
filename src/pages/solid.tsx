@@ -128,8 +128,43 @@ export default function SolidComponent() {
             visibilityAccessor={elemVisibility}
           >
             <p>
-              Since then, I've built fast and beautiful web apps; efficient and scalable backends;
-              cute and silly robots; and learned to embrace the lightness of being a <i>perpetual beginner</i>.
+              Since then, I've{" "}
+
+              <a href="/projects" target="_blank" class="
+                hover:p-1 pb-0
+                transition-all ease-in-out duration-100
+                underline decoration-2 decoration-[#00e100]
+                underline-offset-2 dark:hover:text-black hover:bg-[#b3e0b3] 
+              ">
+                built
+              </a>
+
+              {' '}fast and beautiful web apps; efficient and scalable backends;
+              cute and silly robots; and learned to embrace the lightness of being a{' '}
+              <i>
+                <ExpandTextLink
+                  name="perpetual beginner"
+                  desiredElemVisibility={5}
+                  elemVisibility={elemVisibility}
+                  setElemVisibility={setElemVisibility}
+                />
+              </i>.
+            </p>
+          </UnfoldingText>
+
+        </div>
+
+        <br/>
+
+        {/* Section about IRL */}
+        <div class="flex flex-col gap-2">
+          <UnfoldingText
+            desiredElemVisibility={5}
+            visibilityAccessor={elemVisibility}
+          >
+            <p class="w-max">
+              These days, I spend my time reading, learning C, and
+              visiting old friends before <span title="Univ. of Waterloo">university</span> begins.
             </p>
           </UnfoldingText>
 
@@ -145,8 +180,8 @@ export default function SolidComponent() {
           >
             <p class="w-max">
               From nerdy tech-talks about the latest JS framework
-              to investigating the linguistic roots of Harry Potter
-              spells, many things{' '}
+              to the entymology of Harry Potter spells,
+              many things{' '}
               <ExpandTextLink
                 name="capture"
                 desiredElemVisibility={4.1}
@@ -163,8 +198,8 @@ export default function SolidComponent() {
             <p class="w-max">
               Through suggestion I tried out writing and found it ideal
               for experimenting and sketching out my ideas. Most of what
-              I write never leaves my computer, but things that I'm most
-              passionate about find their way into my occasional posts here.
+              I write never leaves my computer, but things that I'm 
+              passionate about, find their way into my occasional posts here.
             </p>
           </UnfoldingText>
         </div>
@@ -189,8 +224,8 @@ function ExpandTextLink(props: {name: string; desiredElemVisibility: number; ele
 
   return (
     <a href="#" onClick={handleClick} class={`
-      ${toggled() ? "pointer-events-none" : "underline"} decoration-2
-      underline-offset-2 decoration-[#00e100]
+      ${toggled() ? "pointer-events-none" : "underline"}
+      decoration-2 underline-offset-2 decoration-[#00e100]
     `}
     >
       {props.name}
