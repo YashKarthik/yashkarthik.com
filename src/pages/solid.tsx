@@ -241,7 +241,7 @@ function UnfoldingText(props: {visibilityAccessor: Accessor<number>; desiredElem
   return (
     <div class={`
       ${!visible() ? "collapse opacity-0" : "visible opacity-100"}
-      transition-all duration-200 ease-in-out
+      transition-opacity duration-200 ease-in-out
       flex gap-1
     `}>
       {props.children}
