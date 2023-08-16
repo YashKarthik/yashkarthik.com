@@ -7,8 +7,13 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Curly",
+    description: "A minimal clone of cURL using Sockets. I've been learning C these past few weeks and what better way than to rewrite Unix utilities.",
+    github: "https://github.com/yashkarthik/curly",
+  },
+  {
     title: "Tiviem",
-    description: "(/ti:vi:em/) A rudimentary implementation of EVM in Typescript. Currently work-in-progress, I'm building this to learn how Ethereum works under the hood.",
+    description: "(/ti:vi:em/) A rudimentary implementation of the Ethereum Virtual Machine in Typescript. Implements all opcodes defined in Shanghai hardfork. I built this to learn about assembly and stack machines.",
     github: "https://github.com/yashkarthik/tiviem",
   },
   {
