@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { people } from "../people.ts";
+---
+
+<Layout title="People" description="Nerds at uwaterloo.">
+  <main class="
+    self-center font-serif
+    max-sm:w-10/12
+  ">
+    <header class="
+      items-start text-start 
+      mb-7
+    ">
+      <h1 class="
+        sm:text-4xl text-3xl 
+        font-serif-styled font-black
+        mt-10 mb-7
+      ">
+        People
+      </h1>
+
+      <p class="
+        mt-1
+        text-md italic
+        prose dark:prose-invert
+      ">
+        Nerds at UWaterloo.
+      </p>
+    </header>
+
+    <article class="">
+      {people.map(person => (
+        <article class="my-7">
+        <h2 class="text-xl font-serif-styled font-bold max-w-fit">{person.name}</h2>
+
+          <section class="flex flex-col gap-2 ml-5">
+
+            <div class="flex flex-row gap-1 mt-1">
+              <p class="font-bold">Uni:</p>
+              <p>{person.uni}</p>
+            </div>
+
+            <div class="flex flex-row gap-1">
+              <p class="font-bold">How I know them:</p>
+              <p class="flex-shrink">{person.howIKnowThem}</p>
+            </div>
+
+            <div class="flex flex-row gap-1">
+              <p class="font-bold">What do they do:</p>
+              <p class="flex-shrink">{person.whatDoTheyDo}</p>
+            </div>
+
+            <div class="flex flex-row gap-2 dark:text-zinc-400 ">
+              {person.links.map(link => (
+                <a href={link.url} target="_blank" class="
+                  text-sm italic
+                  underline underline-offset-2 decoration-2 decoration-dotted
+                  decoration-zinc-400 dark:decoration-zinc-500
+                  hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+                  ">
+                  {link.name}
+                </a>
+              ))}
+            </div>
+
+          </section>
+
+        </article>
+      ))}
+    </article>
+  </main>
+</Layout>
