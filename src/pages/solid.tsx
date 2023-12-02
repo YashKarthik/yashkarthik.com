@@ -186,7 +186,7 @@ export default function SolidComponent() {
                     people
                   </a>{' '}
                   to nerd out with (
-                  <a href="/contact" target="_blank" class="
+                  <a href="/links" target="_blank" class="
                     pb-0
                     underline decoration-2 decoration-[#00e100]
                     underline-offset-2 decoration-dotted
