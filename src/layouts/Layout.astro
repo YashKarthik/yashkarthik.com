@@ -90,7 +90,7 @@ const { title, image_url, description, showBars } = Astro.props;
         <ul class="flex flex-row gap-3 text-sm">
           {[
             ["Writing", "/archive"],
-            ["Builds", "/projects"],
+            ["Engineering", "/projects"],
           ].map(linkObj => (
             <li class="
               underline underline-offset-4 decoration-2 decoration-dotted
@@ -102,16 +102,6 @@ const { title, image_url, description, showBars } = Astro.props;
               </a>
             </li>
           ))}
-
-          <li>
-            <button id="rss-copy-button" class="
-              underline underline-offset-4 decoration-2 decoration-dotted
-              decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
-            ">
-              RSS
-            </button>
-          </li>
 
           <li class="font-serif">
             <button id="themeToggle" class="hover:fill-[#00e100] dark:hover:fill-[#00e100]">
@@ -145,6 +135,7 @@ const { title, image_url, description, showBars } = Astro.props;
           ["Github", "https://github.com/yashkarthik"],
           ["Farcaster", "https://warpcast.com/yashkarthik"],
           ["Writing", "/archive"],
+          ["Engineering", "/projects"],
         ].map((linkObj) => (
           <a href={linkObj[1]}
             target={linkObj[1].slice(0,4) == "http" ? "_blank" : "_self"}
@@ -155,10 +146,11 @@ const { title, image_url, description, showBars } = Astro.props;
           ">{linkObj[0]}</a>
           <p class="text-zinc-400 dark:text-zinc-500">//</p>
         ))}
+
         <button id="rss-copy-button" class="
-        underline underline-offset-2 decoration-2 decoration-dotted
-        decoration-zinc-400 dark:decoration-zinc-500
-        hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+          underline underline-offset-2 decoration-2 decoration-dotted
+          decoration-zinc-400 dark:decoration-zinc-500
+          hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
         ">
          RSS
         </button>
