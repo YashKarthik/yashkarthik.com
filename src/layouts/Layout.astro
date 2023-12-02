@@ -78,13 +78,13 @@ const { title, image_url, description, showBars } = Astro.props;
     flex flex-col min-h-[100vh] 
     text-zinc-700 dark:text-stone-200 selection:text-black
     selection:bg-[#00e100]/70 dark:selection:bg-[#00e100]/90 
-    scroll-smooth group
+    scroll-smooth
     font-normal dark:font-thin
     ${showBars == false ? "dark:bg-zinc-950": "dark:bg-zinc-900"}
   `}>
     <nav class={`flex flex-row justify-between m-3 ${showBars == false && "hidden"}`}>
       <a href="/" class="flex flex-row group ml-2 text-3xl font-black font-logo text-black dark:text-white">
-        yk <p class="group-hover:text-[#00e100]">.</p>
+        yk <p class="group-hover:text-[#00e100] transition-colors duration-200 ease-in-out">.</p>
       </a>
       <div class=" flex-none ">
         <ul class="flex flex-row gap-3 text-sm">
@@ -135,7 +135,6 @@ const { title, image_url, description, showBars } = Astro.props;
       flex flex-col text-center
       self-center justify-self-end
       lg:w-8/12 md:w-9/12 sm:w-10/12 w-11/12 max-w-none
-      opacity-0 group-focus-within:opacity-100 group-focus:opacity-100
       transition transition-opacity duration-200 ease-in-out
     `}>
       <section class="

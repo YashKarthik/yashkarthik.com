@@ -1,5 +1,6 @@
 import "solid-js";
-import { Accessor, JSXElement, Setter, createEffect, createSignal } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
+import type { Accessor, JSXElement, Setter } from "solid-js";
 
 export default function SolidComponent() {
   const [elemVisibility, setElemVisibility] = createSignal(0);
@@ -18,12 +19,12 @@ export default function SolidComponent() {
         <div class="flex flex-row gap-2">
           <p>
             <ExpandTextLink
-              name="Hello"
+              name="Hi"
               desiredElemVisibility={1}
               elemVisibility={elemVisibility}
               setElemVisibility={setElemVisibility}
             />{' '}
-            there.
+              there.
             <UnfoldingText
               desiredElemVisibility={1}
               visibilityAccessor={elemVisibility}
@@ -131,16 +132,15 @@ export default function SolidComponent() {
               Since then, I've{" "}
 
               <a href="/projects" target="_blank" class="
-                hover:p-1 pb-0
-                transition-all ease-in-out duration-100
+                pb-0
                 underline decoration-2 decoration-[#00e100]
-                underline-offset-2 dark:hover:text-black hover:bg-[#b3e0b3] 
+                underline-offset-2 decoration-dotted
               ">
                 built
               </a>
 
-              {' '}fast and beautiful web apps; efficient and scalable backends;
-              cute and silly robots; and learned to embrace the lightness of being a{' '}
+              {' '}fast and beautiful web apps; efficient and powerful robots;
+              slow and pointless(?) VMs; and learned to embrace the lightness of being a{' '}
               <i>
                 <ExpandTextLink
                   name="perpetual beginner"
@@ -162,10 +162,41 @@ export default function SolidComponent() {
             desiredElemVisibility={5}
             visibilityAccessor={elemVisibility}
           >
-            <p class="w-max">
-              These days, I spend my time reading, learning C, and
-              visiting old friends before <span title="Univ. of Waterloo">university</span> begins.
-            </p>
+            <div class="w-max">
+              <p> I'm currently... </p>
+              <ul class="ml-5 list-disc">
+                <li><s>crashing</s> Building drones.</li>
+                <li>Hacking on 3d renderers.</li>
+                <li>Studying computer engineering at{' '}
+                  <a href="/people" target="_blank" class="
+                    pb-0
+                    underline decoration-2 decoration-[#00e100]
+                    underline-offset-2 decoration-dotted
+                  ">
+                    Waterloo
+                  </a>.
+                </li>
+                <li>
+                  Trying to find more{' '}
+                  <a href="/people" target="_blank" class="
+                    pb-0
+                    underline decoration-2 decoration-[#00e100]
+                    underline-offset-2 decoration-dotted
+                  ">
+                    people
+                  </a>{' '}
+                  to nerd out with (
+                  <a href="/contact" target="_blank" class="
+                    pb-0
+                    underline decoration-2 decoration-[#00e100]
+                    underline-offset-2 decoration-dotted
+                  ">
+                    reach out
+                  </a>
+                  !!).
+                </li>
+              </ul>
+            </div>
           </UnfoldingText>
 
         </div>
@@ -180,7 +211,7 @@ export default function SolidComponent() {
           >
             <p class="w-max">
               From nerdy tech-talks about the latest JS framework
-              to the entymology of Harry Potter spells,
+              to the etymology of Harry Potter spells,
               many things{' '}
               <ExpandTextLink
                 name="capture"
@@ -196,10 +227,16 @@ export default function SolidComponent() {
             visibilityAccessor={elemVisibility}
           >
             <p class="w-max">
-              Through suggestion I tried out writing and found it ideal
-              for experimenting and sketching out my ideas. Most of what
-              I write never leaves my computer, but things that I'm 
-              passionate about, find their way into my occasional posts here.
+              I randomnly tried out writing and realized it's great for sketching out ideas.
+              Most of what I write never leaves my computer, but things that I'm 
+              passionate about, find their way into my occasional{' '}
+              <a href="/people" target="_blank" class="
+                pb-0
+                underline decoration-2 decoration-[#00e100]
+                underline-offset-2 decoration-dotted
+              ">
+                posts
+              </a>{' '}here.
             </p>
           </UnfoldingText>
         </div>
