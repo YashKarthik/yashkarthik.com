@@ -14,8 +14,9 @@ export interface Props {
   image_url?: string;
   description?: string;
   showBars?: boolean;
+  route: string;
 }
-const { title, image_url, description, showBars } = Astro.props;
+const { title, image_url, description, showBars, route } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -90,16 +91,18 @@ const { title, image_url, description, showBars } = Astro.props;
         <ul class="flex flex-row gap-3 text-sm">
           {[
             ["Writing", "/archive"],
-            ["Engineering", "/projects"],
+            ["Projects", "/projects"],
+            ["Twitter", "https://twitter.com/_yashkarthik"],
           ].map(linkObj => (
             <li class="
               underline underline-offset-4 decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
               hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
             ">
-              <a href={linkObj[1]}>
+              <a href={linkObj[1]} target={linkObj[1].slice(0,4) == "http" ? "_blank" : "_self"}>
                 {linkObj[0]}
               </a>
+
             </li>
           ))}
 
@@ -118,55 +121,6 @@ const { title, image_url, description, showBars } = Astro.props;
     </nav>
 
     <slot />
-
-    <footer class={`
-      text-xs mt-14 mb-1
-      flex flex-col text-center
-      self-center justify-self-end
-      lg:w-8/12 md:w-9/12 sm:w-10/12 w-11/12 max-w-none
-      transition transition-opacity duration-200 ease-in-out
-    `}>
-      <section class="
-        flex flex-row justify-center gap-2
-        text-sm mb-5
-      ">
-        {[
-          ["Twitter", "https://twitter.com/_yashkarthik"],
-          ["Github", "https://github.com/yashkarthik"],
-          ["Farcaster", "https://warpcast.com/yashkarthik"],
-          ["Writing", "/archive"],
-          ["Engineering", "/projects"],
-        ].map((linkObj) => (
-          <a href={linkObj[1]}
-            target={linkObj[1].slice(0,4) == "http" ? "_blank" : "_self"}
-            class="
-            underline underline-offset-2 decoration-2 decoration-dotted
-            decoration-zinc-400 dark:decoration-zinc-500
-            hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
-          ">{linkObj[0]}</a>
-          <p class="text-zinc-400 dark:text-zinc-500">//</p>
-        ))}
-
-        <button id="rss-copy-button" class="
-          underline underline-offset-2 decoration-2 decoration-dotted
-          decoration-zinc-400 dark:decoration-zinc-500
-          hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
-        ">
-         RSS
-        </button>
-      </section>
-
-      <p>
-        All text licensed under
-        <a href="/copyright" class="
-        underline underline-offset-2 decoration-2 decoration-dotted
-        decoration-zinc-400 dark:decoration-zinc-500
-        hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
-        ">
-          CC BY 4.0
-        </a>
-      </p>
-    </footer>
 
   </body>
 </html>

@@ -168,7 +168,7 @@ export default function SolidComponent() {
                 <li><s>crashing</s> Building drones.</li>
                 <li>Hacking on 3d renderers.</li>
                 <li>Studying computer engineering at{' '}
-                  <a href="/people" target="_blank" class="
+                  <a href="https://uw-ece.github.io/webring/" target="_blank" class="
                     pb-0
                     underline decoration-2 decoration-[#00e100]
                     underline-offset-2 decoration-dotted
