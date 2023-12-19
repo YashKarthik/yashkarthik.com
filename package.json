@@ -11,11 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.5",
-    "@astrojs/rss": "^3.0.0",
+    "@astrojs/mdx": "^2.0.1",
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/solid-js": "^3.0.2",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/tailwind": "^5.0.3",
     "@fontsource/aleo": "^4.5.9",
     "@fontsource/anton": "^4.5.9",
     "@fontsource/cormorant": "^4.5.10",
@@ -28,7 +28,7 @@
     "@fontsource/spline-sans-mono": "^4.5.1",
     "@fontsource/teko": "^4.5.9",
     "@types/d3": "^7.4.0",
-    "astro": "^3.6.4",
+    "astro": "^4.0.6",
     "autoprefixer": "^10.4.7",
     "micromark": "^3.1.0",
     "micromark-extension-gfm": "^2.0.1",

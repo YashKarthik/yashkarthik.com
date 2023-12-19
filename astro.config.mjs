@@ -1,18 +1,19 @@
 import { defineConfig } from 'astro/config';
 
-import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
 import mdx from "@astrojs/mdx";
-
-// https://astro.build/config
 import sitemap from "@astrojs/sitemap";
-
-// https://astro.build/config
 import solidJs from "@astrojs/solid-js";
+import tailwind from "@astrojs/tailwind";
+import monochromeDark from "./themes/monochrome-dark.json";
+import monochromeLight from "./themes/monochrome-light.json";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://www.yashkarthik.xyz",
-  integrations: [tailwind(), mdx(), sitemap(), solidJs()]
+  integrations: [tailwind(), mdx(), sitemap(), solidJs()],
+  markdown: {
+    shikiConfig: {
+      theme: monochromeDark,
+      wrap: true,
+    },
+  },
 });
