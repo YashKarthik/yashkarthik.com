@@ -11,7 +11,7 @@ module.exports = {
       'sans': ['Geist', ...defaultTheme.fontFamily.sans],
       'mono': ['Geist Mono', ...defaultTheme.fontFamily.mono],
       'logo': ['Source Serif Pro', 'Gilda Display', 'Cormorant Infant', ...defaultTheme.fontFamily.serif],
-    }
+    },
 	},
 	plugins: [require('@tailwindcss/typography')],
   darkMode: 'class'
