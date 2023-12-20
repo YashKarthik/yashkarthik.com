@@ -2,6 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import type { CollectionEntry } from 'astro:content';
 
+import { colors } from "../colors.ts";
+const colorVariant = [
+  //"red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(4)) ]
+
 type Props = {
   frontmatter: CollectionEntry<"blog">["data"];
   githubSlug: string;
@@ -19,29 +28,26 @@ const {
 } = Astro.props;
 ---
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter} route="/archive" colorVariant={colorVariant}>
 
   <header class="
-  font-serif
-  self-center
-  lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
-  md:grid md:grid-cols-7
-  max-sm:flex max-sm:flex-col
-  border-b border-dotted border-zinc-400 dark:border-zinc-500
-  mt-7 pb-2 
+    font-serif
+    self-center
+    lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
+    max-sm:flex max-sm:flex-col
+    border-b border-dotted border-zinc-400 dark:border-zinc-500
+    mt-7 pb-2 
   ">
     <div class={`
       flex flex-col gap-1
       items-start md:items-end
       text-start md:text-end
       pr-5 pb-5
-      md:border-r max-sm:border-b border-dotted
-      border-zinc-400 dark:border-zinc-500
       ${frontmatter.title.length > 25 ? 'col-span-4' : 'col-span-3'}
     `}>
       <h1 class="
-      md:text-7xl text-5xl
-      font-heading tracking-tight
+        md:text-7xl text-5xl
+        font-heading tracking-tight
       ">
         {frontmatter.title}
       </h1>
@@ -51,47 +57,12 @@ const {
         flex flex-row
         gap-1 items-start md:items-end
       ">
-        <p class="first-letter:uppercase">
-          {frontmatter.completionLevel} note
-          • {frontmatter.published} • 
-        {frontmatter.updated &&
-          <a target="_blank"
-            href={"https://github.com/YashKarthik/yashkarthik.xyz/tree/redesign/src/content/blog/" + githubSlug}
-            class="
-            hover:underline underline-offset-2 decoration-2 decoration-dotted
-            hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
-            text-sm text-zinc-500 dark:text-zinc-400
-          ">
-            {frontmatter.updated}
-          </a>
-        }
-        {/* add link to commit history of file here. */}
+        <p class="first-letter:uppercase font-sans">
+          {frontmatter.published}
         </p>
       </div>
-
-      <div class="text-sm flex flex-row gap-1 items-end">
-        {frontmatter.topics.map((topic, index) => {
-          const end = index + 1 == frontmatter.topics.length ? "" : ",";
-          return <a href={"/archive#" + topic} class="
-            underline underline-offset-2 decoration-2 decoration-dotted
-            decoration-zinc-400 dark:decoration-zinc-500
-            hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
-            text-sm text-zinc-500 dark:text-zinc-400
-          ">
-            {topic[0].toUpperCase() + topic.slice(1,) + end}
-          </a>
-        })}
-      </div>
     </div>
 
-    <div class={`
-      text-zinc-500 dark:text-zinc-400 italic
-      md:pl-5 mt-2 text-start
-      col-end-8
-      ${frontmatter.title.length > 25 ? 'col-start-5' : 'col-start-4'}
-    `}>
-      {frontmatter.description}
-    </div>
   </header>
 
   <main class="
@@ -99,12 +70,12 @@ const {
     prose md:prose-p:prose-lg
     prose-zinc dark:prose-invert 
     font-serif self-center
-    prose-headings:font-serif-styled
+    prose-headings:font-heading
     prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
     dark:prose-p:text-zinc-300
     dark:prose-a:text-zinc-300
-    underline-offset-2 prose-a:decoration-2 
-    prose-a:decoration-[#00e100] dark:prose-a:decoration-[#00e100]/70
+    underline-offset-2 prose-a:decoration-2 prose-a:decoration-dotted
+    prose-a:decoration-zinc-400 dark:prose-a:decoration-zinc-500
     prose-blockquote:text-zinc-600 prose-blockquote:dark:text-stone-400
   ">
     <slot />
@@ -117,7 +88,7 @@ const {
         <p class="italic self-start">←
           <a href={prevSlug} class="
             underline decoration-solid decoration-2 underline-offset-2
-            decoration-[#00e100] dark:decoration-[#00e100]
+            decoration-zinc-400 dark:decoration-zinc-500
           ">
             {prevTitle}
           </a>
@@ -128,7 +99,7 @@ const {
         <p class="italic self-end text-end">
           <a href={nextSlug} class="
           underline decoration-solid decoration-2 underline-offset-2
-          decoration-[#00e100] dark:decoration-[#00e100]
+          decoration-zinc-400 dark:decoration-zinc-500
           ">
             {nextTitle}
           </a>
@@ -138,6 +109,6 @@ const {
     </div>
 
     <p class="self-start font-serif">Have a comment or response? <a href="/links"
-    class="underline decoration-solid decoration-2 decoration-[#00e100] dark:decoration-[#00e100] underline-offset-2">Email me</a>.</p>
+    class="underline decoration-solid decoration-2 decoration-zinc-400 dark:decoration-zinc-500 hover:decoration-zinc-400 hover:dark:decoration-zinc-500 decoration-dotted underline-offset-2">Email me</a>.</p>
   </div>
 </Layout>

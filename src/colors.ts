@@ -5,12 +5,12 @@ export const colorVariants = {
     decorationColor: "decoration-[#00e100]",
     groupHoverText: "group-hover:text-[#00e100]",
   },
-  red: {
-    selection: "selection:bg-[#FF0000] dark:selection:bg-[#FF0000] selection:text-white",
-    hoverDecoration: "hover:decoration-[#FF0000] dark:hover:decoration-[#FF0000]",
-    decorationColor: "decoration-[#FF0000]",
-    groupHoverText: "group-hover:text-[#FF0000]",
-  },
+  //red: {
+  //  selection: "selection:bg-[#FF0000] dark:selection:bg-[#FF0000] selection:text-white",
+  //  hoverDecoration: "hover:decoration-[#FF0000] dark:hover:decoration-[#FF0000]",
+  //  decorationColor: "decoration-[#FF0000]",
+  //  groupHoverText: "group-hover:text-[#FF0000]",
+  //},
   blue: {
     selection: "selection:bg-[#0827F5] dark:selection:bg-[#0827F5] selection:text-white",
     hoverDecoration: "hover:decoration-[#0827F5] dark:hover:decoration-[#0827F5]",

@@ -3,12 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import { people } from "../people.ts";
 import { colorVariants } from "../colors.ts"
 const colorVariant = [
-  "red",
   "blue",
   "green",
   "orange",
   "yellow",
-][ Math.floor(Math.random()*(5)) ]
+][ Math.floor(Math.random()*(4)) ]
 ---
 
 <Layout title="People" description="Nerds at uwaterloo." route="/links" colorVariant={colorVariant}>

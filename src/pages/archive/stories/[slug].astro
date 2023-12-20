@@ -6,6 +6,14 @@ import Divider from "../../../components/Divider.astro";
 import Image from '../../../components/Image.astro';
 import Link from '../../../components/Link.astro'
 
+const colorVariant = [
+  //"red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(4)) ]
+
 export async function getStaticPaths() {
   const stories = await getCollection('stories');
   stories.sort((a, b) => (
@@ -46,6 +54,8 @@ const { Content } = await story.render();
 <Layout
   title={story.data.title}
   description="A short story by Yash Karthik."
+  route="/archive/stories"
+  colorVariant={colorVariant}
 >
   <div class={`
     font-mono

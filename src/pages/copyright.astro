@@ -1,8 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const colorVariant = [
+  //"red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(4)) ]
 ---
 
-<Layout title="Copyright" description="Explaining the copyright(left) of my blog.">
+<Layout title="Copyright" description="Explaining the copyright(left) of my blog." route="/links" colorVariant={colorVariant}>
   <main class="
     self-center
     font-serif
@@ -17,16 +24,17 @@ import Layout from '../layouts/Layout.astro';
       font-serif self-center my-5 
       prose-headings:font-serif-styled
       prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
-      dark:prose-a:text-zinc-300
-      underline-offset-2 prose-a:decoration-2 
-      prose-a:decoration-[#00e100] dark:prose-a:decoration-[#00e100] 
     ">
       <p class="my-3">
         All the words on this site are licensed under
         <a
           href="https://creativecommons.org/licenses/by/4.0/"
-          class="underline decoration-solid decoration-2 decoration-[#00e100] dark:decoration-[#00e100] underline-offset-2"
-        >
+          class="
+            underline decoration-dotted decoration-2
+            decoration-zince-400 dark:decoration-zinc-500
+            hover:decoration-zinc-500 dark:hover:decoration-zinc-400
+            underline-offset-2
+          ">
           Creative Commons Attribution 4.0 International Public License.
         </a>
       </p>
@@ -40,9 +48,13 @@ import Layout from '../layouts/Layout.astro';
         other sites, and God only knows what licenses I've broken by copying them here. I try to
         cite sources whenever I can. If I have misused any of your content, please get in
         <a 
-          href="/"
-          class="underline decoration-solid decoration-2 decoration-[#00e100] dark:decoration-[#00e100] underline-offset-2"
-        > touch </a> and I'll try to rectify it ASAP.
+          href="/links"
+          class="
+            underline decoration-dotted decoration-2
+            decoration-zince-400 dark:decoration-zinc-500
+            hover:decoration-zinc-500 dark:hover:decoration-zinc-400
+            underline-offset-2
+          "> touch </a> and I'll try to rectify it ASAP.
       </p>
     </article>
   </main>

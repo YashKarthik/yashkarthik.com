@@ -4,7 +4,7 @@ import type { Accessor, JSXElement, Setter } from "solid-js";
 
 import { colorVariants } from "../colors.ts"
 
-export default function SolidComponent({ colorVariant }: { colorVariant: "green" | "red" | "blue" | "orange" | "yellow" }) {
+export default function SolidComponent({ colorVariant }: { colorVariant: "green" | "blue" | "orange" | "yellow" }) {
   const [elemVisibility, setElemVisibility] = createSignal(0);
   createEffect(() => {
     console.log(elemVisibility())
@@ -257,11 +257,9 @@ function ExpandTextLink(props: {name: string; desiredElemVisibility: number; ele
   return (
     <a href="#" onClick={handleClick} class={`
       ${toggled() ? "pointer-events-none" : "underline"}
-      ${props.decorationColor}
-      underline decoration-2 decoration-dotted
-      decoration-zinc-400 dark:decoration-zinc-500
-      hover:decoration-zinc-500 dark:hover:decoration-zinc-400
+      decoration-2
       underline-offset-2
+      ${props.decorationColor}
     `}
     >
       {props.name}
