@@ -6,6 +6,15 @@ import Divider from "../../../components/Divider.astro";
 import Image from '../../../components/Image.astro';
 import Link from '../../../components/Link.astro'
 
+const colorVariant = [
+  //"red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(4)) ]
+console.log(colorVariant);
+
 export async function getStaticPaths() {
   const posts = await getCollection('weekly');
   posts.sort((a, b) => (
@@ -35,6 +44,8 @@ const { Content } = await post.render();
 <Layout 
   title={post.data.title}
   description="Weekly log by Yash Karthik"
+  route="/archive/weekly"
+  colorVariant={colorVariant}
 >
   <div class={`
     font-serif
