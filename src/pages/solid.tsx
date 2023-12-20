@@ -2,7 +2,9 @@ import "solid-js";
 import { createEffect, createSignal } from "solid-js";
 import type { Accessor, JSXElement, Setter } from "solid-js";
 
-export default function SolidComponent() {
+import { colorVariants } from "../colors.ts"
+
+export default function SolidComponent({ colorVariant }: { colorVariant: "green" | "red" | "blue" | "orange" | "yellow" }) {
   const [elemVisibility, setElemVisibility] = createSignal(0);
   createEffect(() => {
     console.log(elemVisibility())
@@ -17,21 +19,7 @@ export default function SolidComponent() {
 
         {/* Hello section */}
         <div class="flex flex-row gap-2">
-          <p>
-            <ExpandTextLink
-              name="Hi"
-              desiredElemVisibility={1}
-              elemVisibility={elemVisibility}
-              setElemVisibility={setElemVisibility}
-            />{' '}
-              there.
-            <UnfoldingText
-              desiredElemVisibility={1}
-              visibilityAccessor={elemVisibility}
-            >
-              <p>It's nice to finally meet you.</p>
-            </UnfoldingText>
-          </p>
+          <p>Hi there. It's nice to finally meet you.</p>
         </div>
 
         <br/>
@@ -45,6 +33,7 @@ export default function SolidComponent() {
             desiredElemVisibility={2}
             elemVisibility={elemVisibility}
             setElemVisibility={setElemVisibility}
+            decorationColor={colorVariants[colorVariant].decorationColor}
           />
           <UnfoldingText
             desiredElemVisibility={2}
@@ -57,6 +46,7 @@ export default function SolidComponent() {
                 desiredElemVisibility={3}
                 elemVisibility={elemVisibility}
                 setElemVisibility={setElemVisibility}
+              decorationColor={colorVariants[colorVariant].decorationColor}
               />
               {" "}and{" "}
               <ExpandTextLink
@@ -64,6 +54,7 @@ export default function SolidComponent() {
                 desiredElemVisibility={4}
                 elemVisibility={elemVisibility}
                 setElemVisibility={setElemVisibility}
+                decorationColor={colorVariants[colorVariant].decorationColor}
               />{"."}
             </p>
           </UnfoldingText>
@@ -85,6 +76,7 @@ export default function SolidComponent() {
                   desiredElemVisibility={3.1}
                   elemVisibility={elemVisibility}
                   setElemVisibility={setElemVisibility}
+                  decorationColor={colorVariants[colorVariant].decorationColor}
                 />
               </p>
             </div>
@@ -103,6 +95,7 @@ export default function SolidComponent() {
                 desiredElemVisibility={3.2}
                 elemVisibility={elemVisibility}
                 setElemVisibility={setElemVisibility}
+                decorationColor={colorVariants[colorVariant].decorationColor}
               />
               {" "} a robot to do it for us (finishing the task in a few days instead of hours xD).
             </p>
@@ -120,6 +113,7 @@ export default function SolidComponent() {
                 desiredElemVisibility={3.3}
                 elemVisibility={elemVisibility}
                 setElemVisibility={setElemVisibility}
+                decorationColor={colorVariants[colorVariant].decorationColor}
               />.
             </p>
           </UnfoldingText>
@@ -131,11 +125,11 @@ export default function SolidComponent() {
             <p>
               Since then, I've{" "}
 
-              <a href="/projects" target="_blank" class="
+              <a href="/projects" target="_blank" class={`
                 pb-0
-                underline decoration-2 decoration-[#00e100]
+                underline decoration-2 ${colorVariants[colorVariant].decorationColor}
                 underline-offset-2 decoration-dotted
-              ">
+              `}>
                 built
               </a>
 
@@ -147,6 +141,7 @@ export default function SolidComponent() {
                   desiredElemVisibility={5}
                   elemVisibility={elemVisibility}
                   setElemVisibility={setElemVisibility}
+                  decorationColor={colorVariants[colorVariant].decorationColor}
                 />
               </i>.
             </p>
@@ -168,29 +163,28 @@ export default function SolidComponent() {
                 <li><s>crashing</s> Building drones.</li>
                 <li>Hacking on 3d renderers.</li>
                 <li>Studying computer engineering at{' '}
-                  <a href="https://uw-ece.github.io/webring/" target="_blank" class="
+                  <a href="https://uw-ece.github.io/webring/" target="_blank" class={`
                     pb-0
-                    underline decoration-2 decoration-[#00e100]
-                    underline-offset-2 decoration-dotted
-                  ">
+                    underline decoration-2 ${colorVariants[colorVariant].decorationColor}
+                    underline-offset-2 decoration-dotted`}>
                     Waterloo
                   </a>.
                 </li>
                 <li>
                   Trying to find more{' '}
-                  <a href="/people" target="_blank" class="
+                  <a href="/people" target="_blank" class={`
                     pb-0
-                    underline decoration-2 decoration-[#00e100]
+                    underline decoration-2 ${colorVariants[colorVariant].decorationColor}
                     underline-offset-2 decoration-dotted
-                  ">
+                  `}>
                     people
                   </a>{' '}
                   to nerd out with (
-                  <a href="/links" target="_blank" class="
+                  <a href="/links" target="_blank" class={`
                     pb-0
-                    underline decoration-2 decoration-[#00e100]
+                    underline decoration-2 ${colorVariants[colorVariant].decorationColor}
                     underline-offset-2 decoration-dotted
-                  ">
+                  `}>
                     reach out
                   </a>
                   !!).
@@ -218,6 +212,7 @@ export default function SolidComponent() {
                 desiredElemVisibility={4.1}
                 elemVisibility={elemVisibility}
                 setElemVisibility={setElemVisibility}
+                decorationColor={colorVariants[colorVariant].decorationColor}
               />{' '}my interest.
             </p>
           </UnfoldingText>
@@ -230,11 +225,11 @@ export default function SolidComponent() {
               I randomnly tried out writing and realized it's great for sketching out ideas.
               Most of what I write never leaves my computer, but things that I'm 
               passionate about, find their way into my occasional{' '}
-              <a href="/people" target="_blank" class="
+              <a href="/people" target="_blank" class={`
                 pb-0
-                underline decoration-2 decoration-[#00e100]
+                underline decoration-2 ${colorVariants[colorVariant].decorationColor}
                 underline-offset-2 decoration-dotted
-              ">
+              `}>
                 posts
               </a>{' '}here.
             </p>
@@ -246,7 +241,7 @@ export default function SolidComponent() {
   );
 }
 
-function ExpandTextLink(props: {name: string; desiredElemVisibility: number; elemVisibility: Accessor<number>; setElemVisibility:Setter<number>}) {
+function ExpandTextLink(props: {name: string; desiredElemVisibility: number; elemVisibility: Accessor<number>; setElemVisibility:Setter<number>, decorationColor: string}) {
 
   const [toggled, setToggle] = createSignal(false);
   const handleClick = () => {
@@ -262,7 +257,11 @@ function ExpandTextLink(props: {name: string; desiredElemVisibility: number; ele
   return (
     <a href="#" onClick={handleClick} class={`
       ${toggled() ? "pointer-events-none" : "underline"}
-      decoration-2 underline-offset-2 decoration-[#00e100]
+      ${props.decorationColor}
+      underline decoration-2 decoration-dotted
+      decoration-zinc-400 dark:decoration-zinc-500
+      hover:decoration-zinc-500 dark:hover:decoration-zinc-400
+      underline-offset-2
     `}
     >
       {props.name}

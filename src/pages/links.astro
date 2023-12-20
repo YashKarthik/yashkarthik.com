@@ -1,8 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import { colorVariants } from "../colors.ts"
+const colorVariant = [
+  "red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(5)) ]
+console.log(colorVariant);
 ---
 
-<Layout title="Interwebs" description="Where to find Yash on the internet." route="/links">
+<Layout title="Interwebs" description="Where to find Yash on the internet." route="/links" colorVariant={colorVariant}>
   <main class="self-center font-serif">
       <h1 class="text-xl mt-10 mb-7 font-bold font-serif-styled">Find me on the interwebs:</h1>
       <ul class="pl-7 list-disc marker:text-zinc-300 dark:marker:text-zinc-700 flex flex-col gap-2">
@@ -12,15 +22,15 @@ import Layout from "../layouts/Layout.astro";
           <a 
             href="https://github.com/yashkarthik"
             target="_blank"
-            class="
+            class={`
               pl-1
               font-mono font-light text-sm
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
               underline-offset-2
-          ">
-            yashkarthik
+            `}>
+              yashkarthik
           </a>
         </li>
 
@@ -29,15 +39,15 @@ import Layout from "../layouts/Layout.astro";
           <a
             href="https://twitter.com/_yashKarthik"
             target="_blank"
-            class="
+            class={`
               pl-1
               font-mono font-light text-sm
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
               underline-offset-2
-          ">
-            _yashkarthik
+            `}>
+              _yashkarthik
           </a>
         </li>
 
@@ -46,15 +56,15 @@ import Layout from "../layouts/Layout.astro";
           <a 
             href="https://www.discove.xyz/@yashkarthik?q=%28from%3Ayashkarthik%29&username=yashkarthik"
             target="_blank"
-            class="
+            class={`
               pl-1
               font-mono font-light text-sm
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
               underline-offset-2
-          ">
-            yashkarthik
+            `}>
+              yashkarthik
           </a>
         </li>
 
@@ -73,15 +83,15 @@ import Layout from "../layouts/Layout.astro";
           <a 
             href="https://nf.td/yashkarthik"
             target="_blank"
-            class="
+            class={`
               pl-1
               font-mono font-light text-sm
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
               underline-offset-2
-          ">
-            yashkarthik
+            `}>
+              yashkarthik
           </a>
         </li>
 
@@ -90,15 +100,15 @@ import Layout from "../layouts/Layout.astro";
           <a 
             href="https://www.youtube.com/channel/UCokxkaw1HSQKNJPDtJHhDkg"
             target="_blank"
-            class="
+            class={`
               pl-1
               font-mono font-light text-sm
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
               underline-offset-2
-          ">
-            yashkarthik
+            `}>
+              yashkarthik
           </a>
         </li>
 
@@ -107,15 +117,15 @@ import Layout from "../layouts/Layout.astro";
           <a 
             href="https://buymeacoffee.com/yashkarthik"
             target="_blank"
-            class="
+            class={`
               pl-1
               font-mono font-light text-sm
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
               underline-offset-2
-          ">
-            yashkarthik
+            `}>
+              yashkarthik
           </a>
         </li>
 
@@ -124,15 +134,15 @@ import Layout from "../layouts/Layout.astro";
           <a 
             href="https://www.linkedin.com/in/yashkarthik"
             target="_blank"
-            class="
+            class={`
               pl-1
               font-mono font-light text-sm
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
               underline-offset-2
-          ">
-            Yash Karthik
+            `}>
+              Yash Karthik
           </a>
         </li>
 

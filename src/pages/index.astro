@@ -1,11 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SolidComponent from './solid';
+
+import { colorVariants } from "../colors.ts"
+const colorVariant = [
+  "red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(5)) ]
+console.log(colorVariant);
 ---
 
-<Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik." showBars={false} route="/">
+<Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik." showBars={false} route="/" colorVariant={colorVariant}>
   <main class="font-serif my-7 flex flex-col gap-0 flex-grow">
-    <SolidComponent client:load/>
+    <SolidComponent colorVariant={colorVariant} client:load/>
   </main>
 </Layout>
 

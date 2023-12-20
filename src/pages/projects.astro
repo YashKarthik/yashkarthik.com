@@ -1,9 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { projects } from "../projects";
+
+import { colorVariants } from "../colors.ts"
+const colorVariant = [
+  "red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(5)) ]
+console.log(colorVariant);
 ---
 
-<Layout title="Projects" description="Archive of recent projects by Yash Karthik">
+<Layout title="Projects" description="Archive of recent projects by Yash Karthik" route="/projects" colorVariant={colorVariant}>
   <main class="
     self-center font-serif
     max-sm:w-10/12

@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Not Found">
+<Layout title="Not Found" description="404 | Not Found" route="/404" colorVariant="red">
   <div class="self-center flex flex-col gap-7 my-[30vh]">
     <div class="flex flex-row gap-2">
       <p class="font-mono">404</p>
@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
       font-serif text-center
       underline underline-offset-2 decoration-2 decoration-dotted
       decoration-zinc-400 dark:decoration-zinc-500
-      hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+      hover:decoration-zinc-500 dark:hover:decoration-400
     ">← Home</a>
   </div>
 </Layout>

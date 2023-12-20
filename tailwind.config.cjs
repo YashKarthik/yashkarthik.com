@@ -8,8 +8,7 @@ module.exports = {
       'serif': ['Gilda Display', 'Cormorant', ...defaultTheme.fontFamily.serif],
       'serif-styled': ['CormorantVariable', ...defaultTheme.fontFamily.serif],
       'heading': ['Sofia Sans Extra Condensed', ...defaultTheme.fontFamily.sans],
-      'sans': ['Inter', ...defaultTheme.fontFamily.sans],
-      'inter': ['Inter', ...defaultTheme.fontFamily.sans],
+      'sans': ['Geist', ...defaultTheme.fontFamily.sans],
       'mono': ['Geist Mono', ...defaultTheme.fontFamily.mono],
       'logo': ['Source Serif Pro', 'Gilda Display', 'Cormorant Infant', ...defaultTheme.fontFamily.serif],
     }

@@ -1,9 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { people } from "../people.ts";
+import { colorVariants } from "../colors.ts"
+const colorVariant = [
+  "red",
+  "blue",
+  "green",
+  "orange",
+  "yellow",
+][ Math.floor(Math.random()*(5)) ]
 ---
 
-<Layout title="People" description="Nerds at uwaterloo.">
+<Layout title="People" description="Nerds at uwaterloo." route="/links" colorVariant={colorVariant}>
   <main class="
     self-center font-serif
     max-sm:w-10/12
@@ -28,8 +36,9 @@ import { people } from "../people.ts";
         Nerds at UWaterloo. Send{' '}
           <a target="_blank" href="https://github.com/YashKarthik/yashkarthik.xyz/pulls" class="
             pb-0
-            underline decoration-2 decoration-[#00e100]
-            underline-offset-2 decoration-dotted
+            decoration-zinc-400 dark:decoration-zinc-500
+            hover:decoration-zinc-500 dark:hover:decoration-zinc-400
+            underline-offset-2 decoration-dotted decoration-2
           ">
             PR
           </a>
@@ -65,7 +74,7 @@ import { people } from "../people.ts";
                   text-sm italic
                   underline underline-offset-2 decoration-2 decoration-dotted
                   decoration-zinc-400 dark:decoration-zinc-500
-                  hover:decoration-[#00e100] dark:hover:decoration-[#00e100]
+                  hover:decoration-zinc-500 dark:hover:decoration-zinc-400
                   ">
                   {link.name}
                 </a>
