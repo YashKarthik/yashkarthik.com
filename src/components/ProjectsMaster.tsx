@@ -7,13 +7,12 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
   const [ projectIdx, setProjectIdx] = createSignal(0);
 
   return (
-    <div class="flex flex-col lg:flex-row">
+    <div class="flex flex-col items-center lg:flex-row lg:items-start">
 
       <section class="
-        grid grid-cols-2 sm:grid-cols-3
-        lg:grid-cols-1
-        gap-x-2
-        text-sm
+        grid gap-x-2 text-sm
+        grid-cols-2 sm:grid-cols-3 lg:grid-cols-1
+        content-start
       ">
         {projects.map((p, i) => (
           <ProjectElemInSidebar
@@ -26,9 +25,9 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
       </section>
 
       <section class="
-        md:min-w-[40rem] md:max-w-[40rem] md:max-h-[30rem]
+        sm:min-w-[40rem] sm:max-w-[40rem] sm:max-h-[30rem]
         min-w-[23rem] max-w-[23rem] max-h-[15rem]
-        space-y-2 md:ml-16 my-7 lg:my-0
+        space-y-2 md:ml-16 my-7 mx-0 lg:my-0
       ">
         <h2 class="
           font-heading text-4xl
@@ -64,15 +63,14 @@ function ProjectElemInSidebar(props: TProjectElemInSidebar) {
 
   return (
     <button type="button" onclick={() => props.setProjectIdx(props.projectIdx)} onmouseenter={() => props.setProjectIdx(props.projectIdx)} class="
-      flex flex-row
-      py-1 pl-1 group
+      group 
+      text-sm sm:text-md
+      p-1 max-w-fit
       hover:bg-zinc-100 dark:hover:bg-zinc-900
       transition-colors duration-100 ease-in-out
     ">
-      <p>
-        <span class={`text-zinc-400 dark:text-dark-500 ${props.hoverTextStyle}`}>* </span>
-        <span>{props.projectTitle}</span>
-      </p>
+      <span class={`text-zinc-400 dark:text-dark-500 ${props.hoverTextStyle}`}>*&nbsp;</span>
+      {props.projectTitle}
     </button>
   );
 }
