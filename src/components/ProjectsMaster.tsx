@@ -10,6 +10,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
     <div class="flex flex-col items-center lg:flex-row lg:items-start">
 
       <section class="
+        sticky top-32
         grid gap-x-2 text-sm
         grid-cols-2 sm:grid-cols-3 lg:grid-cols-1
         content-start
@@ -25,8 +26,8 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
       </section>
 
       <section class="
-        sm:min-w-[40rem] sm:max-w-[40rem] sm:max-h-[30rem]
-        min-w-[23rem] max-w-[23rem] max-h-[15rem]
+        sm:min-w-[40rem] sm:max-w-[40rem] min-h-[40rem]
+        min-w-[23rem] max-w-[23rem]
         space-y-2 md:ml-16 my-7 mx-0 lg:my-0
       ">
         <h2 class="
@@ -63,7 +64,7 @@ function ProjectElemInSidebar(props: TProjectElemInSidebar) {
 
   return (
     <button type="button" onclick={() => props.setProjectIdx(props.projectIdx)} onmouseenter={() => props.setProjectIdx(props.projectIdx)} class="
-      group 
+      group hover:cursor-crosshair
       text-sm sm:text-md
       p-1 max-w-fit
       hover:bg-zinc-100 dark:hover:bg-zinc-900
