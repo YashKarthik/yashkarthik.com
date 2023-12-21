@@ -10,7 +10,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
     <div class="flex flex-col items-center lg:flex-row lg:items-start">
 
       <section class="
-        sticky top-32
+        lg:sticky lg:top-32
         grid gap-x-2 text-sm
         grid-cols-2 sm:grid-cols-3 lg:grid-cols-1
         content-start
@@ -28,21 +28,46 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
       <section class="
         sm:min-w-[40rem] sm:max-w-[40rem] min-h-[40rem]
         min-w-[23rem] max-w-[23rem]
-        space-y-2 md:ml-16 my-7 mx-0 lg:my-0
+        space-y-3 md:ml-16 my-7 mx-0 lg:my-0
       ">
-        <h2 class="
-          font-heading text-4xl
-        ">
-          {projects[projectIdx()].title}
-        </h2>
+        <div>
+          <h2 class="
+            font-heading text-4xl
+          ">
+            {projects[projectIdx()].title}
+          </h2>
+
+          <div class="flex flex-row gap-2">
+            <a href={projects[projectIdx()].github} target="_blank" class="
+              font-mono font-extralight text-xs
+              underline decoration-2 decoration-dotted
+              decoration-zinc-400 dark:decoration-zinc-500
+              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
+              underline-offset-2
+              ">
+                Source
+            </a>
+            {projects[projectIdx()].website &&
+              <a href={projects[projectIdx()].website} target="_blank" class="
+                font-mono font-extralight text-xs
+                underline decoration-2 decoration-dotted
+                decoration-zinc-400 dark:decoration-zinc-500
+                hover:decoration-zinc-500 dark:hover:decoration-zinc-400
+                underline-offset-2
+                ">
+                  Visit
+              </a>
+            }
+          </div>
+        </div>
 
         <p class="italic">
           {projects[projectIdx()].short_desc}
         </p>
 
-        <p>
-          {projects[projectIdx()].long_desc}
-        </p>
+        {projects[projectIdx()].long_desc.map(l => (
+          <p>{l}</p>
+        ))}
         {projects[projectIdx()].images &&
           <img class="grayscale hover:grayscale-0 transition-all duration-300 ease-in-out" src={projects[projectIdx()]!.images![0]} alt="" />
         }
