@@ -69,7 +69,15 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
           <p>{l}</p>
         ))}
         {projects[projectIdx()].images &&
-          <img id="projects-section" class="grayscale hover:grayscale-0 transition-all duration-300 ease-in-out" src={projects[projectIdx()]!.images![0]} alt="" />
+          <div class={`${projects[projectIdx()]!.images!.length > 1 ? "columns-2" : ""}`}>
+            {projects[projectIdx()]!.images!.map(image => (
+              <img id="projects-section" src={image} alt="" class="
+                my-3 border-transparent border-2 hover:border-0 
+                grayscale hover:grayscale-0
+                transition-all duration-300 ease-in-out
+              "/>
+            ))}
+          </div>
         }
 
       </section>
