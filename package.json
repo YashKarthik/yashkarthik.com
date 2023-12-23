@@ -27,6 +27,7 @@
     "@fontsource/source-serif-pro": "^4.5.9",
     "@fontsource/spline-sans-mono": "^4.5.1",
     "@fontsource/teko": "^4.5.9",
+    "@tailwindcss/container-queries": "^0.1.1",
     "@types/d3": "^7.4.0",
     "astro": "^4.0.6",
     "autoprefixer": "^10.4.7",

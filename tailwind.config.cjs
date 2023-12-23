@@ -13,6 +13,6 @@ module.exports = {
       'logo': ['Source Serif Pro', 'Gilda Display', 'Cormorant Infant', ...defaultTheme.fontFamily.serif],
     },
 	},
-	plugins: [require('@tailwindcss/typography')],
+	plugins: [require('@tailwindcss/typography'), require("@tailwindcss/container-queries")],
   darkMode: 'class'
 }

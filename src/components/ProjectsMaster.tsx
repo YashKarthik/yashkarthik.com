@@ -28,7 +28,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
       <section class="
         sm:min-w-[40rem] sm:max-w-[40rem] min-h-[40rem]
         min-w-[23rem] max-w-[23rem]
-        space-y-3 md:ml-16 my-7 mx-0 lg:my-0
+        space-y-3 md:ml-16 ml-11 my-7 mx-0 lg:my-0
       ">
         <div>
           <h2 class="
@@ -69,7 +69,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
           <p>{l}</p>
         ))}
         {projects[projectIdx()].images &&
-          <img class="grayscale hover:grayscale-0 transition-all duration-300 ease-in-out" src={projects[projectIdx()]!.images![0]} alt="" />
+          <img id="projects-section" class="grayscale hover:grayscale-0 transition-all duration-300 ease-in-out" src={projects[projectIdx()]!.images![0]} alt="" />
         }
 
       </section>
