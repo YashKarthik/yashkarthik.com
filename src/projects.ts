@@ -16,7 +16,7 @@ export const projects: Project[] = [
       "I still don't understand how any of this works, so that's why I'm building this (a rasterization engine) to learn how 3D rendering works."
     ],
     github: "https://github.com/yashkarthik/tinyrenderer",
-    images: ["/blog-assets/tinyrenderer-3.png", "/blog-assets/tinyrenderer-1.png", "/blog-assets/tinyrenderer-2.jpg", "/blog-assets/tinyrenderer-0.png"]
+    images: ["/blog-assets/tinyrenderer-3.png", "/blog-assets/tinyrenderer-2.png", "/blog-assets/tinyrenderer-1.png", "/blog-assets/tinyrenderer-0.jpg"]
   },
   {
     title: "Curly",
