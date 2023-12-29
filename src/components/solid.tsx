@@ -202,26 +202,15 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
       </div>
 
       <div class={`
-        max-sm:w-10/12 ml-8
+        max-sm:w-10/12 ml-8 h-fit
         ${elemVisibility() >= 5 ? "" : "hidden "}
       `}>
-        <header class="
-          text-start mb-7
-          lg:sticky lg:top-6
-        ">
-          <h1 class="
-            text-4xl
-            font-heading font-black
-            mb-3
-          ">
+        <header class=" text-start mb-7 lg:sticky lg:top-6 ">
+          <h1 class=" text-4xl font-heading font-black mb-3 ">
             Projects
           </h1>
 
-          <p class="
-            mt-1
-            text-sm italic
-            prose dark:prose-invert
-          ">
+          <p class=" mt-1 text-sm italic prose dark:prose-invert ">
             Robust, bleeding edge systems; <br/>
             Random puzzles & scripts; <br/>
             Graveyard of abandoned ideas.
@@ -231,6 +220,11 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
         <div class="lg:w-3/4">
           <ProjectsMasterComponent colorVariant={colorVariant} />
         </div>
+
+        <br/>
+        <br/>
+        <br/>
+        <p class="text-zinc-400 dark:text-zinc-500"> *** </p>
       </div>
     </main>
   );
