@@ -202,18 +202,16 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
       </div>
 
       <div class={`
-        max-sm:w-10/12 self-start
-        ml-8
+        max-sm:w-10/12 ml-8
         ${elemVisibility() >= 5 ? "" : "hidden "}
       `}>
         <header class="
-          items-center
-          text-start 
-          mb-7
+          text-start mb-7
+          lg:sticky lg:top-6
         ">
           <h1 class="
-            text-3xl
-            font-serif-styled font-black
+            text-4xl
+            font-heading font-black
             mb-3
           ">
             Projects
@@ -230,7 +228,9 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
           </p>
         </header>
 
-        <ProjectsMasterComponent colorVariant={colorVariant} />
+        <div class="lg:w-3/4">
+          <ProjectsMasterComponent colorVariant={colorVariant} />
+        </div>
       </div>
     </main>
   );

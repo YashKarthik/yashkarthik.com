@@ -7,10 +7,10 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
   const [ projectIdx, setProjectIdx] = createSignal(0);
 
   return (
-    <div class="flex flex-col items-center lg:flex-row lg:items-start">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
 
       <section class="
-        lg:sticky lg:top-32
+        lg:sticky lg:top-36
         grid gap-x-2 text-sm
         grid-cols-2 sm:grid-cols-3 lg:grid-cols-1
         content-start
@@ -32,7 +32,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
       ">
         <div>
           <h2 class="
-            font-heading text-4xl
+            font-serif-styled text-3xl
           ">
             {projects[projectIdx()].title}
           </h2>
@@ -43,7 +43,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
               underline decoration-2 decoration-dotted
               decoration-zinc-400 dark:decoration-zinc-500
               hover:decoration-zinc-500 dark:hover:decoration-zinc-400
-              underline-offset-2
+              underline-offset-2 mt-1
               ">
                 Source
             </a>
@@ -53,7 +53,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
                 underline decoration-2 decoration-dotted
                 decoration-zinc-400 dark:decoration-zinc-500
                 hover:decoration-zinc-500 dark:hover:decoration-zinc-400
-                underline-offset-2
+                underline-offset-2 mt-1
                 ">
                   Visit
               </a>
@@ -68,6 +68,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
         {projects[projectIdx()].long_desc.map(l => (
           <p>{l}</p>
         ))}
+
         {projects[projectIdx()].images &&
           <div class={`${projects[projectIdx()]!.images!.length > 1 ? "columns-2" : ""}`}>
             {projects[projectIdx()]!.images!.map(image => (
@@ -79,7 +80,6 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
             ))}
           </div>
         }
-
       </section>
 
     </div>
