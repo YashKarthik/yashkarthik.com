@@ -7,9 +7,17 @@ import ProjectsMasterComponent from "./ProjectsMaster.tsx";
 import { colorVariants } from "../colors.ts"
 
 export default function SolidComponent({ colorVariant }: { colorVariant: "green" | "blue" | "orange" | "yellow" }) {
+
   const [elemVisibility, setElemVisibility] = createSignal(0);
   createEffect(() => {
     console.log(elemVisibility())
+
+    const hasReadBio = (() => {
+      if (!localStorage.getItem("hasReadBio")) return false;
+      return localStorage.getItem("hasReadBio") == "true";
+    })();
+
+    if (hasReadBio) setElemVisibility(5);
   });
 
   return (
@@ -175,7 +183,7 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
                     <a href="/links" target="_blank" class={`
                       pb-0
                       underline decoration-2 ${colorVariants[colorVariant].decorationColor}
-                      underline-offset-2 decoration-dotted
+                      underline-offset-2
                     `}>
                       reach out
                     </a>
@@ -231,14 +239,19 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
 function ExpandTextLink(props: {name: string; desiredElemVisibility: number; elemVisibility: Accessor<number>; setElemVisibility:Setter<number>, decorationColor: string}) {
 
   const [toggled, setToggle] = createSignal(false);
+
   const handleClick = () => {
     if (toggled()) return;
     props.setElemVisibility(props.desiredElemVisibility);
+
     if (props.name == "programmer") toggleTheme();
+    if (props.name == "perpetual beginner") {
+      localStorage.setItem("hasReadBio", "true");
+    }
   }
 
   createEffect(() => {
-    if (props.elemVisibility() == props.desiredElemVisibility) setToggle(true);
+    if (props.elemVisibility() >= props.desiredElemVisibility) setToggle(true);
   });
 
   return (
@@ -255,10 +268,12 @@ function ExpandTextLink(props: {name: string; desiredElemVisibility: number; ele
 }
 
 function UnfoldingText(props: {visibilityAccessor: Accessor<number>; desiredElemVisibility: number; children: JSXElement}) {
+
   const [ visible, setVisibility] = createSignal(false);
   createEffect(() => {
-    if (props.visibilityAccessor() == props.desiredElemVisibility) setVisibility(true);
+    if (props.visibilityAccessor() >= props.desiredElemVisibility) setVisibility(true);
   });
+
   return (
     <div class={`
       ${!visible() ? "collapse opacity-0" : "visible opacity-100"}
