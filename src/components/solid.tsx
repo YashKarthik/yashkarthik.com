@@ -158,7 +158,16 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
               <div class="w-max">
                 <p> I'm currently... </p>
                 <ul class="ml-5 list-disc">
-                  <li><s>crashing</s> Building drones.</li>
+                  <li>
+                    <s>crashing</s> Building{' '}
+                    <a href="https://www.uwarg.com/" target="_blank" class={`
+                      pb-0
+                      underline decoration-2 ${colorVariants[colorVariant].decorationColor}
+                      underline-offset-2
+                    `}>
+                      drones.
+                    </a>.
+                  </li>
                   <li>Hacking on 3d renderers.</li>
                   <li>Studying computer engineering at{' '}
                     <a href="https://uw-ece.github.io/webring/" target="_blank" class={`
@@ -170,16 +179,7 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
                     </a>.
                   </li>
                   <li>
-                    Trying to find more{' '}
-                    <a href="/people" target="_blank" class={`
-                      pb-0
-                      underline decoration-2 ${colorVariants[colorVariant].decorationColor}
-                      underline-offset-2
-                    `}>
-                      people
-                    </a>{' '}
-
-                    to nerd out with (
+                    Trying to find more people to nerd out with (
                     <a href="/links" target="_blank" class={`
                       pb-0
                       underline decoration-2 ${colorVariants[colorVariant].decorationColor}
