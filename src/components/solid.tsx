@@ -179,7 +179,16 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
                     </a>.
                   </li>
                   <li>
-                    Trying to find more people to nerd out with (
+                    Trying to find more{' '}
+                    <a href="/people" target="_blank" class={`
+                      pb-0
+                      underline decoration-2 ${colorVariants[colorVariant].decorationColor}
+                      underline-offset-2
+                    `}>
+                      people
+                    </a>{' '}
+
+                    to nerd out with (
                     <a href="/links" target="_blank" class={`
                       pb-0
                       underline decoration-2 ${colorVariants[colorVariant].decorationColor}

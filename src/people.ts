@@ -144,4 +144,51 @@ export const people: People[] = [
       },
     ]
   },
+  {
+    name: "Calder White",
+    uni: "UWaterloo CS '25",
+    howIKnowThem: "Socratica",
+    whatDoTheyDo: "building grt (quant), loves rust, prev built 3d engine, ",
+    links: [
+      {
+        name: "twitter",
+        url: "https://twitter.com/calder_white/"
+      },
+    ]
+  },
+  {
+    name: "HudZah",
+    uni: "UWaterloo Math '26",
+    howIKnowThem: "Socratica, AI Agent Hackathon",
+    whatDoTheyDo: "growing plants hydroponically, does ai stuff, does socratica stuff.",
+    links: [
+      {
+        name: "twitter",
+        url: "https://twitter.com/hud_zah"
+      },
+      {
+        name: "hudzah.com",
+        url: "https://www.hudzah.com/"
+      },
+    ]
+  },
+  {
+    name: "Julian Baxendale",
+    uni: "UWaterloo Mech '28",
+    howIKnowThem: "SJU",
+    whatDoTheyDo: "\"aesthetic and functional design\", convinced him to come to Socratica.",
+    links: []
+  },
+  {
+    name: "Rooz",
+    uni: "UWaterloo CE '28",
+    howIKnowThem: "my class",
+    whatDoTheyDo: "does lots of fullstack, watonomous, hackathons",
+    links: [
+      {
+        name: "roozbehali.com/",
+        url: "https://roozbehali.com/"
+      },
+    ]
+  }
 ];
