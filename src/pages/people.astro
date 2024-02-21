@@ -47,24 +47,24 @@ const colorVariant = [
 
     <article class="">
       {people.map(person => (
-        <article class="my-7">
-        <h2 class="text-xl font-serif-styled font-bold max-w-fit">{person.name}</h2>
+        <article class="my-7 max-w-[70ch]">
+          <h2 class="text-2xl font-serif-styled font-bold">{person.name}</h2>
 
           <section class="flex flex-col gap-2 ml-5">
 
             <div class="flex flex-row gap-1 mt-1">
-              <p class="font-bold">Uni:</p>
+              <p class="font-extrabold font-sans">Uni:</p>
               <p>{person.uni}</p>
             </div>
 
             <div class="flex flex-row gap-1">
-              <p class="font-bold">How I know them:</p>
+              <p class="font-extrabold font-sans">How I know them:</p>
               <p class="flex-shrink">{person.howIKnowThem}</p>
             </div>
 
             <div class="flex flex-row gap-1">
-              <p class="font-bold">What do they do:</p>
-              <p class="flex-shrink">{person.whatDoTheyDo}</p>
+              <p class="font-extrabold font-sans">What do they do:</p>
+              <p class="flex-shrink text-pretty">{person.whatDoTheyDo}</p>
             </div>
 
             <div class="flex flex-row gap-2 dark:text-zinc-400 ">
