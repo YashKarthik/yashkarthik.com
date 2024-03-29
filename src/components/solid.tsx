@@ -170,7 +170,7 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
                   </li>
                   <li>Hacking on 3d renderers.</li>
                   <li>Studying computer engineering at{' '}
-                    <a href="https://uw-ece.github.io/webring/" target="_blank" class={`
+                    <a href="https://ece.engineering" target="_blank" class={`
                       pb-0
                       underline decoration-2 ${colorVariants[colorVariant].decorationColor}
                       underline-offset-2
@@ -179,16 +179,8 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
                     </a>.
                   </li>
                   <li>
-                    Trying to find more{' '}
-                    <a href="/people" target="_blank" class={`
-                      pb-0
-                      underline decoration-2 ${colorVariants[colorVariant].decorationColor}
-                      underline-offset-2
-                    `}>
-                      people
-                    </a>{' '}
-
-                    to nerd out with (
+                    Trying to find more people
+                    to nerd out with. (
                     <a href="/links" target="_blank" class={`
                       pb-0
                       underline decoration-2 ${colorVariants[colorVariant].decorationColor}
@@ -234,6 +226,12 @@ export default function SolidComponent({ colorVariant }: { colorVariant: "green"
         <br/>
         <br/>
         <p class="text-zinc-400 dark:text-zinc-500"> *** </p>
+
+        <a href="https://ece.engineering" target="_blank" class="my-7
+          self-end
+          font-mono text-sm
+          text-zinc-400 dark:text-zinc-400
+        ">ece.engineering</a>
       </div>
     </main>
   );

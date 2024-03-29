@@ -26,6 +26,16 @@ export const projects: Project[] = [
     images: ["/blog-assets/curly.png"]
   },
   {
+    title: "Resonant.love",
+    short_desc: "Friend filtered matchmaking.",
+    long_desc: [
+      "Your friends fill out a form for you and we use GPT-4 magic to match people!",
+    ],
+    website: "https://twitter.com/ansonyuu/status/1755307905383879133",
+    github: "",
+    images: ["/blog-assets/resonant-banner.jpeg"]
+  },
+  {
     title: "Tiviem",
     short_desc: "To understand how the wheel works, you must first reinvent it.",
     long_desc: [
