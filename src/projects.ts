@@ -2,12 +2,21 @@ type Project = {
   title: string;
   short_desc: string;
   long_desc: string[];
-  github: string;
+  github?: string;
   website?: string;
   images?: string[];
 }
 
 export const projects: Project[] = [
+  {
+    title: "Breadboard ALU",
+    short_desc: "xor",
+    long_desc: [
+      "It can do addition and subtraction!",
+    ],
+    website: "https://youtu.be/xQFHZhmiJuA?t=6276",
+    images: ["/blog-assets/alu.jpg"]
+  },
   {
     title: "Tinyrenderer",
     short_desc: "On my reinventing the wheel arc.",

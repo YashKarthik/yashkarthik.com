@@ -8,7 +8,7 @@ import { colorVariants } from "../colors.ts"
 
 export default function SolidComponent({ colorVariant }: { colorVariant: "green" | "blue" | "orange" | "yellow" }) {
 
-  const [elemVisibility, setElemVisibility] = createSignal(0);
+  const [elemVisibility, setElemVisibility] = createSignal(5);
   createEffect(() => {
     console.log(elemVisibility())
 
