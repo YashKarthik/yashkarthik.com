@@ -6,11 +6,11 @@ import Projects from "../components/ProjectsFull.astro";
 
 import { colorVariants } from "../colors.ts"
 const colorVariant = [
-  "blue",
-  "green",
+  //"blue",
+  //"green",
   "orange",
   "yellow",
-][ Math.floor(Math.random()*(4)) ]
+][ Math.floor(Math.random()*(2)) ]
 console.log(colorVariant);
 ---
 
@@ -33,7 +33,7 @@ console.log(colorVariant);
             underline decoration-2
             ${colorVariants[colorVariant].decorationColor}
             underline-offset-2
-          `}>Helicone</a>.
+          `}>Helicone</a> and living in SF (say hi if you're around).
         </li>
 
         <li>
@@ -110,10 +110,20 @@ console.log(colorVariant);
         </li>
 
 
-        <li>
-          I think my laptop skin is pretty cool.
-        </li>
+        <li>I think my laptop skin is pretty cool.</li>
       </ul> <br/>
+
+      <div class="flex flex-row gap-4 mx-5">
+        <img src="/laptop.jpeg" alt="Car" class="
+          size-56 rounded-sm
+          grayscale hover:grayscale-0
+          transition-all duration-300 ease-in-out" />
+        <img src="/car.jpeg" alt="Car" class="
+          size-56 rounded-sm
+          grayscale hover:grayscale-0
+          transition-all duration-300 ease-in-out" />
+      </div>
+
     </section>
   </main>
 
