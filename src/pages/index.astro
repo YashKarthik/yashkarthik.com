@@ -26,14 +26,39 @@ console.log(colorVariant);
       <p>Right now, I'm:</p>
       <ul class="list-disc pl-5">
         <li>Learning PCB design and trying to fabricate my own board.</li>
-        <li>Writing code at Helicone.</li>
-        <li>Studying computer engineering at Waterloo.</li>
+
+        <li>
+          Writing code at
+          <a target="_blank" href="https://helicone.ai/" class={`
+            underline decoration-2
+            ${colorVariants[colorVariant].decorationColor}
+            underline-offset-2
+          `}>Helicone</a>.
+        </li>
+
+        <li>
+          Studying computer engineering at
+          <a target="_blank" href="https://ece.engineering/" class={`
+            underline decoration-2
+            ${colorVariants[colorVariant].decorationColor}
+            underline-offset-2
+          `}>Waterloo</a>.
+        </li>
       </ul> <br/>
 
       <p>Before that, I have:</p>
       <ul class="list-disc pl-5">
         <li>Shipped semi-viral web apps built using ai apis.</li>
-        <li>Written firmware for drones.</li>
+
+        <li>
+          Written firmware for
+          <a target="_blank" href="https://www.uwarg.com/" class={`
+            underline decoration-2
+            ${colorVariants[colorVariant].decorationColor}
+            underline-offset-2
+          `}>drones</a>.
+        </li>
+
         <li>Run linux on lego ev3.</li>
       </ul> <br/>
 
@@ -48,11 +73,50 @@ console.log(colorVariant);
         it myself to automate a mundane task was when I truly <b>grokked</b> the power of technology.
         
         Since then, I've built fast and beautiful web apps; efficient and powerful robots; slow and
-        pointless(?) VMs; and learned to embrace the lightness of being a <b>perpetual
-        beginner</b>.</i>
+        clunky(?) VMs; and learned to embrace the lightness of being a <b>perpetual beginner</b>.</i>
       </p>
     </section>
 
     <Projects client:load colorVariant={colorVariant}/>
+
+    <section class="
+      self-center m-5 mt-12
+      max-w-none lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
+    ">
+      <h2 class="text-4xl font-serif-styled">Other/Fun</h2>
+      <p class="italic my-2">stay whimsical</p>
+
+      <ul class="list-disc pl-5">
+        <li>
+          I like writing. While most of what I write is pure yap, I think I did justice to 
+          <a target="_blank" href="https://yashkarthik.github.io/quartz" class={`
+            underline decoration-2
+            ${colorVariants[colorVariant].decorationColor}
+            underline-offset-2
+            `}>linear algebra
+          </a> last term.
+        </li>
+
+        <li>I love drawing the side profile of cars! - one of the few things I can actually draw.</li>
+
+        <li>
+          Like many before me, I have wasted countless hours <i>ricing</i> my computer. Here's my
+          <a target="_blank" href="https://github.com/yashkarthik/dots" class={`
+            underline decoration-2
+            ${colorVariants[colorVariant].decorationColor}
+            underline-offset-2
+            `}>config
+          </a>.
+        </li>
+
+
+        <li>
+          I think my laptop skin is pretty cool.
+        </li>
+      </ul> <br/>
+    </section>
   </main>
+
+  <a target="_blank" href="https://socratica.info/" class="self-center">⁂</a>
+
 </Layout>
