@@ -7,10 +7,10 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
   const [ projectIdx, setProjectIdx] = createSignal(0);
 
   return (
-    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between font-sans">
 
       <section class="
-        lg:sticky lg:top-36
+        lg:sticky lg:top-32
         grid gap-x-2 text-sm
         grid-cols-2 sm:grid-cols-3 lg:grid-cols-1
         content-start
@@ -61,12 +61,12 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
           </div>
         </div>
 
-        <p class="italic">
+        <p class="italic font-sans">
           {projects[projectIdx()].short_desc}
         </p>
 
         {projects[projectIdx()].long_desc.map(l => (
-          <p>{l}</p>
+          <p class="font-sans">{l}</p>
         ))}
 
         {projects[projectIdx()].images &&
@@ -103,7 +103,7 @@ function ProjectElemInSidebar(props: TProjectElemInSidebar) {
       hover:bg-zinc-100 dark:hover:bg-zinc-900
       transition-colors duration-100 ease-in-out
     ">
-      <span class={`text-zinc-400 dark:text-dark-500 ${props.hoverTextStyle}`}>*&nbsp;</span>
+      <span class={`text-zinc-400 dark:text-dark-500 font-serif-styled ${props.hoverTextStyle}`}>*&nbsp;</span>
       {props.projectTitle}
     </button>
   );

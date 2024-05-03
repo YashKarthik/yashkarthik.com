@@ -15,7 +15,44 @@ console.log(colorVariant);
 ---
 
 <Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik." showBars={false} route="/" colorVariant={colorVariant}>
-  <main class="font-serif my-7 flex flex-col gap-0 flex-grow">
-    <SolidComponent colorVariant={colorVariant} client:load/>
+  <main class="my-7 flex flex-col gap-0 flex-grow">
+
+    <section class="
+      self-center m-5
+      max-w-none lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
+    ">
+      <p class="text-4xl font-serif-styled">Hi, I'm Yash Karthik.</p> <br/>
+
+      <p>Right now, I'm:</p>
+      <ul class="list-disc pl-5">
+        <li>Learning PCB design and trying to fabricate my own board.</li>
+        <li>Writing code at Helicone.</li>
+        <li>Studying computer engineering at Waterloo.</li>
+      </ul> <br/>
+
+      <p>Before that, I have:</p>
+      <ul class="list-disc pl-5">
+        <li>Shipped semi-viral web apps built using ai apis.</li>
+        <li>Written firmware for drones.</li>
+        <li>Run linux on lego ev3.</li>
+      </ul> <br/>
+
+      <p>Some lore:</p>
+      <p class="p-5">
+        <i>Five years ago I awoke in a strange new world: I learned to code. <br/><br/>
+        My friend and I were tasked with cleaning-up the robotics lab after a late night session.
+        Rather than spending hours sorting the parts manually, we built a robot to do it for us
+        (finishing the task in a few days instead of hours xD).
+        
+        I knew how transformative technology is. It had been all around us. But actually leveraging
+        it myself to automate a mundane task was when I truly <b>grokked</b> the power of technology.
+        
+        Since then, I've built fast and beautiful web apps; efficient and powerful robots; slow and
+        pointless(?) VMs; and learned to embrace the lightness of being a <b>perpetual
+        beginner</b>.</i>
+      </p>
+    </section>
+
+    <Projects client:load colorVariant={colorVariant}/>
   </main>
 </Layout>

@@ -44,13 +44,13 @@ const { title, image_url, description, showBars, route, colorVariant } = Astro.p
 
     <script>
       const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
-        }
-          return 'light';
+        //if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        //  return localStorage.getItem('theme');
+        //}
+        //if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        //  return 'dark';
+        //}
+        return 'light';
       })();
           
       if (theme === 'light') {
@@ -99,7 +99,7 @@ const { title, image_url, description, showBars, route, colorVariant } = Astro.p
     text-zinc-700 dark:text-zinc-300
     ${colorVariants[colorVariant].selection}
     scroll-smooth
-    font-normal
+    font-normal font-sans
     ${showBars == false ? "dark:bg-black": "dark:bg-zinc-950"}
     transition-colors duration-100 ease-in-out
   `}>
@@ -125,7 +125,7 @@ const { title, image_url, description, showBars, route, colorVariant } = Astro.p
             </li>
           ))}
 
-          <li class="font-serif">
+          <li>
             <button id="themeToggle" class={`
               font-sans
               text-zinc-400 hover:text-zinc-500
