@@ -9,13 +9,31 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Breadboard ALU",
-    short_desc: "xor",
+    title: "Lily58",
+    short_desc: "thock thock",
     long_desc: [
-      "It can do addition and subtraction!",
+      "Built a split keyboard. JWK T1 tactiles, nice!nano controllers.",
     ],
-    website: "https://youtu.be/xQFHZhmiJuA?t=6276",
-    images: ["/blog-assets/alu.jpg"]
+    github: "https://github.com/YashKarthik/lily58-zmk",
+    images: ["/blog-assets/lily58-complete.jpg", "/blog-assets/lily58-switches.jpg", "/blog-assets/lily58-solder.jpg"]
+  },
+  {
+    title: "Aldis",
+    short_desc: "blink blink",
+    long_desc: [
+      "Morse code blinker on iCE40UP5K FPGA. Consumes ascii characters over uart.",
+    ],
+    github: "https://github.com/YashKarthik/uart-icesugar",
+  },
+  {
+    title: "UART on FPGA",
+    short_desc: "bit bit",
+    long_desc: [
+      "Implemented uart on ice40 fpga. Used in my morse code blinker.",
+    ],
+    github: "https://github.com/YashKarthik/morse",
+    website: "https://x.com/_yashkarthik/status/1814555594851766448",
+    images: ["/blog-assets/fpga.jpeg"]
   },
   {
     title: "Tinyrenderer",
