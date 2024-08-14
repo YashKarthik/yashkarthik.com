@@ -36,6 +36,15 @@ export const projects: Project[] = [
     images: ["/blog-assets/fpga.jpeg"]
   },
   {
+    title: "Breadboard ALU",
+    short_desc: "flip flop flip flop",
+    long_desc: [
+      "It can do addition and subtraction!",
+    ],
+    website: "https://youtu.be/xQFHZhmiJuA?t=6276",
+    images: ["/blog-assets/alu.jpg"]
+  },
+  {
     title: "Tinyrenderer",
     short_desc: "On my reinventing the wheel arc.",
     long_desc: [
