@@ -55,7 +55,7 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
                 hover:decoration-zinc-500 dark:hover:decoration-zinc-400
                 underline-offset-2 mt-1
                 ">
-                  Visit
+                  Live
               </a>
             }
           </div>
@@ -69,17 +69,22 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
           <p class="font-sans">{l}</p>
         ))}
 
-        {projects[projectIdx()].images &&
-          <div class={`${projects[projectIdx()]!.images!.length > 1 ? "columns-2" : ""}`}>
-            {projects[projectIdx()]!.images!.map(image => (
-              <img id="projects-section" src={image} alt="" class="
-                my-3 border-transparent border-2 hover:border-0 
-                grayscale hover:grayscale-0
-                transition-all duration-300 ease-in-out
-              "/>
-            ))}
-          </div>
-        }
+        <div class={`${(projects[projectIdx()]!.images?.length ?? 0) + (projects[projectIdx()]!.videos?.length ?? 0) > 1 ? "columns-2" : ""}`}>
+          {projects[projectIdx()]!.images?.map(image => (
+            <img id="projects-section" src={image} alt="" class="
+            max-h-[500px]
+            my-3 border-transparent border-2 hover:border-0 
+            grayscale hover:grayscale-0
+            transition-all duration-300 ease-in-out
+          "/>
+          ))}
+          {projects[projectIdx()]!.videos?.map(video => (
+            <video autoplay loop muted preload="auto" class="max-h-[500px]">
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ))}
+        </div>
       </section>
 
     </div>

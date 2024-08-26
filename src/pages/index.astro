@@ -6,11 +6,10 @@ import Projects from "../components/ProjectsFull.astro";
 
 import { colorVariants } from "../colors.ts"
 const colorVariant = [
-  //"blue",
-  //"green",
-  "orange",
+  "blue",
+  "green",
   "yellow",
-][ Math.floor(Math.random()*(2)) ]
+][ Math.floor(Math.random()*(3)) ]
 console.log(colorVariant);
 ---
 
@@ -19,7 +18,7 @@ console.log(colorVariant);
 
     <section class="
       self-center m-5
-      max-w-none lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
+      max-w-[80ch] lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
     ">
       <p class="text-4xl font-serif-styled">Hi, I'm Yash Karthik.</p> <br/>
 
@@ -81,7 +80,7 @@ console.log(colorVariant);
 
     <section class="
       self-center m-5 mt-12
-      max-w-none lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
+      max-w-[80ch] lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
     ">
       <h2 class="text-4xl font-serif-styled">Other/Fun</h2>
       <p class="italic my-2">stay whimsical</p>

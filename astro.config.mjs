@@ -8,7 +8,7 @@ import monochromeDark from "./themes/monochrome-dark.json";
 import monochromeLight from "./themes/monochrome-light.json";
 
 export default defineConfig({
-  site: "https://www.yashkarthik.xyz",
+  site: "https://www.yashkarthik.com",
   integrations: [tailwind(), mdx(), sitemap(), solidJs()],
   markdown: {
     shikiConfig: {

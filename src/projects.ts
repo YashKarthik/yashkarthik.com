@@ -5,6 +5,7 @@ type Project = {
   github?: string;
   website?: string;
   images?: string[];
+  videos?: string[];
 }
 
 export const projects: Project[] = [
@@ -23,6 +24,7 @@ export const projects: Project[] = [
     long_desc: [
       "Morse code blinker on iCE40UP5K FPGA. Consumes ascii characters over uart.",
     ],
+    videos: ["/blog-assets/blinker.mp4"],
     github: "https://github.com/YashKarthik/uart-icesugar",
   },
   {
@@ -42,7 +44,7 @@ export const projects: Project[] = [
       "It can do addition and subtraction!",
     ],
     website: "https://youtu.be/xQFHZhmiJuA?t=6276",
-    images: ["/blog-assets/alu.jpg"]
+    images: ["/blog-assets/alu.jpg", "/blog-assets/osc.jpg"]
   },
   {
     title: "Tinyrenderer",
@@ -55,11 +57,27 @@ export const projects: Project[] = [
     images: ["/blog-assets/tinyrenderer-3.png", "/blog-assets/tinyrenderer-2.png", "/blog-assets/tinyrenderer-1.png", "/blog-assets/tinyrenderer-0.jpg"]
   },
   {
+    title: "Adunari",
+    short_desc: "C is a high level language",
+    long_desc: [ "An assembler for the Hack platform (nand2tetris)." ],
+    github: "https://github.com/YashKarthik/adunari",
+  },
+  {
     title: "Curly",
     short_desc: "A minimal clone of cURL using Sockets.",
     long_desc: [ "I learn languages best when I use them. After reading the C Bible and doing AoC over the summer I decided rebuild what the OGs at Bell made. I've cloned cURL, cat, tree.",],
     github: "https://github.com/yashkarthik/curly",
     images: ["/blog-assets/curly.png"]
+  },
+  {
+    title: "ECE.engineering",
+    short_desc: "fire domain name, no?",
+    long_desc: [
+      "A webring for ECE students at Waterloo. Figma wizard.",
+    ],
+    website: "https://ece.engineering",
+    github: "https://github.com/roozbehali/ece_webring",
+    images: ["/blog-assets/ece.png"]
   },
   {
     title: "Resonant.love",

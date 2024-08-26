@@ -1,3 +1,1 @@
-[yashkarthik.xyz](https://yashkarthik.xyz)
-
-Feel free to create issues for discussing posts :)
+[yashkarthik.com](https://yashkarthik.com)
