@@ -10,6 +10,24 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Bifrost",
+    short_desc: "first time high speed!",
+    long_desc: [
+      "USB-C to DisplaPort dongle from scratch.",
+    ],
+    github: "https://github.com/YashKarthik/bifrost",
+    images: ["/blog-assets/dongle-pcb.png", "/blog-assets/dongle-pcb-3d.png"]
+  },
+  {
+    title: "Where is my ION??",
+    short_desc: "please use all doors",
+    long_desc: [
+      "A live transit map for the Region of Waterloo, on an PCB!",
+    ],
+    github: "https://github.com/YashKarthik/where_is_my_ion",
+    images: ["/blog-assets/ion-pcb.png", "/blog-assets/ion-pcb-3d-full.png", "/blog-assets/ion-pcb-3d-uw.png"]
+  },
+  {
     title: "Lily58",
     short_desc: "thock thock",
     long_desc: [
