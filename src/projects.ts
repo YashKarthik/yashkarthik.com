@@ -10,6 +10,15 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    title: "12V -> 180V Boost Convertor",
+    short_desc: "hv!",
+    long_desc: [
+      "12V to 180V, 50mA boost convertor prototype to light up Soviet era nixie tubes with IN-12 tube pinout.",
+    ],
+    github: "https://github.com/YashKarthik/bifrost",
+    images: ["/blog-assets/nixie-hvdc-pcb.png", "/blog-assets/nixie-hvdc-3d-top.png"]
+  },
+  {
     title: "Bifrost",
     short_desc: "first time high speed!",
     long_desc: [
