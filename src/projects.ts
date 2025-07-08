@@ -46,6 +46,15 @@ export const projects: Project[] = [
     images: ["/blog-assets/lily58-complete.jpg", "/blog-assets/lily58-switches.jpg", "/blog-assets/lily58-solder.jpg"]
   },
   {
+    title: "Icecube",
+    short_desc: "matmul accelerator",
+    long_desc: [
+      "3x3 matrix multiplication (uint8) on iCE40UP5K FPGA. Consumes ascii characters over uart.",
+    ],
+    videos: ["/blog-assets/blinker.mp4"],
+    github: "https://github.com/YashKarthik/icecube",
+  },
+  {
     title: "Aldis",
     short_desc: "blink blink",
     long_desc: [
