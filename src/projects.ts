@@ -37,6 +37,15 @@ export const projects: Project[] = [
     images: ["/blog-assets/ion-pcb.png", "/blog-assets/ion-pcb-3d-full.png", "/blog-assets/ion-pcb-3d-uw.png"]
   },
   {
+    title: "ykmalloc",
+    short_desc: "y(ash)k(arthik's)malloc implementation",
+    long_desc: [
+      "basic impl of malloc (using sbrk) and free with basic block coalescing.",
+    ],
+    github: "https://github.com/YashKarthik/ykmalloc",
+    images: ["/blog-assets/ykmalloc.png"]
+  },
+  {
     title: "Lily58",
     short_desc: "thock thock",
     long_desc: [
