@@ -1,20 +1,65 @@
 import "solid-js"
 import { colorVariants } from "../colors";
 import { projects } from "../projects";
-import { createSignal, type Setter } from "solid-js";
+import { createSignal, onMount, type Setter } from "solid-js";
 
 export default function ProjectsMasterComponent({ colorVariant }: { colorVariant: "green" | "blue" | "orange" | "yellow" }) {
   const [ projectIdx, setProjectIdx] = createSignal(0);
+  const [canScrollUp, setCanScrollUp] = createSignal(false);
+  const [canScrollDown, setCanScrollDown] = createSignal(false);
+  let tocRef: HTMLElement | undefined;
+
+  const updateScrollState = () => {
+    if (!tocRef) return;
+    const { scrollTop, scrollHeight, clientHeight } = tocRef;
+    
+    // Check if content is actually scrollable
+    const isScrollable = scrollHeight > clientHeight;
+    
+    if (!isScrollable) {
+      setCanScrollUp(false);
+      setCanScrollDown(false);
+      return;
+    }
+    
+    const canScrollUpValue = scrollTop > 10;
+    const canScrollDownValue = scrollTop + clientHeight < scrollHeight - 10;
+    
+    setCanScrollUp(canScrollUpValue);
+    setCanScrollDown(canScrollDownValue);
+  };
+
+  onMount(() => {
+    const setupScrollListener = () => {
+      if (tocRef) {
+        updateScrollState();
+        tocRef.addEventListener('scroll', updateScrollState);
+      }
+    };
+    
+    // Wait for DOM to be ready
+    setTimeout(setupScrollListener, 200);
+    
+    // Check again on resize
+    window.addEventListener('resize', () => {
+      setTimeout(updateScrollState, 100);
+    });
+  });
 
   return (
     <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between font-sans">
 
-      <section class="
-        lg:sticky lg:top-32
-        grid gap-x-2 text-sm
-        grid-cols-2 sm:grid-cols-3 lg:grid-cols-1
-        content-start
-      ">
+      <section 
+        ref={tocRef}
+        class="
+          lg:sticky lg:top-32 lg:max-h-[80vh] lg:overflow-y-auto
+          max-h-[12rem] sm:max-h-none lg:max-h-[80vh] overflow-y-auto
+          grid gap-x-2 text-sm
+          grid-cols-1 sm:grid-cols-3 lg:grid-cols-1
+          content-start
+          relative
+        "
+      >
         {projects.map((p, i) => (
           <ProjectElemInSidebar
             projectTitle={p.title}
@@ -23,12 +68,22 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
             hoverTextStyle={colorVariants[colorVariant].groupHoverText}
           />
         ))}
+        {canScrollUp() && (
+          <div class="lg:hidden absolute top-1 right-2 text-zinc-400 dark:text-zinc-500 text-xs pointer-events-none animate-pulse">
+            ↑
+          </div>
+        )}
+        {canScrollDown() && (
+          <div class="lg:hidden absolute bottom-1 right-2 text-zinc-400 dark:text-zinc-500 text-xs pointer-events-none animate-pulse">
+            ↓
+          </div>
+        )}
       </section>
 
       <section class="
-        sm:min-w-[40rem] sm:max-w-[40rem] min-h-[40rem]
-        min-w-[23rem] max-w-[23rem]
-        space-y-3 md:ml-16 ml-11 my-7 mx-0 lg:my-0
+        sm:min-w-[50rem] sm:max-w-[50rem] 
+        min-w-full max-w-full lg:min-w-[50rem] lg:max-w-[50rem]
+        space-y-3 md:ml-16 ml-0 sm:ml-11 my-7 mx-0 lg:my-0
       ">
         <div>
           <h2 class="
@@ -69,17 +124,17 @@ export default function ProjectsMasterComponent({ colorVariant }: { colorVariant
           <p class="font-sans">{l}</p>
         ))}
 
-        <div class={`${(projects[projectIdx()]!.images?.length ?? 0) + (projects[projectIdx()]!.videos?.length ?? 0) > 1 ? "columns-2" : ""}`}>
+        <div class={`${(projects[projectIdx()]!.images?.length ?? 0) + (projects[projectIdx()]!.videos?.length ?? 0) > 1 ? "sm:columns-2" : ""}`}>
           {projects[projectIdx()]!.images?.map(image => (
             <img id="projects-section" src={image} alt="" class="
-            max-h-[500px]
+            max-h-[400px] sm:max-h-[600px] w-full object-cover
             my-3 border-transparent border-2 hover:border-0 
             grayscale hover:grayscale-0
             transition-all duration-300 ease-in-out
           "/>
           ))}
           {projects[projectIdx()]!.videos?.map(video => (
-            <video autoplay loop muted preload="auto" class="max-h-[500px]">
+            <video autoplay loop muted preload="auto" class="max-h-[400px] sm:max-h-[600px] w-full object-cover">
               <source src={video} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
