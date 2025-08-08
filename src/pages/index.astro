@@ -14,7 +14,7 @@ console.log(colorVariant);
 ---
 
 <Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik." showBars={false} route="/" colorVariant={colorVariant}>
-  <main class="my-7 flex flex-col gap-0 flex-grow">
+  <main class="my-7 mx-3 flex flex-col gap-0 flex-grow">
 
     <section class="
       self-center m-5
@@ -85,6 +85,41 @@ console.log(colorVariant);
     </section>
 
     <Projects colorVariant={colorVariant}/>
+
+    <section class="
+      self-center md:my-12 mx-3
+    ">
+      <h2 class="text-4xl font-serif-styled mb-6">Places I've Lived</h2>
+      
+      <div class="grid grid-cols-2 gap-6 max-w-4xl">
+        <div class="row-span-2 flex flex-col items-center">
+          <img src="/blog-assets/map-india.png" alt="India" class="
+            w-full h-auto rounded-sm
+            hover:rounded-lg
+            grayscale hover:grayscale-0
+            transition-all duration-300 ease-in-out
+          " />
+        </div>
+        
+        <div class="flex flex-col items-center">
+          <img src="/blog-assets/map-waterloo.png" alt="Waterloo" class="
+            w-full h-auto rounded-sm
+            hover:rounded-lg
+            grayscale hover:grayscale-0
+            transition-all duration-300 ease-in-out
+          " />
+        </div>
+        
+        <div class="flex flex-col items-center">
+          <img src="/blog-assets/map-bay.png" alt="Bay Area" class="
+            w-full h-auto rounded-sm
+            hover:rounded-lg
+            grayscale hover:grayscale-0
+            transition-all duration-300 ease-in-out
+          " />
+        </div>
+      </div>
+    </section>
 
     <section class="
       self-center m-5 mt-12
