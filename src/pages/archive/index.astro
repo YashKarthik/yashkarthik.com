@@ -1,21 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from 'astro:content';
-import Divider from "../../components/Divider.astro";
-
-import { colorVariants } from "../colors.ts"
-const colorVariant = [
-  "blue",
-  "green",
-  "orange",
-  "yellow",
-][ Math.floor(Math.random()*(4)) ]
-console.log(colorVariant);
-
-let years: number[] = [];
-for (let i=new Date().getFullYear(); i > 2020; i--) {
-  years.push(i);
-}
 
 const blog = await getCollection('blog');
 const weekly = await getCollection('weekly');
@@ -23,73 +8,60 @@ const stories = await getCollection('stories');
 
 const allWriting = Array.from(new Set([blog[0], weekly[0], stories[0]].concat(blog, weekly, stories)));
 allWriting.sort((a, b) => {
-    let aDate = a.collection == "blog" ? a.data.published : a.data.published;
-    let bDate = b.collection == "blog" ? b.data.published : b.data.published;
-    return (new Date(aDate) < (new Date(bDate)) ? 1 : -1);
-})
+  return new Date(a.data.published) < new Date(b.data.published) ? 1 : -1;
+});
 
-const topics = Array.from(new Set(blog
-  .map(post => post.data.topics)
-  .flat()))
-  .sort((a, b) => (
-    a > b ? 1 : -1
-  ));
+let years: number[] = [];
+for (let i = new Date().getFullYear(); i > 2020; i--) {
+  years.push(i);
+}
 ---
 
-<Layout title="Writing" description="Archive of all essays written by Yash Karthik" colorVariant={colorVariant}>
-  <main class="self-center font-serif
-  ">
+<Layout title="Writing" description="Archive of all essays written by Yash Karthik" route="/archive">
+  <main style="max-width: 680px; margin: 0 auto; padding: 48px 24px; flex: 1;">
 
-    <header class="
-      items-start text-start 
-    ">
-      <h1 class="
-        sm:text-3xl text-3xl 
-        font-serif-styled font-black
-      ">
-        Writing
-      </h1>
+    <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px;">
+      <span style="color: var(--accent); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">WRITING</span>
+      <span style="flex: 1; border-top: 1px solid var(--border); position: relative; top: -4px;"></span>
+    </div>
 
-      <p class="mt-1 text-md italic pl-2">
-        Programming; <br>
-        University life. <br>
-      </p>
-    </header>
-
-    <article class="py-3">
-      {years.map(year => (
-        <section>
-          <h2 class="text-2xl mt-5 font-serif-styled font-bold">{year}</h2>
-
-          <div class="flex flex-col">
-            {allWriting.map(writing => {
-              if (new Date(writing.data.published).getFullYear() == year) {
-
-                return <p class="
-                  font-mono text-zinc-400 dark:text-zinc-500 my-1
-                ">
-                  *
-                  <a href={
-                    writing.collection == "blog" ? "/archive/" + writing.slug
-                      : writing.collection == "stories" ? "/archive/stories/" + writing.slug
-                        : "/archive/weekly/" + writing.slug
-                  } class="
-                    w-fit mt-3 font-serif
-                    text-zinc-700 dark:text-stone-300
-                    hover:underline decoration-2 decoration-dotted underline-offset-2
-                    decoration-zinc-400 dark:decoration-zinc-500
-                  ">
-                    {writing.data.title}
-                  </a>
-                </p>
-              }
-            })
-            }
+    {years.map(year => {
+      const items = allWriting.filter(w => new Date(w.data.published).getFullYear() === year);
+      if (items.length === 0) return null;
+      return (
+        <section style="margin-bottom: 32px;">
+          <div style="font-size: 11px; color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 12px;">{year}</div>
+          <div style="display: flex; flex-direction: column;">
+            {items.map(w => (
+              <a
+                href={
+                  w.collection === "blog" ? `/archive/${w.slug}`
+                  : w.collection === "stories" ? `/archive/stories/${w.slug}`
+                  : `/archive/weekly/${w.slug}`
+                }
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr auto;
+                  gap: 16px;
+                  padding: 8px 0;
+                  border-bottom: 1px solid var(--border);
+                  color: var(--text);
+                  font-size: 12px;
+                  transition: color 120ms;
+                "
+                onmouseover="this.style.color='var(--accent)'"
+                onmouseout="this.style.color='var(--text)'"
+              >
+                <span>{w.data.title}</span>
+                <span style="color: var(--text-muted); font-size: 11px; white-space: nowrap; align-self: center;">
+                  {w.collection !== "blog" ? `[${w.collection}]` : ""}
+                </span>
+              </a>
+            ))}
           </div>
-
         </section>
-      ))}
-    </article>
+      );
+    })}
 
   </main>
 </Layout>

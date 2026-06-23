@@ -2,15 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import type { CollectionEntry } from 'astro:content';
 
-import { colors } from "../colors.ts";
-const colorVariant = [
-  //"red",
-  "blue",
-  "green",
-  "orange",
-  "yellow",
-][ Math.floor(Math.random()*(4)) ]
-
 type Props = {
   frontmatter: CollectionEntry<"blog">["data"];
   githubSlug: string;
@@ -20,89 +11,165 @@ type Props = {
   prevTitle: string;
 }
 
-const { 
+const {
   frontmatter,
-  githubSlug,
   nextSlug, nextTitle,
   prevSlug, prevTitle
 } = Astro.props;
 ---
 
-<Layout {...frontmatter} route="/archive" colorVariant={colorVariant}>
+<Layout {...frontmatter} route="/archive">
 
-  <header class="
-    font-serif
-    self-center
-    lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none
-    max-sm:flex max-sm:flex-col
-    border-b border-dotted border-zinc-400 dark:border-zinc-500
-    mt-7 pb-2 
-  ">
-    <div class={`
-      flex flex-col gap-1
-      items-start text-start
-    `}>
-      <h1 class="
-        md:text-4xl text-3xl
-        font-serif-styled tracking-tight
-      ">
+  <article style="max-width: 680px; margin: 0 auto; padding: 48px 24px; flex: 1;">
+
+    <header style="margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--border);">
+      <div style="color: var(--text-muted); font-size: 11px; margin-bottom: 12px; display: flex; gap: 16px;">
+        <span>
+          <a href="/archive" style="color: var(--text-muted);">writing</a>
+          {" / "}
+          {frontmatter.title}
+        </span>
+      </div>
+      <h1 style="font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 8px;">
         {frontmatter.title}
       </h1>
+      <time style="color: var(--text-muted); font-size: 11px;">{frontmatter.published}</time>
+    </header>
 
-      <p class="
-        first-letter:uppercase font-sans
-        text-sm text-zinc-500 dark:text-zinc-400
-        ">
-        {frontmatter.published}
+    <div class="prose-content">
+      <slot />
+    </div>
+
+    <footer style="margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border);">
+      <nav style="display: flex; justify-content: space-between; margin-bottom: 24px; font-size: 11px; gap: 16px;">
+        <div>
+          {prevSlug &&
+            <a href={prevSlug} style="color: var(--text-muted); display: flex; gap: 6px; align-items: center;">
+              <span>←</span>
+              <span style="max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{prevTitle}</span>
+            </a>
+          }
+        </div>
+        <div style="text-align: right;">
+          {nextSlug &&
+            <a href={nextSlug} style="color: var(--text-muted); display: flex; gap: 6px; align-items: center; justify-content: flex-end;">
+              <span style="max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{nextTitle}</span>
+              <span>→</span>
+            </a>
+          }
+        </div>
+      </nav>
+      <p style="color: var(--text-muted); font-size: 11px;">
+        Have a comment? <a href="/links" style="color: var(--text-dim);">email me</a>.
       </p>
-    </div>
+    </footer>
 
-  </header>
+  </article>
 
-  <main class="
-    max-w-none lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 m-5 
-    prose md:prose-p:prose-lg
-    prose-zinc dark:prose-invert 
-    font-serif self-center
-    prose-headings:font-heading
-    prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 
-    dark:prose-p:text-zinc-300
-    dark:prose-a:text-zinc-300
-    underline-offset-2 prose-a:decoration-2 prose-a:decoration-dotted
-    prose-a:decoration-zinc-400 dark:prose-a:decoration-zinc-500
-    prose-blockquote:text-zinc-600 prose-blockquote:dark:text-stone-400
-  ">
-    <slot />
-  </main>
-
-  <div class="font-serif self-center flex flex-col my-7 lg:w-6/12 md:w-8/12 sm:w-9/12 w-10/12 max-w-none">
-    <hr class="border border-solid border-zinc-400 dark:border-zinc-500 mb-5" />
-    <div class="mb-5 flex flex-col gap-2 max-sm:gap-5">
-      {prevSlug &&
-        <p class="italic self-start">←
-          <a href={prevSlug} class="
-            underline decoration-solid decoration-2 underline-offset-2
-            decoration-zinc-400 dark:decoration-zinc-500
-          ">
-            {prevTitle}
-          </a>
-        </p>
-      }
-
-      {nextSlug &&
-        <p class="italic self-end text-end">
-          <a href={nextSlug} class="
-          underline decoration-solid decoration-2 underline-offset-2
-          decoration-zinc-400 dark:decoration-zinc-500
-          ">
-            {nextTitle}
-          </a>
-          →
-        </p>
-      }
-    </div>
-
-    <p class="self-start font-serif">Have a comment or response? <a href="/links"
-    class="underline decoration-2 decoration-zinc-400 dark:decoration-zinc-500 hover:decoration-zinc-400 hover:dark:decoration-zinc-500 decoration-dotted underline-offset-2">Email me</a>.</p>
-  </div>
 </Layout>
+
+<style is:global>
+  .prose-content {
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .prose-content p {
+    margin-bottom: 20px;
+  }
+
+  .prose-content h1,
+  .prose-content h2,
+  .prose-content h3,
+  .prose-content h4 {
+    color: var(--text);
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .prose-content h1 { font-size: 18px; }
+  .prose-content h2 { font-size: 16px; }
+  .prose-content h3 { font-size: 14px; }
+
+  .prose-content a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--border-bright);
+  }
+
+  .prose-content a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent-dim);
+  }
+
+  .prose-content code {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: var(--text);
+  }
+
+  .prose-content pre {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 16px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .prose-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .prose-content blockquote {
+    border-left: 2px solid var(--border-bright);
+    padding-left: 16px;
+    color: var(--text-muted);
+    margin: 20px 0;
+    font-style: italic;
+  }
+
+  .prose-content ul,
+  .prose-content ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .prose-content li {
+    margin-bottom: 4px;
+  }
+
+  .prose-content img {
+    max-width: 100%;
+    border: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  .prose-content hr {
+    margin: 40px 0;
+  }
+
+  .prose-content strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .prose-content em {
+    color: var(--text-dim);
+  }
+
+  .prose-content .astro-code {
+    border: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+  }
+</style>

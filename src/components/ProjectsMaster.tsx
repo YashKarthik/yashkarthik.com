@@ -1,170 +1,131 @@
-import "solid-js"
-import { colorVariants } from "../colors";
+import "solid-js";
 import { projects } from "../projects";
-import { createSignal, onMount, type Setter } from "solid-js";
+import { createSignal } from "solid-js";
 
-export default function ProjectsMasterComponent({ colorVariant }: { colorVariant: "green" | "blue" | "orange" | "yellow" }) {
-  const [ projectIdx, setProjectIdx] = createSignal(0);
-  const [canScrollUp, setCanScrollUp] = createSignal(false);
-  const [canScrollDown, setCanScrollDown] = createSignal(false);
-  let tocRef: HTMLElement | undefined;
+export default function ProjectsMasterComponent() {
+  const [projectIdx, setProjectIdx] = createSignal(0);
 
-  const updateScrollState = () => {
-    if (!tocRef) return;
-    const { scrollTop, scrollHeight, clientHeight } = tocRef;
-    
-    // Check if content is actually scrollable
-    const isScrollable = scrollHeight > clientHeight;
-    
-    if (!isScrollable) {
-      setCanScrollUp(false);
-      setCanScrollDown(false);
-      return;
-    }
-    
-    const canScrollUpValue = scrollTop > 10;
-    const canScrollDownValue = scrollTop + clientHeight < scrollHeight - 10;
-    
-    setCanScrollUp(canScrollUpValue);
-    setCanScrollDown(canScrollDownValue);
-  };
-
-  onMount(() => {
-    const setupScrollListener = () => {
-      if (tocRef) {
-        updateScrollState();
-        tocRef.addEventListener('scroll', updateScrollState);
-      }
-    };
-    
-    // Wait for DOM to be ready
-    setTimeout(setupScrollListener, 200);
-    
-    // Check again on resize
-    window.addEventListener('resize', () => {
-      setTimeout(updateScrollState, 100);
-    });
-  });
+  const project = () => projects[projectIdx()];
 
   return (
-    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between font-sans">
+    <div style="display: flex; gap: 0; flex-direction: row; min-height: 60vh;">
 
-      <section 
-        ref={tocRef}
-        class="
-          lg:sticky lg:top-32 lg:max-h-[80vh] lg:overflow-y-auto
-          max-h-[12rem] sm:max-h-none lg:max-h-[80vh] overflow-y-auto
-          grid gap-x-2 text-sm
-          grid-cols-1 sm:grid-cols-3 lg:grid-cols-1
-          content-start
-          relative
-        "
-      >
-        {projects.map((p, i) => (
-          <ProjectElemInSidebar
-            projectTitle={p.title}
-            projectIdx={i}
-            setProjectIdx={setProjectIdx}
-            hoverTextStyle={colorVariants[colorVariant].groupHoverText}
-          />
-        ))}
-        {canScrollUp() && (
-          <div class="lg:hidden absolute top-1 right-2 text-zinc-400 dark:text-zinc-500 text-xs pointer-events-none animate-pulse">
-            ↑
-          </div>
-        )}
-        {canScrollDown() && (
-          <div class="lg:hidden absolute bottom-1 right-2 text-zinc-400 dark:text-zinc-500 text-xs pointer-events-none animate-pulse">
-            ↓
-          </div>
-        )}
-      </section>
-
-      <section class="
-        sm:min-w-[50rem] sm:max-w-[50rem] 
-        min-w-full max-w-full lg:min-w-[50rem] lg:max-w-[50rem]
-        space-y-3 md:ml-16 ml-0 sm:ml-11 my-7 mx-0 lg:my-0
+      <aside style="
+        width: 220px;
+        flex-shrink: 0;
+        border-right: 1px solid var(--border);
+        overflow-y: auto;
       ">
-        <div>
-          <h2 class="
-            font-serif-styled text-3xl
-          ">
-            {projects[projectIdx()].title}
-          </h2>
+        {projects.map((p, i) => (
+          <button
+            type="button"
+            onclick={() => setProjectIdx(i)}
+            style={`
+              display: block;
+              width: 100%;
+              text-align: left;
+              padding: 8px 12px;
+              background: ${projectIdx() === i ? "var(--bg-subtle)" : "transparent"};
+              color: ${projectIdx() === i ? "var(--accent)" : "var(--text-muted)"};
+              border: none;
+              border-bottom: 1px solid var(--border);
+              cursor: pointer;
+              font-family: inherit;
+              font-size: 12px;
+              line-height: 1.4;
+              transition: color 80ms, background 80ms;
+            `}
+            onmouseover={(e) => {
+              if (projectIdx() !== i) (e.currentTarget as HTMLElement).style.color = "var(--text)";
+            }}
+            onmouseout={(e) => {
+              if (projectIdx() !== i) (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
+            }}
+          >
+            <span style={`margin-right: 6px; ${projectIdx() === i ? "color: var(--accent);" : "color: var(--border-bright);"}`}>›</span>
+            {p.title}
+          </button>
+        ))}
+      </aside>
 
-          <div class="flex flex-row gap-2">
-            <a href={projects[projectIdx()].github} target="_blank" class="
-              font-mono font-extralight text-xs
-              underline decoration-2 decoration-dotted
-              decoration-zinc-400 dark:decoration-zinc-500
-              hover:decoration-zinc-500 dark:hover:decoration-zinc-400
-              underline-offset-2 mt-1
-              ">
-                Source
-            </a>
-            {projects[projectIdx()].website &&
-              <a href={projects[projectIdx()].website} target="_blank" class="
-                font-mono font-extralight text-xs
-                underline decoration-2 decoration-dotted
-                decoration-zinc-400 dark:decoration-zinc-500
-                hover:decoration-zinc-500 dark:hover:decoration-zinc-400
-                underline-offset-2 mt-1
-                ">
-                  Live
+      <div style="flex: 1; padding: 24px 32px; overflow-y: auto;">
+        <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px;">
+            {project().title}
+          </h2>
+          <div style="display: flex; gap: 16px; font-size: 11px;">
+            {project().github && (
+              <a
+                href={project().github}
+                target="_blank"
+                style="color: var(--text-muted); letter-spacing: 0.05em;"
+                onmouseover={(e) => (e.currentTarget as HTMLElement).style.color = "var(--accent)"}
+                onmouseout={(e) => (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"}
+              >
+                [source]
               </a>
-            }
+            )}
+            {project().website && (
+              <a
+                href={project().website}
+                target="_blank"
+                style="color: var(--text-muted); letter-spacing: 0.05em;"
+                onmouseover={(e) => (e.currentTarget as HTMLElement).style.color = "var(--accent)"}
+                onmouseout={(e) => (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"}
+              >
+                [live]
+              </a>
+            )}
           </div>
         </div>
 
-        <p class="italic font-sans">
-          {projects[projectIdx()].short_desc}
+        <p style="color: var(--text-dim); font-size: 12px; margin-bottom: 16px; font-style: italic; line-height: 1.7;">
+          {project().short_desc}
         </p>
 
-        {projects[projectIdx()].long_desc.map(l => (
-          <p class="font-sans">{l}</p>
-        ))}
-
-        <div class={`${(projects[projectIdx()]!.images?.length ?? 0) + (projects[projectIdx()]!.videos?.length ?? 0) > 1 ? "sm:columns-2" : ""}`}>
-          {projects[projectIdx()]!.images?.map(image => (
-            <img id="projects-section" src={image} alt="" class="
-            max-h-[400px] sm:max-h-[600px] w-full object-cover
-            my-3 border-transparent border-2 hover:border-0 
-            grayscale hover:grayscale-0
-            transition-all duration-300 ease-in-out
-          "/>
-          ))}
-          {projects[projectIdx()]!.videos?.map(video => (
-            <video autoplay loop muted preload="auto" class="max-h-[400px] sm:max-h-[600px] w-full object-cover">
-              <source src={video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+          {project().long_desc.map((para) => (
+            <p style="color: var(--text-muted); font-size: 12px; line-height: 1.7;">{para}</p>
           ))}
         </div>
-      </section>
+
+        {((project().images?.length ?? 0) + (project().videos?.length ?? 0)) > 0 && (
+          <div style={`
+            display: grid;
+            gap: 12px;
+            grid-template-columns: ${(project().images?.length ?? 0) + (project().videos?.length ?? 0) > 1 ? "1fr 1fr" : "1fr"};
+          `}>
+            {project().images?.map((src) => (
+              <img
+                src={src}
+                alt=""
+                style="
+                  width: 100%;
+                  object-fit: cover;
+                  max-height: 360px;
+                  border: 1px solid var(--border);
+                  filter: grayscale(60%);
+                  transition: filter 200ms;
+                "
+                onmouseover={(e) => (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0%)"}
+                onmouseout={(e) => (e.currentTarget as HTMLImageElement).style.filter = "grayscale(60%)"}
+              />
+            ))}
+            {project().videos?.map((src) => (
+              <video
+                autoplay
+                loop
+                muted
+                preload="auto"
+                style="width: 100%; max-height: 360px; object-fit: cover; border: 1px solid var(--border);"
+              >
+                <source src={src} type="video/mp4" />
+              </video>
+            ))}
+          </div>
+        )}
+      </div>
 
     </div>
-  );
-}
-
-type TProjectElemInSidebar = {
-  projectTitle: string;
-  projectIdx: number;
-  setProjectIdx: Setter<number>;
-  hoverTextStyle: string;
-}
-
-function ProjectElemInSidebar(props: TProjectElemInSidebar) {
-
-  return (
-    <button type="button" onclick={() => props.setProjectIdx(props.projectIdx)} onmouseenter={() => props.setProjectIdx(props.projectIdx)} class="
-      group hover:cursor-crosshair
-      text-sm sm:text-md
-      p-1 max-w-fit
-      hover:bg-zinc-100 dark:hover:bg-zinc-900
-      transition-colors duration-100 ease-in-out
-    ">
-      <span class={`text-zinc-400 dark:text-dark-500 font-serif-styled ${props.hoverTextStyle}`}>*&nbsp;</span>
-      {props.projectTitle}
-    </button>
   );
 }

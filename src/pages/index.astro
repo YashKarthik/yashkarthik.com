@@ -1,141 +1,129 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SolidComponent from '../components/solid.tsx';
+import { getCollection } from 'astro:content';
 
-import Projects from "../components/ProjectsFull.astro";
-
-import { colorVariants } from "../colors.ts"
-const colorVariant = [
-  "blue",
-  "green",
-  "yellow",
-][ Math.floor(Math.random()*(3)) ]
-console.log(colorVariant);
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.published).valueOf() - new Date(a.data.published).valueOf())
+  .slice(0, 5);
 ---
 
-<Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik." showBars={false} route="/" colorVariant={colorVariant}>
-  <main class="my-7 mx-3 flex flex-col gap-0 flex-grow">
+<Layout title="Yash Karthik" description="Essays and short stories by Yash Karthik." route="/">
 
-    <section class="
-      self-center m-5
-      max-w-[80ch] lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
-    ">
-      <p class="text-4xl font-serif-styled">Hi, I'm Yash Karthik.</p> <br/>
+  <main style="max-width: 860px; margin: 0 auto; padding: 48px 24px; flex: 1;">
 
-      <p>Right now, I'm:</p>
-      <ul class="list-disc pl-5">
-
-        <li>
-          Building a
-          <a target="_blank" href="https://en.wikipedia.org/wiki/Sputter_deposition" class={`
-            underline decoration-2
-            ${colorVariants[colorVariant].decorationColor}
-            underline-offset-2
-          `}>lithography tool </a> at
-
-          <a target="_blank" href="https://www.waterloofab.com/" class={`
-            underline decoration-2
-            ${colorVariants[colorVariant].decorationColor}
-            underline-offset-2
-          `}>Waterloo Fab</a>.
-
-        </li>
-
-        <li>Learning PCB design and trying to design gadgets for myself.</li>
-
-        <li>
-          Studying computer engineering at
-          <a target="_blank" href="https://ece.engineering/" class={`
-            underline decoration-2
-            ${colorVariants[colorVariant].decorationColor}
-            underline-offset-2
-          `}>Waterloo</a>.
-        </li>
-      </ul> <br/>
-
-      <p>Before that, I have:</p>
-      <ul class="list-disc pl-5">
-        <li>Shipped semi-viral web apps built using ai apis.</li>
-
-        <li>
-          Written firmware for
-          <a target="_blank" href="https://www.uwarg.com/" class={`
-            underline decoration-2
-            ${colorVariants[colorVariant].decorationColor}
-            underline-offset-2
-          `}>drones</a>.
-        </li>
-
-        <li>Run linux on lego ev3.</li>
-      </ul> <br/>
-
-      <p>Some lore:</p>
-      <p class="p-5">
-        <i>Five years ago I awoke in a strange new world: I learned to code. <br/><br/>
-        My friend and I were tasked with cleaning-up the robotics lab after a late night session.
-        Rather than spending hours sorting the parts manually, we built a robot to do it for us
-        (finishing the task in a few days instead of hours xD).
-        
-        I knew how transformative technology is. It had been all around us. But actually leveraging
-        it myself to automate a mundane task was when I truly <b>grokked</b> the power of technology.
-        
-        Since then, I've built fast and beautiful web apps; efficient and powerful robots; slow and
-        clunky(?) VMs; and learned to embrace the lightness of being a <b>perpetual beginner</b>.</i>
+    <section style="margin-bottom: 48px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px;">
+        <span style="color: var(--accent); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">PROFILE</span>
+        <span style="flex: 1; border-top: 1px solid var(--border); position: relative; top: -4px;"></span>
+      </div>
+      <h1 style="font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 16px; letter-spacing: -0.01em;">
+        Yash Karthik
+      </h1>
+      <p style="color: var(--text-dim); max-width: 520px; line-height: 1.7;">
+        Computer engineering student at Waterloo. Building a lithography tool at Waterloo Fab.
+        Interested in hardware, compilers, and the web.
       </p>
     </section>
 
-    <Projects colorVariant={colorVariant}/>
-
-    <section class="
-      self-center md:my-12 mx-3
-    ">
-      <h2 class="text-4xl font-serif-styled mb-6">Places I've Lived</h2>
-      
-      <div class="grid grid-cols-2 gap-6 max-w-4xl">
-        <div class="row-span-2 flex flex-col items-center">
-          <img src="/blog-assets/map-india.png" alt="India" class="
-            w-full h-auto rounded-sm
-            hover:rounded-lg
-            grayscale hover:grayscale-0
-            transition-all duration-300 ease-in-out
-          " />
-        </div>
-        
-        <div class="flex flex-col items-center">
-          <img src="/blog-assets/map-waterloo.png" alt="Waterloo" class="
-            w-full h-auto rounded-sm
-            hover:rounded-lg
-            grayscale hover:grayscale-0
-            transition-all duration-300 ease-in-out
-          " />
-        </div>
-        
-        <div class="flex flex-col items-center">
-          <img src="/blog-assets/map-bay.png" alt="Bay Area" class="
-            w-full h-auto rounded-sm
-            hover:rounded-lg
-            grayscale hover:grayscale-0
-            transition-all duration-300 ease-in-out
-          " />
-        </div>
+    <section style="margin-bottom: 48px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="color: var(--accent); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">NOW</span>
+        <span style="flex: 1; border-top: 1px solid var(--border); position: relative; top: -4px;"></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        {[
+          ["Building", "a lithography tool at Waterloo Fab", "https://www.waterloofab.com/"],
+          ["Learning", "PCB design, building gadgets"],
+          ["Studying", "computer engineering at Waterloo", "https://ece.engineering/"],
+        ].map(([verb, desc, href]) => (
+          <div style="display: grid; grid-template-columns: 80px 1fr; gap: 16px;">
+            <span style="color: var(--text-muted); text-align: right;">{verb}</span>
+            <span>
+              {href
+                ? <a href={href} target="_blank" style="color: var(--text);">{desc}</a>
+                : <span style="color: var(--text);">{desc}</span>
+              }
+            </span>
+          </div>
+        ))}
       </div>
     </section>
 
-    <section class="
-      self-center m-5 mt-12
-      max-w-[80ch] lg:w-7/12 md:w-8/12 sm:w-9/12 w-10/12
-    ">
-      <img src="/blog-assets/me.jpg" alt="me" class="
-        w-1/3 h-1/3 rounded-sm
-        hover:rounded-lg
-        transition-all duration-300 ease-in-out" />
-
-      </br>
-      See ya!
-
+    <section style="margin-bottom: 48px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="color: var(--accent); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">PREVIOUSLY</span>
+        <span style="flex: 1; border-top: 1px solid var(--border); position: relative; top: -4px;"></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        {[
+          ["shipped", "semi-viral web apps using AI APIs"],
+          ["firmware", "for drones at UWARG", "https://www.uwarg.com/"],
+          ["ran", "Linux on LEGO EV3"],
+        ].map(([verb, desc, href]) => (
+          <div style="display: grid; grid-template-columns: 80px 1fr; gap: 16px;">
+            <span style="color: var(--text-muted); text-align: right;">{verb}</span>
+            <span>
+              {href
+                ? <a href={href} target="_blank" style="color: var(--text);">{desc}</a>
+                : <span style="color: var(--text);">{desc}</span>
+              }
+            </span>
+          </div>
+        ))}
+      </div>
     </section>
-  </main>
 
-  <a target="_blank" href="https://socratica.info/" class="self-center">⁂</a>
+    <section style="margin-bottom: 48px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="color: var(--accent); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">WRITING</span>
+        <span style="flex: 1; border-top: 1px solid var(--border); position: relative; top: -4px;"></span>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        {posts.map((post) => (
+          <a
+            href={`/archive/${post.slug}`}
+            style="
+              display: grid;
+              grid-template-columns: 1fr auto;
+              gap: 16px;
+              padding: 8px 0;
+              border-bottom: 1px solid var(--border);
+              color: var(--text);
+              transition: color 120ms;
+            "
+            onmouseover="this.style.color='var(--accent)'"
+            onmouseout="this.style.color='var(--text)'"
+          >
+            <span>{post.data.title}</span>
+            <span style="color: var(--text-muted); white-space: nowrap; font-size: 11px; align-self: center;">
+              {new Date(post.data.published).getFullYear()}
+            </span>
+          </a>
+        ))}
+      </div>
+      <div style="margin-top: 12px;">
+        <a href="/archive" style="color: var(--text-muted); font-size: 11px; letter-spacing: 0.05em;">
+          all posts →
+        </a>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 48px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="color: var(--accent); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">LORE</span>
+        <span style="flex: 1; border-top: 1px solid var(--border); position: relative; top: -4px;"></span>
+      </div>
+      <p style="color: var(--text-dim); max-width: 580px; line-height: 1.8; border-left: 2px solid var(--border); padding-left: 16px;">
+        Five years ago I awoke in a strange new world: I learned to code. My friend and I were
+        tasked with cleaning up the robotics lab after a late night session. Rather than spending
+        hours sorting parts manually, we built a robot to do it. I knew how transformative
+        technology is — but actually leveraging it to automate a mundane task was when I truly
+        <span style="color: var(--text);">grokked</span> the power of technology. Since then I've built
+        fast web apps, firmware for robots, slow VMs, and learned to embrace being a
+        <span style="color: var(--text);">perpetual beginner</span>.
+      </p>
+    </section>
+
+  </main>
 
 </Layout>
