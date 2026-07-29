@@ -8,6 +8,7 @@ import "@fontsource/cormorant/variable.css"
 import "@fontsource/sofia-sans-extra-condensed/800.css"
 
 import { colorVariants } from "../colors.ts"
+import CellularBackground from "../components/CellularBackground.astro";
 
 export interface Props {
   title: string;
@@ -95,7 +96,7 @@ const { title, image_url, description, showBars, route, colorVariant } = Astro.p
 
   </head>
   <body class={`
-    mb-7 flex flex-col min-h-screen 
+    flex flex-col min-h-screen
     text-zinc-700 dark:text-zinc-300
     ${colorVariants[colorVariant].selection}
     scroll-smooth
@@ -141,6 +142,8 @@ const { title, image_url, description, showBars, route, colorVariant } = Astro.p
     </nav>
 
     <slot />
+
+    <CellularBackground />
 
   </body>
 </html>
