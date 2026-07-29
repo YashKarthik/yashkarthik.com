@@ -1,0 +1,804 @@
+<footer class="cellular-footer">
+  <canvas
+    id="cellular-background"
+    aria-hidden="true"
+  ></canvas>
+</footer>
+
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>("#cellular-background");
+
+  if (canvas) {
+    const context = canvas.getContext("2d");
+    const pointer = {
+      x: 0,
+      y: 0,
+      active: false,
+    };
+
+    type PixelFish = {
+      x: number;
+      y: number;
+      velocityX: number;
+      velocityY: number;
+    };
+
+    type Explosion = {
+      x: number;
+      y: number;
+      radius: number;
+      maximumRadius: number;
+      energy: number;
+    };
+
+    let width = 0;
+    let height = 0;
+    let cellSize = 12;
+    let columns = 0;
+    let rows = 0;
+    let cells = new Uint8Array();
+    let fish: PixelFish[] = [];
+    let explosions: Explosion[] = [];
+    let edgeProfile = new Float32Array();
+    let edgeVelocity = new Float32Array();
+    let random = () => Math.random();
+    let animationFrame = 0;
+    let resizeFrame = 0;
+    let lastStep = 0;
+    let tick = 0;
+    let sensorTargetX = 0;
+    let sensorTargetY = 0;
+    let sensorTiltX = 0;
+    let sensorTiltY = 0;
+    let sensorImpulse = 0;
+    let baselineGamma: number | null = null;
+    let baselineBeta: number | null = null;
+    let sensorListenersStarted = false;
+    let sensorPermissionRequested = false;
+
+    const hashString = (value: string) => {
+      let hash = 2166136261;
+
+      for (let index = 0; index < value.length; index += 1) {
+        hash ^= value.charCodeAt(index);
+        hash = Math.imul(hash, 16777619);
+      }
+
+      return hash >>> 0;
+    };
+
+    const makeRandom = (seed: number) => {
+      let state = seed || 1;
+
+      return () => {
+        state ^= state << 13;
+        state ^= state >>> 17;
+        state ^= state << 5;
+        return (state >>> 0) / 4294967296;
+      };
+    };
+
+    const seedEdge = () => {
+      const baseLevel = Math.max(2, Math.min(4.5, rows * 0.18));
+      edgeProfile = new Float32Array(columns);
+      edgeVelocity = new Float32Array(columns);
+
+      for (let column = 0; column < columns; column += 1) {
+        edgeProfile[column] =
+          baseLevel +
+          Math.sin(column * 0.11) * 0.7 +
+          Math.sin(column * 0.037 + 1.4) * 0.45;
+      }
+    };
+
+    const updateEdge = () => {
+      const baseLevel = Math.max(2, Math.min(4.5, rows * 0.18));
+      const nextProfile = edgeProfile.slice();
+      const nextVelocity = edgeVelocity.slice();
+
+      sensorTiltX += (sensorTargetX - sensorTiltX) * 0.08;
+      sensorTiltY += (sensorTargetY - sensorTiltY) * 0.08;
+      sensorImpulse *= 0.91;
+
+      for (let column = 0; column < columns; column += 1) {
+        const left = edgeProfile[Math.max(0, column - 1)];
+        const right = edgeProfile[Math.min(columns - 1, column + 1)];
+        const horizontalPosition = column / Math.max(1, columns - 1) - 0.5;
+        const naturalSurface =
+          baseLevel +
+          Math.sin(column * 0.09 + tick * 0.075) * 0.55 +
+          Math.sin(column * 0.031 - tick * 0.042) * 0.38 +
+          sensorTiltX * horizontalPosition * 4 +
+          sensorTiltY * 0.65;
+        const propagation = (left + right - edgeProfile[column] * 2) * 0.16;
+        const restoring = (naturalSurface - edgeProfile[column]) * 0.045;
+        const motion =
+          sensorImpulse * Math.sin(column * 0.15 + tick * 0.2) * 0.025;
+
+        nextVelocity[column] =
+          (edgeVelocity[column] + propagation + restoring + motion) * 0.94;
+        nextProfile[column] = Math.max(
+          0.5,
+          Math.min(
+            Math.max(3, rows * 0.42),
+            edgeProfile[column] + nextVelocity[column],
+          ),
+        );
+      }
+
+      edgeProfile = nextProfile;
+      edgeVelocity = nextVelocity;
+    };
+
+    const seedCells = () => {
+      cells = new Uint8Array(columns * rows);
+      cells.fill(1);
+
+      const mazeColumns = Math.max(1, Math.floor((columns - 1) / 2));
+      const mazeRows = Math.max(1, Math.floor((rows - 1) / 2));
+      const visited = new Uint8Array(mazeColumns * mazeRows);
+      const stack: Array<[number, number]> = [];
+      const startX = Math.floor(random() * mazeColumns);
+      const startY = Math.floor(random() * mazeRows);
+      const directions = [
+        [0, -1],
+        [1, 0],
+        [0, 1],
+        [-1, 0],
+      ];
+
+      visited[startY * mazeColumns + startX] = 1;
+      stack.push([startX, startY]);
+      cells[(startY * 2 + 1) * columns + startX * 2 + 1] = 0;
+
+      while (stack.length > 0) {
+        const [currentX, currentY] = stack[stack.length - 1];
+        const available: Array<[number, number]> = [];
+
+        for (const [offsetX, offsetY] of directions) {
+          const nextX = currentX + offsetX;
+          const nextY = currentY + offsetY;
+
+          if (
+            nextX >= 0 &&
+            nextX < mazeColumns &&
+            nextY >= 0 &&
+            nextY < mazeRows &&
+            visited[nextY * mazeColumns + nextX] === 0
+          ) {
+            available.push([nextX, nextY]);
+          }
+        }
+
+        if (available.length === 0) {
+          stack.pop();
+          continue;
+        }
+
+        const [nextX, nextY] =
+          available[Math.floor(random() * available.length)];
+        const currentGridX = currentX * 2 + 1;
+        const currentGridY = currentY * 2 + 1;
+        const nextGridX = nextX * 2 + 1;
+        const nextGridY = nextY * 2 + 1;
+
+        visited[nextY * mazeColumns + nextX] = 1;
+        cells[
+          ((currentGridY + nextGridY) / 2) * columns +
+            (currentGridX + nextGridX) / 2
+        ] = 0;
+        cells[nextGridY * columns + nextGridX] = 0;
+        stack.push([nextX, nextY]);
+      }
+
+      for (let index = 0; index < cells.length; index += 1) {
+        if (cells[index] !== 0 && random() > 0.66) {
+          cells[index] = random() > 0.76 ? 3 : 2;
+        }
+      }
+    };
+
+    const seedFish = () => {
+      const fishCount = Math.max(10, Math.min(18, Math.floor(columns / 9)));
+      const originX = columns * (0.2 + random() * 0.6);
+      const originY = rows * (0.35 + random() * 0.4);
+
+      fish = Array.from({ length: fishCount }, () => {
+        const angle = random() * Math.PI * 2;
+        const speed = 0.2 + random() * 0.35;
+
+        return {
+          x: originX + (random() - 0.5) * columns * 0.18,
+          y: originY + (random() - 0.5) * rows * 0.35,
+          velocityX: Math.cos(angle) * speed,
+          velocityY: Math.sin(angle) * speed,
+        };
+      });
+    };
+
+    const initialise = () => {
+      if (!context) return;
+
+      const bounds = canvas.getBoundingClientRect();
+      width = bounds.width;
+      height = bounds.height;
+      cellSize = width < 640 ? 9 : 11;
+      columns = Math.ceil(width / cellSize) + 1;
+      rows = Math.ceil(height / cellSize) + 1;
+      random = makeRandom(
+        hashString(`${window.location.pathname}:${columns}:${rows}`),
+      );
+
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(width * pixelRatio);
+      canvas.height = Math.floor(height * pixelRatio);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+      seedCells();
+      seedFish();
+      seedEdge();
+      explosions = [];
+      render();
+    };
+
+    const evolveCells = () => {
+      const nextCells = cells.slice();
+      const pointerColumn = pointer.x / cellSize;
+      const pointerRow = pointer.y / cellSize;
+      const hoverRadius = 7;
+
+      for (let row = 0; row < rows; row += 1) {
+        for (let column = 0; column < columns; column += 1) {
+          const index = row * columns + column;
+          const targetState = (cells[index] + 1) % 4;
+          const isNearPointer =
+            pointer.active &&
+            Math.hypot(column - pointerColumn, row - pointerRow) <= hoverRadius;
+          let matchingNeighbours = 0;
+
+          for (let offsetY = -1; offsetY <= 1; offsetY += 1) {
+            for (let offsetX = -1; offsetX <= 1; offsetX += 1) {
+              if (offsetX === 0 && offsetY === 0) continue;
+
+              const neighbourX = (column + offsetX + columns) % columns;
+              const neighbourY = (row + offsetY + rows) % rows;
+
+              if (
+                cells[neighbourY * columns + neighbourX] === targetState
+              ) {
+                matchingNeighbours += 1;
+              }
+            }
+          }
+
+          if (isNearPointer) {
+            if (matchingNeighbours >= 2 && random() > 0.3) {
+              nextCells[index] = targetState;
+            }
+          } else if (cells[index] !== 0 && random() < 0.018) {
+            nextCells[index] = 0;
+          } else if (matchingNeighbours >= 3 && random() > 0.84) {
+            nextCells[index] = targetState;
+          }
+        }
+      }
+
+      cells = nextCells;
+    };
+
+    const updateFish = () => {
+      const pointerX = pointer.x / cellSize;
+      const pointerY = pointer.y / cellSize;
+      const autonomousTargetX =
+        columns * 0.5 + Math.sin(tick * 0.035) * columns * 0.38;
+      const autonomousTargetY =
+        rows * 0.56 + Math.cos(tick * 0.052) * rows * 0.26;
+
+      for (let index = 0; index < fish.length; index += 1) {
+        const current = fish[index];
+        let separationX = 0;
+        let separationY = 0;
+        let alignmentX = 0;
+        let alignmentY = 0;
+        let cohesionX = 0;
+        let cohesionY = 0;
+        let neighbours = 0;
+
+        for (let otherIndex = 0; otherIndex < fish.length; otherIndex += 1) {
+          if (index === otherIndex) continue;
+
+          const other = fish[otherIndex];
+          const differenceX = other.x - current.x;
+          const differenceY = other.y - current.y;
+          const distance = Math.hypot(differenceX, differenceY);
+
+          if (distance < 7) {
+            alignmentX += other.velocityX;
+            alignmentY += other.velocityY;
+            cohesionX += other.x;
+            cohesionY += other.y;
+            neighbours += 1;
+          }
+
+          if (distance > 0 && distance < 2.2) {
+            separationX -= differenceX / distance;
+            separationY -= differenceY / distance;
+          }
+        }
+
+        if (neighbours > 0) {
+          alignmentX = alignmentX / neighbours - current.velocityX;
+          alignmentY = alignmentY / neighbours - current.velocityY;
+          cohesionX = cohesionX / neighbours - current.x;
+          cohesionY = cohesionY / neighbours - current.y;
+        }
+
+        const pointerDistance = Math.hypot(
+          pointerX - current.x,
+          pointerY - current.y,
+        );
+        const isCursorInfluenced = pointer.active && pointerDistance < 12;
+        const targetX = isCursorInfluenced ? pointerX : autonomousTargetX;
+        const targetY = isCursorInfluenced ? pointerY : autonomousTargetY;
+        const targetDifferenceX = targetX - current.x;
+        const targetDifferenceY = targetY - current.y;
+        const targetDistance = Math.max(
+          1,
+          Math.hypot(targetDifferenceX, targetDifferenceY),
+        );
+        const attraction = isCursorInfluenced ? 0.12 : 0.015;
+
+        current.velocityX +=
+          (targetDifferenceX / targetDistance) * attraction +
+          alignmentX * 0.025 +
+          cohesionX * 0.002 +
+          separationX * 0.12;
+        current.velocityY +=
+          (targetDifferenceY / targetDistance) * attraction +
+          alignmentY * 0.025 +
+          cohesionY * 0.002 +
+          separationY * 0.12;
+
+        const speed = Math.hypot(current.velocityX, current.velocityY);
+        const maximumSpeed = isCursorInfluenced ? 1 : 0.38;
+
+        if (speed > maximumSpeed) {
+          current.velocityX = (current.velocityX / speed) * maximumSpeed;
+          current.velocityY = (current.velocityY / speed) * maximumSpeed;
+        }
+
+        current.x += current.velocityX;
+        current.y += current.velocityY;
+
+        if (current.x < 0 || current.x >= columns) {
+          current.velocityX *= -1;
+          current.x = Math.max(0, Math.min(columns - 1, current.x));
+        }
+
+        if (current.y < 0 || current.y >= rows) {
+          current.velocityY *= -1;
+          current.y = Math.max(0, Math.min(rows - 1, current.y));
+        }
+
+        const cellX = Math.max(
+          0,
+          Math.min(columns - 1, Math.round(current.x)),
+        );
+        const cellY = Math.max(0, Math.min(rows - 1, Math.round(current.y)));
+        const trailX = Math.max(
+          0,
+          Math.min(columns - 1, Math.round(current.x - current.velocityX)),
+        );
+        const trailY = Math.max(
+          0,
+          Math.min(rows - 1, Math.round(current.y - current.velocityY)),
+        );
+
+        if (isCursorInfluenced) {
+          cells[cellY * columns + cellX] = 3;
+          cells[trailY * columns + trailX] = 2;
+        } else if (index < 2 && tick % 5 === 0) {
+          cells[cellY * columns + cellX] = 2;
+        }
+      }
+
+      if (pointer.active) {
+        const centerX = Math.max(
+          0,
+          Math.min(columns - 1, Math.round(pointerX)),
+        );
+        const centerY = Math.max(0, Math.min(rows - 1, Math.round(pointerY)));
+        const pulseRadius = 1 + (tick % 3);
+
+        for (
+          let row = Math.max(0, centerY - pulseRadius);
+          row <= Math.min(rows - 1, centerY + pulseRadius);
+          row += 1
+        ) {
+          for (
+            let column = Math.max(0, centerX - pulseRadius);
+            column <= Math.min(columns - 1, centerX + pulseRadius);
+            column += 1
+          ) {
+            const distance = Math.hypot(column - centerX, row - centerY);
+
+            if (distance <= pulseRadius && random() > 0.58) {
+              const cellIndex = row * columns + column;
+              cells[cellIndex] = (cells[cellIndex] + 1) % 4;
+            }
+          }
+        }
+      }
+    };
+
+    const updateExplosions = () => {
+      for (const explosion of explosions) {
+        explosion.radius += 1.25;
+        explosion.energy -= 0.055;
+
+        const minimumColumn = Math.max(
+          0,
+          Math.floor(explosion.x - explosion.radius - 2),
+        );
+        const maximumColumn = Math.min(
+          columns - 1,
+          Math.ceil(explosion.x + explosion.radius + 2),
+        );
+        const minimumRow = Math.max(
+          0,
+          Math.floor(explosion.y - explosion.radius - 2),
+        );
+        const maximumRow = Math.min(
+          rows - 1,
+          Math.ceil(explosion.y + explosion.radius + 2),
+        );
+
+        for (let row = minimumRow; row <= maximumRow; row += 1) {
+          for (
+            let column = minimumColumn;
+            column <= maximumColumn;
+            column += 1
+          ) {
+            const distance = Math.hypot(
+              column - explosion.x,
+              row - explosion.y,
+            );
+            const isShockwave = Math.abs(distance - explosion.radius) < 1.6;
+            const isAftershock =
+              distance < explosion.radius && random() < explosion.energy * 0.1;
+
+            if (isShockwave || isAftershock) {
+              cells[row * columns + column] =
+                1 + Math.floor(random() * 3);
+            }
+          }
+        }
+
+        for (const current of fish) {
+          const differenceX = current.x - explosion.x;
+          const differenceY = current.y - explosion.y;
+          const distance = Math.max(0.5, Math.hypot(differenceX, differenceY));
+
+          if (Math.abs(distance - explosion.radius) < 3.5) {
+            const force = explosion.energy * 0.65;
+            current.velocityX += (differenceX / distance) * force;
+            current.velocityY += (differenceY / distance) * force;
+          }
+        }
+      }
+
+      explosions = explosions.filter(
+        (explosion) =>
+          explosion.energy > 0 && explosion.radius < explosion.maximumRadius,
+      );
+    };
+
+    const update = () => {
+      evolveCells();
+      updateFish();
+      updateExplosions();
+      updateEdge();
+
+      if (!pointer.active && tick % 14 === 0) {
+        const burstX = Math.floor(random() * columns);
+        const burstY = Math.floor(random() * rows);
+
+        for (let burst = 0; burst < 4; burst += 1) {
+          const column = Math.max(
+            0,
+            Math.min(columns - 1, burstX + Math.floor(random() * 3) - 1),
+          );
+          const row = Math.max(
+            0,
+            Math.min(rows - 1, burstY + Math.floor(random() * 3) - 1),
+          );
+          cells[row * columns + column] = 1 + Math.floor(random() * 3);
+        }
+      }
+
+      tick += 1;
+    };
+
+    const render = () => {
+      if (!context) return;
+
+      const isDark = document.documentElement.classList.contains("dark");
+      const palette = isDark
+        ? ["#19191d", "#3b3b43", "#646470"]
+        : ["#efeff1", "#ceced6", "#9f9faa"];
+      const fishColor = isDark ? "#777783" : "#858590";
+      const gap = width < 640 ? 1 : 1.35;
+
+      context.clearRect(0, 0, width, height);
+
+      for (let row = 0; row < rows; row += 1) {
+        for (let column = 0; column < columns; column += 1) {
+          const edgeRow = Math.max(0, Math.round(edgeProfile[column]));
+          if (row < edgeRow) continue;
+
+          const cellState = cells[row * columns + column];
+          const isEdgeCell = row === edgeRow;
+          if (cellState === 0 && !isEdgeCell) continue;
+
+          const depth = (row - edgeRow) / Math.max(1, rows - 1 - edgeRow);
+          context.globalAlpha = isEdgeCell
+            ? 0.34
+            : Math.max(0.12, depth ** 1.3);
+
+          context.fillStyle = palette[Math.max(0, cellState - 1)];
+          context.fillRect(
+            column * cellSize + gap,
+            row * cellSize + gap,
+            cellSize - gap * 2,
+            cellSize - gap * 2,
+          );
+        }
+      }
+
+      if (pointer.active) {
+        context.globalAlpha = 0.65;
+        context.fillStyle = fishColor;
+
+        const pointerColumn = pointer.x / cellSize;
+        const pointerRow = pointer.y / cellSize;
+
+        for (const current of fish) {
+          if (
+            Math.hypot(
+              current.x - pointerColumn,
+              current.y - pointerRow,
+            ) > 10
+          ) {
+            continue;
+          }
+
+          const column = Math.round(current.x);
+          const row = Math.round(current.y);
+          const edgeRow = Math.max(0, Math.round(edgeProfile[column]));
+
+          if (row < edgeRow) continue;
+
+          context.fillRect(
+            column * cellSize + gap,
+            row * cellSize + gap,
+            cellSize - gap * 2,
+            cellSize - gap * 2,
+          );
+        }
+      }
+
+      context.globalAlpha = 1;
+    };
+
+    const animate = (time: number) => {
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const stepDuration = reducedMotion ? 220 : 50;
+
+      if (time - lastStep >= stepDuration) {
+        update();
+        render();
+        lastStep = time;
+      }
+
+      animationFrame = window.requestAnimationFrame(animate);
+    };
+
+    const scheduleInitialise = () => {
+      window.cancelAnimationFrame(resizeFrame);
+      resizeFrame = window.requestAnimationFrame(initialise);
+    };
+
+    const handleDeviceOrientation = (event: DeviceOrientationEvent) => {
+      if (event.gamma !== null) {
+        if (baselineGamma === null) baselineGamma = event.gamma;
+        sensorTargetX = Math.max(
+          -1,
+          Math.min(1, (event.gamma - baselineGamma) / 32),
+        );
+      }
+
+      if (event.beta !== null) {
+        if (baselineBeta === null) baselineBeta = event.beta;
+        sensorTargetY = Math.max(
+          -1,
+          Math.min(1, (event.beta - baselineBeta) / 42),
+        );
+      }
+    };
+
+    const handleDeviceMotion = (event: DeviceMotionEvent) => {
+      const acceleration = event.acceleration;
+      if (!acceleration) return;
+
+      const horizontalAcceleration = acceleration.x || 0;
+      const verticalAcceleration = acceleration.y || 0;
+      sensorImpulse = Math.max(
+        -1.5,
+        Math.min(
+          1.5,
+          sensorImpulse +
+            horizontalAcceleration * 0.045 +
+            verticalAcceleration * 0.028,
+        ),
+      );
+    };
+
+    const startSensorListeners = () => {
+      if (sensorListenersStarted) return;
+
+      window.addEventListener("deviceorientation", handleDeviceOrientation, {
+        passive: true,
+      });
+      window.addEventListener("devicemotion", handleDeviceMotion, {
+        passive: true,
+      });
+      sensorListenersStarted = true;
+    };
+
+    const enableMotionSensors = async (fromUserGesture: boolean) => {
+      if (sensorListenersStarted || sensorPermissionRequested) return;
+
+      type PermissionCapableEvent = {
+        requestPermission?: () => Promise<"granted" | "denied">;
+      };
+
+      const permissionSources: PermissionCapableEvent[] = [];
+
+      if ("DeviceOrientationEvent" in window) {
+        permissionSources.push(
+          DeviceOrientationEvent as typeof DeviceOrientationEvent &
+            PermissionCapableEvent,
+        );
+      }
+
+      if ("DeviceMotionEvent" in window) {
+        permissionSources.push(
+          DeviceMotionEvent as typeof DeviceMotionEvent &
+            PermissionCapableEvent,
+        );
+      }
+
+      const permissionRequests = permissionSources.filter(
+        (source) => typeof source.requestPermission === "function",
+      );
+
+      if (permissionRequests.length === 0) {
+        if (permissionSources.length > 0) startSensorListeners();
+        return;
+      }
+
+      if (!fromUserGesture) return;
+      sensorPermissionRequested = true;
+
+      try {
+        const results = await Promise.all(
+          permissionRequests.map((source) => source.requestPermission!()),
+        );
+
+        if (results.some((result) => result === "granted")) {
+          startSensorListeners();
+        }
+      } catch {
+        // Motion data is an optional enhancement.
+      }
+    };
+
+    const updatePointer = (event: PointerEvent) => {
+      const bounds = canvas.getBoundingClientRect();
+      pointer.x = event.clientX - bounds.left;
+      pointer.y = event.clientY - bounds.top;
+      pointer.active = true;
+    };
+
+    const triggerExplosion = (event: PointerEvent) => {
+      updatePointer(event);
+
+      const x = pointer.x / cellSize;
+      const y = pointer.y / cellSize;
+      const maximumRadius = Math.max(12, Math.min(19, rows * 0.85));
+
+      explosions.push({
+        x,
+        y,
+        radius: 0,
+        maximumRadius,
+        energy: 1,
+      });
+
+      const impactColumn = Math.max(
+        0,
+        Math.min(columns - 1, Math.round(x)),
+      );
+
+      for (let column = 0; column < columns; column += 1) {
+        const distance = Math.abs(column - impactColumn);
+
+        if (distance < 14) {
+          const falloff = 1 - distance / 14;
+          edgeVelocity[column] -=
+            Math.cos((distance / 14) * Math.PI * 0.5) * falloff * 0.9;
+        }
+      }
+
+      for (let burst = 0; burst < 90; burst += 1) {
+        const angle = random() * Math.PI * 2;
+        const distance = Math.sqrt(random()) * 6;
+        const column = Math.max(
+          0,
+          Math.min(columns - 1, Math.round(x + Math.cos(angle) * distance)),
+        );
+        const row = Math.max(
+          0,
+          Math.min(rows - 1, Math.round(y + Math.sin(angle) * distance)),
+        );
+        cells[row * columns + column] = 1 + Math.floor(random() * 3);
+      }
+
+      void enableMotionSensors(true);
+    };
+
+    initialise();
+    animationFrame = window.requestAnimationFrame(animate);
+    void enableMotionSensors(false);
+
+    window.addEventListener("resize", scheduleInitialise, { passive: true });
+    canvas.addEventListener("pointerenter", updatePointer, { passive: true });
+    canvas.addEventListener("pointermove", updatePointer, { passive: true });
+    canvas.addEventListener("pointerdown", triggerExplosion, { passive: true });
+    canvas.addEventListener("pointerleave", () => {
+      pointer.active = false;
+    });
+
+    new MutationObserver(render).observe(document.documentElement, {
+      attributeFilter: ["class"],
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        window.cancelAnimationFrame(animationFrame);
+      } else {
+        lastStep = performance.now();
+        animationFrame = window.requestAnimationFrame(animate);
+      }
+    });
+  }
+</script>
+
+<style>
+  .cellular-footer {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: auto;
+    padding-top: clamp(3.5rem, 8vh, 6rem);
+  }
+
+  #cellular-background {
+    display: block;
+    width: 100%;
+    height: clamp(180px, 25vh, 250px);
+    cursor: crosshair;
+    touch-action: pan-y;
+  }
+</style>
