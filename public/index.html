@@ -24,23 +24,45 @@
 
     <img src="pfp.jpg" height="160" alt="Yash Karthik">
 
-    <p>Hi, I'm Yash. I study computer engineering at <a href="https://ece.engineering/">Waterloo</a>.</p>
+    <p>Hi, I'm Yash. I study computer engineering at Waterloo and mainly work on <a
+      href="https://www.waterloofab.com/">Hacker Fab</a>, where we design & operate our own chip fab tools.</p>
 
-    <p>Right now I'm building an <a href="https://en.wikipedia.org/wiki/Atomic_force_microscopy">atomic force microscope</a> at <a href="https://www.waterloofab.com/">Hacker Fab</a>, and learning PCB design so I can make gadgets for myself.</p>
+    <p>Right now I'm working on an <a
+      href="https://en.wikipedia.org/wiki/Atomic_force_microscopy">atomic force microscope</a> and
+    learning about img sensors.</p>
 
-    <p>Before that I shipped semi-viral web apps built on AI APIs, wrote firmware for <a href="https://www.uwarg.com/">drones</a>, and ran Linux on a Lego EV3.</p>
+    <p>Before that I shipped fun web apps built on ai apis, designed pcbs for <a
+      href="https://seneca.com/">firefighting drones</a>, and ran linux on my school's ev3s.</p>
 
-    <p>Five years ago I learned to code. My friend and I were tasked with cleaning up the robotics lab after a late-night session. Rather than sorting the parts by hand, we built a robot to do it (finishing in a few days instead of hours). That was when I really grokked the power of technology. Since then I've built fast and beautiful web apps, efficient and powerful robots, and slow and clunky(?) VMs, and learned to embrace being a perpetual beginner.</p>
+    <p>I've lived in 10+ cities and shifted schools across India so I find it curious when I'm talking about school to
+    friends who've gone to the same one from kg to 12th grade. These days Im usually in waterloo,
+    and visit the bay every few months ;)  I like <span class="hv" data-img="hover/run.png">running</span>, <span class="hv" data-img="hover/bike.png">biking</span>, <span class="hv" data-img="hover/climb.png">climbing</span> and football. I keep a list of <a href="projects/index.html">projects</a>.</p>
 
-    <p>I've lived in India, Waterloo, and the Bay Area. I keep a list of <a href="projects/index.html">projects</a>.</p>
+    <p class="notop">You can find me as <a href="https://github.com/yashkarthik">yashkarthik</a> on GitHub; <a href="https://twitter.com/_yashKarthik">_yashKarthik</a> on Twitter.</p>
 
-    <h3>Elsewhere</h3>
-
-    <p class="notop"><a href="https://github.com/yashkarthik">yashkarthik</a> on GitHub; <a href="https://twitter.com/_yashKarthik">_yashKarthik</a> on Twitter.</p>
-
-    <p class="footnote">This website looks like this because my previous website was 7 years old and embarrassing but I can't motivate myself to build a new one, so I'm hoping this bare HTML page will both be less embarrassing and also motivate me to build something better on top of it. This website looks like this as of August 26th, 2026, so you can judge whether I succeeded based on today's date.</p>
+    <p class="footnote">This website looks like this because my previous website was 3 years old and
+    quite out of date but I can't find the inspiration to build a new one yet. November 2026.</p>
 
     <p class="webring"><a href="https://socratica.info/webring/www.yashkarthik.com/prev" aria-label="Previous site in the Socratica webring">&larr;</a> see my friends' websites <a href="https://socratica.info/webring/www.yashkarthik.com/next" aria-label="Next site in the Socratica webring">&rarr;</a></p>
 </div>
+<img id="hover-img" alt="">
+<script>
+(function () {
+  var img = document.getElementById("hover-img"), off = 8;
+  document.querySelectorAll('.hv').forEach(function (el) { new Image().src = el.dataset.img; });
+  function place(e) {
+    var w = img.offsetWidth, h = img.offsetHeight;
+    var x = e.clientX + off, y = e.clientY + off;
+    if (x + w > innerWidth) x = e.clientX - off - w;
+    if (y + h > innerHeight) y = Math.max(0, innerHeight - h);
+    img.style.transform = 'translate(' + Math.max(0, x) + 'px,' + y + 'px)';
+  }
+  document.querySelectorAll('.hv').forEach(function (el) {
+    el.addEventListener('mouseenter', function (e) { img.src = el.dataset.img; img.style.display = 'block'; place(e); });
+    el.addEventListener('mousemove', place);
+    el.addEventListener('mouseleave', function () { img.style.display = 'none'; });
+  });
+})();
+</script>
 </body>
 </html>

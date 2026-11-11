@@ -125,3 +125,15 @@ sub { top: 0.4em; }
   #left { display: none; }
   #content { float: none; width: auto; margin: 40px 16px 90px; }
 }
+
+/* crosshair cursor everywhere */
+*, *::before, *::after { cursor: crosshair !important; }
+
+/* hover previews */
+.hv { text-decoration: underline dotted; text-underline-offset: 2px; }
+#hover-img {
+  position: fixed; left: 0; top: 0; z-index: 10; pointer-events: none;
+  display: none; width: auto; height: auto; max-width: 200px; max-height: 280px;
+  border: 1px solid #000; background: #fff;
+}
+@media (hover: none) { #hover-img { display: none !important; } }
