@@ -1,0 +1,127 @@
+body {
+  font-family: Helvetica;
+  font-size: 13px;
+}
+
+#menu {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  text-align: right;
+  width: 150px;
+  font-family: "Myriad Pro", "Helvetica Neue", Helvetica;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li a {
+  display: inline-block;
+  color: #0864c7;
+}
+
+#left {
+  height: 1px;
+  float: left;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  float: left;
+  width: 500px;
+}
+
+#content b, #content strong, #content h1, #content h2, #content h3 {
+  color: #4d4d4d;
+}
+
+#content .footnote, #content .footnote a {
+  font-size: 11px;
+  color: #999;
+  line-height: 16px;
+}
+
+#content ul.plain li { margin-bottom: 3px; }
+
+#menu .ring { display: none; }
+
+#content .webring {
+  margin-top: 2em;
+  text-align: center;
+  color: #777;
+}
+
+#content .webring a { padding: 0 8px; font-size: 15px; text-decoration: none; }
+
+#content h1, #content h2, #content h3 {
+  font-family: "Myriad Pro", "Helvetica Neue", Helvetica;
+  margin: 0;
+}
+
+#content h1 { font-size: 20px; }
+#content h2 { margin-top: 2em; }
+
+#content a, #content a:visited {
+  color: #0864c7;
+}
+
+#content p, #content ul {
+  color: #333;
+  line-height: 18px;
+}
+
+#content p.notop { margin-top: 0; }
+
+#content li { margin-bottom: 0.7em; }
+
+#content .crumb, #content .crumb a {
+  font-size: 10px;
+  color: #aaa;
+}
+
+#content ul.plain { list-style: none; padding: 0; }
+
+#content .media img, #content .media video {
+  display: block;
+  max-width: 100%;
+  max-height: 520px;
+  margin: 0 0 16px;
+}
+
+sup, sub { vertical-align: baseline; position: relative; top: -0.4em; }
+sub { top: 0.4em; }
+
+@media (max-width: 760px) {
+  #menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    margin: 0;
+    padding: 0 0 env(safe-area-inset-bottom);
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: 15px;
+  }
+  #menu .title { display: none; }
+  #menu { display: flex; align-items: stretch; }
+  #menu ul { display: flex; flex: 1; }
+  #menu li { flex: 1; }
+  #menu li a { display: block; padding: 16px 0; }
+  #menu .ring { display: block; padding: 16px 18px; color: #0864c7; text-decoration: none; }
+  #content .webring { display: none; }
+  #left { display: none; }
+  #content { float: none; width: auto; margin: 40px 16px 90px; }
+}
