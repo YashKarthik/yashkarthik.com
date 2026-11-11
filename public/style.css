@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-
 body {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, "Helvetica Neue", Arial, "Nimbus Sans", "Liberation Sans", sans-serif;
   font-size: 13px;
 }
 
@@ -11,7 +9,7 @@ body {
   right: 20px;
   text-align: right;
   width: 150px;
-  font-family: "Roboto", "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Myriad Pro", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #menu ul {
@@ -66,7 +64,7 @@ body {
 #content .webring a { padding: 0 8px; font-size: 15px; text-decoration: none; }
 
 #content h1, #content h2, #content h3 {
-  font-family: "Roboto", "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Myriad Pro", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
 }
 
