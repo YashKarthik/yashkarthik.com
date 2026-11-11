@@ -127,7 +127,7 @@ sub { top: 0.4em; }
 }
 
 /* crosshair cursor everywhere */
-*, *::before, *::after { cursor: crosshair !important; }
+*, *::before, *::after { cursor: help !important; }
 
 /* hover previews */
 .hv { text-decoration: underline dotted; text-underline-offset: 2px; }
@@ -137,3 +137,17 @@ sub { top: 0.4em; }
   border: 1px solid #000; background: #fff;
 }
 @media (hover: none) { #hover-img { display: none !important; } }
+
+.ex { outline: none; }
+.ex .ex-more {
+  display: inline-block; vertical-align: bottom; white-space: nowrap; overflow: hidden;
+  max-width: 0; opacity: 0; padding: 0;
+  background: rgba(128,128,128,.15); border-radius: 3px;
+  transition: max-width .45s ease .25s, opacity .3s ease .25s, padding .45s ease .25s;
+}
+.ex:hover .ex-more, .ex:focus .ex-more { max-width: var(--w, 40em); opacity: 1; padding: 0 .3em; transition-delay: 0s; }
+.ex.dot { text-decoration: underline dotted; text-underline-offset: 2px; }
+@media (max-width: 600px) {
+  .ex .ex-more { display: none; white-space: normal; transition: none; }
+  .ex:hover .ex-more, .ex:focus .ex-more { display: inline; max-width: none; }
+}

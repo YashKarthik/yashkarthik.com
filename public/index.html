@@ -25,7 +25,8 @@
     <img src="pfp.jpg" height="160" alt="Yash Karthik">
 
     <p>Hi, I'm Yash. I study computer engineering at Waterloo and mainly work on <a
-      href="https://www.waterloofab.com/">Hacker Fab</a>, where we design & operate our own chip fab tools.</p>
+      href="https://www.waterloofab.com/">Hacker Fab</a>, where we design & operate our own chip
+    fabrication tools.</p>
 
     <p>Right now I'm working on an <a
       href="https://en.wikipedia.org/wiki/Atomic_force_microscopy">atomic force microscope</a> and
@@ -36,17 +37,37 @@
 
     <p>I've lived in 10+ cities and shifted schools across India so I find it curious when I'm talking about school to
     friends who've gone to the same one from kg to 12th grade. These days Im usually in waterloo,
-    and visit the bay every few months ;)  I like <span class="hv" data-img="hover/run.png">running</span>, <span class="hv" data-img="hover/bike.png">biking</span>, <span class="hv" data-img="hover/climb.png">climbing</span> and football. I keep a list of <a href="projects/index.html">projects</a>.</p>
+    and visit the bay every few months ;)</p>
 
-    <p class="notop">You can find me as <a href="https://github.com/yashkarthik">yashkarthik</a> on GitHub; <a href="https://twitter.com/_yashKarthik">_yashKarthik</a> on Twitter.</p>
+    <p>
+    I like 
+    <span class="hv" data-img="hover/run.png">running</span>,
+    <span class="hv" data-img="hover/bike.png">biking</span>,
+    <span class="hv" data-img="hover/climb.png">climbing</span> and football.
+
+    I had previously spent an egregious amount of time <i>ricing</i> my computer and learning
+    <span class="ex" tabindex="0">a more <i>optimized keyboard layout</i><span class="ex-more">[dvorak layout; i was unbelievably free during the covid era]</span></span>. I usually let
+    claude handle all that now but I can't have you visit my site and leave without reading about
+    scrolling window managers!
+    <a target="_blank" href="https://github.com/niri-wm/niri">so fun</a>. I am also (re)learning to
+    play the guiter.</p>
+
+    </p>
+
+    <p class="notop">You can find me as <a href="https://github.com/yashkarthik">yashkarthik</a> on
+    github and as <a href="https://twitter.com/_yashKarthik">_yashKarthik</a> on twitter.</p>
 
     <p class="footnote">This website looks like this because my previous website was 3 years old and
-    quite out of date but I can't find the inspiration to build a new one yet. November 2026.</p>
+    quite out of date but I can't find the inspiration to build a new one yet so this is just a
+    <span class="ex dot" tabindex="0">hodgepodge of other ppl's sites<span class="ex-more">[credit: <a target="_blank" href="https://patrickcollison.com/about">patrick collison</a>, <a target="_blank" href="https://deadsimplesites.com/">deadsimplesites.com</a>]</span></span>. </br> -- November 2026.</p>
 
     <p class="webring"><a href="https://socratica.info/webring/www.yashkarthik.com/prev" aria-label="Previous site in the Socratica webring">&larr;</a> see my friends' websites <a href="https://socratica.info/webring/www.yashkarthik.com/next" aria-label="Next site in the Socratica webring">&rarr;</a></p>
 </div>
 <img id="hover-img" alt="">
 <script>
+(function () {
+  document.querySelectorAll('.ex-more').forEach(function (m) { m.style.setProperty('--w', (m.scrollWidth + 12) + 'px'); });
+})();
 (function () {
   var img = document.getElementById("hover-img"), off = 8;
   document.querySelectorAll('.hv').forEach(function (el) { new Image().src = el.dataset.img; });
